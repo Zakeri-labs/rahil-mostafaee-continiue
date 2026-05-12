@@ -15,7 +15,6 @@ const links: { to: string; key: string }[] = [
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
   const { lang, setLang, t } = useI18n();
   const { user, signOut } = useAuth();
 
@@ -106,44 +105,23 @@ export function Nav() {
             </Link>
           </div>
 
-          <button
-            className="lg:hidden text-ivory"
-            onClick={() => setOpen(!open)}
-            aria-label="Menu"
-          >
-            <div className="space-y-1.5">
-              <div className="w-6 h-px bg-gold" />
-              <div className="w-6 h-px bg-gold" />
-              <div className="w-6 h-px bg-gold" />
-            </div>
-          </button>
+          {/* Mobile: language toggle in top bar; full menu lives in bottom nav */}
+          <div className="lg:hidden flex items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden">
+            <button
+              onClick={() => switchLang("en")}
+              className={`px-2.5 py-1 transition-colors ${lang === "en" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => switchLang("fa")}
+              className={`px-2.5 py-1 transition-colors font-fa ${lang === "fa" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
+            >
+              فا
+            </button>
+          </div>
         </div>
 
-        {open && (
-          <div className="lg:hidden mt-4 pb-6 space-y-3 animate-fade-in">
-            {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                onClick={() => setOpen(false)}
-                className="block py-2 text-ivory hover:text-gold"
-              >
-                {t(l.key)}
-              </Link>
-            ))}
-            <Link
-              to="/booking"
-              onClick={() => setOpen(false)}
-              className="block py-3 mt-3 text-center text-xs tracking-[0.2em] uppercase border border-gold/40 text-gold"
-            >
-              {t("nav.book")}
-            </Link>
-            <div className="flex justify-center gap-2 pt-3">
-              <button onClick={() => switchLang("en")} className={`px-3 py-1 text-xs ${lang === "en" ? "text-gold" : "text-muted-foreground"}`}>EN</button>
-              <button onClick={() => switchLang("fa")} className={`px-3 py-1 text-xs font-fa ${lang === "fa" ? "text-gold" : "text-muted-foreground"}`}>فا</button>
-            </div>
-          </div>
-        )}
       </div>
     </header>
   );

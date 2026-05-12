@@ -5,6 +5,7 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { SplashLoader } from "@/components/site/SplashLoader";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
+import { MobileBottomNav } from "@/components/site/MobileBottomNav";
 import { I18nProvider } from "@/lib/i18n";
 import { AuthProvider } from "@/lib/use-auth";
 
@@ -94,6 +95,7 @@ function RootComponent() {
             </main>
             <Footer />
             <WhatsAppFab />
+            <MobileBottomNav />
           </div>
         </I18nProvider>
       </AuthProvider>

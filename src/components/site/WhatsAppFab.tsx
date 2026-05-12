@@ -15,7 +15,7 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t("fab.whatsapp.aria")}
-      className={`fixed bottom-6 ${side} z-[90] group inline-flex items-center gap-3 px-4 py-3 rounded-full shadow-luxe bg-[#25D366] text-white hover:scale-105 transition-transform`}
+      className={`hidden lg:inline-flex fixed bottom-6 ${side} z-[90] group items-center gap-3 px-4 py-3 rounded-full shadow-luxe bg-[#25D366] text-white hover:scale-105 transition-transform`}
     >
       <span className="relative flex h-2.5 w-2.5">
         <span className="absolute inline-flex h-full w-full rounded-full bg-white/70 opacity-75 pulse-gold" />
