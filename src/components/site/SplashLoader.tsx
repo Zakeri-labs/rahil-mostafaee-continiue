@@ -112,23 +112,11 @@ export function SplashLoader() {
 
       {/* Logo + wordmark — morphs from center to nav position */}
       <div
-        className="absolute will-change-transform"
-        style={{
-          top: opening ? "30px" : "50%",
-          left: opening ? "44px" : "50%",
-          transform: opening ? "translate(0, 0)" : "translate(-50%, -50%)",
-          transition:
-            "top 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s, left 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s, transform 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s",
-        }}
+        className="splash-mark absolute will-change-transform"
+        data-opening={opening ? "true" : "false"}
       >
-        <div
-          className="flex items-center gap-4"
-          style={{
-            transform: opening ? "scale(1)" : "var(--splash-scale, scale(3.2))",
-            transformOrigin: "left center",
-            transition: "transform 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s",
-          }}
-        >
+        <div className="splash-mark-inner flex items-center gap-4">
+          {/* transform applied via CSS so it can adapt to breakpoint */}
           <div className="relative">
             <span
               className="absolute inset-0 rounded-full blur-2xl"
