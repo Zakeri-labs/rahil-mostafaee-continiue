@@ -15,7 +15,6 @@ const links: { to: string; key: string }[] = [
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
   const { lang, setLang, t } = useI18n();
   const { user, signOut } = useAuth();
 
