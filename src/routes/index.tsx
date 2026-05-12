@@ -28,6 +28,7 @@ function Home() {
       <Pillars />
       <Practice />
       <International />
+      <Atelier />
       <Platform />
       <Founder />
       <Trust />
