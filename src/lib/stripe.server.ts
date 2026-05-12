@@ -29,7 +29,7 @@ export function createStripeClient(env: StripeEnv): Stripe {
           "Lovable-API-Key": lov,
         },
       });
-    }),
+    }) as any),
   });
 }
 
