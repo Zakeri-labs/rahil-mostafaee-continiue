@@ -149,7 +149,7 @@ function Hero() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 hidden lg:block">
+          <div className="lg:col-span-5 order-first lg:order-last max-w-xs mx-auto lg:max-w-none w-full">
             <div className="relative">
               <div className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70 drift" aria-hidden />
 
