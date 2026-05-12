@@ -9,16 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SignupRouteImport } from './routes/signup'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as InternationalRouteImport } from './routes/international'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BookingConfirmationRouteImport } from './routes/booking-confirmation'
+import { Route as BookingRouteImport } from './routes/booking'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
 
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InternationalRoute = InternationalRouteImport.update({
@@ -36,6 +52,21 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookingConfirmationRoute = BookingConfirmationRouteImport.update({
+  id: '/booking-confirmation',
+  path: '/booking-confirmation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingRoute = BookingRouteImport.update({
+  id: '/booking',
+  path: '/booking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -46,69 +77,137 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicPaymentsWebhookRoute =
+  ApiPublicPaymentsWebhookRouteImport.update({
+    id: '/api/public/payments/webhook',
+    path: '/api/public/payments/webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/booking': typeof BookingRoute
+  '/booking-confirmation': typeof BookingConfirmationRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
   '/international': typeof InternationalRoute
+  '/login': typeof LoginRoute
   '/services': typeof ServicesRoute
+  '/signup': typeof SignupRoute
+  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/booking': typeof BookingRoute
+  '/booking-confirmation': typeof BookingConfirmationRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
   '/international': typeof InternationalRoute
+  '/login': typeof LoginRoute
   '/services': typeof ServicesRoute
+  '/signup': typeof SignupRoute
+  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/booking': typeof BookingRoute
+  '/booking-confirmation': typeof BookingConfirmationRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
   '/international': typeof InternationalRoute
+  '/login': typeof LoginRoute
   '/services': typeof ServicesRoute
+  '/signup': typeof SignupRoute
+  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/admin'
+    | '/booking'
+    | '/booking-confirmation'
     | '/contact'
     | '/insights'
     | '/international'
+    | '/login'
     | '/services'
+    | '/signup'
+    | '/api/public/payments/webhook'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/insights' | '/international' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/booking'
+    | '/booking-confirmation'
+    | '/contact'
+    | '/insights'
+    | '/international'
+    | '/login'
+    | '/services'
+    | '/signup'
+    | '/api/public/payments/webhook'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/admin'
+    | '/booking'
+    | '/booking-confirmation'
     | '/contact'
     | '/insights'
     | '/international'
+    | '/login'
     | '/services'
+    | '/signup'
+    | '/api/public/payments/webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
+  BookingRoute: typeof BookingRoute
+  BookingConfirmationRoute: typeof BookingConfirmationRoute
   ContactRoute: typeof ContactRoute
   InsightsRoute: typeof InsightsRoute
   InternationalRoute: typeof InternationalRoute
+  LoginRoute: typeof LoginRoute
   ServicesRoute: typeof ServicesRoute
+  SignupRoute: typeof SignupRoute
+  ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/international': {
@@ -132,6 +231,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/booking-confirmation': {
+      id: '/booking-confirmation'
+      path: '/booking-confirmation'
+      fullPath: '/booking-confirmation'
+      preLoaderRoute: typeof BookingConfirmationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking': {
+      id: '/booking'
+      path: '/booking'
+      fullPath: '/booking'
+      preLoaderRoute: typeof BookingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -146,16 +266,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/payments/webhook': {
+      id: '/api/public/payments/webhook'
+      path: '/api/public/payments/webhook'
+      fullPath: '/api/public/payments/webhook'
+      preLoaderRoute: typeof ApiPublicPaymentsWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
+  BookingRoute: BookingRoute,
+  BookingConfirmationRoute: BookingConfirmationRoute,
   ContactRoute: ContactRoute,
   InsightsRoute: InsightsRoute,
   InternationalRoute: InternationalRoute,
+  LoginRoute: LoginRoute,
   ServicesRoute: ServicesRoute,
+  SignupRoute: SignupRoute,
+  ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
