@@ -39,17 +39,39 @@ function Home() {
 
 function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-end overflow-hidden -mt-24 pt-24">
+    <section className="relative min-h-screen flex items-center overflow-hidden -mt-24 pt-32">
+      {/* Background */}
       <div className="absolute inset-0">
-        <img src={hero} alt="Dubai skyline" className="w-full h-full object-cover opacity-50 ken-burns" width={1920} height={1280} />
-        <div className="absolute inset-0 bg-gradient-to-b from-onyx/60 via-onyx/40 to-onyx" />
-        <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/70 to-transparent" />
+        <img src={hero} alt="Dubai skyline" className="w-full h-full object-cover opacity-40 ken-burns" width={1920} height={1280} />
+        <div className="absolute inset-0 bg-gradient-to-b from-onyx/70 via-onyx/50 to-onyx" />
+        <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/60 to-transparent" />
         <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)" }} />
+        {/* Subtle grain */}
+        <div
+          className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
+          style={{ backgroundImage: "radial-gradient(oklch(0.78 0.12 80) 1px, transparent 1px)", backgroundSize: "3px 3px" }}
+        />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pb-24 lg:pb-32 w-full">
-        <div className="grid lg:grid-cols-12 gap-12 items-end">
-          <div className="lg:col-span-8 space-y-10">
+      {/* Vertical side label */}
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-6 z-10">
+        <span className="h-24 w-px bg-gradient-to-b from-transparent to-gold/60" />
+        <span className="font-mono text-[10px] tracking-[0.5em] uppercase text-gold/80 [writing-mode:vertical-rl] rotate-180">
+          Est · MMXIII · Dubai
+        </span>
+        <span className="h-24 w-px bg-gradient-to-b from-gold/60 to-transparent" />
+      </div>
+
+      {/* Frame number */}
+      <div className="absolute right-8 top-32 hidden lg:flex items-center gap-3 z-10">
+        <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground">N° 001</span>
+        <span className="h-px w-10 bg-gold/40" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-20 pb-20 lg:pb-24 pt-12 w-full">
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
+          {/* LEFT — Copy */}
+          <div className="lg:col-span-7 space-y-10">
             <div className="reveal flex items-center gap-3">
               <span className="h-px w-12 bg-gold" />
               <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
@@ -57,7 +79,7 @@ function Hero() {
               </span>
             </div>
 
-            <h1 className="reveal reveal-delay-1 font-display text-5xl sm:text-7xl lg:text-[7.5rem] leading-[0.95] tracking-tight text-balance">
+            <h1 className="reveal reveal-delay-1 font-display text-5xl sm:text-7xl lg:text-[6.75rem] leading-[0.95] tracking-tight text-balance">
               <span className="text-ivory">Strategic </span>
               <span className="gradient-gold-text italic">Legal</span>
               <br />
@@ -66,7 +88,7 @@ function Hero() {
               <span className="text-muted-foreground font-light">Without compromise.</span>
             </h1>
 
-            <p className="reveal reveal-delay-2 max-w-2xl text-lg text-muted-foreground leading-relaxed">
+            <p className="reveal reveal-delay-2 max-w-xl text-lg text-muted-foreground leading-relaxed">
               Cross-border representation for Iranian investors, entrepreneurs and
               high-net-worth families navigating UAE and international legal systems.
               Discreet, powerful, and built around a single principle — protect what matters.
@@ -96,7 +118,7 @@ function Hero() {
               </Link>
             </div>
 
-            <div className="reveal reveal-delay-4 grid grid-cols-2 sm:grid-cols-4 gap-px bg-gold/10 mt-16 max-w-3xl">
+            <div className="reveal reveal-delay-4 grid grid-cols-2 sm:grid-cols-4 gap-px bg-gold/10 mt-12 max-w-3xl">
               {[
                 { v: "12+", l: "Years Practice" },
                 { v: "300+", l: "HNW Mandates" },
@@ -113,30 +135,68 @@ function Hero() {
             </div>
           </div>
 
-          <div className="lg:col-span-4 hidden lg:block">
+          {/* RIGHT — Portrait */}
+          <div className="lg:col-span-5 hidden lg:block">
             <div className="relative drift">
-              <div className="absolute -inset-10 rounded-full bg-gold/10 blur-3xl opacity-70" aria-hidden />
-              <div className="reveal reveal-delay-2 relative frame-gold overflow-hidden aspect-[4/5] tilt-hover gold-sweep">
-                <img
-                  src={portrait}
-                  alt="Rahil Mostafaee, Strategic Legal Counsel"
-                  className="w-full h-full object-cover slow-pan"
-                  width={900}
-                  height={1125}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-onyx/70 via-transparent to-transparent" />
-                <div className="absolute bottom-0 inset-x-0 p-6">
-                  <div className="text-[10px] tracking-[0.4em] uppercase text-gold">Founder</div>
-                  <div className="font-display text-2xl text-ivory mt-1">Rahil Mostafaee</div>
+              {/* Ambient gold glow */}
+              <div className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70" aria-hidden />
+
+              {/* Available badge — floating top-right, no overlap */}
+              <div className="reveal reveal-delay-3 absolute -top-4 -right-4 z-20 glass-strong px-4 py-3 border-l-2 border-gold">
+                <div className="flex items-center gap-2.5">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
+                  </span>
+                  <div>
+                    <div className="text-[9px] tracking-[0.35em] uppercase text-gold leading-none">Available</div>
+                    <div className="text-[11px] text-ivory mt-1 leading-none">DIFC · Dubai</div>
+                  </div>
                 </div>
               </div>
-              <div className="reveal reveal-delay-4 absolute -bottom-6 -left-6 glass-strong p-4 hidden xl:block">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-gold">Available</div>
-                <div className="text-sm text-ivory mt-1">DIFC · Dubai</div>
+
+              {/* Portrait with gold corner brackets */}
+              <div className="reveal reveal-delay-2 relative">
+                {/* Corner brackets */}
+                <span className="pointer-events-none absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-gold z-10" />
+                <span className="pointer-events-none absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-gold z-10" />
+                <span className="pointer-events-none absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-gold z-10" />
+                <span className="pointer-events-none absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-gold z-10" />
+
+                <div className="relative overflow-hidden aspect-[4/5] tilt-hover gold-sweep">
+                  <img
+                    src={portrait}
+                    alt="Rahil Mostafaee, Strategic Legal Counsel"
+                    className="w-full h-full object-cover slow-pan"
+                    width={900}
+                    height={1125}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/30 to-transparent" />
+                  {/* Caption — clean, no overlap */}
+                  <div className="absolute bottom-0 inset-x-0 p-7">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="h-px w-6 bg-gold" />
+                      <span className="text-[9px] tracking-[0.45em] uppercase text-gold">Founder</span>
+                    </div>
+                    <div className="font-display text-3xl text-ivory leading-tight">Rahil<br /><span className="italic gradient-gold-text">Mostafaee</span></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Signature mark below */}
+              <div className="reveal reveal-delay-4 mt-6 flex items-center justify-between text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+                <span>Strategic Counsel</span>
+                <span className="font-mono text-gold">— RM</span>
               </div>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 z-10">
+        <span className="text-[9px] tracking-[0.45em] uppercase text-muted-foreground">Scroll</span>
+        <span className="h-10 w-px bg-gradient-to-b from-gold/60 to-transparent animate-pulse" />
       </div>
     </section>
   );
