@@ -51,6 +51,14 @@ function BookingPage() {
     if (user?.email) setEmail(user.email);
   }, [user]);
 
+  const search = Route.useSearch();
+  useEffect(() => {
+    if (!serviceId && search.service && services.length) {
+      const match = services.find((s) => s.slug === search.service);
+      if (match) setServiceId(match.id);
+    }
+  }, [search.service, services, serviceId]);
+
   const { data: slots = [], isFetching: slotsLoading } = useQuery({
     queryKey: ["slots", serviceId, date],
     queryFn: () => fetchSlots({ data: { serviceId: serviceId!, date } }),
