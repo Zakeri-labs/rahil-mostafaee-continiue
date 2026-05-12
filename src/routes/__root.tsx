@@ -4,6 +4,7 @@ import appCss from "../styles.css?url";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { SplashLoader } from "@/components/site/SplashLoader";
+import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { I18nProvider } from "@/lib/i18n";
 import { AuthProvider } from "@/lib/use-auth";
 
