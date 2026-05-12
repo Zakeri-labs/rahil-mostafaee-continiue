@@ -124,7 +124,7 @@ export function SplashLoader() {
         <div
           className="flex items-center gap-4"
           style={{
-            transform: opening ? "scale(1)" : "scale(3.2)",
+            transform: opening ? "scale(1)" : "var(--splash-scale, scale(3.2))",
             transformOrigin: "left center",
             transition: "transform 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s",
           }}
