@@ -2,9 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ShieldCheck, Globe2, Lock, Scale, Building2, Crown, Phone, Sparkles } from "lucide-react";
 import hero from "@/assets/hero-skyline.jpg";
 import office from "@/assets/office-interior.jpg";
-import portrait from "@/assets/rahil-portrait.png";
-import officePortrait from "@/assets/rahil-office.png";
-import profilePortrait from "@/assets/rahil-profile.png";
+import portrait from "@/assets/rahil-ai-1.jpg";
+import officePortrait from "@/assets/rahil-ai-2.jpg";
+import profilePortrait from "@/assets/rahil-ai-3.jpg";
 import { Marquee } from "@/components/site/Marquee";
 import { Reveal } from "@/components/site/Reveal";
 
