@@ -160,6 +160,7 @@
     letter-spacing: 0.05em;
   }
   [dir="rtl"] .uppercase { text-transform: none; }
+  [dir="rtl"] .stat-label { font-size: 0.8rem; letter-spacing: 0.05em; line-height: 1.6; }
 
   .text-gold { color: var(--gold); }
   .bg-onyx { background-color: var(--onyx); }

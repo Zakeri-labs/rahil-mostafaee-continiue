@@ -21,6 +21,12 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const FA_DIGITS = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+function localizeNum(s: string, lang: string) {
+  if (lang !== "fa") return s;
+  return s.replace(/\d/g, (d) => FA_DIGITS[Number(d)]).replace("h", "س");
+}
+
 function Home() {
   const { dir } = useI18n();
   return (
@@ -40,7 +46,7 @@ function Home() {
 }
 
 function Hero() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden -mt-24 pt-32">
       <div className="absolute inset-0">
@@ -112,8 +118,8 @@ function Hero() {
                 { v: "3", l: t("home.hero.stat.langs") },
               ].map((s) => (
                 <div key={s.l} className="bg-onyx/80 px-6 py-6">
-                  <div className="font-display text-3xl text-gold">{s.v}</div>
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
+                  <div className="font-display text-3xl text-gold">{localizeNum(s.v, lang)}</div>
+                  <div className="stat-label text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
                     {s.l}
                   </div>
                 </div>
@@ -122,8 +128,8 @@ function Hero() {
           </div>
 
           <div className="lg:col-span-5 hidden lg:block">
-            <div className="relative drift">
-              <div className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70" aria-hidden />
+            <div className="relative">
+              <div className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70 drift" aria-hidden />
 
               <div className="reveal reveal-delay-3 absolute -top-4 -right-4 z-20 glass-strong px-4 py-3 border-l-2 border-gold">
                 <div className="flex items-center gap-2.5">
