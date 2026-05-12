@@ -10,6 +10,8 @@ import officePortrait from "@/assets/rahil-ai-2.jpg";
 import profilePortrait from "@/assets/rahil-ai-3.jpg";
 import { Marquee } from "@/components/site/Marquee";
 import { Reveal } from "@/components/site/Reveal";
+import { RotatingWord } from "@/components/site/RotatingWord";
+import { Parallax, ScrollProgress } from "@/components/site/Parallax";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
