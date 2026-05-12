@@ -5,7 +5,7 @@ import { useI18n } from "@/lib/i18n";
 type Phase = "intro" | "hold" | "iris" | "settle" | "done";
 
 export function SplashLoader() {
-  const { t } = useI18n();
+  const { t, lang, dir } = useI18n();
   const [phase, setPhase] = useState<Phase>("intro");
 
   useEffect(() => {
@@ -115,9 +115,9 @@ export function SplashLoader() {
         className="splash-mark absolute will-change-transform"
         data-opening={opening ? "true" : "false"}
       >
-        <div className="splash-mark-inner flex items-center gap-4">
+        <div className="splash-mark-inner flex items-center gap-4" dir={dir}>
           {/* transform applied via CSS so it can adapt to breakpoint */}
-          <div className="relative">
+          <div className="splash-logo relative">
             <span
               className="absolute inset-0 rounded-full blur-2xl"
               style={{
@@ -136,21 +136,24 @@ export function SplashLoader() {
             />
           </div>
           <div
-            className="leading-tight overflow-hidden"
+            className="splash-text leading-tight overflow-hidden text-center lg:text-start"
             style={{
               opacity: opening ? 0 : 1,
               transform: opening ? "translateX(-8px)" : "translateX(0)",
               transition: "opacity 0.5s ease, transform 0.7s ease",
             }}
           >
-            <div className="font-display text-lg tracking-wide text-ivory whitespace-nowrap">
+            <div
+              className={`splash-name font-display text-lg tracking-wide text-ivory whitespace-nowrap ${lang === "fa" ? "font-fa" : ""}`}
+              style={lang === "fa" ? { fontFamily: "var(--font-fa-display)" } : undefined}
+            >
               <span
                 style={{
                   display: "inline-block",
                   animation: "splash-letter 0.9s cubic-bezier(0.2,0.7,0.2,1) 0.15s both",
                 }}
               >
-                Rahil
+                {t("splash.name.first")}
               </span>{" "}
               <span
                 className="text-gold"
@@ -159,11 +162,11 @@ export function SplashLoader() {
                   animation: "splash-letter 0.9s cubic-bezier(0.2,0.7,0.2,1) 0.32s both",
                 }}
               >
-                Mostafaee
+                {t("splash.name.last")}
               </span>
             </div>
             <div
-              className="text-[10px] tracking-[0.35em] uppercase text-muted-foreground whitespace-nowrap"
+              className={`splash-tag text-[10px] tracking-[0.35em] uppercase text-muted-foreground whitespace-nowrap ${lang === "fa" ? "font-fa" : ""}`}
               style={{
                 animation: "splash-letter 0.9s ease 0.55s both",
               }}
@@ -223,13 +226,21 @@ export function SplashLoader() {
           transform: scale(1);
         }
         @media (max-width: 1023px) {
-          .splash-mark-inner { transform: scale(1.4); transform-origin: center center; }
+          .splash-mark-inner {
+            flex-direction: column;
+            gap: 1.25rem;
+            transform: scale(1);
+            transform-origin: center center;
+          }
+          .splash-logo img { height: 4rem; width: 4rem; }
+          .splash-name { font-size: 2.25rem; letter-spacing: 0.01em; }
+          .splash-tag { font-size: 11px; letter-spacing: 0.4em; margin-top: 0.5rem; }
           .splash-mark[data-opening="true"] {
             top: 50%; left: 50%; transform: translate(-50%, -50%);
             opacity: 0;
             transition: opacity 0.6s ease;
           }
-          .splash-mark[data-opening="true"] .splash-mark-inner { transform: scale(1.2); }
+          .splash-mark[data-opening="true"] .splash-mark-inner { transform: scale(1.05); }
         }
       `}</style>
     </div>
