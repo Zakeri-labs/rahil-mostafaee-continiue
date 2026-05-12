@@ -151,17 +151,17 @@ function Hero() {
           </div>
         </div>
 
-        {/* Compact stats row */}
-        <div className="relative z-[2] grid grid-cols-4 gap-px bg-gold/10 border-t border-gold/20">
+        {/* Stats row */}
+        <div className="relative z-[2] grid grid-cols-4 gap-px bg-gold/15 border-t border-gold/25">
           {[
             { v: "12+", l: t("home.hero.stat.years") },
             { v: "300+", l: t("home.hero.stat.mandates") },
             { v: "24h", l: t("home.hero.stat.sla") },
             { v: "3", l: t("home.hero.stat.langs") },
           ].map((s) => (
-            <div key={s.l} className="bg-onyx/95 backdrop-blur px-2 py-3 text-center">
-              <div className="font-display text-base text-gold">{localizeNum(s.v, lang)}</div>
-              <div className="text-[7px] tracking-[0.18em] uppercase text-muted-foreground mt-0.5 leading-tight">
+            <div key={s.l} className="bg-onyx/95 backdrop-blur px-2 py-4 text-center">
+              <div className="font-display text-2xl text-gold leading-none">{localizeNum(s.v, lang)}</div>
+              <div className="text-[9px] tracking-[0.2em] uppercase text-muted-foreground mt-1.5 leading-tight">
                 {s.l}
               </div>
             </div>
