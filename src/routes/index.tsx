@@ -56,8 +56,8 @@ function Hero() {
   const { t, lang } = useI18n();
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden -mt-24 pt-32">
-      <div className="absolute inset-0">
-        <img src={hero} alt="Dubai skyline" className="w-full h-full object-cover opacity-40 ken-burns" width={1920} height={1280} />
+      <Parallax speed={60} className="absolute inset-0">
+        <img src={hero} alt="Dubai skyline" className="w-full h-full object-cover opacity-40 ken-burns scale-110" width={1920} height={1280} />
         <div className="absolute inset-0 bg-gradient-to-b from-onyx/70 via-onyx/50 to-onyx" />
         <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/60 to-transparent" />
         <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)" }} />
@@ -65,7 +65,7 @@ function Hero() {
           className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
           style={{ backgroundImage: "radial-gradient(oklch(0.78 0.12 80) 1px, transparent 1px)", backgroundSize: "3px 3px" }}
         />
-      </div>
+      </Parallax>
 
       <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-6 z-10">
         <span className="h-24 w-px bg-gradient-to-b from-transparent to-gold/60" />
