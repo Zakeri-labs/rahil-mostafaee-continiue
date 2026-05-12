@@ -92,7 +92,15 @@ function Hero() {
 
             <h1 className="reveal reveal-delay-1 font-display text-5xl sm:text-7xl lg:text-[6.75rem] leading-[0.95] tracking-tight text-balance">
               <span className="text-ivory">{t("home.hero.h1.a")}</span>
-              <span className="gradient-gold-text italic">{t("home.hero.h1.b")}</span>
+              <RotatingWord
+                className="gradient-gold-text italic"
+                words={[
+                  t("home.hero.rotate.1"),
+                  t("home.hero.rotate.2"),
+                  t("home.hero.rotate.3"),
+                  t("home.hero.rotate.4"),
+                ]}
+              />
               <br />
               <span className="text-ivory">{t("home.hero.h1.c")}</span>
               <br />
