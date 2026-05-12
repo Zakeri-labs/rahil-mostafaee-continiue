@@ -11,6 +11,9 @@ import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 
 export const Route = createFileRoute("/booking")({
   head: () => ({ meta: [{ title: "Book a Consultation — Rahil Mostafaee" }] }),
+  validateSearch: (s: Record<string, unknown>): { service?: string } => ({
+    service: typeof s.service === "string" ? s.service : undefined,
+  }),
   component: BookingPage,
 });
 
