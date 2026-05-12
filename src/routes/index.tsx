@@ -112,8 +112,8 @@ function Hero() {
                 { v: "3", l: t("home.hero.stat.langs") },
               ].map((s) => (
                 <div key={s.l} className="bg-onyx/80 px-6 py-6">
-                  <div className="font-display text-3xl text-gold">{s.v}</div>
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
+                  <div className="font-display text-3xl text-gold">{localizeNum(s.v, lang)}</div>
+                  <div className="stat-label text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
                     {s.l}
                   </div>
                 </div>
