@@ -458,6 +458,16 @@ const en: Dict = {
   "contact.urg.3": "Emergency — same day",
   "contact.success.title": "Received.",
   "contact.success.body": "Your inquiry has been routed to counsel privately. You will hear back within one business day from a discreet channel.",
+  "marquee.1": "DIFC Wills",
+  "marquee.2": "Cross-Border Litigation",
+  "marquee.3": "Golden Visa Strategy",
+  "marquee.4": "Asset Protection",
+  "marquee.5": "Sanctions Advisory",
+  "marquee.6": "Corporate Structuring",
+  "marquee.7": "International Coordination",
+  "marquee.8": "Family Office Counsel",
+  "marquee.9": "Real Estate Disputes",
+  "marquee.10": "Reputation-Sensitive Defense",
 };
 
 const fa: Dict = {
