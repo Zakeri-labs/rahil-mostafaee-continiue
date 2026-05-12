@@ -69,75 +69,65 @@ function Hero() {
   const { t, lang } = useI18n();
   return (
     <>
-      {/* ===== MOBILE HERO — portrait fills right, content left, Bader-style ===== */}
-      <section className="relative lg:hidden overflow-hidden -mt-24 pt-24 min-h-[100svh] flex flex-col">
-        {/* Backdrop */}
+      {/* ===== MOBILE HERO — full-bleed background image with content overlay ===== */}
+      <section className="relative lg:hidden overflow-hidden -mt-24 min-h-[100svh] flex flex-col">
+        {/* Full-bleed background image */}
         <div className="absolute inset-0 -z-10">
-          <img src={office} alt="" className="w-full h-full object-cover opacity-20 scale-110 ken-burns" />
-          <div className="absolute inset-0 bg-gradient-to-b from-onyx via-onyx/85 to-onyx" />
-          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.3 }} />
-        </div>
-
-        {/* Portrait — absolutely positioned, bleeds full right side, large like Bader */}
-        <div className="absolute right-[-30%] bottom-0 top-16 w-[115%] z-[1] pointer-events-none">
-          <div className="absolute inset-8 bg-gold/10 blur-3xl drift" aria-hidden />
           <img
             src={rahilCutout}
             alt="Rahil Mostafaee"
-            className="relative h-full w-full object-contain object-bottom drop-shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
-            style={{ objectPosition: "center bottom" }}
+            className="w-full h-full object-cover object-top ken-burns"
           />
-          {/* Fade left edge into bg so text remains legible */}
-          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-onyx via-onyx/85 to-transparent" />
+          {/* Layered dark gradients for legibility — top fade for nav, strong bottom fade for text */}
+          <div className="absolute inset-0 bg-gradient-to-b from-onyx/85 via-onyx/40 to-onyx" />
+          <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/70 to-transparent" />
+          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.18 }} />
         </div>
 
-        {/* Content overlay — left column */}
-        <div className="relative z-[2] flex-1 flex flex-col px-6 pt-4 pb-6">
-          <div className="w-[62%] flex flex-col flex-1">
-            <div className="reveal flex items-center gap-2 mb-5">
-              <span className="h-px w-6 bg-gold" />
-              <span className="text-[9px] tracking-[0.32em] uppercase text-gold leading-tight">
-                {t("home.hero.kicker")}
-              </span>
-            </div>
-
-            <h1 className="reveal reveal-delay-1 font-display text-[2.5rem] leading-[1.02] tracking-tight text-ivory">
-              {t("home.hero.name.first")}
-              <br />
-              <span className="italic gradient-gold-text">{t("home.hero.name.last")}</span>
-            </h1>
-
-            <div className="reveal reveal-delay-2 mt-3 font-display italic text-base text-gold/90">
-              <RotatingWord
-                className="italic"
-                words={[
-                  t("home.hero.rotate.1"),
-                  t("home.hero.rotate.2"),
-                  t("home.hero.rotate.3"),
-                  t("home.hero.rotate.4"),
-                ]}
-              />
-            </div>
-
-            <div className="reveal reveal-delay-2 mt-3 flex items-center gap-1.5 text-[10px] text-muted-foreground">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-gold" />
-              <span className="tracking-wide">{t("home.hero.location")}</span>
-            </div>
-
-            <h2 className="reveal reveal-delay-3 mt-5 font-display text-lg leading-snug text-ivory">
-              {t("home.hero.h1.a")} {t("home.hero.h1.c")}
-            </h2>
-
-            <p className="reveal reveal-delay-3 mt-3 text-[12px] text-muted-foreground leading-relaxed">
-              {t("home.hero.lede")}
-            </p>
+        {/* Content — pushed to bottom, full width */}
+        <div className="relative z-[2] flex-1 flex flex-col justify-end px-6 pt-32 pb-6">
+          <div className="reveal flex items-center gap-2 mb-4">
+            <span className="h-px w-8 bg-gold" />
+            <span className="text-[10px] tracking-[0.32em] uppercase text-gold leading-tight">
+              {t("home.hero.kicker")}
+            </span>
           </div>
 
-          {/* CTAs — full width below */}
-          <div className="relative z-10 pt-6 mt-auto space-y-2.5">
+          <h1 className="reveal reveal-delay-1 font-display text-[2.75rem] leading-[1.02] tracking-tight text-ivory">
+            {t("home.hero.name.first")}{" "}
+            <span className="italic gradient-gold-text">{t("home.hero.name.last")}</span>
+          </h1>
+
+          <div className="reveal reveal-delay-2 mt-3 font-display italic text-lg text-gold/90">
+            <RotatingWord
+              className="italic"
+              words={[
+                t("home.hero.rotate.1"),
+                t("home.hero.rotate.2"),
+                t("home.hero.rotate.3"),
+                t("home.hero.rotate.4"),
+              ]}
+            />
+          </div>
+
+          <h2 className="reveal reveal-delay-3 mt-4 font-display text-xl leading-snug text-ivory">
+            {t("home.hero.h1.a")} {t("home.hero.h1.c")}
+          </h2>
+
+          <p className="reveal reveal-delay-3 mt-3 text-[13px] text-muted-foreground leading-relaxed">
+            {t("home.hero.lede")}
+          </p>
+
+          <div className="reveal reveal-delay-3 mt-4 flex items-center gap-1.5 text-[10px] text-muted-foreground">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-gold" />
+            <span className="tracking-wide">{t("home.hero.location")}</span>
+          </div>
+
+          {/* CTAs */}
+          <div className="mt-6 space-y-2.5">
             <Link
               to="/booking"
-              className="reveal reveal-delay-3 inline-flex w-full items-center justify-center gap-2 px-3 py-3.5 bg-gold text-onyx shadow-glow"
+              className="reveal reveal-delay-3 inline-flex w-full items-center justify-center gap-2 px-4 py-3.5 bg-gold text-onyx shadow-glow"
             >
               <span className="text-[10px] tracking-[0.25em] uppercase font-medium">
                 {t("home.hero.cta.book")}
@@ -146,7 +136,7 @@ function Hero() {
             </Link>
             <Link
               to="/contact"
-              className="reveal reveal-delay-4 inline-flex w-full items-center justify-center gap-2 px-3 py-3 glass-strong text-ivory backdrop-blur-md"
+              className="reveal reveal-delay-4 inline-flex w-full items-center justify-center gap-2 px-4 py-3 glass-strong text-ivory backdrop-blur-md border border-gold/20"
             >
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
@@ -167,7 +157,7 @@ function Hero() {
             { v: "24h", l: t("home.hero.stat.sla") },
             { v: "3", l: t("home.hero.stat.langs") },
           ].map((s) => (
-            <div key={s.l} className="bg-onyx/90 px-2 py-3 text-center">
+            <div key={s.l} className="bg-onyx/95 backdrop-blur px-2 py-3 text-center">
               <div className="font-display text-base text-gold">{localizeNum(s.v, lang)}</div>
               <div className="text-[7px] tracking-[0.18em] uppercase text-muted-foreground mt-0.5 leading-tight">
                 {s.l}
