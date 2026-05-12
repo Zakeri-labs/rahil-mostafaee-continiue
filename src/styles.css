@@ -7,6 +7,7 @@
 @theme inline {
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-fa: "Vazirmatn", "IRANSans", "Tahoma", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   --radius-sm: 4px;
