@@ -179,7 +179,7 @@ function Hero() {
                       <span className="h-px w-6 bg-gold" />
                       <span className="text-[9px] tracking-[0.45em] uppercase text-gold">{t("home.hero.founder")}</span>
                     </div>
-                    <div className="font-display text-3xl text-ivory leading-tight">Rahil<br /><span className="italic gradient-gold-text">Mostafaee</span></div>
+                    <div className="font-display text-3xl text-ivory leading-tight">{t("home.hero.name.first")}<br /><span className="italic gradient-gold-text">{t("home.hero.name.last")}</span></div>
                   </div>
                 </div>
               </div>
