@@ -69,44 +69,45 @@ function Hero() {
   const { t, lang } = useI18n();
   return (
     <>
-      {/* ===== MOBILE HERO — faded backdrop + animated grid + title ===== */}
-      <section className="relative lg:hidden overflow-hidden -mt-24 pt-28 min-h-[100svh] flex flex-col">
-        {/* Backdrop layers (mirror desktop) */}
+      {/* ===== MOBILE HERO — portrait right, content left (Bader-style) ===== */}
+      <section className="relative lg:hidden overflow-hidden -mt-24 pt-24 min-h-[100svh] flex flex-col">
+        {/* Backdrop */}
         <div className="absolute inset-0">
-          <img src={hero} alt="" className="w-full h-full object-cover opacity-35 scale-110 ken-burns" />
-          <div className="absolute inset-0 bg-gradient-to-b from-onyx/80 via-onyx/55 to-onyx" />
-          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.55 }} />
-          {/* Animated dotted grid */}
-          <div
-            className="absolute inset-0 opacity-[0.10] mix-blend-overlay pointer-events-none"
-            style={{
-              backgroundImage: "radial-gradient(oklch(0.78 0.12 80) 1px, transparent 1px)",
-              backgroundSize: "14px 14px",
-              animation: "gridShift 12s linear infinite",
-            }}
+          <img src={office} alt="" className="w-full h-full object-cover opacity-25 scale-110 ken-burns" />
+          <div className="absolute inset-0 bg-gradient-to-b from-onyx via-onyx/85 to-onyx" />
+          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.4 }} />
+        </div>
+
+        {/* Rahil cutout — anchored bottom-right, bleeds off edge */}
+        <div className="absolute right-[-22%] bottom-0 top-20 w-[95%] pointer-events-none z-[1]">
+          <div className="absolute -inset-10 bg-gold/10 blur-3xl drift" aria-hidden />
+          <img
+            src={rahilCutout}
+            alt="Rahil Mostafaee"
+            className="relative h-full w-full object-contain object-bottom drop-shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
           />
-          <div className="absolute -inset-24 rounded-full bg-gold/10 blur-3xl drift" aria-hidden />
+          {/* Left fade so left-side text reads cleanly over portrait */}
+          <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-onyx via-onyx/70 to-transparent" />
+          {/* Bottom fade into stats */}
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-onyx to-transparent" />
         </div>
 
-        {/* N° marker */}
-        <div className="absolute right-5 top-28 flex items-center gap-2 z-10">
-          <span className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground">N° 001</span>
-          <span className="h-px w-6 bg-gold/40" />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-[2] flex-1 flex flex-col px-6 pt-6">
-          <div className="reveal flex items-center gap-2 mb-5">
-            <span className="h-px w-10 bg-gold" />
-            <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
+        {/* Content (left column, narrower so it doesn't cover face) */}
+        <div className="relative z-[2] flex-1 flex flex-col px-6 pt-6 pr-2">
+          <div className="reveal flex items-center gap-2 mb-4">
+            <span className="h-px w-8 bg-gold" />
+            <span className="text-[10px] tracking-[0.32em] uppercase text-gold leading-tight">
               {t("home.hero.kicker")}
             </span>
           </div>
 
-          <h1 className="reveal reveal-delay-1 font-display text-[3.25rem] leading-[0.95] tracking-tight text-balance">
-            <span className="block text-ivory">{t("home.hero.h1.a")}</span>
+          <h1 className="reveal reveal-delay-1 font-display text-[2.5rem] leading-[1] tracking-tight text-ivory max-w-[16ch]">
+            {t("home.hero.name.first")} <span className="italic gradient-gold-text">{t("home.hero.name.last")}</span>
+          </h1>
+
+          <div className="reveal reveal-delay-2 mt-3 font-display italic text-xl text-gold/90 max-w-[18ch]">
             <RotatingWord
-              className="gradient-gold-text italic block"
+              className="italic"
               words={[
                 t("home.hero.rotate.1"),
                 t("home.hero.rotate.2"),
@@ -114,17 +115,25 @@ function Hero() {
                 t("home.hero.rotate.4"),
               ]}
             />
-            <span className="block text-ivory">{t("home.hero.h1.c")}</span>
-          </h1>
+          </div>
 
-          <p className="reveal reveal-delay-2 mt-6 max-w-md text-sm text-muted-foreground leading-relaxed">
+          <div className="reveal reveal-delay-2 mt-5 flex items-center gap-2 text-[11px] text-muted-foreground">
+            <span className="inline-block h-2 w-2 rounded-full bg-gold" />
+            <span className="tracking-wide">{t("home.hero.location")}</span>
+          </div>
+
+          <h2 className="reveal reveal-delay-3 mt-6 font-display text-2xl leading-tight text-ivory max-w-[20ch]">
+            {t("home.hero.h1.a")} {t("home.hero.h1.c")}
+          </h2>
+
+          <p className="reveal reveal-delay-3 mt-4 max-w-[24ch] text-sm text-muted-foreground leading-relaxed">
             {t("home.hero.lede")}
           </p>
 
           <div className="flex-1" />
 
           {/* CTAs */}
-          <div className="relative z-10 pb-5 pt-8 space-y-3">
+          <div className="relative z-10 pb-5 pt-8 space-y-3 max-w-[20rem]">
             <Link
               to="/booking"
               className="reveal reveal-delay-3 inline-flex w-full items-center justify-center gap-2 px-5 py-4 bg-gold text-onyx shadow-glow"
@@ -165,13 +174,6 @@ function Hero() {
             </div>
           ))}
         </div>
-
-        <style>{`
-          @keyframes gridShift {
-            0% { background-position: 0 0; }
-            100% { background-position: 14px 14px; }
-          }
-        `}</style>
       </section>
 
       {/* ===== DESKTOP HERO ===== */}
