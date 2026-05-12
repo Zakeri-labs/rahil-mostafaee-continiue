@@ -2,8 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ShieldCheck, Globe2, Lock, Scale, Building2, Crown, Phone, Sparkles } from "lucide-react";
 import hero from "@/assets/hero-skyline.jpg";
 import office from "@/assets/office-interior.jpg";
-import founder from "@/assets/founder-silhouette.jpg";
+import portrait from "@/assets/rahil-portrait.png";
+import officePortrait from "@/assets/rahil-office.png";
+import profilePortrait from "@/assets/rahil-profile.png";
 import { Marquee } from "@/components/site/Marquee";
+import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
