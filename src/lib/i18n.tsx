@@ -491,6 +491,27 @@ const fa: Dict = {
   "home.cta.body": "یک مشاوره محرمانه رزرو کنید. تمام گفتگوهای اولیه تحت اصل ممتاز محرمانه و با بازبینی شخصی برگزار می‌شود.",
   "home.cta.book": "رزرو مشاوره",
   "home.cta.direct": "خط مستقیم",
+
+  "home.pkg.kicker": "بسته‌های مشاوره",
+  "home.pkg.h2.a": "با",
+  "home.pkg.h2.b": "شفافیت و دقت",
+  "home.pkg.body": "مشاوره‌های محرمانه با هزینه ثابت و شفاف. قالب مناسب پرونده خود را برگزینید و در چند دقیقه آنلاین رزرو کنید.",
+  "home.pkg.aed": "درهم",
+  "home.pkg.min": "دقیقه",
+  "home.pkg.popular": "پرطرفدار",
+  "home.pkg.urgent": "اولویت‌دار",
+  "home.pkg.reserve": "رزرو",
+  "home.pkg.viewAll": "مشاهده همه گزینه‌ها و زمان‌های آزاد",
+  "home.pkg.feat.confidential": "محرمانگی کامل و اصل ممتاز",
+  "home.pkg.feat.followup": "پیگیری مکتوب طی ۴۸ ساعت",
+  "home.pkg.feat.summary": "یادداشت جمع‌بندی پیشنهادها",
+  "home.pkg.feat.deepdive": "بررسی عمیق پرونده شما",
+  "home.pkg.feat.roadmap": "نقشه راه حقوقی اختصاصی",
+  "home.pkg.feat.priority": "پاسخ‌گویی اولویت‌دار وکیل",
+  "home.pkg.feat.sameday": "پاسخ‌گویی همان‌روز، ۲۴/۷",
+  "home.pkg.feat.directline": "خط مستقیم با وکیل ارشد",
+  "home.pkg.feat.multijuris": "پوشش چند حوزه قضایی",
+  "home.pkg.feat.intake": "پذیرش جامع پرونده",
 };
 
 const dict: Record<Lang, Dict> = { en, fa };
