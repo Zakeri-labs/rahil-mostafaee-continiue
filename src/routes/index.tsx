@@ -45,6 +45,10 @@ function Home() {
     <div className="overflow-hidden" dir={dir}>
       <ScrollProgress />
       <Hero />
+      {/* Founder pulled up on mobile so the portrait + intro appears right after the hero */}
+      <div className="lg:hidden">
+        <Founder />
+      </div>
       <Marquee />
       <Pillars />
       {/* Atelier hidden on mobile to reduce visual load */}
@@ -55,7 +59,9 @@ function Home() {
       <Packages />
       <International />
       <Process />
-      <Founder />
+      <div className="hidden lg:block">
+        <Founder />
+      </div>
       <InstagramSection />
       <div className="hidden md:block">
         <Trust />
@@ -686,8 +692,8 @@ function InstagramSection() {
 function Founder() {
   const { t } = useI18n();
   return (
-    <section className="relative py-32 border-t border-gold/10">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-16 items-center">
+    <section className="relative py-16 lg:py-32 border-t border-gold/10">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <div className="lg:col-span-5 relative">
           <div className="relative aspect-[3/4] overflow-hidden frame-gold tilt-hover">
             <img src={officePortrait} alt="Rahil Mostafaee" className="w-full h-full object-cover slow-pan" loading="lazy" width={1200} height={1500} />
@@ -704,7 +710,8 @@ function Founder() {
             <span className="text-[10px] tracking-[0.4em] uppercase text-gold">{t("home.founder.kicker")}</span>
           </div>
           <h2 className="font-display text-5xl lg:text-6xl text-ivory leading-[1.05] tracking-tight">
-            Rahil Mostafaee
+            {t("home.hero.name.first")}{" "}
+            <span className="gradient-gold-text">{t("home.hero.name.last")}</span>
           </h2>
           <div className="text-gold tracking-[0.3em] uppercase text-xs">{t("home.founder.role")}</div>
           <p className="text-muted-foreground leading-relaxed text-lg">{t("home.founder.body")}</p>

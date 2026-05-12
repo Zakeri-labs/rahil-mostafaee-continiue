@@ -162,6 +162,18 @@
   [dir="rtl"] .uppercase { text-transform: none; }
   [dir="rtl"] .stat-label { font-size: 0.8rem; letter-spacing: 0.05em; line-height: 1.6; }
 
+  /* Persian on mobile/tablet: the tiny "small-caps" labels (CTA buttons, kicker,
+     stats, location row) were sized for tracked Latin uppercase. Since uppercase
+     is a no-op in Persian and the cursive glyphs need more pixels to stay legible,
+     bump arbitrary 9–13px sizes up a touch. Desktop keeps its original scale. */
+  @media (max-width: 1023px) {
+    [dir="rtl"] .text-\[9px\]  { font-size: 11px; line-height: 1.6; font-weight: 500; }
+    [dir="rtl"] .text-\[10px\] { font-size: 12px; line-height: 1.7; font-weight: 500; }
+    [dir="rtl"] .text-\[11px\] { font-size: 13px; line-height: 1.7; }
+    [dir="rtl"] .text-\[12px\] { font-size: 13px; line-height: 1.7; }
+    [dir="rtl"] .text-\[13px\] { font-size: 14px; line-height: 1.8; }
+  }
+
   .text-gold { color: var(--gold); }
   .bg-onyx { background-color: var(--onyx); }
   .bg-charcoal { background-color: var(--charcoal); }
