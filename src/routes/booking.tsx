@@ -11,6 +11,9 @@ import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 
 export const Route = createFileRoute("/booking")({
   head: () => ({ meta: [{ title: "Book a Consultation — Rahil Mostafaee" }] }),
+  validateSearch: (s: Record<string, unknown>): { service?: string } => ({
+    service: typeof s.service === "string" ? s.service : undefined,
+  }),
   component: BookingPage,
 });
 
@@ -47,6 +50,14 @@ function BookingPage() {
   useEffect(() => {
     if (user?.email) setEmail(user.email);
   }, [user]);
+
+  const search = Route.useSearch();
+  useEffect(() => {
+    if (!serviceId && search.service && services.length) {
+      const match = services.find((s) => s.slug === search.service);
+      if (match) setServiceId(match.id);
+    }
+  }, [search.service, services, serviceId]);
 
   const { data: slots = [], isFetching: slotsLoading } = useQuery({
     queryKey: ["slots", serviceId, date],

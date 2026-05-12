@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, ShieldCheck, Globe2, Lock, Scale, Building2, Crown, Phone, Sparkles } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Globe2, Lock, Scale, Building2, Crown, Phone, Sparkles, Clock, Check, Zap } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
+import { listServices } from "@/lib/booking.functions";
 import hero from "@/assets/hero-skyline.jpg";
 import office from "@/assets/office-interior.jpg";
 import portrait from "@/assets/rahil-ai-1.jpg";
@@ -37,6 +40,7 @@ function Home() {
       <Practice />
       <International />
       <Atelier />
+      <Packages />
       <Platform />
       <Founder />
       <Trust />
@@ -345,6 +349,101 @@ function International() {
               <div className="font-display text-lg text-ivory leading-tight">{s.t}</div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Packages() {
+  const { t, lang } = useI18n();
+  const fetchServices = useServerFn(listServices);
+  const { data: services = [] } = useQuery({
+    queryKey: ["services"],
+    queryFn: () => fetchServices({ data: {} }),
+  });
+
+  const formatAed = (aed: number) => aed.toLocaleString(lang === "fa" ? "fa-IR" : "en-US");
+
+  const featuresFor = (slug: string): string[] => {
+    const map: Record<string, string[]> = {
+      "standard-30": [t("home.pkg.feat.confidential"), t("home.pkg.feat.followup"), t("home.pkg.feat.summary")],
+      "strategic-60": [t("home.pkg.feat.deepdive"), t("home.pkg.feat.roadmap"), t("home.pkg.feat.priority"), t("home.pkg.feat.summary")],
+      "emergency-24h": [t("home.pkg.feat.sameday"), t("home.pkg.feat.directline"), t("home.pkg.feat.priority")],
+      "international": [t("home.pkg.feat.multijuris"), t("home.pkg.feat.intake"), t("home.pkg.feat.roadmap"), t("home.pkg.feat.summary")],
+    };
+    return map[slug] ?? [];
+  };
+
+  return (
+    <section id="packages" className="relative py-32 border-t border-gold/10 overflow-hidden">
+      <div className="absolute inset-0 opacity-40 pointer-events-none" style={{ background: "var(--gradient-radial-gold)" }} />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="text-center max-w-3xl mx-auto space-y-6 mb-16">
+          <div className="inline-flex items-center gap-3 mx-auto">
+            <span className="h-px w-12 bg-gold" />
+            <span className="text-[10px] tracking-[0.4em] uppercase text-gold">{t("home.pkg.kicker")}</span>
+            <span className="h-px w-12 bg-gold" />
+          </div>
+          <h2 className="font-display text-5xl lg:text-6xl text-ivory tracking-tight">
+            {t("home.pkg.h2.a")} <span className="italic gradient-gold-text">{t("home.pkg.h2.b")}</span>
+          </h2>
+          <p className="text-muted-foreground">{t("home.pkg.body")}</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((s, i) => {
+            const name = lang === "fa" ? s.name_fa : s.name_en;
+            const desc = lang === "fa" ? s.description_fa : s.description_en;
+            const featured = s.is_emergency || i === 1;
+            return (
+              <Reveal key={s.id} delay={i * 100}>
+                <article className={`relative h-full flex flex-col p-8 transition-all duration-500 ${featured ? "glass-strong border border-gold/40 shadow-luxe" : "glass hover:border-gold/30"}`}>
+                  {featured && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gold text-onyx text-[9px] tracking-[0.35em] uppercase font-medium whitespace-nowrap">
+                      {s.is_emergency ? t("home.pkg.urgent") : t("home.pkg.popular")}
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2 text-gold mb-4">
+                    {s.is_emergency ? <Zap className="w-4 h-4" /> : <Clock className="w-4 h-4" />}
+                    <span className="text-[10px] tracking-[0.3em] uppercase">
+                      {lang === "fa" ? `${s.duration_minutes.toLocaleString("fa-IR")} ${t("home.pkg.min")}` : `${s.duration_minutes} ${t("home.pkg.min")}`}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-2xl text-ivory leading-tight min-h-[3.5rem]">{name}</h3>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed min-h-[3.5rem]">{desc}</p>
+                  <div className="my-6 gold-divider" />
+                  <div className="flex items-baseline gap-2">
+                    <span className="font-display text-4xl text-gold">{formatAed(s.price_aed)}</span>
+                    <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">{t("home.pkg.aed")}</span>
+                  </div>
+                  <ul className="mt-6 space-y-2.5 flex-1">
+                    {featuresFor(s.slug).map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                        <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/booking"
+                    search={{ service: s.slug }}
+                    className={`mt-8 group inline-flex items-center justify-center gap-3 px-6 py-3.5 transition-all ${featured ? "bg-gold text-onyx hover:bg-gold-soft shadow-glow" : "border border-gold/40 text-gold hover:bg-gold hover:text-onyx"}`}
+                  >
+                    <span className="text-xs tracking-[0.3em] uppercase font-medium">{t("home.pkg.reserve")}</span>
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link to="/booking" className="inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-muted-foreground hover:text-gold transition-colors">
+            <span>{t("home.pkg.viewAll")}</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </div>
     </section>
