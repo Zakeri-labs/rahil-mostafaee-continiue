@@ -226,13 +226,21 @@ export function SplashLoader() {
           transform: scale(1);
         }
         @media (max-width: 1023px) {
-          .splash-mark-inner { transform: scale(1.4); transform-origin: center center; }
+          .splash-mark-inner {
+            flex-direction: column;
+            gap: 1.25rem;
+            transform: scale(1);
+            transform-origin: center center;
+          }
+          .splash-logo img { height: 4rem; width: 4rem; }
+          .splash-name { font-size: 2.25rem; letter-spacing: 0.01em; }
+          .splash-tag { font-size: 11px; letter-spacing: 0.4em; margin-top: 0.5rem; }
           .splash-mark[data-opening="true"] {
             top: 50%; left: 50%; transform: translate(-50%, -50%);
             opacity: 0;
             transition: opacity 0.6s ease;
           }
-          .splash-mark[data-opening="true"] .splash-mark-inner { transform: scale(1.2); }
+          .splash-mark[data-opening="true"] .splash-mark-inner { transform: scale(1.05); }
         }
       `}</style>
     </div>
