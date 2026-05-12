@@ -462,105 +462,107 @@ function Packages() {
   );
 }
 
-function Platform() {
-  const { t } = useI18n();
-  const menu = [
-    t("home.platform.menu.1"),
-    t("home.platform.menu.2"),
-    t("home.platform.menu.3"),
-    t("home.platform.menu.4"),
-    t("home.platform.menu.5"),
-    t("home.platform.menu.6"),
+function Process() {
+  const { t, lang } = useI18n();
+  const steps = [
+    { icon: ListChecks, t: t("home.process.s1.t"), b: t("home.process.s1.b") },
+    { icon: CalendarCheck, t: t("home.process.s2.t"), b: t("home.process.s2.b") },
+    { icon: CreditCard, t: t("home.process.s3.t"), b: t("home.process.s3.b") },
+    { icon: MessageSquare, t: t("home.process.s4.t"), b: t("home.process.s4.b") },
   ];
-  const meta = [
-    { l: t("home.platform.stage"), v: t("home.platform.stageVal") },
-    { l: t("home.platform.lead"), v: t("home.platform.leadVal") },
-    { l: t("home.platform.next"), v: t("home.platform.nextVal") },
-  ];
-  const tasks: [string, string, string][] = [
-    [t("home.platform.task1"), t("home.platform.task1s"), "100%"],
-    [t("home.platform.task2"), t("home.platform.task2s"), "60%"],
-    [t("home.platform.task3"), t("home.platform.task3s"), "20%"],
-  ];
+  const num = (n: number) => (lang === "fa" ? n.toLocaleString("fa-IR") : String(n).padStart(2, "0"));
   return (
-    <section className="relative py-32 border-t border-gold/10">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section className="relative py-32 border-t border-gold/10 overflow-hidden">
+      <div className="absolute inset-0 opacity-30 pointer-events-none" style={{ background: "var(--gradient-radial-gold)" }} />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <div className="text-center max-w-3xl mx-auto space-y-6 mb-20">
           <div className="inline-flex items-center gap-3 mx-auto">
             <span className="h-px w-12 bg-gold" />
-            <span className="text-[10px] tracking-[0.4em] uppercase text-gold">{t("home.platform.kicker")}</span>
+            <span className="text-[10px] tracking-[0.4em] uppercase text-gold">{t("home.process.kicker")}</span>
             <span className="h-px w-12 bg-gold" />
           </div>
           <h2 className="font-display text-5xl lg:text-6xl text-ivory tracking-tight">
-            {t("home.platform.h2.a")} <span className="italic gradient-gold-text">{t("home.platform.h2.b")}</span>
+            {t("home.process.h2.a")} <span className="italic gradient-gold-text">{t("home.process.h2.b")}</span>
           </h2>
-          <p className="text-muted-foreground">{t("home.platform.body")}</p>
+          <p className="text-muted-foreground">{t("home.process.body")}</p>
         </div>
 
-        <div className="relative">
-          <div className="glass-strong shadow-luxe p-2 rounded-2xl">
-            <div className="rounded-xl overflow-hidden">
-              <div className="flex items-center gap-2 px-5 py-3 border-b border-gold/10 bg-onyx/80">
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-muted" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-muted" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-gold/60" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gold/10 hairline">
+          {steps.map((s, i) => (
+            <Reveal key={s.t} delay={i * 120}>
+              <div className="relative h-full bg-onyx p-8 lg:p-10 group hover:bg-charcoal transition-colors duration-500">
+                <div className="flex items-center justify-between mb-8">
+                  <span className="font-mono text-xs tracking-[0.3em] text-gold">{num(i + 1)}</span>
+                  <s.icon className="w-6 h-6 text-gold group-hover:scale-110 transition-transform" strokeWidth={1.2} />
                 </div>
-                <div className="ml-4 text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-                  rahilmostafaee.com / portal / matters
-                </div>
+                <div className="font-display text-2xl text-ivory mb-3 leading-tight">{s.t}</div>
+                <div className="text-sm text-muted-foreground leading-relaxed">{s.b}</div>
+                {i < steps.length - 1 && (
+                  <span className="hidden lg:block absolute top-1/2 -right-px w-px h-12 -translate-y-1/2 bg-gradient-to-b from-transparent via-gold/40 to-transparent" />
+                )}
               </div>
-              <div className="grid grid-cols-12 gap-px bg-gold/10">
-                <div className="col-span-12 lg:col-span-3 bg-charcoal p-6 space-y-1">
-                  {menu.map((m, i) => (
-                    <div key={m} className={`px-3 py-2.5 text-sm ${i === 1 ? "bg-gold/10 text-gold border-l-2 border-gold" : "text-muted-foreground"}`}>
-                      {m}
-                    </div>
-                  ))}
-                </div>
-                <div className="col-span-12 lg:col-span-9 bg-onyx p-8 space-y-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">{t("home.platform.activeMatter")}</div>
-                      <div className="font-display text-2xl text-ivory mt-1">{t("home.platform.matterTitle")}</div>
-                    </div>
-                    <span className="text-[10px] tracking-[0.3em] uppercase px-3 py-1.5 bg-gold/10 text-gold border border-gold/30">{t("home.platform.inProgress")}</span>
-                  </div>
-                  <div className="grid sm:grid-cols-3 gap-4">
-                    {meta.map((x) => (
-                      <div key={x.l} className="hairline p-4">
-                        <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">{x.l}</div>
-                        <div className="text-ivory mt-2">{x.v}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="space-y-3">
-                    {tasks.map(([title, status, w]) => (
-                      <div key={title} className="hairline p-4">
-                        <div className="flex items-center justify-between text-sm mb-3">
-                          <span className="text-ivory">{title}</span>
-                          <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">{status}</span>
-                        </div>
-                        <div className="h-px bg-charcoal overflow-hidden">
-                          <div className="h-full bg-gold" style={{ width: w }} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            </Reveal>
+          ))}
+        </div>
 
-          <div className="absolute -top-8 -right-8 glass-strong p-5 rounded-xl shadow-luxe float hidden md:block">
-            <div className="flex items-center gap-3">
-              <Sparkles className="w-4 h-4 text-gold" />
-              <div>
-                <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">{t("home.platform.encrypted")}</div>
-                <div className="text-sm text-ivory">{t("home.platform.e2e")}</div>
-              </div>
-            </div>
+        <div className="mt-12 text-center">
+          <Link to="/booking" className="group inline-flex items-center gap-3 px-8 py-4 bg-gold text-onyx hover:bg-gold-soft transition-all duration-300 shadow-glow">
+            <span className="text-xs tracking-[0.3em] uppercase font-medium">{t("home.process.cta")}</span>
+            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// TODO: replace with the real Instagram handle
+const INSTAGRAM_URL = "https://instagram.com/rahilmostafaee";
+
+function InstagramSection() {
+  const { t } = useI18n();
+  const tiles = [portrait, officePortrait, profilePortrait, portrait, officePortrait, profilePortrait];
+  return (
+    <section className="relative py-32 border-t border-gold/10 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-4 space-y-6">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-12 bg-gold" />
+            <span className="text-[10px] tracking-[0.4em] uppercase text-gold">{t("home.ig.kicker")}</span>
           </div>
+          <h2 className="font-display text-4xl lg:text-5xl text-ivory leading-[1.05] tracking-tight">
+            {t("home.ig.h2.a")} <span className="italic gradient-gold-text">{t("home.ig.h2.b")}</span>
+          </h2>
+          <p className="text-muted-foreground leading-relaxed">{t("home.ig.body")}</p>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 px-6 py-3 border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all"
+          >
+            <Instagram className="w-4 h-4" />
+            <span className="text-xs tracking-[0.3em] uppercase">{t("home.ig.cta")}</span>
+            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
+          <div className="text-xs tracking-[0.3em] uppercase text-muted-foreground">{t("home.ig.handle")}</div>
+        </div>
+
+        <div className="lg:col-span-8 grid grid-cols-3 gap-2 sm:gap-3">
+          {tiles.map((src, i) => (
+            <a
+              key={i}
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block aspect-square overflow-hidden hairline"
+            >
+              <img src={src} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110" />
+              <div className="absolute inset-0 bg-onyx/40 group-hover:bg-onyx/10 transition-colors" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <Instagram className="w-6 h-6 text-ivory" strokeWidth={1.4} />
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
