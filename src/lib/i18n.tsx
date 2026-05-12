@@ -458,6 +458,16 @@ const en: Dict = {
   "contact.urg.3": "Emergency — same day",
   "contact.success.title": "Received.",
   "contact.success.body": "Your inquiry has been routed to counsel privately. You will hear back within one business day from a discreet channel.",
+  "marquee.1": "DIFC Wills",
+  "marquee.2": "Cross-Border Litigation",
+  "marquee.3": "Golden Visa Strategy",
+  "marquee.4": "Asset Protection",
+  "marquee.5": "Sanctions Advisory",
+  "marquee.6": "Corporate Structuring",
+  "marquee.7": "International Coordination",
+  "marquee.8": "Family Office Counsel",
+  "marquee.9": "Real Estate Disputes",
+  "marquee.10": "Reputation-Sensitive Defense",
 };
 
 const fa: Dict = {
@@ -914,6 +924,16 @@ const fa: Dict = {
   "contact.urg.3": "اضطراری — همان روز",
   "contact.success.title": "دریافت شد.",
   "contact.success.body": "درخواست شما به‌صورت محرمانه به وکیل ارجاع داده شد. ظرف یک روز کاری از کانالی محتاطانه پاسخ خواهید گرفت.",
+  "marquee.1": "وصیت‌نامه DIFC",
+  "marquee.2": "دعاوی فرامرزی",
+  "marquee.3": "استراتژی اقامت طلایی",
+  "marquee.4": "حفاظت از دارایی",
+  "marquee.5": "مشاوره تحریم‌ها",
+  "marquee.6": "ساختاردهی شرکتی",
+  "marquee.7": "هماهنگی بین‌المللی",
+  "marquee.8": "مشاور دفتر خانوادگی",
+  "marquee.9": "دعاوی املاک",
+  "marquee.10": "دفاع حساس به اعتبار",
 };
 
 const dict: Record<Lang, Dict> = { en, fa };
