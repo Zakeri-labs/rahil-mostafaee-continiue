@@ -5,7 +5,7 @@ import { useI18n } from "@/lib/i18n";
 type Phase = "intro" | "hold" | "iris" | "settle" | "done";
 
 export function SplashLoader() {
-  const { t } = useI18n();
+  const { t, lang, dir } = useI18n();
   const [phase, setPhase] = useState<Phase>("intro");
 
   useEffect(() => {
