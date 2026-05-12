@@ -4,6 +4,8 @@ import appCss from "../styles.css?url";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { SplashLoader } from "@/components/site/SplashLoader";
+import { I18nProvider } from "@/lib/i18n";
+import { AuthProvider } from "@/lib/use-auth";
 
 function NotFoundComponent() {
   return (
