@@ -31,7 +31,7 @@ export function SplashLoader() {
     };
   }, []);
 
-  if (phase === "done") return null;
+  if (!mounted || phase === "done") return null;
 
   const ringIn = phase !== "intro";
   const opening = phase === "iris" || phase === "settle";
