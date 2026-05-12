@@ -10,6 +10,8 @@ import officePortrait from "@/assets/rahil-ai-2.jpg";
 import profilePortrait from "@/assets/rahil-ai-3.jpg";
 import { Marquee } from "@/components/site/Marquee";
 import { Reveal } from "@/components/site/Reveal";
+import { RotatingWord } from "@/components/site/RotatingWord";
+import { Parallax, ScrollProgress } from "@/components/site/Parallax";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
@@ -34,6 +36,7 @@ function Home() {
   const { dir } = useI18n();
   return (
     <div className="overflow-hidden" dir={dir}>
+      <ScrollProgress />
       <Hero />
       <Marquee />
       <Pillars />
@@ -53,8 +56,8 @@ function Hero() {
   const { t, lang } = useI18n();
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden -mt-24 pt-32">
-      <div className="absolute inset-0">
-        <img src={hero} alt="Dubai skyline" className="w-full h-full object-cover opacity-40 ken-burns" width={1920} height={1280} />
+      <Parallax speed={60} className="absolute inset-0">
+        <img src={hero} alt="Dubai skyline" className="w-full h-full object-cover opacity-40 ken-burns scale-110" width={1920} height={1280} />
         <div className="absolute inset-0 bg-gradient-to-b from-onyx/70 via-onyx/50 to-onyx" />
         <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/60 to-transparent" />
         <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)" }} />
@@ -62,7 +65,7 @@ function Hero() {
           className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
           style={{ backgroundImage: "radial-gradient(oklch(0.78 0.12 80) 1px, transparent 1px)", backgroundSize: "3px 3px" }}
         />
-      </div>
+      </Parallax>
 
       <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-6 z-10">
         <span className="h-24 w-px bg-gradient-to-b from-transparent to-gold/60" />
@@ -89,7 +92,15 @@ function Hero() {
 
             <h1 className="reveal reveal-delay-1 font-display text-5xl sm:text-7xl lg:text-[6.75rem] leading-[0.95] tracking-tight text-balance">
               <span className="text-ivory">{t("home.hero.h1.a")}</span>
-              <span className="gradient-gold-text italic">{t("home.hero.h1.b")}</span>
+              <RotatingWord
+                className="gradient-gold-text italic"
+                words={[
+                  t("home.hero.rotate.1"),
+                  t("home.hero.rotate.2"),
+                  t("home.hero.rotate.3"),
+                  t("home.hero.rotate.4"),
+                ]}
+              />
               <br />
               <span className="text-ivory">{t("home.hero.h1.c")}</span>
               <br />
@@ -168,7 +179,7 @@ function Hero() {
                       <span className="h-px w-6 bg-gold" />
                       <span className="text-[9px] tracking-[0.45em] uppercase text-gold">{t("home.hero.founder")}</span>
                     </div>
-                    <div className="font-display text-3xl text-ivory leading-tight">Rahil<br /><span className="italic gradient-gold-text">Mostafaee</span></div>
+                    <div className="font-display text-3xl text-ivory leading-tight">{t("home.hero.name.first")}<br /><span className="italic gradient-gold-text">{t("home.hero.name.last")}</span></div>
                   </div>
                 </div>
               </div>
