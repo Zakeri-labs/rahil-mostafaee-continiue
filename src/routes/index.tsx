@@ -460,8 +460,8 @@ function Founder() {
     <section className="relative py-32 border-t border-gold/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-16 items-center">
         <div className="lg:col-span-5 relative">
-          <div className="relative aspect-[3/4] overflow-hidden">
-            <img src={founder} alt="Rahil Mostafaee" className="w-full h-full object-cover" loading="lazy" width={1200} height={1500} />
+          <div className="relative aspect-[3/4] overflow-hidden frame-gold tilt-hover">
+            <img src={officePortrait} alt="Rahil Mostafaee" className="w-full h-full object-cover slow-pan" loading="lazy" width={1200} height={1500} />
             <div className="absolute inset-0 bg-gradient-to-t from-onyx via-transparent to-transparent" />
           </div>
           <div className="absolute -bottom-6 -right-6 glass-strong p-6 max-w-xs hidden md:block">
