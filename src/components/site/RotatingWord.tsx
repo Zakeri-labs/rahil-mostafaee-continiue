@@ -26,7 +26,7 @@ export function RotatingWord({ words, className = "", interval = 2400 }: Props) 
   return (
     <span className="relative inline-grid align-baseline whitespace-nowrap">
       {/* Sizer: invisible, holds the largest word's width to lock layout */}
-      <span aria-hidden className={`invisible col-start-1 row-start-1 ${className}`}>
+      <span aria-hidden className={`invisible col-start-1 row-start-1 italic text-4xl lg:text-7xl ${className}`}>
         {words.reduce((a, b) => (b.length > a.length ? b : a), "")}
       </span>
       {/* Animated visible word */}
