@@ -41,73 +41,100 @@ function Hero() {
   return (
     <section className="relative min-h-[92vh] flex items-end overflow-hidden -mt-24 pt-24">
       <div className="absolute inset-0">
-        <img src={hero} alt="Dubai skyline" className="w-full h-full object-cover opacity-50" width={1920} height={1280} />
+        <img src={hero} alt="Dubai skyline" className="w-full h-full object-cover opacity-50 ken-burns" width={1920} height={1280} />
         <div className="absolute inset-0 bg-gradient-to-b from-onyx/60 via-onyx/40 to-onyx" />
+        <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/70 to-transparent" />
         <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)" }} />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pb-24 lg:pb-32 w-full">
-        <div className="max-w-5xl space-y-10">
-          <div className="reveal flex items-center gap-3">
-            <span className="h-px w-12 bg-gold" />
-            <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
-              Dubai · DIFC · International
-            </span>
+        <div className="grid lg:grid-cols-12 gap-12 items-end">
+          <div className="lg:col-span-8 space-y-10">
+            <div className="reveal flex items-center gap-3">
+              <span className="h-px w-12 bg-gold" />
+              <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
+                Dubai · DIFC · International
+              </span>
+            </div>
+
+            <h1 className="reveal reveal-delay-1 font-display text-5xl sm:text-7xl lg:text-[7.5rem] leading-[0.95] tracking-tight text-balance">
+              <span className="text-ivory">Strategic </span>
+              <span className="gradient-gold-text italic">Legal</span>
+              <br />
+              <span className="text-ivory">Protection.</span>
+              <br />
+              <span className="text-muted-foreground font-light">Without compromise.</span>
+            </h1>
+
+            <p className="reveal reveal-delay-2 max-w-2xl text-lg text-muted-foreground leading-relaxed">
+              Cross-border representation for Iranian investors, entrepreneurs and
+              high-net-worth families navigating UAE and international legal systems.
+              Discreet, powerful, and built around a single principle — protect what matters.
+            </p>
+
+            <div className="reveal reveal-delay-3 flex flex-wrap items-center gap-4">
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-gold text-onyx hover:bg-gold-soft transition-all duration-300 shadow-glow"
+              >
+                <span className="text-xs tracking-[0.3em] uppercase font-medium">
+                  Book Confidential Consultation
+                </span>
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-3 px-8 py-4 glass-strong text-ivory hover:border-gold/40 transition-all"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
+                </span>
+                <span className="text-xs tracking-[0.3em] uppercase font-medium">
+                  Emergency Legal Line
+                </span>
+              </Link>
+            </div>
+
+            <div className="reveal reveal-delay-4 grid grid-cols-2 sm:grid-cols-4 gap-px bg-gold/10 mt-16 max-w-3xl">
+              {[
+                { v: "12+", l: "Years Practice" },
+                { v: "300+", l: "HNW Mandates" },
+                { v: "24h", l: "Response SLA" },
+                { v: "3", l: "Languages" },
+              ].map((s) => (
+                <div key={s.l} className="bg-onyx/80 px-6 py-6">
+                  <div className="font-display text-3xl text-gold">{s.v}</div>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
+                    {s.l}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <h1 className="reveal reveal-delay-1 font-display text-5xl sm:text-7xl lg:text-[8.5rem] leading-[0.95] tracking-tight text-balance">
-            <span className="text-ivory">Strategic </span>
-            <span className="gradient-gold-text italic">Legal</span>
-            <br />
-            <span className="text-ivory">Protection.</span>
-            <br />
-            <span className="text-muted-foreground font-light">Without compromise.</span>
-          </h1>
-
-          <p className="reveal reveal-delay-2 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Cross-border representation for Iranian investors, entrepreneurs and
-            high-net-worth families navigating UAE and international legal systems.
-            Discreet, powerful, and built around a single principle — protect what matters.
-          </p>
-
-          <div className="reveal reveal-delay-3 flex flex-wrap items-center gap-4">
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-gold text-onyx hover:bg-gold-soft transition-all duration-300 shadow-glow"
-            >
-              <span className="text-xs tracking-[0.3em] uppercase font-medium">
-                Book Confidential Consultation
-              </span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-3 px-8 py-4 glass-strong text-ivory hover:border-gold/40 transition-all"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
-              </span>
-              <span className="text-xs tracking-[0.3em] uppercase font-medium">
-                Emergency Legal Line
-              </span>
-            </Link>
-          </div>
-
-          <div className="reveal reveal-delay-4 grid grid-cols-2 sm:grid-cols-4 gap-px bg-gold/10 mt-20 max-w-3xl">
-            {[
-              { v: "12+", l: "Years Practice" },
-              { v: "300+", l: "HNW Mandates" },
-              { v: "24h", l: "Response SLA" },
-              { v: "3", l: "Languages" },
-            ].map((s) => (
-              <div key={s.l} className="bg-onyx/80 px-6 py-6">
-                <div className="font-display text-3xl text-gold">{s.v}</div>
-                <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
-                  {s.l}
+          <div className="lg:col-span-4 hidden lg:block">
+            <div className="relative drift">
+              <div className="absolute -inset-10 rounded-full bg-gold/10 blur-3xl opacity-70" aria-hidden />
+              <div className="reveal reveal-delay-2 relative frame-gold overflow-hidden aspect-[4/5] tilt-hover gold-sweep">
+                <img
+                  src={portrait}
+                  alt="Rahil Mostafaee, Strategic Legal Counsel"
+                  className="w-full h-full object-cover slow-pan"
+                  width={900}
+                  height={1125}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-onyx/70 via-transparent to-transparent" />
+                <div className="absolute bottom-0 inset-x-0 p-6">
+                  <div className="text-[10px] tracking-[0.4em] uppercase text-gold">Founder</div>
+                  <div className="font-display text-2xl text-ivory mt-1">Rahil Mostafaee</div>
                 </div>
               </div>
-            ))}
+              <div className="reveal reveal-delay-4 absolute -bottom-6 -left-6 glass-strong p-4 hidden xl:block">
+                <div className="text-[10px] tracking-[0.3em] uppercase text-gold">Available</div>
+                <div className="text-sm text-ivory mt-1">DIFC · Dubai</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -115,7 +142,54 @@ function Hero() {
   );
 }
 
-function Pillars() {
+function Atelier() {
+  const photos = [
+    { src: officePortrait, label: "In Chambers", caption: "Private counsel, DIFC" },
+    { src: portrait, label: "The Founder", caption: "Strategic Legal Counsel" },
+    { src: profilePortrait, label: "Off the Record", caption: "Personal · Private" },
+  ];
+  return (
+    <section className="relative py-32 border-t border-gold/10 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <Reveal className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+          <div className="max-w-2xl space-y-6">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-12 bg-gold" />
+              <span className="text-[10px] tracking-[0.4em] uppercase text-gold">Portrait</span>
+            </div>
+            <h2 className="font-display text-5xl lg:text-6xl text-ivory leading-[1.05] tracking-tight">
+              Presence, <span className="italic gradient-gold-text">poise, precision.</span>
+            </h2>
+          </div>
+          <p className="text-muted-foreground max-w-md leading-relaxed">
+            A practice defined by discipline and discretion — and a personal
+            standard that mirrors the matters entrusted to it.
+          </p>
+        </Reveal>
+
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {photos.map((p, i) => (
+            <Reveal key={p.label} delay={i * 140} y={32}>
+              <figure className="group relative frame-gold overflow-hidden aspect-[3/4] tilt-hover">
+                <img
+                  src={p.src}
+                  alt={p.label}
+                  className="w-full h-full object-cover transition-transform duration-[2200ms] ease-out group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/20 to-transparent" />
+                <figcaption className="absolute bottom-0 inset-x-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-700">
+                  <div className="text-[10px] tracking-[0.4em] uppercase text-gold">{p.label}</div>
+                  <div className="font-display text-xl text-ivory mt-1">{p.caption}</div>
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
   const pillars = [
     { icon: ShieldCheck, title: "Discretion", body: "Every matter handled under absolute confidentiality protocols." },
     { icon: Globe2, title: "International", body: "Coordinated counsel across UAE, EU, UK and Iran jurisdictions." },
