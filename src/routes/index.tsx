@@ -56,7 +56,6 @@ function Home() {
         <Atelier />
       </div>
       <Practice />
-      <Packages />
       <International />
       <Process />
       <div className="hidden lg:block">
