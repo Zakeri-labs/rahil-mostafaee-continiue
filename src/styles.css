@@ -7,6 +7,7 @@
 @theme inline {
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-fa: "Vazirmatn", "IRANSans", "Tahoma", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   --radius-sm: 4px;
@@ -115,6 +116,16 @@
 @layer utilities {
   .font-display { font-family: var(--font-display); }
   .font-mono { font-family: var(--font-mono); }
+  .font-fa { font-family: var(--font-fa); }
+
+  [dir="rtl"] {
+    font-family: var(--font-fa);
+  }
+  [dir="rtl"] .font-display {
+    font-family: var(--font-fa);
+    font-weight: 600;
+    letter-spacing: 0;
+  }
 
   .text-gold { color: var(--gold); }
   .bg-onyx { background-color: var(--onyx); }
