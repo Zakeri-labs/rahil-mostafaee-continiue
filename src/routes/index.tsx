@@ -40,7 +40,7 @@ function Home() {
 }
 
 function Hero() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden -mt-24 pt-32">
       <div className="absolute inset-0">
