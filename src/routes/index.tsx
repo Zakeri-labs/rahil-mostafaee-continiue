@@ -68,8 +68,6 @@ function Home() {
 function Hero() {
   const { t, lang } = useI18n();
   return (
-  const { t, lang } = useI18n();
-  return (
     <>
       {/* ===== MOBILE HERO — split: cutout left, content right ===== */}
       <section className="relative lg:hidden overflow-hidden -mt-24 pt-24 min-h-[88vh] flex flex-col">
