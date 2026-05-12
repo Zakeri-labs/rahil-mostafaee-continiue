@@ -31,7 +31,7 @@ export function RotatingWord({ words, className = "", interval = 2400 }: Props) 
       </span>
       {/* Animated visible word */}
       <span
-        className={`col-start-1 row-start-1 inline-block text-center ${className}`}
+        className={`col-start-1 row-start-1 inline-block text-center italic text-7xl ${className}`}
         style={{
           opacity: show ? 1 : 0,
           transform: show ? "translateY(0) scale(1)" : "translateY(-0.2em) scale(0.96)",
