@@ -47,14 +47,19 @@ function Home() {
       <Hero />
       <Marquee />
       <Pillars />
+      {/* Atelier hidden on mobile to reduce visual load */}
+      <div className="hidden lg:block">
+        <Atelier />
+      </div>
       <Practice />
-      <International />
-      <Atelier />
       <Packages />
+      <International />
       <Process />
       <Founder />
       <InstagramSection />
-      <Trust />
+      <div className="hidden md:block">
+        <Trust />
+      </div>
       <CTA />
     </div>
   );
