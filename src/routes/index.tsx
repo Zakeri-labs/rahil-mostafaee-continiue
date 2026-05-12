@@ -37,6 +37,7 @@ function Home() {
       <Practice />
       <International />
       <Atelier />
+      <Packages />
       <Platform />
       <Founder />
       <Trust />
