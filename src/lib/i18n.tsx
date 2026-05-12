@@ -236,7 +236,7 @@ const en: Dict = {
   "home.ig.h2.a": "Behind the",
   "home.ig.h2.b": "practice.",
   "home.ig.body": "Insights, courtroom notes and a glimpse of life between Dubai and Tehran. Follow for occasional, considered updates.",
-  "home.ig.handle": "@rahilmostafaee",
+  "home.ig.handle": "@rahil.mostafaee",
   "home.ig.cta": "Follow on Instagram",
 
   "fab.whatsapp.label": "WhatsApp",
@@ -690,7 +690,7 @@ const fa: Dict = {
   "home.ig.h2.a": "پشت",
   "home.ig.h2.b": "صحنه دفتر.",
   "home.ig.body": "یادداشت‌های حقوقی، نگاهی به دادگاه و گوشه‌ای از زندگی میان دبی و تهران. برای به‌روزرسانی‌های موجز و سنجیده دنبال کنید.",
-  "home.ig.handle": "@rahilmostafaee",
+  "home.ig.handle": "@rahil.mostafaee",
   "home.ig.cta": "دنبال‌کردن در اینستاگرام",
 
   "fab.whatsapp.label": "واتساپ",
