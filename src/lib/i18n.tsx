@@ -924,10 +924,10 @@ interface Ctx {
 const I18nContext = createContext<Ctx | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
+  const [lang, setLangState] = useState<Lang>("fa");
 
   useEffect(() => {
-    const stored = (typeof window !== "undefined" && (localStorage.getItem("lang") as Lang)) || "en";
+    const stored = (typeof window !== "undefined" && (localStorage.getItem("lang") as Lang)) || "fa";
     setLangState(stored);
   }, []);
 
