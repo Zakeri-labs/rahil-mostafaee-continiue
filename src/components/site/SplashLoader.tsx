@@ -7,6 +7,8 @@ type Phase = "intro" | "hold" | "iris" | "settle" | "done";
 export function SplashLoader() {
   const { t, lang, dir } = useI18n();
   const [phase, setPhase] = useState<Phase>("intro");
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
