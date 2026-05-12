@@ -70,35 +70,38 @@ function Hero() {
   return (
     <>
       {/* ===== MOBILE HERO — full-bleed background image with content overlay ===== */}
-      <section className="relative lg:hidden overflow-hidden -mt-24 min-h-[100svh] flex flex-col">
-        {/* Full-bleed background image */}
+      <section className="relative lg:hidden overflow-hidden -mt-24 flex flex-col">
+        {/* Full-bleed background image — positioned so face stays visible */}
         <div className="absolute inset-0 -z-10">
           <img
             src={rahilCutout}
             alt="Rahil Mostafaee"
-            className="w-full h-full object-cover object-top ken-burns"
+            className="w-full h-full object-cover ken-burns"
+            style={{ objectPosition: "center 22%" }}
           />
-          {/* Layered dark gradients for legibility — top fade for nav, strong bottom fade for text */}
-          <div className="absolute inset-0 bg-gradient-to-b from-onyx/85 via-onyx/40 to-onyx" />
-          <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/70 to-transparent" />
-          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.18 }} />
+          <div className="absolute inset-0 bg-gradient-to-b from-onyx/70 via-onyx/25 to-onyx" />
+          <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/55 to-transparent" />
+          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.16 }} />
         </div>
 
-        {/* Content — pushed to bottom, full width */}
-        <div className="relative z-[2] flex-1 flex flex-col justify-end px-6 pt-32 pb-6">
-          <div className="reveal flex items-center gap-2 mb-4">
+        {/* Spacer keeps face visible at top under nav */}
+        <div className="h-[55svh]" aria-hidden />
+
+        {/* Content — anchored at bottom, tight spacing, larger titles */}
+        <div className="relative z-[2] px-6 pb-5">
+          <div className="reveal flex items-center gap-2 mb-3">
             <span className="h-px w-8 bg-gold" />
             <span className="text-[10px] tracking-[0.32em] uppercase text-gold leading-tight">
               {t("home.hero.kicker")}
             </span>
           </div>
 
-          <h1 className="reveal reveal-delay-1 font-display text-[2.75rem] leading-[1.02] tracking-tight text-ivory">
+          <h1 className="reveal reveal-delay-1 font-display text-[3.25rem] leading-[0.98] tracking-tight text-ivory">
             {t("home.hero.name.first")}{" "}
             <span className="italic gradient-gold-text">{t("home.hero.name.last")}</span>
           </h1>
 
-          <div className="reveal reveal-delay-2 mt-3 font-display italic text-lg text-gold/90">
+          <div className="reveal reveal-delay-2 mt-2 font-display italic text-xl text-gold/90">
             <RotatingWord
               className="italic"
               words={[
@@ -110,21 +113,20 @@ function Hero() {
             />
           </div>
 
-          <h2 className="reveal reveal-delay-3 mt-4 font-display text-xl leading-snug text-ivory">
+          <h2 className="reveal reveal-delay-3 mt-3 font-display text-2xl leading-tight text-ivory">
             {t("home.hero.h1.a")} {t("home.hero.h1.c")}
           </h2>
 
-          <p className="reveal reveal-delay-3 mt-3 text-[13px] text-muted-foreground leading-relaxed">
+          <p className="reveal reveal-delay-3 mt-2.5 text-[13px] text-muted-foreground leading-relaxed">
             {t("home.hero.lede")}
           </p>
 
-          <div className="reveal reveal-delay-3 mt-4 flex items-center gap-1.5 text-[10px] text-muted-foreground">
+          <div className="reveal reveal-delay-3 mt-3 flex items-center gap-1.5 text-[10px] text-muted-foreground">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-gold" />
             <span className="tracking-wide">{t("home.hero.location")}</span>
           </div>
 
-          {/* CTAs */}
-          <div className="mt-6 space-y-2.5">
+          <div className="mt-4 space-y-2">
             <Link
               to="/booking"
               className="reveal reveal-delay-3 inline-flex w-full items-center justify-center gap-2 px-4 py-3.5 bg-gold text-onyx shadow-glow"
