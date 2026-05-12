@@ -123,31 +123,6 @@ export function Nav() {
           </div>
         </div>
 
-        {open && (
-          <div className="lg:hidden mt-4 pb-6 space-y-3 animate-fade-in">
-            {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                onClick={() => setOpen(false)}
-                className="block py-2 text-ivory hover:text-gold"
-              >
-                {t(l.key)}
-              </Link>
-            ))}
-            <Link
-              to="/booking"
-              onClick={() => setOpen(false)}
-              className="block py-3 mt-3 text-center text-xs tracking-[0.2em] uppercase border border-gold/40 text-gold"
-            >
-              {t("nav.book")}
-            </Link>
-            <div className="flex justify-center gap-2 pt-3">
-              <button onClick={() => switchLang("en")} className={`px-3 py-1 text-xs ${lang === "en" ? "text-gold" : "text-muted-foreground"}`}>EN</button>
-              <button onClick={() => switchLang("fa")} className={`px-3 py-1 text-xs font-fa ${lang === "fa" ? "text-gold" : "text-muted-foreground"}`}>فا</button>
-            </div>
-          </div>
-        )}
       </div>
     </header>
   );
