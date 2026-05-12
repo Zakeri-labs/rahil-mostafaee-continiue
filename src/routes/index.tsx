@@ -78,8 +78,8 @@ function Hero() {
           <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.3 }} />
         </div>
 
-        {/* Portrait — absolutely positioned, bleeds full right side */}
-        <div className="absolute right-[-18%] bottom-0 top-24 w-[88%] z-[1] pointer-events-none">
+        {/* Portrait — absolutely positioned, bleeds full right side, large like Bader */}
+        <div className="absolute right-[-30%] bottom-0 top-16 w-[115%] z-[1] pointer-events-none">
           <div className="absolute inset-8 bg-gold/10 blur-3xl drift" aria-hidden />
           <img
             src={rahilCutout}
@@ -88,7 +88,7 @@ function Hero() {
             style={{ objectPosition: "center bottom" }}
           />
           {/* Fade left edge into bg so text remains legible */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-onyx via-onyx/80 to-transparent" />
+          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-onyx via-onyx/85 to-transparent" />
         </div>
 
         {/* Content overlay — left column */}
