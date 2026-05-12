@@ -111,7 +111,7 @@ function BookingPage() {
       <div className="max-w-5xl mx-auto px-6 py-16" dir={dir}>
         <div className="text-center mb-14 reveal">
           <div className="text-[10px] tracking-[0.4em] uppercase text-gold mb-3">
-            Rahil Mostafaee · Dubai
+            {t("book.brand_tag")}
           </div>
           <h1 className="font-display text-5xl text-ivory">{t("book.title")}</h1>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">{t("book.subtitle")}</p>
