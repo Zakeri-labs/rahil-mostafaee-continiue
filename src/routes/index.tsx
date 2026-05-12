@@ -122,8 +122,8 @@ function Hero() {
           </div>
 
           <div className="lg:col-span-5 hidden lg:block">
-            <div className="relative drift">
-              <div className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70" aria-hidden />
+            <div className="relative">
+              <div className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70 drift" aria-hidden />
 
               <div className="reveal reveal-delay-3 absolute -top-4 -right-4 z-20 glass-strong px-4 py-3 border-l-2 border-gold">
                 <div className="flex items-center gap-2.5">
