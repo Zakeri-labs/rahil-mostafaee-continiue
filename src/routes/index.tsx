@@ -69,40 +69,41 @@ function Hero() {
   const { t, lang } = useI18n();
   return (
     <>
-      {/* ===== MOBILE HERO — full-bleed portrait, overlaid title ===== */}
-      <section className="relative lg:hidden overflow-hidden -mt-24 pt-24 min-h-[100svh] flex flex-col">
-        {/* Office backdrop */}
+      {/* ===== MOBILE HERO — faded backdrop + animated grid + title ===== */}
+      <section className="relative lg:hidden overflow-hidden -mt-24 pt-28 min-h-[100svh] flex flex-col">
+        {/* Backdrop layers (mirror desktop) */}
         <div className="absolute inset-0">
-          <img src={office} alt="" className="w-full h-full object-cover opacity-40 scale-110 ken-burns" />
-          <div className="absolute inset-0 bg-gradient-to-b from-onyx/70 via-onyx/50 to-onyx" />
-          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.45 }} />
-        </div>
-
-        {/* Full-bleed Rahil cutout — anchored bottom, full width */}
-        <div className="absolute inset-x-0 bottom-0 top-24 pointer-events-none">
-          <div className="absolute inset-x-0 bottom-0 top-1/3 bg-gold/10 blur-3xl drift" aria-hidden />
-          <img
-            src={rahilCutout}
-            alt="Rahil Mostafaee"
-            className="absolute inset-x-0 bottom-0 mx-auto h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
-            style={{ left: "50%", transform: "translateX(-50%)" }}
+          <img src={hero} alt="" className="w-full h-full object-cover opacity-35 scale-110 ken-burns" />
+          <div className="absolute inset-0 bg-gradient-to-b from-onyx/80 via-onyx/55 to-onyx" />
+          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.55 }} />
+          {/* Animated dotted grid */}
+          <div
+            className="absolute inset-0 opacity-[0.10] mix-blend-overlay pointer-events-none"
+            style={{
+              backgroundImage: "radial-gradient(oklch(0.78 0.12 80) 1px, transparent 1px)",
+              backgroundSize: "14px 14px",
+              animation: "gridShift 12s linear infinite",
+            }}
           />
-          {/* Top fade so title reads cleanly */}
-          <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-onyx via-onyx/70 to-transparent" />
-          {/* Bottom fade into stats */}
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-onyx to-transparent" />
+          <div className="absolute -inset-24 rounded-full bg-gold/10 blur-3xl drift" aria-hidden />
         </div>
 
-        {/* Content overlay */}
-        <div className="relative flex-1 flex flex-col px-5 pt-4">
+        {/* N° marker */}
+        <div className="absolute right-5 top-28 flex items-center gap-2 z-10">
+          <span className="font-mono text-[9px] tracking-[0.4em] uppercase text-muted-foreground">N° 001</span>
+          <span className="h-px w-6 bg-gold/40" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-[2] flex-1 flex flex-col px-6 pt-6">
           <div className="reveal flex items-center gap-2 mb-5">
-            <span className="h-px w-8 bg-gold" />
-            <span className="text-[10px] tracking-[0.35em] uppercase text-gold">
+            <span className="h-px w-10 bg-gold" />
+            <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
               {t("home.hero.kicker")}
             </span>
           </div>
 
-          <h1 className="reveal reveal-delay-1 font-display text-[2.75rem] leading-[1] tracking-tight text-balance">
+          <h1 className="reveal reveal-delay-1 font-display text-[3.25rem] leading-[0.95] tracking-tight text-balance">
             <span className="block text-ivory">{t("home.hero.h1.a")}</span>
             <RotatingWord
               className="gradient-gold-text italic block"
@@ -116,31 +117,40 @@ function Hero() {
             <span className="block text-ivory">{t("home.hero.h1.c")}</span>
           </h1>
 
+          <p className="reveal reveal-delay-2 mt-6 max-w-md text-sm text-muted-foreground leading-relaxed">
+            {t("home.hero.lede")}
+          </p>
+
           <div className="flex-1" />
 
-          {/* CTA pinned above stats */}
-          <div className="relative z-10 pb-4 space-y-3">
+          {/* CTAs */}
+          <div className="relative z-10 pb-5 pt-8 space-y-3">
             <Link
               to="/booking"
-              className="reveal reveal-delay-2 inline-flex w-full items-center justify-center gap-2 px-5 py-4 bg-gold text-onyx shadow-glow"
+              className="reveal reveal-delay-3 inline-flex w-full items-center justify-center gap-2 px-5 py-4 bg-gold text-onyx shadow-glow"
             >
               <span className="text-[11px] tracking-[0.3em] uppercase font-medium">
                 {t("home.hero.cta.book")}
               </span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
-            <div className="flex items-center justify-center gap-2 text-[9px] tracking-[0.3em] uppercase text-muted-foreground">
-              <span className="relative flex h-1.5 w-1.5">
+            <Link
+              to="/contact"
+              className="reveal reveal-delay-4 inline-flex w-full items-center justify-center gap-2 px-5 py-3.5 glass-strong text-ivory"
+            >
+              <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
               </span>
-              {t("home.hero.location")}
-            </div>
+              <span className="text-[11px] tracking-[0.3em] uppercase font-medium">
+                {t("home.hero.cta.emergency")}
+              </span>
+            </Link>
           </div>
         </div>
 
         {/* Compact stats row */}
-        <div className="relative grid grid-cols-4 gap-px bg-gold/10 border-t border-gold/20">
+        <div className="relative z-[2] grid grid-cols-4 gap-px bg-gold/10 border-t border-gold/20">
           {[
             { v: "12+", l: t("home.hero.stat.years") },
             { v: "300+", l: t("home.hero.stat.mandates") },
@@ -155,6 +165,13 @@ function Hero() {
             </div>
           ))}
         </div>
+
+        <style>{`
+          @keyframes gridShift {
+            0% { background-position: 0 0; }
+            100% { background-position: 14px 14px; }
+          }
+        `}</style>
       </section>
 
       {/* ===== DESKTOP HERO ===== */}
