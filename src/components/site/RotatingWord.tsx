@@ -8,33 +8,33 @@ type Props = {
 
 export function RotatingWord({ words, className = "", interval = 2400 }: Props) {
   const [i, setI] = useState(0);
-  const [phase, setPhase] = useState<"in" | "out">("in");
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     if (words.length <= 1) return;
     const t = setInterval(() => {
-      setPhase("out");
+      setShow(false);
       setTimeout(() => {
         setI((v) => (v + 1) % words.length);
-        setPhase("in");
-      }, 380);
+        setShow(true);
+      }, 420);
     }, interval);
     return () => clearInterval(t);
   }, [words.length, interval]);
 
   return (
-    <span className={`relative inline-block align-baseline ${className}`}>
-      <span
-        key={i}
-        className="inline-block transition-all duration-[380ms] ease-out"
-        style={{
-          opacity: phase === "in" ? 1 : 0,
-          transform: phase === "in" ? "translateY(0) rotateX(0)" : "translateY(-0.4em) rotateX(60deg)",
-          filter: phase === "in" ? "blur(0)" : "blur(6px)",
-        }}
-      >
-        {words[i]}
-      </span>
+    <span
+      className={`inline-block align-baseline ${className}`}
+      style={{
+        opacity: show ? 1 : 0,
+        transform: show ? "translateY(0) scale(1)" : "translateY(-0.25em) scale(0.96)",
+        filter: show ? "blur(0px)" : "blur(8px)",
+        transition:
+          "opacity 380ms cubic-bezier(0.2,0.7,0.2,1), transform 420ms cubic-bezier(0.2,0.7,0.2,1), filter 380ms ease-out",
+        willChange: "opacity, transform, filter",
+      }}
+    >
+      {words[i]}
     </span>
   );
 }
