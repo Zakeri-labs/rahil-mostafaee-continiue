@@ -21,6 +21,12 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const FA_DIGITS = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+function localizeNum(s: string, lang: string) {
+  if (lang !== "fa") return s;
+  return s.replace(/\d/g, (d) => FA_DIGITS[Number(d)]).replace("h", "س");
+}
+
 function Home() {
   const { dir } = useI18n();
   return (
