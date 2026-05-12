@@ -69,88 +69,85 @@ function Hero() {
   const { t, lang } = useI18n();
   return (
     <>
-      {/* ===== MOBILE HERO — split: cutout left, content right ===== */}
-      <section className="relative lg:hidden overflow-hidden -mt-24 pt-24 min-h-[88vh] flex flex-col">
-        {/* Backdrop */}
+      {/* ===== MOBILE HERO — full-bleed portrait, overlaid title ===== */}
+      <section className="relative lg:hidden overflow-hidden -mt-24 pt-24 min-h-[100svh] flex flex-col">
+        {/* Office backdrop */}
         <div className="absolute inset-0">
-          <img src={hero} alt="" className="w-full h-full object-cover opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-b from-onyx via-onyx/85 to-onyx" />
-          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.5 }} />
+          <img src={office} alt="" className="w-full h-full object-cover opacity-40 scale-110 ken-burns" />
+          <div className="absolute inset-0 bg-gradient-to-b from-onyx/70 via-onyx/50 to-onyx" />
+          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.45 }} />
         </div>
 
-        <div className="relative flex-1 flex items-stretch px-4 pt-6">
-          <div className="grid grid-cols-2 gap-3 w-full items-end">
-            {/* Cutout image — half view, body cropped at bottom */}
-            <div className="relative h-[68vh] flex items-end justify-center">
-              <div className="absolute -inset-6 rounded-full bg-gold/10 blur-3xl drift" aria-hidden />
-              <img
-                src={rahilCutout}
-                alt="Rahil Mostafaee"
-                className="relative w-full h-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
-                width={768}
-                height={1280}
-              />
-              <div className="absolute -bottom-px inset-x-0 h-24 bg-gradient-to-t from-onyx to-transparent pointer-events-none" />
-            </div>
+        {/* Full-bleed Rahil cutout — anchored bottom, full width */}
+        <div className="absolute inset-x-0 bottom-0 top-24 pointer-events-none">
+          <div className="absolute inset-x-0 bottom-0 top-1/3 bg-gold/10 blur-3xl drift" aria-hidden />
+          <img
+            src={rahilCutout}
+            alt="Rahil Mostafaee"
+            className="absolute inset-x-0 bottom-0 mx-auto h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
+            style={{ left: "50%", transform: "translateX(-50%)" }}
+          />
+          {/* Top fade so title reads cleanly */}
+          <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-onyx via-onyx/70 to-transparent" />
+          {/* Bottom fade into stats */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-onyx to-transparent" />
+        </div>
 
-            {/* Right: title + CTA */}
-            <div className="flex flex-col justify-center gap-5 pb-8">
-              <div className="flex items-center gap-2">
-                <span className="h-px w-6 bg-gold" />
-                <span className="text-[8px] tracking-[0.35em] uppercase text-gold leading-tight">
-                  {t("home.hero.kicker")}
-                </span>
-              </div>
+        {/* Content overlay */}
+        <div className="relative flex-1 flex flex-col px-5 pt-4">
+          <div className="reveal flex items-center gap-2 mb-5">
+            <span className="h-px w-8 bg-gold" />
+            <span className="text-[10px] tracking-[0.35em] uppercase text-gold">
+              {t("home.hero.kicker")}
+            </span>
+          </div>
 
-              <h1 className="font-display text-[2rem] leading-[1.05] tracking-tight text-balance">
-                <span className="text-ivory">{t("home.hero.h1.a")}</span>
-                <RotatingWord
-                  className="gradient-gold-text italic"
-                  words={[
-                    t("home.hero.rotate.1"),
-                    t("home.hero.rotate.2"),
-                    t("home.hero.rotate.3"),
-                    t("home.hero.rotate.4"),
-                  ]}
-                />
-                <br />
-                <span className="text-ivory">{t("home.hero.h1.c")}</span>
-              </h1>
+          <h1 className="reveal reveal-delay-1 font-display text-[2.75rem] leading-[1] tracking-tight text-balance">
+            <span className="block text-ivory">{t("home.hero.h1.a")}</span>
+            <RotatingWord
+              className="gradient-gold-text italic block"
+              words={[
+                t("home.hero.rotate.1"),
+                t("home.hero.rotate.2"),
+                t("home.hero.rotate.3"),
+                t("home.hero.rotate.4"),
+              ]}
+            />
+            <span className="block text-ivory">{t("home.hero.h1.c")}</span>
+          </h1>
 
-              <p className="text-[13px] text-muted-foreground leading-relaxed">
-                {t("home.hero.lede").split(".")[0]}.
-              </p>
+          <div className="flex-1" />
 
-              <Link
-                to="/booking"
-                className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gold text-onyx shadow-glow"
-              >
-                <span className="text-[10px] tracking-[0.25em] uppercase font-medium">
-                  {t("home.hero.cta.book").split(" ").slice(0, 2).join(" ")}
-                </span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
-
-              <div className="flex items-center gap-2 text-[9px] tracking-[0.3em] uppercase text-muted-foreground">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
-                </span>
-                {t("home.hero.location")}
-              </div>
+          {/* CTA pinned above stats */}
+          <div className="relative z-10 pb-4 space-y-3">
+            <Link
+              to="/booking"
+              className="reveal reveal-delay-2 inline-flex w-full items-center justify-center gap-2 px-5 py-4 bg-gold text-onyx shadow-glow"
+            >
+              <span className="text-[11px] tracking-[0.3em] uppercase font-medium">
+                {t("home.hero.cta.book")}
+              </span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+            <div className="flex items-center justify-center gap-2 text-[9px] tracking-[0.3em] uppercase text-muted-foreground">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
+              </span>
+              {t("home.hero.location")}
             </div>
           </div>
         </div>
 
         {/* Compact stats row */}
-        <div className="relative grid grid-cols-4 gap-px bg-gold/10 mx-4 mb-6">
+        <div className="relative grid grid-cols-4 gap-px bg-gold/10 border-t border-gold/20">
           {[
             { v: "12+", l: t("home.hero.stat.years") },
             { v: "300+", l: t("home.hero.stat.mandates") },
             { v: "24h", l: t("home.hero.stat.sla") },
             { v: "3", l: t("home.hero.stat.langs") },
           ].map((s) => (
-            <div key={s.l} className="bg-onyx/80 px-2 py-3 text-center">
+            <div key={s.l} className="bg-onyx/90 px-2 py-3 text-center">
               <div className="font-display text-base text-gold">{localizeNum(s.v, lang)}</div>
               <div className="text-[7px] tracking-[0.18em] uppercase text-muted-foreground mt-0.5 leading-tight">
                 {s.l}
