@@ -14,16 +14,215 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      availability_rules: {
+        Row: {
+          active: boolean
+          created_at: string | null
+          day_of_week: number
+          end_minute: number
+          id: string
+          start_minute: number
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string | null
+          day_of_week: number
+          end_minute: number
+          id?: string
+          start_minute: number
+        }
+        Update: {
+          active?: boolean
+          created_at?: string | null
+          day_of_week?: number
+          end_minute?: number
+          id?: string
+          start_minute?: number
+        }
+        Relationships: []
+      }
+      bookings: {
+        Row: {
+          amount_aed: number
+          created_at: string | null
+          end_at: string
+          guest_email: string | null
+          guest_name: string | null
+          guest_phone: string | null
+          id: string
+          language: string | null
+          notes: string | null
+          payment_status: Database["public"]["Enums"]["payment_status"]
+          service_id: string
+          start_at: string
+          status: Database["public"]["Enums"]["booking_status"]
+          stripe_session_id: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          amount_aed: number
+          created_at?: string | null
+          end_at: string
+          guest_email?: string | null
+          guest_name?: string | null
+          guest_phone?: string | null
+          id?: string
+          language?: string | null
+          notes?: string | null
+          payment_status?: Database["public"]["Enums"]["payment_status"]
+          service_id: string
+          start_at: string
+          status?: Database["public"]["Enums"]["booking_status"]
+          stripe_session_id?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          amount_aed?: number
+          created_at?: string | null
+          end_at?: string
+          guest_email?: string | null
+          guest_name?: string | null
+          guest_phone?: string | null
+          id?: string
+          language?: string | null
+          notes?: string | null
+          payment_status?: Database["public"]["Enums"]["payment_status"]
+          service_id?: string
+          start_at?: string
+          status?: Database["public"]["Enums"]["booking_status"]
+          stripe_session_id?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookings_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          full_name: string | null
+          id: string
+          phone: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          full_name?: string | null
+          id: string
+          phone?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      services: {
+        Row: {
+          active: boolean
+          created_at: string | null
+          description_en: string | null
+          description_fa: string | null
+          duration_minutes: number
+          id: string
+          is_emergency: boolean
+          name_en: string
+          name_fa: string
+          price_aed: number
+          price_id: string
+          slug: string
+          sort: number
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string | null
+          description_en?: string | null
+          description_fa?: string | null
+          duration_minutes: number
+          id?: string
+          is_emergency?: boolean
+          name_en: string
+          name_fa: string
+          price_aed: number
+          price_id: string
+          slug: string
+          sort?: number
+        }
+        Update: {
+          active?: boolean
+          created_at?: string | null
+          description_en?: string | null
+          description_fa?: string | null
+          duration_minutes?: number
+          id?: string
+          is_emergency?: boolean
+          name_en?: string
+          name_fa?: string
+          price_aed?: number
+          price_id?: string
+          slug?: string
+          sort?: number
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_busy_slots: {
+        Args: { _from: string; _to: string }
+        Returns: {
+          end_at: string
+          start_at: string
+        }[]
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "client"
+      booking_status: "pending" | "confirmed" | "cancelled" | "completed"
+      payment_status: "unpaid" | "paid" | "refunded"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +349,10 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "client"],
+      booking_status: ["pending", "confirmed", "cancelled", "completed"],
+      payment_status: ["unpaid", "paid", "refunded"],
+    },
   },
 } as const
