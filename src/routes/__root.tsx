@@ -77,6 +77,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <SplashLoader />
       <div className="min-h-screen flex flex-col">
         <Nav />
         <main className="flex-1 pt-24">
