@@ -530,6 +530,8 @@ const fa: Dict = {
   "admin.no_access": "دسترسی فقط برای مدیران دفتر.",
 
   "splash.tag": "وکیل پایه‌یک · دبی",
+  "splash.name.first": "راحیل",
+  "splash.name.last": "مصطفایی",
   "book.brand_tag": "راحیل مصطفایی · دبی",
 
   "footer.role": "وکیل و مشاور حقوقی راهبردی",
