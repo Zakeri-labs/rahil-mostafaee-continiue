@@ -204,6 +204,33 @@ export function SplashLoader() {
         @keyframes splash-spin {
           to { transform: translate(-50%, -50%) rotate(360deg); }
         }
+        /* Splash mark — desktop default morphs from center to top-left nav */
+        .splash-mark {
+          top: 50%; left: 50%; transform: translate(-50%, -50%);
+          transition: top 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s,
+                      left 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s,
+                      transform 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s;
+        }
+        .splash-mark-inner {
+          transform: scale(3.2);
+          transform-origin: left center;
+          transition: transform 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s;
+        }
+        .splash-mark[data-opening="true"] {
+          top: 30px; left: 44px; transform: translate(0,0);
+        }
+        .splash-mark[data-opening="true"] .splash-mark-inner {
+          transform: scale(1);
+        }
+        @media (max-width: 1023px) {
+          .splash-mark-inner { transform: scale(1.4); transform-origin: center center; }
+          .splash-mark[data-opening="true"] {
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+          }
+          .splash-mark[data-opening="true"] .splash-mark-inner { transform: scale(1.2); }
+        }
       `}</style>
     </div>
   );
