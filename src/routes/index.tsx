@@ -190,6 +190,8 @@ function Atelier() {
     </section>
   );
 }
+
+function Pillars() {
   const pillars = [
     { icon: ShieldCheck, title: "Discretion", body: "Every matter handled under absolute confidentiality protocols." },
     { icon: Globe2, title: "International", body: "Coordinated counsel across UAE, EU, UK and Iran jurisdictions." },
