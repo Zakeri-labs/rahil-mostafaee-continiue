@@ -236,6 +236,27 @@ const en: Dict = {
   "home.cta.body": "Schedule a confidential consultation. All initial conversations are held under strict privilege and reviewed personally.",
   "home.cta.book": "Book Consultation",
   "home.cta.direct": "Direct Line",
+
+  "home.pkg.kicker": "Consultation Packages",
+  "home.pkg.h2.a": "Engage with",
+  "home.pkg.h2.b": "clarity & precision.",
+  "home.pkg.body": "Transparent, fixed-fee consultations. Choose the format that matches your matter — confirm online in minutes.",
+  "home.pkg.aed": "AED",
+  "home.pkg.min": "min",
+  "home.pkg.popular": "Most chosen",
+  "home.pkg.urgent": "Priority",
+  "home.pkg.reserve": "Reserve",
+  "home.pkg.viewAll": "Compare all options & availability",
+  "home.pkg.feat.confidential": "Strict privilege & confidentiality",
+  "home.pkg.feat.followup": "Written follow-up within 48h",
+  "home.pkg.feat.summary": "Memo summary of recommendations",
+  "home.pkg.feat.deepdive": "In-depth review of your matter",
+  "home.pkg.feat.roadmap": "Tailored legal roadmap",
+  "home.pkg.feat.priority": "Priority response from counsel",
+  "home.pkg.feat.sameday": "Same-day response, 24/7",
+  "home.pkg.feat.directline": "Direct line to lead counsel",
+  "home.pkg.feat.multijuris": "Multi-jurisdiction coverage",
+  "home.pkg.feat.intake": "Comprehensive matter intake",
 };
 
 const fa: Dict = {
