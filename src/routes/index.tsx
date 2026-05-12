@@ -36,6 +36,7 @@ function Home() {
   const { dir } = useI18n();
   return (
     <div className="overflow-hidden" dir={dir}>
+      <ScrollProgress />
       <Hero />
       <Marquee />
       <Pillars />
