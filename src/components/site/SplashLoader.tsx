@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import logo from "@/assets/logo-mark.png";
 
+type Phase = "intro" | "reveal" | "fade" | "done";
+
 export function SplashLoader() {
-  const [phase, setPhase] = useState<"intro" | "shrink" | "done">("intro");
+  const [phase, setPhase] = useState<Phase>("intro");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -11,62 +13,105 @@ export function SplashLoader() {
       return;
     }
     document.body.style.overflow = "hidden";
-    const t1 = setTimeout(() => setPhase("shrink"), 1400);
-    const t2 = setTimeout(() => {
+    const t1 = setTimeout(() => setPhase("reveal"), 1500);
+    const t2 = setTimeout(() => setPhase("fade"), 2900);
+    const t3 = setTimeout(() => {
       setPhase("done");
       sessionStorage.setItem("splash-shown", "1");
       document.body.style.overflow = "";
-    }, 2700);
+    }, 3700);
     return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
+      [t1, t2, t3].forEach(clearTimeout);
       document.body.style.overflow = "";
     };
   }, []);
 
   if (phase === "done") return null;
 
-  const shrinking = phase === "shrink";
+  const opening = phase === "reveal" || phase === "fade";
+  const fading = phase === "fade";
 
   return (
     <div
       aria-hidden
-      className="fixed inset-0 z-[100] pointer-events-none"
+      className="fixed inset-0 z-[100] pointer-events-none overflow-hidden"
       style={{
-        background: shrinking
-          ? "radial-gradient(ellipse at top, oklch(0.09 0.005 60 / 0.6), oklch(0.09 0.005 60 / 0.2) 60%, transparent)"
-          : "var(--gradient-onyx)",
-        opacity: shrinking ? 0 : 1,
-        transition: "opacity 1.1s cubic-bezier(0.4,0,0.2,1) 0.2s, background 1.2s ease",
+        opacity: fading ? 0 : 1,
+        transition: "opacity 0.8s ease 0.1s",
       }}
     >
+      {/* Two curtain panels that split open to reveal the site */}
+      <div
+        className="absolute inset-y-0 left-0 w-1/2"
+        style={{
+          background: "var(--gradient-onyx)",
+          transform: opening ? "translateX(-100%)" : "translateX(0)",
+          transition: "transform 1.4s cubic-bezier(0.77, 0, 0.175, 1)",
+          boxShadow: "inset -1px 0 0 oklch(0.78 0.12 80 / 0.4)",
+        }}
+      />
+      <div
+        className="absolute inset-y-0 right-0 w-1/2"
+        style={{
+          background: "var(--gradient-onyx)",
+          transform: opening ? "translateX(100%)" : "translateX(0)",
+          transition: "transform 1.4s cubic-bezier(0.77, 0, 0.175, 1)",
+          boxShadow: "inset 1px 0 0 oklch(0.78 0.12 80 / 0.4)",
+        }}
+      />
+
+      {/* Gold seam line that flashes as the curtains part */}
+      <div
+        className="absolute inset-y-0 left-1/2 -translate-x-1/2"
+        style={{
+          width: opening ? "2px" : "1px",
+          background:
+            "linear-gradient(180deg, transparent, oklch(0.85 0.14 80 / 0.95), transparent)",
+          opacity: opening ? 0 : 0.6,
+          transition: "opacity 0.7s ease, width 0.4s ease",
+          filter: "blur(0.5px)",
+        }}
+      />
+      <div
+        className="absolute inset-y-0 left-1/2 -translate-x-1/2"
+        style={{
+          width: "60px",
+          background:
+            "radial-gradient(ellipse at center, oklch(0.85 0.14 80 / 0.5), transparent 70%)",
+          opacity: opening ? 1 : 0,
+          transition: "opacity 0.5s ease",
+        }}
+      />
+
+      {/* Soft gold radial behind logo (intro only) */}
       <div
         className="absolute inset-0"
         style={{
           background: "var(--gradient-radial-gold)",
-          opacity: shrinking ? 0 : 0.9,
-          transition: "opacity 1s ease",
+          opacity: opening ? 0 : 0.9,
+          transition: "opacity 0.8s ease",
         }}
       />
 
+      {/* Logo + wordmark — morphs from center to nav position */}
       <div
         className="absolute will-change-transform"
         style={{
-          top: shrinking ? "30px" : "50%",
-          left: shrinking ? "44px" : "50%",
-          transform: shrinking
-            ? "translate(0, 0) scale(1)"
-            : "translate(-50%, -50%) scale(1)",
+          top: opening ? "30px" : "50%",
+          left: opening ? "44px" : "50%",
+          transform: opening
+            ? "translate(0, 0)"
+            : "translate(-50%, -50%)",
           transition:
-            "top 1.2s cubic-bezier(0.7,0,0.2,1), left 1.2s cubic-bezier(0.7,0,0.2,1), transform 1.2s cubic-bezier(0.7,0,0.2,1)",
+            "top 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s, left 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s, transform 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s",
         }}
       >
         <div
           className="flex items-center gap-4"
           style={{
-            transform: shrinking ? "scale(1)" : "scale(3.6)",
+            transform: opening ? "scale(1)" : "scale(3.6)",
             transformOrigin: "left center",
-            transition: "transform 1.2s cubic-bezier(0.7,0,0.2,1)",
+            transition: "transform 1.3s cubic-bezier(0.77,0,0.175,1) 0.1s",
           }}
         >
           <div className="relative">
@@ -74,8 +119,8 @@ export function SplashLoader() {
               className="absolute inset-0 rounded-full blur-2xl"
               style={{
                 background: "oklch(0.78 0.12 80 / 0.45)",
-                opacity: shrinking ? 0 : 1,
-                transition: "opacity 0.9s ease",
+                opacity: opening ? 0 : 1,
+                transition: "opacity 0.7s ease",
               }}
             />
             <img
@@ -83,7 +128,7 @@ export function SplashLoader() {
               alt=""
               className="relative h-9 w-9 object-contain"
               style={{
-                animation: shrinking
+                animation: opening
                   ? "none"
                   : "splash-pulse 2.4s ease-in-out infinite",
               }}
@@ -92,9 +137,9 @@ export function SplashLoader() {
           <div
             className="leading-tight overflow-hidden"
             style={{
-              opacity: shrinking ? 0 : 1,
-              transform: shrinking ? "translateX(-8px)" : "translateX(0)",
-              transition: "opacity 0.6s ease, transform 0.8s ease",
+              opacity: opening ? 0 : 1,
+              transform: opening ? "translateX(-8px)" : "translateX(0)",
+              transition: "opacity 0.5s ease, transform 0.7s ease",
             }}
           >
             <div className="font-display text-lg tracking-wide text-ivory whitespace-nowrap">
@@ -118,7 +163,7 @@ export function SplashLoader() {
               </span>
             </div>
             <div
-              className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground"
+              className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground whitespace-nowrap"
               style={{
                 animation: "splash-letter 1s ease 0.45s both",
               }}
@@ -129,7 +174,8 @@ export function SplashLoader() {
         </div>
       </div>
 
-      {!shrinking && (
+      {/* Bottom shimmer line */}
+      {phase === "intro" && (
         <div className="absolute bottom-12 inset-x-0 flex justify-center">
           <div
             className="h-px w-40"
