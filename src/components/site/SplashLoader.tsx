@@ -232,8 +232,8 @@ export function SplashLoader() {
             transform: scale(1);
             transform-origin: center center;
           }
-          .splash-logo img { height: 4rem; width: 4rem; }
-          .splash-name { font-size: 2.25rem; letter-spacing: 0.01em; }
+          .splash-logo img { height: 8.5rem; width: 8.5rem; }
+          .splash-name { font-size: 2.5rem; letter-spacing: 0.01em; }
           .splash-tag { font-size: 11px; letter-spacing: 0.4em; margin-top: 0.5rem; }
           .splash-mark[data-opening="true"] {
             top: 50%; left: 50%; transform: translate(-50%, -50%);
