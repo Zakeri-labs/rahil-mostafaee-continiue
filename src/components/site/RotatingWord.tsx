@@ -22,19 +22,27 @@ export function RotatingWord({ words, className = "", interval = 2400 }: Props) 
     return () => clearInterval(t);
   }, [words.length, interval]);
 
+  // Reserve width of the longest word so the headline never reflows.
   return (
-    <span
-      className={`inline-block align-baseline ${className}`}
-      style={{
-        opacity: show ? 1 : 0,
-        transform: show ? "translateY(0) scale(1)" : "translateY(-0.25em) scale(0.96)",
-        filter: show ? "blur(0px)" : "blur(8px)",
-        transition:
-          "opacity 380ms cubic-bezier(0.2,0.7,0.2,1), transform 420ms cubic-bezier(0.2,0.7,0.2,1), filter 380ms ease-out",
-        willChange: "opacity, transform, filter",
-      }}
-    >
-      {words[i]}
+    <span className="relative inline-grid align-baseline whitespace-nowrap">
+      {/* Sizer: invisible, holds the largest word's width to lock layout */}
+      <span aria-hidden className={`invisible col-start-1 row-start-1 ${className}`}>
+        {words.reduce((a, b) => (b.length > a.length ? b : a), "")}
+      </span>
+      {/* Animated visible word */}
+      <span
+        className={`col-start-1 row-start-1 inline-block text-center ${className}`}
+        style={{
+          opacity: show ? 1 : 0,
+          transform: show ? "translateY(0) scale(1)" : "translateY(-0.2em) scale(0.96)",
+          filter: show ? "blur(0px)" : "blur(8px)",
+          transition:
+            "opacity 380ms cubic-bezier(0.2,0.7,0.2,1), transform 420ms cubic-bezier(0.2,0.7,0.2,1), filter 380ms ease-out",
+          willChange: "opacity, transform, filter",
+        }}
+      >
+        {words[i]}
+      </span>
     </span>
   );
 }
