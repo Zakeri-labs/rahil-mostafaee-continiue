@@ -2,12 +2,18 @@
 @source "../src";
 @import "tw-animate-css";
 
+/* Persian webfonts — IRANSans (primary), Estedad (display), Vazirmatn (fallback) */
+@import url("https://v1.fontapi.ir/css/IRANSansX");
+@import url("https://v1.fontapi.ir/css/Estedad");
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap");
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
-  --font-fa: "Vazirmatn", "IRANSans", "Tahoma", sans-serif;
+  --font-fa: "IRANSansX", "IRANSans", "Vazirmatn", "Tahoma", sans-serif;
+  --font-fa-display: "Estedad", "IRANSansX", "Vazirmatn", "Tahoma", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   --radius-sm: 4px;
@@ -118,14 +124,22 @@
   .font-mono { font-family: var(--font-mono); }
   .font-fa { font-family: var(--font-fa); }
 
-  [dir="rtl"] {
+  [dir="rtl"], [dir="rtl"] body, [dir="rtl"] input, [dir="rtl"] textarea, [dir="rtl"] button, [dir="rtl"] select {
     font-family: var(--font-fa);
   }
   [dir="rtl"] .font-display {
-    font-family: var(--font-fa);
+    font-family: var(--font-fa-display);
     font-weight: 600;
     letter-spacing: 0;
   }
+  [dir="rtl"] .tracking-\[0\.3em\],
+  [dir="rtl"] .tracking-\[0\.4em\],
+  [dir="rtl"] .tracking-\[0\.35em\],
+  [dir="rtl"] .tracking-\[0\.25em\],
+  [dir="rtl"] .tracking-\[0\.2em\] {
+    letter-spacing: 0.05em;
+  }
+  [dir="rtl"] .uppercase { text-transform: none; }
 
   .text-gold { color: var(--gold); }
   .bg-onyx { background-color: var(--onyx); }

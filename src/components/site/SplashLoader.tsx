@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import logo from "@/assets/logo-mark.png";
+import { useI18n } from "@/lib/i18n";
 
 type Phase = "intro" | "hold" | "iris" | "settle" | "done";
 
 export function SplashLoader() {
+  const { t } = useI18n();
   const [phase, setPhase] = useState<Phase>("intro");
 
   useEffect(() => {
@@ -178,7 +180,7 @@ export function SplashLoader() {
                 animation: "splash-letter 0.9s ease 0.55s both",
               }}
             >
-              Legal Counsel · Dubai
+              {t("splash.tag")}
             </div>
           </div>
         </div>

@@ -72,6 +72,30 @@ const en: Dict = {
   "admin.complete": "Mark complete",
   "admin.cancel": "Cancel",
   "admin.no_access": "Restricted to firm administrators.",
+
+  "splash.tag": "Legal Counsel · Dubai",
+  "book.brand_tag": "Rahil Mostafaee · Dubai",
+
+  "footer.role": "Strategic Legal Counsel",
+  "footer.blurb": "Discreet, cross-border legal representation for high-value Iranian clients in Dubai and across international jurisdictions.",
+  "footer.langs": "فارسی · English · العربية",
+  "footer.col.practice": "Practice",
+  "footer.col.firm": "Firm",
+  "footer.col.office": "Office",
+  "footer.link.cross": "Cross-Border",
+  "footer.link.residency": "Residency & Visas",
+  "footer.link.corporate": "Corporate",
+  "footer.link.realestate": "Real Estate",
+  "footer.link.wills": "DIFC Wills",
+  "footer.link.about": "About",
+  "footer.link.intl": "International",
+  "footer.link.insights": "Insights",
+  "footer.link.contact": "Contact",
+  "footer.office.area": "Business Bay",
+  "footer.office.city": "Dubai, UAE",
+  "footer.office.byappt": "By appointment only",
+  "footer.copyright": "All matters held in strict confidence.",
+  "footer.privileged": "Privileged & Confidential",
 };
 
 const fa: Dict = {
@@ -142,6 +166,30 @@ const fa: Dict = {
   "admin.complete": "ثبت اتمام",
   "admin.cancel": "لغو",
   "admin.no_access": "دسترسی فقط برای مدیران دفتر.",
+
+  "splash.tag": "وکیل پایه‌یک · دبی",
+  "book.brand_tag": "راحیل مصطفایی · دبی",
+
+  "footer.role": "وکیل و مشاور حقوقی راهبردی",
+  "footer.blurb": "نمایندگی حقوقی محرمانه و فرامرزی برای موکلین ارزشمند ایرانی در دبی و سایر حوزه‌های قضایی بین‌المللی.",
+  "footer.langs": "فارسی · English · العربية",
+  "footer.col.practice": "تخصص‌ها",
+  "footer.col.firm": "دفتر",
+  "footer.col.office": "نشانی",
+  "footer.link.cross": "پرونده‌های فرامرزی",
+  "footer.link.residency": "اقامت و ویزا",
+  "footer.link.corporate": "حقوق شرکت‌ها",
+  "footer.link.realestate": "املاک و مستغلات",
+  "footer.link.wills": "وصیت‌نامه DIFC",
+  "footer.link.about": "درباره دفتر",
+  "footer.link.intl": "بین‌المللی",
+  "footer.link.insights": "بینش‌ها",
+  "footer.link.contact": "تماس",
+  "footer.office.area": "بیزنس بی",
+  "footer.office.city": "دبی، امارات",
+  "footer.office.byappt": "تنها با تعیین وقت قبلی",
+  "footer.copyright": "تمامی پرونده‌ها به صورت کاملاً محرمانه نگهداری می‌شوند.",
+  "footer.privileged": "محرمانه و ممتاز",
 };
 
 const dict: Record<Lang, Dict> = { en, fa };
