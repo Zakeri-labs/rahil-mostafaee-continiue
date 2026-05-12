@@ -95,7 +95,7 @@ function RootComponent() {
             </main>
             <Footer />
             <WhatsAppFab />
-          </div>
+            <MobileBottomNav />
         </I18nProvider>
       </AuthProvider>
     </QueryClientProvider>
