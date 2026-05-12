@@ -44,8 +44,9 @@ function Home() {
       <International />
       <Atelier />
       <Packages />
-      <Platform />
+      <Process />
       <Founder />
+      <InstagramSection />
       <Trust />
       <CTA />
     </div>
