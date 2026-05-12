@@ -8,6 +8,12 @@ import office from "@/assets/office-interior.jpg";
 import portrait from "@/assets/rahil-ai-1.jpg";
 import officePortrait from "@/assets/rahil-ai-2.jpg";
 import profilePortrait from "@/assets/rahil-ai-3.jpg";
+import ig1 from "@/assets/ig/ig-1.jpg";
+import ig2 from "@/assets/ig/ig-2.jpg";
+import ig3 from "@/assets/ig/ig-3.jpg";
+import ig4 from "@/assets/ig/ig-4.jpg";
+import ig5 from "@/assets/ig/ig-5.jpg";
+import ig6 from "@/assets/ig/ig-6.jpg";
 import { Marquee } from "@/components/site/Marquee";
 import { Reveal } from "@/components/site/Reveal";
 import { RotatingWord } from "@/components/site/RotatingWord";
@@ -516,12 +522,11 @@ function Process() {
   );
 }
 
-// TODO: replace with the real Instagram handle
-const INSTAGRAM_URL = "https://instagram.com/rahilmostafaee";
+const INSTAGRAM_URL = "https://instagram.com/rahil.mostafaee";
 
 function InstagramSection() {
   const { t } = useI18n();
-  const tiles = [portrait, officePortrait, profilePortrait, portrait, officePortrait, profilePortrait];
+  const tiles = [ig1, ig2, ig3, ig4, ig5, ig6];
   return (
     <section className="relative py-32 border-t border-gold/10 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
