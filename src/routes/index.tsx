@@ -69,92 +69,97 @@ function Hero() {
   const { t, lang } = useI18n();
   return (
     <>
-      {/* ===== MOBILE HERO — portrait right, content left (Bader-style) ===== */}
+      {/* ===== MOBILE HERO — split: text left, portrait right ===== */}
       <section className="relative lg:hidden overflow-hidden -mt-24 pt-24 min-h-[100svh] flex flex-col">
         {/* Backdrop */}
-        <div className="absolute inset-0">
-          <img src={office} alt="" className="w-full h-full object-cover opacity-25 scale-110 ken-burns" />
-          <div className="absolute inset-0 bg-gradient-to-b from-onyx via-onyx/85 to-onyx" />
-          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.4 }} />
+        <div className="absolute inset-0 -z-10">
+          <img src={office} alt="" className="w-full h-full object-cover opacity-20 scale-110 ken-burns" />
+          <div className="absolute inset-0 bg-gradient-to-b from-onyx via-onyx/90 to-onyx" />
+          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.35 }} />
         </div>
 
-        {/* Rahil cutout — anchored bottom-right, bleeds off edge */}
-        <div className="absolute right-[-22%] bottom-0 top-20 w-[95%] pointer-events-none z-[1]">
-          <div className="absolute -inset-10 bg-gold/10 blur-3xl drift" aria-hidden />
-          <img
-            src={rahilCutout}
-            alt="Rahil Mostafaee"
-            className="relative h-full w-full object-contain object-bottom drop-shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
-          />
-          {/* Left fade so left-side text reads cleanly over portrait */}
-          <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-onyx via-onyx/70 to-transparent" />
-          {/* Bottom fade into stats */}
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-onyx to-transparent" />
-        </div>
+        {/* Top split row: content (left) + portrait (right) */}
+        <div className="relative flex-1 flex items-stretch">
+          {/* LEFT — content */}
+          <div className="relative z-[2] w-[58%] flex flex-col px-5 pt-4 pb-6">
+            <div className="reveal flex items-center gap-2 mb-4">
+              <span className="h-px w-6 bg-gold" />
+              <span className="text-[9px] tracking-[0.32em] uppercase text-gold leading-tight">
+                {t("home.hero.kicker")}
+              </span>
+            </div>
 
-        {/* Content (left column, narrower so it doesn't cover face) */}
-        <div className="relative z-[2] flex-1 flex flex-col px-6 pt-6 pr-2">
-          <div className="reveal flex items-center gap-2 mb-4">
-            <span className="h-px w-8 bg-gold" />
-            <span className="text-[10px] tracking-[0.32em] uppercase text-gold leading-tight">
-              {t("home.hero.kicker")}
-            </span>
+            <h1 className="reveal reveal-delay-1 font-display text-[2.25rem] leading-[1.02] tracking-tight text-ivory">
+              {t("home.hero.name.first")}
+              <br />
+              <span className="italic gradient-gold-text">{t("home.hero.name.last")}</span>
+            </h1>
+
+            <div className="reveal reveal-delay-2 mt-2 font-display italic text-base text-gold/90">
+              <RotatingWord
+                className="italic"
+                words={[
+                  t("home.hero.rotate.1"),
+                  t("home.hero.rotate.2"),
+                  t("home.hero.rotate.3"),
+                  t("home.hero.rotate.4"),
+                ]}
+              />
+            </div>
+
+            <div className="reveal reveal-delay-2 mt-3 flex items-center gap-1.5 text-[10px] text-muted-foreground">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-gold" />
+              <span className="tracking-wide">{t("home.hero.location")}</span>
+            </div>
+
+            <h2 className="reveal reveal-delay-3 mt-5 font-display text-lg leading-snug text-ivory">
+              {t("home.hero.h1.a")} {t("home.hero.h1.c")}
+            </h2>
+
+            <p className="reveal reveal-delay-3 mt-3 text-[12px] text-muted-foreground leading-relaxed">
+              {t("home.hero.lede")}
+            </p>
+
+            <div className="flex-1" />
+
+            {/* CTAs */}
+            <div className="relative z-10 pt-6 space-y-2.5">
+              <Link
+                to="/booking"
+                className="reveal reveal-delay-3 inline-flex w-full items-center justify-center gap-2 px-3 py-3.5 bg-gold text-onyx shadow-glow"
+              >
+                <span className="text-[10px] tracking-[0.25em] uppercase font-medium">
+                  {t("home.hero.cta.book")}
+                </span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link
+                to="/contact"
+                className="reveal reveal-delay-4 inline-flex w-full items-center justify-center gap-2 px-3 py-3 glass-strong text-ivory"
+              >
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
+                </span>
+                <span className="text-[10px] tracking-[0.25em] uppercase font-medium">
+                  {t("home.hero.cta.emergency")}
+                </span>
+              </Link>
+            </div>
           </div>
 
-          <h1 className="reveal reveal-delay-1 font-display text-[2.5rem] leading-[1] tracking-tight text-ivory max-w-[16ch]">
-            {t("home.hero.name.first")} <span className="italic gradient-gold-text">{t("home.hero.name.last")}</span>
-          </h1>
-
-          <div className="reveal reveal-delay-2 mt-3 font-display italic text-xl text-gold/90 max-w-[18ch]">
-            <RotatingWord
-              className="italic"
-              words={[
-                t("home.hero.rotate.1"),
-                t("home.hero.rotate.2"),
-                t("home.hero.rotate.3"),
-                t("home.hero.rotate.4"),
-              ]}
+          {/* RIGHT — portrait, full-height of the hero column */}
+          <div className="relative w-[42%] z-[1] pointer-events-none">
+            <div className="absolute -inset-6 bg-gold/10 blur-3xl drift" aria-hidden />
+            <img
+              src={rahilCutout}
+              alt="Rahil Mostafaee"
+              className="relative h-full w-full object-contain object-bottom drop-shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
+              style={{ objectPosition: "right bottom" }}
             />
-          </div>
-
-          <div className="reveal reveal-delay-2 mt-5 flex items-center gap-2 text-[11px] text-muted-foreground">
-            <span className="inline-block h-2 w-2 rounded-full bg-gold" />
-            <span className="tracking-wide">{t("home.hero.location")}</span>
-          </div>
-
-          <h2 className="reveal reveal-delay-3 mt-6 font-display text-2xl leading-tight text-ivory max-w-[20ch]">
-            {t("home.hero.h1.a")} {t("home.hero.h1.c")}
-          </h2>
-
-          <p className="reveal reveal-delay-3 mt-4 max-w-[24ch] text-sm text-muted-foreground leading-relaxed">
-            {t("home.hero.lede")}
-          </p>
-
-          <div className="flex-1" />
-
-          {/* CTAs */}
-          <div className="relative z-10 pb-5 pt-8 space-y-3 max-w-[20rem]">
-            <Link
-              to="/booking"
-              className="reveal reveal-delay-3 inline-flex w-full items-center justify-center gap-2 px-5 py-4 bg-gold text-onyx shadow-glow"
-            >
-              <span className="text-[11px] tracking-[0.3em] uppercase font-medium">
-                {t("home.hero.cta.book")}
-              </span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/contact"
-              className="reveal reveal-delay-4 inline-flex w-full items-center justify-center gap-2 px-5 py-3.5 glass-strong text-ivory"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
-              </span>
-              <span className="text-[11px] tracking-[0.3em] uppercase font-medium">
-                {t("home.hero.cta.emergency")}
-              </span>
-            </Link>
+            {/* Soft fade on the inner edge so the split feels seamless */}
+            <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-onyx to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-onyx to-transparent" />
           </div>
         </div>
 
