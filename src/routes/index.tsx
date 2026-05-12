@@ -6,6 +6,7 @@ import { listServices } from "@/lib/booking.functions";
 import hero from "@/assets/hero-skyline.jpg";
 import office from "@/assets/office-interior.jpg";
 import portrait from "@/assets/rahil-ai-1.jpg";
+import rahilCutout from "@/assets/rahil-cutout.png";
 import officePortrait from "@/assets/rahil-ai-2.jpg";
 import profilePortrait from "@/assets/rahil-ai-3.jpg";
 import ig1 from "@/assets/ig/ig-1.jpg";
