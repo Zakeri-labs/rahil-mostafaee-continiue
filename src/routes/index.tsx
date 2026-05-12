@@ -6,6 +6,7 @@ import { listServices } from "@/lib/booking.functions";
 import hero from "@/assets/hero-skyline.jpg";
 import office from "@/assets/office-interior.jpg";
 import portrait from "@/assets/rahil-ai-1.jpg";
+import rahilCutout from "@/assets/rahil-cutout.png";
 import officePortrait from "@/assets/rahil-ai-2.jpg";
 import profilePortrait from "@/assets/rahil-ai-3.jpg";
 import ig1 from "@/assets/ig/ig-1.jpg";
@@ -46,14 +47,19 @@ function Home() {
       <Hero />
       <Marquee />
       <Pillars />
+      {/* Atelier hidden on mobile to reduce visual load */}
+      <div className="hidden lg:block">
+        <Atelier />
+      </div>
       <Practice />
-      <International />
-      <Atelier />
       <Packages />
+      <International />
       <Process />
       <Founder />
       <InstagramSection />
-      <Trust />
+      <div className="hidden md:block">
+        <Trust />
+      </div>
       <CTA />
     </div>
   );
@@ -62,149 +68,243 @@ function Home() {
 function Hero() {
   const { t, lang } = useI18n();
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden -mt-24 pt-32">
-      <Parallax speed={60} className="absolute inset-0">
-        <img src={hero} alt="Dubai skyline" className="w-full h-full object-cover opacity-40 ken-burns scale-110" width={1920} height={1280} />
-        <div className="absolute inset-0 bg-gradient-to-b from-onyx/70 via-onyx/50 to-onyx" />
-        <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/60 to-transparent" />
-        <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)" }} />
-        <div
-          className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
-          style={{ backgroundImage: "radial-gradient(oklch(0.78 0.12 80) 1px, transparent 1px)", backgroundSize: "3px 3px" }}
-        />
-      </Parallax>
+    <>
+      {/* ===== MOBILE HERO — split: cutout left, content right ===== */}
+      <section className="relative lg:hidden overflow-hidden -mt-24 pt-24 min-h-[88vh] flex flex-col">
+        {/* Backdrop */}
+        <div className="absolute inset-0">
+          <img src={hero} alt="" className="w-full h-full object-cover opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-b from-onyx via-onyx/85 to-onyx" />
+          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)", opacity: 0.5 }} />
+        </div>
 
-      <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-6 z-10">
-        <span className="h-24 w-px bg-gradient-to-b from-transparent to-gold/60" />
-        <span className="font-mono text-[10px] tracking-[0.5em] uppercase text-gold/80 [writing-mode:vertical-rl] rotate-180">
-          {t("home.hero.est")}
-        </span>
-        <span className="h-24 w-px bg-gradient-to-b from-gold/60 to-transparent" />
-      </div>
-
-      <div className="absolute right-8 top-32 hidden lg:flex items-center gap-3 z-10">
-        <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground">N° 001</span>
-        <span className="h-px w-10 bg-gold/40" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-20 pb-20 lg:pb-24 pt-12 w-full">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-7 space-y-10">
-            <div className="reveal flex items-center gap-3">
-              <span className="h-px w-12 bg-gold" />
-              <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
-                {t("home.hero.kicker")}
-              </span>
-            </div>
-
-            <h1 className="reveal reveal-delay-1 font-display text-5xl sm:text-7xl lg:text-[6.75rem] leading-[0.95] tracking-tight text-balance">
-              <span className="text-ivory">{t("home.hero.h1.a")}</span>
-              <RotatingWord
-                className="gradient-gold-text italic"
-                words={[
-                  t("home.hero.rotate.1"),
-                  t("home.hero.rotate.2"),
-                  t("home.hero.rotate.3"),
-                  t("home.hero.rotate.4"),
-                ]}
+        <div className="relative flex-1 flex items-stretch px-4 pt-6">
+          <div className="grid grid-cols-2 gap-3 w-full items-end">
+            {/* Cutout image — half view, body cropped at bottom */}
+            <div className="relative h-[68vh] flex items-end justify-center">
+              <div className="absolute -inset-6 rounded-full bg-gold/10 blur-3xl drift" aria-hidden />
+              <img
+                src={rahilCutout}
+                alt="Rahil Mostafaee"
+                className="relative w-full h-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                width={768}
+                height={1280}
               />
-              <br />
-              <span className="text-ivory">{t("home.hero.h1.c")}</span>
-              <br />
-              <span className="text-muted-foreground font-light">{t("home.hero.h1.d")}</span>
-            </h1>
+              <div className="absolute -bottom-px inset-x-0 h-24 bg-gradient-to-t from-onyx to-transparent pointer-events-none" />
+            </div>
 
-            <p className="reveal reveal-delay-2 max-w-xl text-lg text-muted-foreground leading-relaxed">
-              {t("home.hero.lede")}
-            </p>
-
-            <div className="reveal reveal-delay-3 flex flex-wrap items-center gap-4">
-              <Link to="/booking" className="group inline-flex items-center gap-3 px-8 py-4 bg-gold text-onyx hover:bg-gold-soft transition-all duration-300 shadow-glow">
-                <span className="text-xs tracking-[0.3em] uppercase font-medium">{t("home.hero.cta.book")}</span>
-                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Link>
-              <Link to="/contact" className="group inline-flex items-center gap-3 px-8 py-4 glass-strong text-ivory hover:border-gold/40 transition-all">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
+            {/* Right: title + CTA */}
+            <div className="flex flex-col justify-center gap-5 pb-8">
+              <div className="flex items-center gap-2">
+                <span className="h-px w-6 bg-gold" />
+                <span className="text-[8px] tracking-[0.35em] uppercase text-gold leading-tight">
+                  {t("home.hero.kicker")}
                 </span>
-                <span className="text-xs tracking-[0.3em] uppercase font-medium">{t("home.hero.cta.emergency")}</span>
+              </div>
+
+              <h1 className="font-display text-[2rem] leading-[1.05] tracking-tight text-balance">
+                <span className="text-ivory">{t("home.hero.h1.a")}</span>
+                <RotatingWord
+                  className="gradient-gold-text italic"
+                  words={[
+                    t("home.hero.rotate.1"),
+                    t("home.hero.rotate.2"),
+                    t("home.hero.rotate.3"),
+                    t("home.hero.rotate.4"),
+                  ]}
+                />
+                <br />
+                <span className="text-ivory">{t("home.hero.h1.c")}</span>
+              </h1>
+
+              <p className="text-[13px] text-muted-foreground leading-relaxed">
+                {t("home.hero.lede").split(".")[0]}.
+              </p>
+
+              <Link
+                to="/booking"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gold text-onyx shadow-glow"
+              >
+                <span className="text-[10px] tracking-[0.25em] uppercase font-medium">
+                  {t("home.hero.cta.book").split(" ").slice(0, 2).join(" ")}
+                </span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
-            </div>
 
-            <div className="reveal reveal-delay-4 grid grid-cols-2 sm:grid-cols-4 gap-px bg-gold/10 mt-12 max-w-3xl">
-              {[
-                { v: "12+", l: t("home.hero.stat.years") },
-                { v: "300+", l: t("home.hero.stat.mandates") },
-                { v: "24h", l: t("home.hero.stat.sla") },
-                { v: "3", l: t("home.hero.stat.langs") },
-              ].map((s) => (
-                <div key={s.l} className="bg-onyx/80 px-6 py-6">
-                  <div className="font-display text-3xl text-gold">{localizeNum(s.v, lang)}</div>
-                  <div className="stat-label text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
-                    {s.l}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="lg:col-span-5 order-first lg:order-last max-w-xs mx-auto lg:max-w-none w-full">
-            <div className="relative">
-              <div className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70 drift" aria-hidden />
-
-              <div className="reveal reveal-delay-3 absolute -top-4 -right-4 z-20 glass-strong px-4 py-3 border-l-2 border-gold">
-                <div className="flex items-center gap-2.5">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
-                  </span>
-                  <div>
-                    <div className="text-[9px] tracking-[0.35em] uppercase text-gold leading-none">{t("home.hero.available")}</div>
-                    <div className="text-[11px] text-ivory mt-1 leading-none">{t("home.hero.location")}</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="reveal reveal-delay-2 relative">
-                <span className="pointer-events-none absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-gold z-10" />
-                <span className="pointer-events-none absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-gold z-10" />
-                <span className="pointer-events-none absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-gold z-10" />
-                <span className="pointer-events-none absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-gold z-10" />
-
-                <div className="relative overflow-hidden aspect-[4/5] tilt-hover gold-sweep">
-                  <img
-                    src={portrait}
-                    alt="Rahil Mostafaee"
-                    className="w-full h-full object-cover slow-pan"
-                    width={900}
-                    height={1125}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/30 to-transparent" />
-                  <div className="absolute bottom-0 inset-x-0 p-7">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="h-px w-6 bg-gold" />
-                      <span className="text-[9px] tracking-[0.45em] uppercase text-gold">{t("home.hero.founder")}</span>
-                    </div>
-                    <div className="font-display text-3xl text-ivory leading-tight">{t("home.hero.name.first")}<br /><span className="italic gradient-gold-text">{t("home.hero.name.last")}</span></div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="reveal reveal-delay-4 mt-6 flex items-center justify-between text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-                <span>{t("home.hero.signature")}</span>
-                <span className="font-mono text-gold">— RM</span>
+              <div className="flex items-center gap-2 text-[9px] tracking-[0.3em] uppercase text-muted-foreground">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
+                </span>
+                {t("home.hero.location")}
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 z-10">
-        <span className="text-[9px] tracking-[0.45em] uppercase text-muted-foreground">{t("home.hero.scroll")}</span>
-        <span className="h-10 w-px bg-gradient-to-b from-gold/60 to-transparent animate-pulse" />
-      </div>
-    </section>
+        {/* Compact stats row */}
+        <div className="relative grid grid-cols-4 gap-px bg-gold/10 mx-4 mb-6">
+          {[
+            { v: "12+", l: t("home.hero.stat.years") },
+            { v: "300+", l: t("home.hero.stat.mandates") },
+            { v: "24h", l: t("home.hero.stat.sla") },
+            { v: "3", l: t("home.hero.stat.langs") },
+          ].map((s) => (
+            <div key={s.l} className="bg-onyx/80 px-2 py-3 text-center">
+              <div className="font-display text-base text-gold">{localizeNum(s.v, lang)}</div>
+              <div className="text-[7px] tracking-[0.18em] uppercase text-muted-foreground mt-0.5 leading-tight">
+                {s.l}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== DESKTOP HERO ===== */}
+      <section className="relative hidden lg:flex min-h-screen items-center overflow-hidden -mt-24 pt-32">
+        <Parallax speed={60} className="absolute inset-0">
+          <img src={hero} alt="Dubai skyline" className="w-full h-full object-cover opacity-40 ken-burns scale-110" width={1920} height={1280} />
+          <div className="absolute inset-0 bg-gradient-to-b from-onyx/70 via-onyx/50 to-onyx" />
+          <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/60 to-transparent" />
+          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)" }} />
+          <div
+            className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
+            style={{ backgroundImage: "radial-gradient(oklch(0.78 0.12 80) 1px, transparent 1px)", backgroundSize: "3px 3px" }}
+          />
+        </Parallax>
+
+        <div className="absolute left-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 z-10">
+          <span className="h-24 w-px bg-gradient-to-b from-transparent to-gold/60" />
+          <span className="font-mono text-[10px] tracking-[0.5em] uppercase text-gold/80 [writing-mode:vertical-rl] rotate-180">
+            {t("home.hero.est")}
+          </span>
+          <span className="h-24 w-px bg-gradient-to-b from-gold/60 to-transparent" />
+        </div>
+
+        <div className="absolute right-8 top-32 flex items-center gap-3 z-10">
+          <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground">N° 001</span>
+          <span className="h-px w-10 bg-gold/40" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-20 pb-20 lg:pb-24 pt-12 w-full">
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-7 space-y-10">
+              <div className="reveal flex items-center gap-3">
+                <span className="h-px w-12 bg-gold" />
+                <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
+                  {t("home.hero.kicker")}
+                </span>
+              </div>
+
+              <h1 className="reveal reveal-delay-1 font-display text-7xl lg:text-[6.75rem] leading-[0.95] tracking-tight text-balance">
+                <span className="text-ivory">{t("home.hero.h1.a")}</span>
+                <RotatingWord
+                  className="gradient-gold-text italic"
+                  words={[
+                    t("home.hero.rotate.1"),
+                    t("home.hero.rotate.2"),
+                    t("home.hero.rotate.3"),
+                    t("home.hero.rotate.4"),
+                  ]}
+                />
+                <br />
+                <span className="text-ivory">{t("home.hero.h1.c")}</span>
+                <br />
+                <span className="text-muted-foreground font-light">{t("home.hero.h1.d")}</span>
+              </h1>
+
+              <p className="reveal reveal-delay-2 max-w-xl text-lg text-muted-foreground leading-relaxed">
+                {t("home.hero.lede")}
+              </p>
+
+              <div className="reveal reveal-delay-3 flex flex-wrap items-center gap-4">
+                <Link to="/booking" className="group inline-flex items-center gap-3 px-8 py-4 bg-gold text-onyx hover:bg-gold-soft transition-all duration-300 shadow-glow">
+                  <span className="text-xs tracking-[0.3em] uppercase font-medium">{t("home.hero.cta.book")}</span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+                <Link to="/contact" className="group inline-flex items-center gap-3 px-8 py-4 glass-strong text-ivory hover:border-gold/40 transition-all">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
+                  </span>
+                  <span className="text-xs tracking-[0.3em] uppercase font-medium">{t("home.hero.cta.emergency")}</span>
+                </Link>
+              </div>
+
+              <div className="reveal reveal-delay-4 grid grid-cols-2 sm:grid-cols-4 gap-px bg-gold/10 mt-12 max-w-3xl">
+                {[
+                  { v: "12+", l: t("home.hero.stat.years") },
+                  { v: "300+", l: t("home.hero.stat.mandates") },
+                  { v: "24h", l: t("home.hero.stat.sla") },
+                  { v: "3", l: t("home.hero.stat.langs") },
+                ].map((s) => (
+                  <div key={s.l} className="bg-onyx/80 px-6 py-6">
+                    <div className="font-display text-3xl text-gold">{localizeNum(s.v, lang)}</div>
+                    <div className="stat-label text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
+                      {s.l}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="relative">
+                <div className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70 drift" aria-hidden />
+
+                <div className="reveal reveal-delay-3 absolute -top-4 -right-4 z-20 glass-strong px-4 py-3 border-l-2 border-gold">
+                  <div className="flex items-center gap-2.5">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
+                    </span>
+                    <div>
+                      <div className="text-[9px] tracking-[0.35em] uppercase text-gold leading-none">{t("home.hero.available")}</div>
+                      <div className="text-[11px] text-ivory mt-1 leading-none">{t("home.hero.location")}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="reveal reveal-delay-2 relative">
+                  <span className="pointer-events-none absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-gold z-10" />
+                  <span className="pointer-events-none absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-gold z-10" />
+                  <span className="pointer-events-none absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-gold z-10" />
+                  <span className="pointer-events-none absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-gold z-10" />
+
+                  <div className="relative overflow-hidden aspect-[4/5] tilt-hover gold-sweep">
+                    <img
+                      src={portrait}
+                      alt="Rahil Mostafaee"
+                      className="w-full h-full object-cover slow-pan"
+                      width={900}
+                      height={1125}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/30 to-transparent" />
+                    <div className="absolute bottom-0 inset-x-0 p-7">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="h-px w-6 bg-gold" />
+                        <span className="text-[9px] tracking-[0.45em] uppercase text-gold">{t("home.hero.founder")}</span>
+                      </div>
+                      <div className="font-display text-3xl text-ivory leading-tight">{t("home.hero.name.first")}<br /><span className="italic gradient-gold-text">{t("home.hero.name.last")}</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="reveal reveal-delay-4 mt-6 flex items-center justify-between text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+                  <span>{t("home.hero.signature")}</span>
+                  <span className="font-mono text-gold">— RM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 z-10">
+          <span className="text-[9px] tracking-[0.45em] uppercase text-muted-foreground">{t("home.hero.scroll")}</span>
+          <span className="h-10 w-px bg-gradient-to-b from-gold/60 to-transparent animate-pulse" />
+        </div>
+      </section>
+    </>
   );
 }
 
