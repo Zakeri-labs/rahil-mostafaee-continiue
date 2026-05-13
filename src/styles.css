@@ -1,11 +1,11 @@
-@import "tailwindcss" source(none);
-@source "../src";
-@import "tw-animate-css";
-
 /* Persian webfonts — IRANSans (primary), Estedad (display), Vazirmatn (fallback) */
 @import url("https://v1.fontapi.ir/css/IRANSansX");
 @import url("https://v1.fontapi.ir/css/Estedad");
 @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap");
+
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
