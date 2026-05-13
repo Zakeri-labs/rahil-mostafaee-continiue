@@ -2,12 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { useQuery } from "@tanstack/react-query";
+import { ArrowUpRight, Check, Clock, Zap } from "lucide-react";
 import { listServices, getDaySlots, createBookingCheckout } from "@/lib/booking.functions";
 import { useI18n } from "@/lib/i18n";
 import { useAuth } from "@/lib/use-auth";
 import { getStripeEnvironment } from "@/lib/stripe";
 import { StripeEmbeddedCheckoutMount } from "@/components/StripeEmbeddedCheckout";
 import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
+import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/booking")({
   head: () => ({ meta: [{ title: "Book a Consultation — Rahil Mostafaee" }] }),
@@ -104,6 +106,18 @@ function BookingPage() {
       timeZone: "Asia/Dubai",
     });
 
+  const formatAed = (aed: number) => aed.toLocaleString(lang === "fa" ? "fa-IR" : "en-US");
+
+  const featuresFor = (slug: string): string[] => {
+    const map: Record<string, string[]> = {
+      "standard-30": [t("home.pkg.feat.confidential"), t("home.pkg.feat.followup"), t("home.pkg.feat.summary")],
+      "strategic-60": [t("home.pkg.feat.deepdive"), t("home.pkg.feat.roadmap"), t("home.pkg.feat.priority"), t("home.pkg.feat.summary")],
+      "emergency-24h": [t("home.pkg.feat.sameday"), t("home.pkg.feat.directline"), t("home.pkg.feat.priority")],
+      international: [t("home.pkg.feat.multijuris"), t("home.pkg.feat.intake"), t("home.pkg.feat.roadmap"), t("home.pkg.feat.summary")],
+    };
+    return map[slug] ?? [];
+  };
+
   if (clientSecret) {
     return (
       <>
@@ -119,57 +133,98 @@ function BookingPage() {
   return (
     <>
       <PaymentTestModeBanner />
-      <div className="max-w-5xl mx-auto px-6 py-16" dir={dir}>
-        <div className="text-center mb-14 reveal">
-          <div className="text-[10px] tracking-[0.4em] uppercase text-gold mb-3">
-            {t("book.brand_tag")}
-          </div>
-          <h1 className="font-display text-5xl text-ivory">{t("book.title")}</h1>
-          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">{t("book.subtitle")}</p>
+      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-10 lg:py-16" dir={dir}>
+        <div className="text-center mb-8">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-gold">{t("book.brand_tag")}</div>
+          <p className="mt-3 text-xs tracking-[0.3em] uppercase text-muted-foreground">
+            01 — {t("book.step.service")}
+          </p>
         </div>
 
-        <section className="mb-12">
-          <h2 className="text-xs tracking-[0.3em] uppercase text-gold mb-5">
-            01 — {t("book.step.service")}
-          </h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {services.map((s) => {
-              const active = serviceId === s.id;
-              return (
-                <button
-                  key={s.id}
-                  onClick={() => { setServiceId(s.id); setSlot(null); }}
-                  className={`text-left p-6 rounded-xl border transition-all ${
-                    active ? "border-gold bg-gold/5 shadow-glow" : "border-border bg-card/40 hover:border-gold/40"
-                  }`}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="font-display text-xl text-ivory">
-                        {lang === "fa" ? s.name_fa : s.name_en}
+        <section className="relative mb-16 border-t border-gold/10 py-12 lg:py-20 overflow-hidden">
+          <div className="absolute inset-0 opacity-40 pointer-events-none" style={{ background: "var(--gradient-radial-gold)" }} />
+          <div className="relative">
+            <div className="text-center max-w-3xl mx-auto space-y-6 mb-16">
+              <div className="inline-flex items-center gap-3 mx-auto">
+                <span className="h-px w-12 bg-gold" />
+                <span className="text-[10px] tracking-[0.4em] uppercase text-gold">{t("home.pkg.kicker")}</span>
+                <span className="h-px w-12 bg-gold" />
+              </div>
+              <h1 className="font-display text-5xl lg:text-6xl text-ivory tracking-tight">
+                {t("home.pkg.h2.a")} <span className="italic gradient-gold-text">{t("home.pkg.h2.b")}</span>
+              </h1>
+              <p className="text-muted-foreground">{t("home.pkg.body")}</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {services.map((s, i) => {
+                const name = lang === "fa" ? s.name_fa : s.name_en;
+                const desc = lang === "fa" ? s.description_fa : s.description_en;
+                const featured = s.is_emergency || i === 1;
+                const active = serviceId === s.id;
+                return (
+                  <Reveal key={s.id} delay={i * 100}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setServiceId(s.id);
+                        setSlot(null);
+                      }}
+                      className={`relative h-full w-full flex flex-col p-8 text-left cursor-pointer transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                        active ? "ring-2 ring-gold shadow-glow z-1" : ""
+                      } ${featured ? "glass-strong border border-gold/40 shadow-luxe" : "glass hover:border-gold/30"}`}
+                    >
+                      {featured && (
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gold text-onyx text-[9px] tracking-[0.35em] uppercase font-medium whitespace-nowrap pointer-events-none">
+                          {s.is_emergency ? t("home.pkg.urgent") : t("home.pkg.popular")}
+                        </div>
+                      )}
+                      <div className="flex items-center gap-2 text-gold mb-4">
+                        {s.is_emergency ? <Zap className="w-4 h-4 shrink-0" /> : <Clock className="w-4 h-4 shrink-0" />}
+                        <span className="text-[10px] tracking-[0.3em] uppercase">
+                          {lang === "fa"
+                            ? `${s.duration_minutes.toLocaleString("fa-IR")} ${t("home.pkg.min")}`
+                            : `${s.duration_minutes} ${t("home.pkg.min")}`}
+                        </span>
                       </div>
-                      <div className="mt-1 text-xs text-muted-foreground">
-                        {s.duration_minutes} {t("book.duration")}
-                        {s.is_emergency && (
-                          <span className="ml-2 text-gold">· {t("book.emergency")}</span>
+                      <h2 className="font-display text-2xl text-ivory leading-tight min-h-14">{name}</h2>
+                      <p className="text-sm text-muted-foreground mt-3 leading-relaxed min-h-14">{desc}</p>
+                      <div className="my-6 gold-divider" />
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-display text-4xl text-gold">{formatAed(s.price_aed)}</span>
+                        <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">{t("home.pkg.aed")}</span>
+                      </div>
+                      <ul className="mt-6 space-y-2.5 flex-1">
+                        {featuresFor(s.slug).map((f) => (
+                          <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                            <Check className="w-4 h-4 text-gold mt-0.5 shrink-0" />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div
+                        className={`mt-8 group inline-flex w-full items-center justify-center gap-3 px-6 py-3.5 transition-all pointer-events-none ${
+                          featured ? "bg-gold text-onyx shadow-glow" : "border border-gold/40 text-gold"
+                        } ${active ? "opacity-100" : ""}`}
+                      >
+                        <span className="text-xs tracking-[0.3em] uppercase font-medium">
+                          {active ? t("book.selected") : t("home.pkg.reserve")}
+                        </span>
+                        {active ? (
+                          <Check className="w-4 h-4" />
+                        ) : (
+                          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         )}
                       </div>
-                      <p className="mt-3 text-sm text-muted-foreground">
-                        {lang === "fa" ? s.description_fa : s.description_en}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-gold font-display text-2xl">
-                        {s.price_aed.toLocaleString()}
-                      </div>
-                      <div className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-                        {t("book.aed")}
-                      </div>
-                    </div>
-                  </div>
-                </button>
-              );
-            })}
+                    </button>
+                  </Reveal>
+                );
+              })}
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-sm text-muted-foreground max-w-xl mx-auto">{t("book.subtitle")}</p>
+            </div>
           </div>
         </section>
 
