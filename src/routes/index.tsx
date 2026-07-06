@@ -74,7 +74,7 @@ function Home() {
 }
 
 function Hero() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const waHref = whatsappHref(t("home.hero.whatsappMsg"));
 
   return (
@@ -143,7 +143,7 @@ function Hero() {
           </div>
 
           <h1 className="reveal reveal-delay-1 font-display text-[3.25rem] leading-[0.98] tracking-tight text-ivory break-words lg:text-balance lg:text-[6.75rem] lg:leading-[0.95]">
-            {t("home.hero.h1")}
+            <HeroHeadlineText lang={lang} title={t("home.hero.h1")} />
           </h1>
 
           <p className="reveal reveal-delay-2 mt-4 text-[13px] text-muted-foreground leading-relaxed lg:mt-0 lg:max-w-xl lg:text-lg">
@@ -262,6 +262,21 @@ function Hero() {
         <span className="h-10 w-px bg-gradient-to-b from-gold/60 to-transparent animate-pulse" />
       </div>
     </section>
+  );
+}
+
+function HeroHeadlineText({ lang, title }: { lang: "en" | "fa"; title: string }) {
+  const highlight = lang === "fa" ? "بازیابی دارایی" : "& Asset Recovery";
+  const [before, after] = title.split(highlight);
+
+  if (!after) return <>{title}</>;
+
+  return (
+    <>
+      <span>{before}</span>
+      <span className="italic gradient-gold-text">{highlight}</span>
+      <span>{after}</span>
+    </>
   );
 }
 

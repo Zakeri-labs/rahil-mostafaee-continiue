@@ -34,29 +34,32 @@ export function Nav() {
       <div
         className={`mx-auto max-w-7xl px-6 lg:px-10 transition-all duration-500 ${scrolled ? "glass-strong rounded-full" : ""}`}
       >
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-4 group">
+        <div className="flex h-20 items-center justify-between lg:grid lg:grid-cols-[minmax(14rem,auto)_minmax(0,1fr)_auto] lg:gap-4 xl:gap-6">
+          <Link
+            to="/"
+            className="flex min-w-0 items-center gap-4 group lg:max-w-[17rem] xl:max-w-none"
+          >
             <img
               src={logo}
               alt="Rahil Mostafaee"
               className={`object-contain transition-all duration-500 ${scrolled ? "h-12 w-12" : "h-14 w-14"}`}
             />
-            <div className="leading-tight">
+            <div className="min-w-0 leading-tight lg:whitespace-nowrap">
               <div className="font-display text-2xl tracking-wide text-ivory">
                 Rahil <span className="text-gold">Mostafaee</span>
               </div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
+              <div className="truncate text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
                 {t("tag.legal")}
               </div>
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden min-w-0 items-center justify-center gap-2 xl:gap-3 2xl:gap-4 lg:flex">
             {links.map((l) => (
               <Link
                 key={l.to}
                 to={l.to}
-                className="text-sm tracking-wide text-muted-foreground hover:text-gold transition-colors"
+                className="whitespace-nowrap text-sm tracking-wide text-muted-foreground hover:text-gold transition-colors"
                 activeProps={{ className: "text-gold" }}
                 activeOptions={{ exact: l.to === "/" }}
               >
@@ -65,8 +68,8 @@ export function Nav() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
-            <div className="flex items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden">
+          <div className="hidden shrink-0 items-center justify-end gap-2 xl:gap-3 lg:flex">
+            <div className="flex shrink-0 items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden">
               <button
                 onClick={() => switchLang("en")}
                 className={`px-3 py-1.5 transition-colors ${lang === "en" ? "bg-gold text-onyx" : "text-muted-foreground hover:text-gold"}`}
@@ -84,14 +87,14 @@ export function Nav() {
             {user ? (
               <button
                 onClick={() => signOut()}
-                className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-gold transition-colors"
+                className="whitespace-nowrap text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-gold transition-colors"
               >
                 {t("nav.logout")}
               </button>
             ) : (
               <Link
                 to="/login"
-                className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-gold transition-colors"
+                className="whitespace-nowrap text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-gold transition-colors"
               >
                 {t("nav.login")}
               </Link>
@@ -99,7 +102,7 @@ export function Nav() {
 
             <Link
               to="/contact"
-              className="px-5 py-2.5 text-xs tracking-[0.2em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all duration-300"
+              className="whitespace-nowrap px-4 py-2.5 text-xs tracking-[0.2em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all duration-300 xl:px-5"
             >
               {t("nav.book")}
             </Link>
