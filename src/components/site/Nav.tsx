@@ -98,7 +98,7 @@ export function Nav() {
             )}
 
             <Link
-              to="/booking"
+              to="/contact"
               className="px-5 py-2.5 text-xs tracking-[0.2em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all duration-300"
             >
               {t("nav.book")}
@@ -121,7 +121,6 @@ export function Nav() {
             </button>
           </div>
         </div>
-
       </div>
     </header>
   );

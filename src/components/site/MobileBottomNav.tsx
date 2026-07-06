@@ -1,6 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Home, Briefcase, CalendarCheck, MessageCircle, Menu as MenuIcon, X, Globe, LogIn, LogOut, Mail, BookOpen, Building2 } from "lucide-react";
+import {
+  Home,
+  Briefcase,
+  CalendarCheck,
+  MessageCircle,
+  Menu as MenuIcon,
+  X,
+  Globe,
+  LogIn,
+  LogOut,
+  Mail,
+  BookOpen,
+  Building2,
+} from "lucide-react";
 import { useI18n, type Lang } from "@/lib/i18n";
 import { useAuth } from "@/lib/use-auth";
 
@@ -44,17 +57,17 @@ export function MobileBottomNav() {
             <span className="text-[9px] tracking-[0.15em] uppercase">{t("nav.practice")}</span>
           </Link>
 
-          {/* Center CTA — Book */}
+          {/* Center CTA — case review */}
           <Link
-            to="/booking"
+            to="/contact"
             className="relative flex flex-col items-center justify-end h-full"
-            aria-label={t("nav.book")}
+            aria-label={t("nav.review")}
           >
             <span className="absolute -top-5 flex items-center justify-center w-14 h-14 rounded-full bg-gold text-onyx shadow-glow ring-4 ring-onyx">
               <CalendarCheck className="w-6 h-6" strokeWidth={1.6} />
             </span>
             <span className="text-[9px] tracking-[0.15em] uppercase text-gold mb-2">
-              {t("nav.book").split(" ")[0]}
+              {t("nav.review")}
             </span>
           </Link>
 
@@ -66,16 +79,18 @@ export function MobileBottomNav() {
             aria-label={t("fab.whatsapp.aria")}
           >
             <MessageCircle className="w-5 h-5 text-[#25D366]" strokeWidth={1.5} />
-            <span className="text-[9px] tracking-[0.15em] uppercase">{t("fab.whatsapp.label")}</span>
+            <span className="text-[9px] tracking-[0.15em] uppercase">
+              {t("fab.whatsapp.label")}
+            </span>
           </a>
 
           <button
             onClick={() => setOpen(true)}
             className="flex flex-col items-center justify-center gap-1 text-muted-foreground hover:text-gold transition-colors h-full"
-            aria-label="Open menu"
+            aria-label={t("nav.menu.open")}
           >
             <MenuIcon className="w-5 h-5" strokeWidth={1.5} />
-            <span className="text-[9px] tracking-[0.15em] uppercase">More</span>
+            <span className="text-[9px] tracking-[0.15em] uppercase">{t("nav.more")}</span>
           </button>
         </div>
       </nav>
@@ -86,33 +101,54 @@ export function MobileBottomNav() {
           <button
             className="absolute inset-0 bg-onyx/80 backdrop-blur-sm animate-fade-in"
             onClick={() => setOpen(false)}
-            aria-label="Close menu"
+            aria-label={t("nav.menu.close")}
           />
           <div
             className="absolute bottom-0 inset-x-0 bg-charcoal border-t border-gold/30 rounded-t-3xl p-6 pb-10 animate-fade-in shadow-luxe"
             style={{ paddingBottom: "calc(2.5rem + env(safe-area-inset-bottom))" }}
           >
             <div className="flex items-center justify-between mb-6">
-              <div className="text-[10px] tracking-[0.4em] uppercase text-gold">Menu</div>
-              <button onClick={() => setOpen(false)} className="text-muted-foreground hover:text-gold">
+              <div className="text-[10px] tracking-[0.4em] uppercase text-gold">
+                {t("nav.more")}
+              </div>
+              <button
+                onClick={() => setOpen(false)}
+                className="text-muted-foreground hover:text-gold"
+              >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
-              <Link to="/international" onClick={() => setOpen(false)} className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors">
+              <Link
+                to="/international"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors"
+              >
                 <Globe className="w-4 h-4 text-gold" strokeWidth={1.4} />
                 <span className="text-sm text-ivory">{t("nav.international")}</span>
               </Link>
-              <Link to="/about" onClick={() => setOpen(false)} className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors">
+              <Link
+                to="/about"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors"
+              >
                 <Building2 className="w-4 h-4 text-gold" strokeWidth={1.4} />
                 <span className="text-sm text-ivory">{t("nav.firm")}</span>
               </Link>
-              <Link to="/insights" onClick={() => setOpen(false)} className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors">
+              <Link
+                to="/insights"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors"
+              >
                 <BookOpen className="w-4 h-4 text-gold" strokeWidth={1.4} />
                 <span className="text-sm text-ivory">{t("nav.insights")}</span>
               </Link>
-              <Link to="/contact" onClick={() => setOpen(false)} className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors">
+              <Link
+                to="/contact"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors"
+              >
                 <Mail className="w-4 h-4 text-gold" strokeWidth={1.4} />
                 <span className="text-sm text-ivory">{t("nav.contact")}</span>
               </Link>
@@ -136,7 +172,10 @@ export function MobileBottomNav() {
 
               {user ? (
                 <button
-                  onClick={() => { signOut(); setOpen(false); }}
+                  onClick={() => {
+                    signOut();
+                    setOpen(false);
+                  }}
                   className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-gold"
                 >
                   <LogOut className="w-4 h-4" />

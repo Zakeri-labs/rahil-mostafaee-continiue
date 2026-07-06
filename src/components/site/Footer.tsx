@@ -15,7 +15,7 @@ export function Footer() {
                 <div className="font-display text-2xl text-ivory">
                   Rahil <span className="text-gold">Mostafaee</span>
                 </div>
-                <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+                <div className="max-w-sm text-[10px] tracking-[0.3em] uppercase text-muted-foreground leading-relaxed break-words">
                   {t("footer.role")}
                 </div>
               </div>
@@ -23,32 +23,85 @@ export function Footer() {
             <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
               {t("footer.blurb")}
             </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-5 py-3 text-xs tracking-[0.2em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all duration-300"
+            >
+              {t("footer.cta")}
+            </Link>
             <div className="gold-divider w-24" />
             <p className="text-xs text-muted-foreground">{t("footer.langs")}</p>
           </div>
 
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
             <div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4">{t("footer.col.practice")}</div>
+              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4">
+                {t("footer.col.practice")}
+              </div>
               <ul className="space-y-3 text-muted-foreground">
-                <li><Link to="/services" className="hover:text-ivory">{t("footer.link.cross")}</Link></li>
-                <li><Link to="/services" className="hover:text-ivory">{t("footer.link.residency")}</Link></li>
-                <li><Link to="/services" className="hover:text-ivory">{t("footer.link.corporate")}</Link></li>
-                <li><Link to="/services" className="hover:text-ivory">{t("footer.link.realestate")}</Link></li>
-                <li><Link to="/services" className="hover:text-ivory">{t("footer.link.wills")}</Link></li>
+                <li>
+                  <Link to="/services" className="hover:text-ivory">
+                    {t("footer.link.cross")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services" className="hover:text-ivory">
+                    {t("footer.link.residency")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services" className="hover:text-ivory">
+                    {t("footer.link.corporate")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services" className="hover:text-ivory">
+                    {t("footer.link.realestate")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services" className="hover:text-ivory">
+                    {t("footer.link.wills")}
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4">{t("footer.col.firm")}</div>
+              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4">
+                {t("footer.col.firm")}
+              </div>
               <ul className="space-y-3 text-muted-foreground">
-                <li><Link to="/about" className="hover:text-ivory">{t("footer.link.about")}</Link></li>
-                <li><Link to="/international" className="hover:text-ivory">{t("footer.link.intl")}</Link></li>
-                <li><Link to="/insights" className="hover:text-ivory">{t("footer.link.insights")}</Link></li>
-                <li><Link to="/contact" className="hover:text-ivory">{t("footer.link.contact")}</Link></li>
+                <li>
+                  <Link to="/services" className="hover:text-ivory">
+                    {t("footer.link.services")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/international" className="hover:text-ivory">
+                    {t("footer.link.intl")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="hover:text-ivory">
+                    {t("footer.link.about")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/insights" className="hover:text-ivory">
+                    {t("footer.link.insights")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="hover:text-ivory">
+                    {t("footer.link.contact")}
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4">{t("footer.col.office")}</div>
+              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4">
+                {t("footer.col.office")}
+              </div>
               <ul className="space-y-3 text-muted-foreground">
                 <li>{t("footer.office.area")}</li>
                 <li>{t("footer.office.city")}</li>
@@ -60,7 +113,9 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-gold/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} Rahil Mostafaee Legal. {t("footer.copyright")}</div>
+          <div>
+            © {new Date().getFullYear()} Rahil Mostafaee Legal. {t("footer.copyright")}
+          </div>
           <div className="tracking-[0.25em] uppercase">{t("footer.privileged")}</div>
         </div>
       </div>
