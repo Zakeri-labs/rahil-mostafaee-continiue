@@ -569,46 +569,40 @@ const en: Dict = {
   "about.cta.secondary": "View Services",
 
   // Insights page
-  "ins.kicker": "Insights",
-  "ins.h1.a": "Legal intelligence,",
-  "ins.h1.b": "briefly stated.",
+  "ins.kicker": "Coming Soon",
+  "ins.h1.a": "Legal Insights on UAE",
+  "ins.h1.b": "Commercial Disputes and Asset Recovery",
   "ins.intro":
-    "Periodic briefings on UAE residency, DIFC wills, real estate, corporate structure and cross-border strategy.",
-  "ins.read": "Read briefing",
-  "ins.cta.title": "Private briefings, by request.",
+    "Specialized articles will be published soon on the official blog. Future content will focus on Iran-UAE commercial disputes, debt recovery, asset recovery, partner disputes, and financial matters connected to the UAE.",
+  "ins.hero.cta": "Request Confidential Case Review",
+  "ins.categories.kicker": "Resource Gateway",
+  "ins.categories.h2": "Topics coming soon",
+  "ins.cat.1.title": "Iran-UAE Commercial Disputes",
+  "ins.cat.1.body":
+    "Unperformed contracts, buyer or seller disputes, supplier disputes, shipping, distribution, and commercial claims.",
+  "ins.cat.2.title": "Asset Recovery",
+  "ins.cat.2.body":
+    "Legal route review for asset tracing, lost funds, suspicious investments, and urgent action where applicable.",
+  "ins.cat.3.title": "Debt Recovery",
+  "ins.cat.3.body":
+    "Unpaid invoices, commercial debts, receivables from UAE companies, and routes for notice, negotiation, or enforcement.",
+  "ins.cat.4.title": "Partner Disputes",
+  "ins.cat.4.body":
+    "Shareholder disputes, unauthorized withdrawals, blocked accounts, loss of access, and control of company assets.",
+  "ins.cat.5.title": "Iran-UAE Contracts and Matters",
+  "ins.cat.5.body":
+    "Governing law, jurisdiction, performance of obligations, enforcement route, and risks in cross-border contracts.",
+  "ins.future.kicker": "Purpose",
+  "ins.future.h2": "What this section is for",
+  "ins.future.body":
+    "This section is intended to provide practical educational content for people facing commercial and financial matters connected to the UAE. It does not replace legal advice or case review, but it helps readers understand the issue, required documents, delay risks, and possible legal routes.",
+  "ins.cta.title": "If you have an active matter now",
   "ins.cta.body":
-    "A short monthly note for clients on regulatory and structural shifts in the UAE.",
-  "ins.cta.btn": "Request Access",
-  "ins.cat.residency": "Residency",
-  "ins.cat.wills": "Wills",
-  "ins.cat.property": "Property",
-  "ins.cat.corporate": "Corporate",
-  "ins.cat.international": "International",
-  "ins.cat.wealth": "Wealth",
-  "ins.p1.date": "Mar 2025",
-  "ins.p1.title": "Golden Visa Pathways for Iranian Investors in 2025",
-  "ins.p1.excerpt":
-    "An overview of the qualifying investment routes, residency renewals, and the structural choices that determine long-term mobility.",
-  "ins.p2.date": "Feb 2025",
-  "ins.p2.title": "Why Every UAE Resident Should Hold a DIFC Will",
-  "ins.p2.excerpt":
-    "A practical look at probate certainty, guardianship, and how DIFC wills protect families with mixed-jurisdiction assets.",
-  "ins.p3.date": "Feb 2025",
-  "ins.p3.title": "Five Mistakes to Avoid in Dubai Off-Plan Investment",
-  "ins.p3.excerpt":
-    "Escrow protections, RERA registration, contractual clauses and the warning signs every investor should review before signing.",
-  "ins.p4.date": "Jan 2025",
-  "ins.p4.title": "Free Zone vs Mainland: A Strategic Decision Framework",
-  "ins.p4.excerpt":
-    "How to choose the right structure for cross-border operators — capital flows, banking relationships and shareholder posture.",
-  "ins.p5.date": "Jan 2025",
-  "ins.p5.title": "When to Engage International Counsel — and How",
-  "ins.p5.excerpt":
-    "A note on coordination, privilege and the protocols that hold across jurisdictions when matters become sensitive.",
-  "ins.p6.date": "Dec 2024",
-  "ins.p6.title": "The Family Office Legal Stack: A Quiet Architecture",
-  "ins.p6.excerpt":
-    "Structuring trusts, holdcos and succession layers around the way modern wealth actually moves.",
+    "If your money, receivable, contract, investment, or partner dispute is already connected to the UAE, you do not need to wait for articles. You can send a short summary and initial documents for confidential review.",
+  "ins.cta.primary": "Submit Matter for Review",
+  "ins.cta.secondary": "View Services",
+  "ins.disclaimer":
+    "Content in this section will be general and educational and does not replace matter-specific legal review. Receiving a message or form submission does not create representation or guarantee an outcome.",
 
   // Contact page
   "contact.kicker": "Confidential Intake",
@@ -1364,45 +1358,39 @@ const fa: Dict = {
   "about.cta.secondary": "مشاهده خدمات",
 
   // Insights page
-  "ins.kicker": "بینش‌ها",
-  "ins.h1.a": "هوشمندی حقوقی،",
-  "ins.h1.b": "به‌اختصار بیان شده.",
+  "ins.kicker": "به‌زودی",
+  "ins.h1.a": "راهنمای حقوقی اختلافات تجاری",
+  "ins.h1.b": "و بازیابی دارایی در امارات",
   "ins.intro":
-    "گزارش‌های دوره‌ای درباره اقامت امارات، وصیت‌نامه‌های DIFC، املاک، ساختار شرکتی و راهبردهای فرامرزی.",
-  "ins.read": "مطالعه گزارش",
-  "ins.cta.title": "گزارش‌های خصوصی، با درخواست.",
-  "ins.cta.body": "یادداشت ماهانه‌ای کوتاه برای موکلان درباره تحولات نظارتی و ساختاری در امارات.",
-  "ins.cta.btn": "درخواست دسترسی",
-  "ins.cat.residency": "اقامت",
-  "ins.cat.wills": "وصیت‌نامه",
-  "ins.cat.property": "املاک",
-  "ins.cat.corporate": "شرکتی",
-  "ins.cat.international": "بین‌المللی",
-  "ins.cat.wealth": "ثروت",
-  "ins.p1.date": "اسفند ۱۴۰۳",
-  "ins.p1.title": "مسیرهای ویزای طلایی برای سرمایه‌گذاران ایرانی در ۲۰۲۵",
-  "ins.p1.excerpt":
-    "مروری بر مسیرهای سرمایه‌گذاری واجد شرایط، تمدید اقامت و انتخاب‌های ساختاری که تحرک بلندمدت را تعیین می‌کنند.",
-  "ins.p2.date": "بهمن ۱۴۰۳",
-  "ins.p2.title": "چرا هر مقیم امارات باید وصیت‌نامه DIFC داشته باشد",
-  "ins.p2.excerpt":
-    "نگاهی کاربردی به قطعیت انحصار وراثت، قیمومیت و حفاظت از خانواده‌های دارای دارایی چندحوزه‌ای.",
-  "ins.p3.date": "بهمن ۱۴۰۳",
-  "ins.p3.title": "پنج اشتباهی که در سرمایه‌گذاری پیش‌فروش دبی باید از آن پرهیز کرد",
-  "ins.p3.excerpt":
-    "حفاظت‌های اسکرو، ثبت RERA، بندهای قراردادی و علائم هشداری که هر سرمایه‌گذار باید پیش از امضا بررسی کند.",
-  "ins.p4.date": "دی ۱۴۰۳",
-  "ins.p4.title": "منطقه آزاد یا سرزمین اصلی: چارچوب تصمیم راهبردی",
-  "ins.p4.excerpt":
-    "چگونگی انتخاب ساختار درست برای فعالان فرامرزی — جریان سرمایه، روابط بانکی و موقعیت سهامداران.",
-  "ins.p5.date": "دی ۱۴۰۳",
-  "ins.p5.title": "چه زمان و چگونه از وکلای بین‌المللی بهره بگیریم",
-  "ins.p5.excerpt":
-    "یادداشتی درباره هماهنگی، محرمانگی و پروتکل‌هایی که در پرونده‌های حساس میان حوزه‌های قضایی پایدار می‌مانند.",
-  "ins.p6.date": "آذر ۱۴۰۳",
-  "ins.p6.title": "چینش حقوقی دفتر خانواده: معماری آرام",
-  "ins.p6.excerpt":
-    "ساختاردهی تراست‌ها، شرکت‌های هلدینگ و لایه‌های توارث متناسب با نحوه واقعی حرکت ثروت مدرن.",
+    "مقالات تخصصی این بخش به‌زودی در وبلاگ رسمی منتشر می‌شوند. محتوای آینده روی اختلافات تجاری ایران–امارات، وصول مطالبات، بازیابی دارایی، اختلاف شرکا و پرونده‌های مالی مرتبط با امارات متمرکز خواهد بود.",
+  "ins.hero.cta": "بررسی محرمانه پرونده",
+  "ins.categories.kicker": "درگاه منابع",
+  "ins.categories.h2": "موضوعاتی که به‌زودی پوشش داده می‌شوند",
+  "ins.cat.1.title": "اختلافات تجاری ایران–امارات",
+  "ins.cat.1.body":
+    "قراردادهای اجرا نشده، اختلاف با خریدار یا فروشنده، supplier disputes، حمل‌ونقل، توزیع و دعاوی تجاری.",
+  "ins.cat.2.title": "بازیابی دارایی",
+  "ins.cat.2.body":
+    "بررسی مسیرهای حقوقی برای ردیابی دارایی، پول‌های ازدست‌رفته، سرمایه‌گذاری‌های مشکوک و اقدام فوری قابل بررسی.",
+  "ins.cat.3.title": "وصول مطالبات",
+  "ins.cat.3.body":
+    "فاکتورهای پرداخت‌نشده، بدهی‌های تجاری، مطالبات از شرکت‌های اماراتی و مسیرهای اخطار، مذاکره یا اجرا.",
+  "ins.cat.4.title": "اختلاف شرکا",
+  "ins.cat.4.body":
+    "اختلاف سهامداران، برداشت غیرمجاز، قفل شدن حساب، قطع دسترسی و کنترل دارایی شرکت.",
+  "ins.cat.5.title": "قراردادها و پرونده‌های ایران–امارات",
+  "ins.cat.5.body": "قانون حاکم، صلاحیت، اجرای تعهدات، مسیر پیگیری و ریسک‌های قراردادهای مرزی.",
+  "ins.future.kicker": "هدف",
+  "ins.future.h2": "هدف این بخش چیست؟",
+  "ins.future.body":
+    "هدف این بخش تولید محتوای آموزشی و کاربردی برای افرادی است که درگیر پرونده‌های تجاری و مالی مرتبط با امارات هستند. این محتوا جایگزین مشاوره حقوقی یا بررسی پرونده نیست، اما کمک می‌کند مخاطب موضوع، مدارک لازم، ریسک تأخیر و مسیرهای قابل بررسی را بهتر بشناسد.",
+  "ins.cta.title": "اگر همین حالا پرونده فعال دارید",
+  "ins.cta.body":
+    "اگر پول، طلب، قرارداد، سرمایه یا اختلاف شریک شما در امارات درگیر شده، لازم نیست منتظر انتشار مقالات بمانید. می‌توانید خلاصه موضوع و مدارک اولیه را برای بررسی محرمانه ارسال کنید.",
+  "ins.cta.primary": "ارسال پرونده برای بررسی",
+  "ins.cta.secondary": "مشاهده خدمات",
+  "ins.disclaimer":
+    "محتوای این بخش عمومی و آموزشی خواهد بود و جایگزین بررسی اختصاصی پرونده نیست. دریافت پیام یا فرم نیز به معنی پذیرش نمایندگی یا تضمین نتیجه نیست.",
 
   // Contact page
   "contact.kicker": "پذیرش محرمانه",

@@ -1,68 +1,149 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Clock,
+  FileText,
+  Handshake,
+  Scale,
+  ShieldCheck,
+} from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/insights")({
   head: () => ({
     meta: [
-      { title: "Insights — Dubai & UAE Legal Intelligence" },
-      { name: "description", content: "Briefings on UAE residency, DIFC wills, property law, sanctions and cross-border strategy for high-net-worth Iranian clients." },
+      { title: "UAE Commercial Dispute and Asset Recovery Insights" },
+      {
+        name: "description",
+        content:
+          "Specialized insights on Iran-UAE commercial disputes, asset recovery, debt recovery, partner disputes, and UAE financial matters are coming soon.",
+      },
+      {
+        property: "og:title",
+        content: "راهنمای اختلافات تجاری و بازیابی دارایی در امارات",
+      },
+      {
+        property: "og:description",
+        content:
+          "مقالات تخصصی درباره اختلافات تجاری ایران و امارات، بازیابی دارایی، وصول مطالبات، اختلاف شرکا و پرونده‌های مالی به‌زودی منتشر می‌شوند.",
+      },
     ],
   }),
   component: InsightsPage,
 });
 
+const categories = [
+  { icon: Scale, title: "ins.cat.1.title", body: "ins.cat.1.body" },
+  { icon: ShieldCheck, title: "ins.cat.2.title", body: "ins.cat.2.body" },
+  { icon: FileText, title: "ins.cat.3.title", body: "ins.cat.3.body" },
+  { icon: Handshake, title: "ins.cat.4.title", body: "ins.cat.4.body" },
+  { icon: BriefcaseBusiness, title: "ins.cat.5.title", body: "ins.cat.5.body" },
+];
+
 function InsightsPage() {
   const { t, dir } = useI18n();
-  const posts = [
-    { cat: "ins.cat.residency", k: "p1" },
-    { cat: "ins.cat.wills", k: "p2" },
-    { cat: "ins.cat.property", k: "p3" },
-    { cat: "ins.cat.corporate", k: "p4" },
-    { cat: "ins.cat.international", k: "p5" },
-    { cat: "ins.cat.wealth", k: "p6" },
-  ];
+
   return (
     <div dir={dir}>
       <section className="py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 space-y-10">
           <div className="flex items-center gap-3">
             <span className="h-px w-12 bg-gold" />
-            <span className="text-[10px] tracking-[0.4em] uppercase text-gold">{t("ins.kicker")}</span>
+            <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
+              {t("ins.kicker")}
+            </span>
           </div>
-          <h1 className="font-display text-6xl lg:text-9xl text-ivory tracking-tight leading-[0.95]">
-            {t("ins.h1.a")}<br /><span className="italic gradient-gold-text">{t("ins.h1.b")}</span>
+          <h1 className="font-display text-6xl lg:text-9xl text-ivory tracking-tight leading-[0.95] break-words">
+            {t("ins.h1.a")}
+            <br />
+            <span className="italic gradient-gold-text">{t("ins.h1.b")}</span>
           </h1>
           <p className="text-muted-foreground max-w-2xl text-lg">{t("ins.intro")}</p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-3 px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all"
+          >
+            <span className="text-xs tracking-[0.3em] uppercase">{t("ins.hero.cta")}</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
       <section className="border-t border-gold/10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/10 hairline">
-          {posts.map((p) => (
-            <article key={p.k} className="group bg-onyx p-10 hover:bg-charcoal transition-colors duration-500 cursor-pointer">
-              <div className="flex items-center justify-between mb-10">
-                <span className="text-[10px] tracking-[0.3em] uppercase text-gold">{t(p.cat)}</span>
-                <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">{t(`ins.${p.k}.date`)}</span>
-              </div>
-              <h2 className="font-display text-2xl text-ivory leading-tight mb-4 group-hover:text-gold transition-colors">{t(`ins.${p.k}.title`)}</h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-8">{t(`ins.${p.k}.excerpt`)}</p>
-              <div className="inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-gold">
-                {t("ins.read")} <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </div>
-            </article>
-          ))}
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 space-y-12">
+          <div className="max-w-3xl space-y-4">
+            <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
+              {t("ins.categories.kicker")}
+            </span>
+            <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight leading-tight break-words">
+              {t("ins.categories.h2")}
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/10 hairline">
+            {categories.map((item) => {
+              const Icon = item.icon;
+              return (
+                <article key={item.title} className="bg-onyx p-8 lg:p-10 space-y-8">
+                  <div className="w-12 h-12 border border-gold/20 flex items-center justify-center text-gold">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-4">
+                    <h3 className="font-display text-2xl text-ivory leading-tight">
+                      {t(item.title)}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{t(item.body)}</p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      <section className="py-32">
+      <section className="py-28 border-t border-gold/10">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10 space-y-6">
+          <div className="flex items-center gap-3 text-gold">
+            <Clock className="w-5 h-5" />
+            <span className="text-[10px] tracking-[0.4em] uppercase">{t("ins.future.kicker")}</span>
+          </div>
+          <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight leading-tight break-words">
+            {t("ins.future.h2")}
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed">{t("ins.future.body")}</p>
+        </div>
+      </section>
+
+      <section className="py-32 border-t border-gold/10">
         <div className="mx-auto max-w-3xl px-6 lg:px-10 text-center space-y-8">
-          <h2 className="font-display text-4xl lg:text-5xl text-ivory tracking-tight">{t("ins.cta.title")}</h2>
+          <h2 className="font-display text-4xl lg:text-5xl text-ivory tracking-tight break-words">
+            {t("ins.cta.title")}
+          </h2>
           <p className="text-muted-foreground">{t("ins.cta.body")}</p>
-          <Link to="/contact" className="inline-flex items-center gap-3 px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all">
-            <span className="text-xs tracking-[0.3em] uppercase">{t("ins.cta.btn")}</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all"
+            >
+              <span className="text-xs tracking-[0.3em] uppercase">{t("ins.cta.primary")}</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/services"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-muted-foreground hover:text-gold transition-colors"
+            >
+              <span className="text-xs tracking-[0.3em] uppercase">{t("ins.cta.secondary")}</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-24">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <div className="border border-gold/10 bg-charcoal/40 p-6 text-sm text-muted-foreground leading-relaxed">
+            {t("ins.disclaimer")}
+          </div>
         </div>
       </section>
     </div>
