@@ -495,27 +495,78 @@ const en: Dict = {
   "intl.cta.secondary": "Contact via WhatsApp",
 
   // About page
-  "about.kicker": "The Firm",
-  "about.h1.a": "A boutique built for",
-  "about.h1.b": "consequential matters.",
+  "about.kicker": "Focused Approach",
+  "about.h1": "About Our Approach to Iran-UAE Commercial and Financial Matters",
   "about.intro":
-    "Rahil Mostafaee Legal is a private advisory practice serving a select roster of Iranian investors, founders and families in the United Arab Emirates and abroad. The firm exists for one reason: to provide discreet, structured and decisively executed legal counsel where the stakes are personal.",
-  "about.v1.t": "Discretion",
-  "about.v1.b":
-    "All engagements operate under absolute confidentiality. Names, matters and outcomes remain privileged — always.",
-  "about.v2.t": "Selectivity",
-  "about.v2.b":
-    "Representation is by referral and review. We work with a small number of clients to deliver an outsized standard of attention.",
-  "about.v3.t": "Coordination",
-  "about.v3.b":
-    "An international network of trusted co-counsel, family offices and advisors — coordinated through one channel.",
-  "about.manifesto.kicker": "Manifesto",
-  "about.manifesto.q1": "“We do not measure a representation by what was filed, but by what was",
-  "about.manifesto.q2": "protected",
-  "about.manifesto.q3":
-    ". The best legal work is the one the client never has to see — quiet, structured, and decisively final.”",
-  "about.cta.title": "Begin a conversation.",
-  "about.cta.btn": "Request Consultation",
+    "We focus on reviewing and pursuing legal routes for commercial disputes, debt recovery, asset recovery, partner disputes, and financial matters involving Iranian clients and the UAE.",
+  "about.hero.primary": "Request Confidential Case Review",
+  "about.hero.secondary": "View Services",
+  "about.position.h2": "Focused practice, not scattered services",
+  "about.position.body":
+    "In commercial and financial matters, focus matters. Our clients are usually facing a real and urgent issue: unpaid money, an unperformed contract, an unresponsive partner, assets that are no longer accessible, or an unclear legal route between Iran and the UAE. That is why our service structure is built around commercial disputes and asset recovery.",
+  "about.why.kicker": "Why It Matters",
+  "about.why.h2": "Why these matters require a different approach",
+  "about.why.1.t": "Iranian commercial context",
+  "about.why.1.b":
+    "Business behavior, verbal trust, informal messages, partnership dynamics, and payment patterns can play an important role in Iranian matters.",
+  "about.why.2.t": "UAE legal pathway",
+  "about.why.2.b":
+    "Effective action requires reviewing the counterparty, assets, evidence, place of performance, urgency, and legal route in the UAE together.",
+  "about.why.3.t": "Urgency around assets and evidence",
+  "about.why.3.b":
+    "In financial matters, delay may make it harder to trace funds, preserve evidence, control accounts, or consider urgent action.",
+  "about.why.4.t": "Confidentiality",
+  "about.why.4.b":
+    "Commercial and financial matters are often sensitive, and information about contracts, payments, partners, and investments must be reviewed carefully and confidentially.",
+  "about.work.h2": "How we work",
+  "about.work.1.t": "Receive matter summary",
+  "about.work.1.b":
+    "The matter type, approximate amount, counterparty, relevant country or city, and available documents are collected first.",
+  "about.work.2.t": "Review documents and risks",
+  "about.work.2.b":
+    "Contracts, invoices, payment proof, communications, counterparty details, and urgency are reviewed.",
+  "about.work.3.t": "Assess the legal route",
+  "about.work.3.b":
+    "Based on the initial information, possible routes such as negotiation, notice, urgent action, litigation, enforcement, or debt recovery can be reviewed.",
+  "about.work.4.t": "Define the next step",
+  "about.work.4.b": "After the initial review, the available path and next step can be clarified.",
+  "about.trust.kicker": "Trust Principles",
+  "about.trust.h2": "Trust principles in these matters",
+  "about.trust.1": "Focus on commercial and financial matters, not scattered services",
+  "about.trust.2": "Confidential review of documents and initial information",
+  "about.trust.3": "No guaranteed outcomes or unrealistic promises",
+  "about.trust.4": "Combined review of Iranian context and UAE legal route",
+  "about.trust.5": "Clarifying the next step before major action begins",
+  "about.trust.6": "Attention to urgency, assets, evidence, and delay risk",
+  "about.review.kicker": "Initial Review",
+  "about.review.h2": "What is reviewed initially?",
+  "about.review.1":
+    "Matter type: commercial, financial, partner, contract, debt recovery, or asset recovery",
+  "about.review.2": "Approximate disputed amount or receivable",
+  "about.review.3": "Counterparty individual or company details",
+  "about.review.4": "Country, city, or UAE connection of the matter",
+  "about.review.5": "Contract, invoice, payment proof, communications, and delivery records",
+  "about.review.6": "Urgency and risk of asset transfer or evidence loss",
+  "about.review.7":
+    "Possible routes for negotiation, notice, urgent action, litigation, or enforcement",
+  "about.promise.h2": "What we do not promise",
+  "about.promise.body":
+    "No legal matter should begin with a guaranteed outcome. Asset recovery, debt collection, or success in a dispute depends on evidence, counterparty position, identifiable assets, urgency, jurisdiction, and the legal route. At the first stage, the commitment is to review the information more carefully and clarify the available path, not to promise a certain result.",
+  "about.lang.kicker": "Client Context",
+  "about.lang.h2": "Built for Iranian clients connected to the UAE",
+  "about.lang.body":
+    "Many clients in these matters are Persian-speaking, while the documents, companies, contracts, or counterparties are connected to the UAE. Clear Persian communication, commercial English context, and understanding of the UAE legal pathway are therefore important.",
+  "about.lang.badge.1": "Persian",
+  "about.lang.badge.2": "English",
+  "about.lang.badge.3": "Arabic",
+  "about.lang.badge.4": "Iran-UAE",
+  "about.lang.badge.5": "Financial matters",
+  "about.lang.badge.6": "Commercial disputes",
+  "about.cta.title": "Start with an initial case review",
+  "about.cta.body":
+    "Send a short summary of the matter, approximate amount, counterparty, and available documents. Receiving a message does not create representation; the possible route must first be reviewed.",
+  "about.cta.primary": "Submit Matter for Review",
+  "about.cta.secondary": "View Services",
 
   // Insights page
   "ins.kicker": "Insights",
@@ -1240,27 +1291,77 @@ const fa: Dict = {
   "intl.cta.secondary": "تماس از طریق واتساپ",
 
   // About page
-  "about.kicker": "دفتر",
-  "about.h1.a": "دفتری بوتیک ساخته‌شده برای",
-  "about.h1.b": "پرونده‌های سرنوشت‌ساز.",
+  "about.kicker": "رویکرد متمرکز",
+  "about.h1": "درباره رویکرد ما در پرونده‌های تجاری و مالی ایران–امارات",
   "about.intro":
-    "دفتر حقوقی رحیل مصطفایی یک دفتر مشاوره خصوصی است که به جمع منتخبی از سرمایه‌گذاران، بنیان‌گذاران و خانواده‌های ایرانی در امارات و خارج از آن خدمت می‌رساند. این دفتر تنها برای یک هدف وجود دارد: ارائه مشاوره حقوقی محتاطانه، ساختاریافته و قاطعانه آنجا که موضوع شخصی است.",
-  "about.v1.t": "محرمانگی",
-  "about.v1.b":
-    "همه پرونده‌ها تحت محرمانگی مطلق انجام می‌شوند. اسامی، موضوعات و نتایج همواره محرمانه باقی می‌مانند.",
-  "about.v2.t": "گزینش‌گری",
-  "about.v2.b":
-    "نمایندگی از طریق معرفی و بازبینی است. با تعداد محدودی موکل کار می‌کنیم تا توجهی فراتر از انتظار ارائه دهیم.",
-  "about.v3.t": "هماهنگی",
-  "about.v3.b":
-    "شبکه‌ای بین‌المللی از وکلای همراه، دفاتر خانواده و مشاوران مورد اعتماد — هماهنگ‌شده از طریق یک کانال.",
-  "about.manifesto.kicker": "بیانیه",
-  "about.manifesto.q1": "«ما یک نمایندگی را با آنچه ثبت شده نمی‌سنجیم، بلکه با آنچه ",
-  "about.manifesto.q2": "حفاظت شده",
-  "about.manifesto.q3":
-    " می‌سنجیم. بهترین کار حقوقی همان است که موکل هرگز نیاز نیست ببیند — آرام، ساختاریافته و قاطعانه نهایی.»",
-  "about.cta.title": "گفتگویی را آغاز کنید.",
-  "about.cta.btn": "درخواست مشاوره",
+    "تمرکز ما بر بررسی و پیگیری مسیر حقوقی اختلافات تجاری، وصول مطالبات، بازیابی دارایی، اختلاف شرکا و پرونده‌های مالی ایرانی‌های درگیر با امارات است.",
+  "about.hero.primary": "بررسی محرمانه پرونده",
+  "about.hero.secondary": "مشاهده خدمات",
+  "about.position.h2": "تمرکز مشخص، نه خدمات پراکنده",
+  "about.position.body":
+    "در پرونده‌های تجاری و مالی، تمرکز مهم است. مخاطب ما معمولاً با مسئله‌ای فوری و واقعی روبه‌روست: پول پرداخت نشده، قرارداد اجرا نشده، شریک پاسخگو نیست، سرمایه از دسترس خارج شده یا مسیر حقوقی بین ایران و امارات نامشخص است. به همین دلیل، ساختار خدمات ما حول اختلافات تجاری و بازیابی دارایی طراحی شده است.",
+  "about.why.kicker": "اهمیت تمرکز",
+  "about.why.h2": "چرا این نوع پرونده‌ها نیاز به رویکرد متفاوت دارند؟",
+  "about.why.1.t": "زمینه تجاری ایرانی",
+  "about.why.1.b":
+    "رفتار تجاری، اعتماد شفاهی، پیام‌های غیررسمی، روابط شراکتی و شیوه پرداخت در پرونده‌های ایرانی نقش مهمی دارد.",
+  "about.why.2.t": "مسیر حقوقی امارات",
+  "about.why.2.b":
+    "برای اقدام مؤثر باید طرف مقابل، دارایی‌ها، اسناد، محل اجرا، فوریت و مسیر حقوقی در امارات هم‌زمان بررسی شود.",
+  "about.why.3.t": "فوریت در دارایی و اسناد",
+  "about.why.3.b":
+    "در پرونده‌های مالی، تأخیر می‌تواند ردیابی پول، حفظ مدارک، کنترل حساب یا امکان اقدام فوری را سخت‌تر کند.",
+  "about.why.4.t": "محرمانگی",
+  "about.why.4.b":
+    "پرونده‌های تجاری و مالی اغلب حساس‌اند و اطلاعات قرارداد، پرداخت، شریک و سرمایه باید با دقت و محرمانگی بررسی شود.",
+  "about.work.h2": "روند کار ما",
+  "about.work.1.t": "دریافت خلاصه پرونده",
+  "about.work.1.b":
+    "ابتدا نوع اختلاف، مبلغ تقریبی، طرف مقابل، کشور یا شهر مرتبط و مدارک موجود دریافت می‌شود.",
+  "about.work.2.t": "بررسی اسناد و ریسک‌ها",
+  "about.work.2.b":
+    "قرارداد، فاکتور، رسید پرداخت، مکاتبات، اطلاعات شرکت یا شخص مقابل و فوریت پرونده بررسی می‌شود.",
+  "about.work.3.t": "تشخیص مسیر حقوقی",
+  "about.work.3.b":
+    "بر اساس اطلاعات اولیه، مسیرهایی مثل مذاکره، اخطار، اقدام فوری، دعوا، اجرا یا پیگیری وصول مطالبات قابل بررسی می‌شود.",
+  "about.work.4.t": "تصمیم‌گیری مرحله بعد",
+  "about.work.4.b":
+    "پس از بررسی اولیه، مشخص می‌شود آیا پرونده قابلیت پیگیری دارد و مرحله بعد چگونه باید طراحی شود.",
+  "about.trust.kicker": "اصول اعتماد",
+  "about.trust.h2": "اصول اعتماد در این نوع پرونده‌ها",
+  "about.trust.1": "تمرکز بر پرونده‌های تجاری و مالی، نه خدمات پراکنده",
+  "about.trust.2": "بررسی محرمانه اسناد و اطلاعات اولیه",
+  "about.trust.3": "پرهیز از وعده قطعی یا تضمین نتیجه",
+  "about.trust.4": "تحلیل هم‌زمان زمینه ایرانی و مسیر حقوقی امارات",
+  "about.trust.5": "شفاف‌سازی مرحله بعد قبل از شروع اقدام جدی",
+  "about.trust.6": "توجه به فوریت، دارایی، اسناد و ریسک تأخیر",
+  "about.review.kicker": "بررسی اولیه",
+  "about.review.h2": "در بررسی اولیه چه چیزهایی بررسی می‌شود؟",
+  "about.review.1": "نوع اختلاف: تجاری، مالی، شریک، قرارداد، وصول طلب یا بازیابی دارایی",
+  "about.review.2": "مبلغ تقریبی اختلاف یا طلب",
+  "about.review.3": "اطلاعات شخص یا شرکت مقابل",
+  "about.review.4": "کشور، شهر یا محل ارتباط پرونده با امارات",
+  "about.review.5": "قرارداد، فاکتور، رسید پرداخت، مکاتبات و مدارک تحویل",
+  "about.review.6": "فوریت پرونده و احتمال انتقال دارایی یا از بین رفتن اسناد",
+  "about.review.7": "مسیرهای احتمالی مذاکره، اخطار، اقدام فوری، دعوا یا اجرا",
+  "about.promise.h2": "چه چیزی را تضمین نمی‌کنیم؟",
+  "about.promise.body":
+    "هیچ پرونده حقوقی نباید با وعده قطعی شروع شود. بازیابی دارایی، وصول مطالبات یا موفقیت در دعوا به مدارک، وضعیت طرف مقابل، دارایی‌های قابل شناسایی، فوریت، صلاحیت و مسیر حقوقی بستگی دارد. تعهد ما در مرحله اول، بررسی دقیق‌تر اطلاعات و شفاف‌سازی مسیر قابل پیگیری است، نه وعده نتیجه قطعی.",
+  "about.lang.kicker": "زمینه موکل",
+  "about.lang.h2": "مناسب برای ایرانی‌های درگیر با امارات",
+  "about.lang.body":
+    "بسیاری از موکلان این نوع پرونده‌ها فارسی‌زبان هستند، اما مدارک، شرکت‌ها، قراردادها یا طرف مقابل در امارات قرار دارد. به همین دلیل، ارتباط روشن فارسی همراه با درک اصطلاحات تجاری انگلیسی و مسیر حقوقی امارات اهمیت دارد.",
+  "about.lang.badge.1": "فارسی",
+  "about.lang.badge.2": "English",
+  "about.lang.badge.3": "العربية",
+  "about.lang.badge.4": "ایران–امارات",
+  "about.lang.badge.5": "پرونده‌های مالی",
+  "about.lang.badge.6": "اختلافات تجاری",
+  "about.cta.title": "مسیر پرونده را با بررسی اولیه شروع کنید",
+  "about.cta.body":
+    "خلاصه موضوع، مبلغ تقریبی، طرف مقابل و مدارک موجود را ارسال کنید. دریافت پیام به معنی پذیرش نمایندگی نیست؛ ابتدا امکان پیگیری و مسیر حقوقی بررسی می‌شود.",
+  "about.cta.primary": "ارسال پرونده برای بررسی",
+  "about.cta.secondary": "مشاهده خدمات",
 
   // Insights page
   "ins.kicker": "بینش‌ها",
