@@ -78,82 +78,23 @@ function Hero() {
   const waHref = whatsappHref(t("home.hero.whatsappMsg"));
 
   return (
-    <>
-      <section className="relative lg:hidden overflow-hidden -mt-24 flex flex-col">
-        <div className="absolute inset-0 -z-10">
-          <img
-            src={rahilCutout}
-            alt="Rahil Mostafaee"
-            className="w-full h-full object-cover ken-burns"
-            style={{ objectPosition: "center 22%" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-onyx/75 via-onyx/35 to-onyx" />
-          <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/65 to-transparent" />
-          <div
-            className="absolute inset-0"
-            style={{ background: "var(--gradient-radial-gold)", opacity: 0.16 }}
-          />
-        </div>
+    <section className="relative -mt-24 flex flex-col overflow-hidden lg:min-h-screen lg:items-center lg:pt-32">
+      <div className="absolute inset-0 -z-10 lg:hidden">
+        <img
+          src={rahilCutout}
+          alt="Rahil Mostafaee"
+          className="w-full h-full object-cover ken-burns"
+          style={{ objectPosition: "center 22%" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-onyx/75 via-onyx/35 to-onyx" />
+        <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/65 to-transparent" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "var(--gradient-radial-gold)", opacity: 0.16 }}
+        />
+      </div>
 
-        <div className="h-[55svh]" aria-hidden />
-
-        <div className="relative z-[2] px-6 pb-6">
-          <div className="reveal flex items-center gap-2 mb-3">
-            <span className="h-px w-8 bg-gold" />
-            <span className="text-[10px] tracking-[0.3em] uppercase text-gold leading-tight">
-              {t("home.hero.kicker")}
-            </span>
-          </div>
-
-          <h1 className="reveal reveal-delay-1 font-display text-[3.25rem] leading-[0.98] tracking-tight text-ivory break-words">
-            {t("home.hero.h1")}
-          </h1>
-
-          <p className="reveal reveal-delay-2 mt-4 text-[13px] text-muted-foreground leading-relaxed">
-            {t("home.hero.lede")}
-          </p>
-
-          <div className="mt-5 space-y-2">
-            <Link
-              to="/contact"
-              className="reveal reveal-delay-3 inline-flex w-full items-center justify-center gap-2 px-4 py-3.5 bg-gold text-onyx shadow-glow"
-            >
-              <span className="text-[10px] tracking-[0.25em] uppercase font-medium">
-                {t("home.hero.cta.primary")}
-              </span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
-            <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="reveal reveal-delay-4 inline-flex w-full items-center justify-center gap-2 px-4 py-3 glass-strong text-ivory backdrop-blur-md border border-gold/20"
-            >
-              <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-              <span className="text-[10px] tracking-[0.25em] uppercase font-medium">
-                {t("home.hero.cta.secondary")}
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <div className="relative z-[2] grid grid-cols-3 gap-px bg-gold/15 border-t border-gold/25">
-          {[
-            { v: t("home.hero.stat.1.v"), l: t("home.hero.stat.1.l") },
-            { v: t("home.hero.stat.2.v"), l: t("home.hero.stat.2.l") },
-            { v: t("home.hero.stat.3.v"), l: t("home.hero.stat.3.l") },
-          ].map((s) => (
-            <div key={s.l} className="bg-onyx/95 backdrop-blur px-2 py-4 text-center">
-              <div className="font-display text-xl text-gold leading-none">{s.v}</div>
-              <div className="text-[9px] tracking-[0.14em] uppercase text-muted-foreground mt-1.5 leading-tight">
-                {s.l}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="relative hidden lg:flex min-h-screen items-center overflow-hidden -mt-24 pt-32">
+      <div className="absolute inset-0 hidden lg:block">
         <Parallax speed={60} className="absolute inset-0">
           <img
             src={hero}
@@ -173,153 +114,154 @@ function Hero() {
             }}
           />
         </Parallax>
+      </div>
 
-        <div className="absolute left-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 z-10">
-          <span className="h-24 w-px bg-gradient-to-b from-transparent to-gold/60" />
-          <span className="font-mono text-[10px] tracking-[0.5em] uppercase text-gold/80 [writing-mode:vertical-rl] rotate-180">
-            {t("home.hero.est")}
-          </span>
-          <span className="h-24 w-px bg-gradient-to-b from-gold/60 to-transparent" />
-        </div>
+      <div className="absolute left-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-6 lg:flex">
+        <span className="h-24 w-px bg-gradient-to-b from-transparent to-gold/60" />
+        <span className="font-mono text-[10px] tracking-[0.5em] uppercase text-gold/80 [writing-mode:vertical-rl] rotate-180">
+          {t("home.hero.est")}
+        </span>
+        <span className="h-24 w-px bg-gradient-to-b from-gold/60 to-transparent" />
+      </div>
 
-        <div className="absolute right-8 top-32 flex items-center gap-3 z-10">
-          <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground">
-            N° 001
-          </span>
-          <span className="h-px w-10 bg-gold/40" />
-        </div>
+      <div className="absolute right-8 top-32 z-10 hidden items-center gap-3 lg:flex">
+        <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground">
+          N° 001
+        </span>
+        <span className="h-px w-10 bg-gold/40" />
+      </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-20 pb-20 lg:pb-24 pt-12 w-full">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-7 space-y-10">
-              <div className="reveal flex items-center gap-3">
-                <span className="h-px w-12 bg-gold" />
-                <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
-                  {t("home.hero.kicker")}
-                </span>
-              </div>
+      <div className="h-[55svh] lg:hidden" aria-hidden />
 
-              <h1 className="reveal reveal-delay-1 font-display text-7xl lg:text-[6.75rem] leading-[0.95] tracking-tight text-balance text-ivory break-words">
-                {t("home.hero.h1")}
-              </h1>
+      <div className="relative z-[2] w-full px-6 pb-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-20 lg:pb-24 lg:pt-12">
+        <div className="lg:col-span-7 lg:space-y-10">
+          <div className="reveal mb-3 flex items-center gap-2 lg:mb-0 lg:gap-3">
+            <span className="h-px w-8 bg-gold lg:w-12" />
+            <span className="text-[10px] tracking-[0.3em] uppercase text-gold leading-tight lg:tracking-[0.4em]">
+              {t("home.hero.kicker")}
+            </span>
+          </div>
 
-              <p className="reveal reveal-delay-2 max-w-xl text-lg text-muted-foreground leading-relaxed">
-                {t("home.hero.lede")}
-              </p>
+          <h1 className="reveal reveal-delay-1 font-display text-[3.25rem] leading-[0.98] tracking-tight text-ivory break-words lg:text-balance lg:text-[6.75rem] lg:leading-[0.95]">
+            {t("home.hero.h1")}
+          </h1>
 
-              <div className="reveal reveal-delay-3 flex flex-wrap items-center gap-4">
-                <Link
-                  to="/contact"
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gold text-onyx hover:bg-gold-soft transition-all duration-300 shadow-glow"
-                >
-                  <span className="text-xs tracking-[0.3em] uppercase font-medium">
-                    {t("home.hero.cta.primary")}
-                  </span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
-                <a
-                  href={waHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 px-8 py-4 glass-strong text-ivory hover:border-gold/40 transition-all"
-                >
-                  <MessageCircle className="w-4 h-4 text-[#25D366]" />
-                  <span className="text-xs tracking-[0.3em] uppercase font-medium">
-                    {t("home.hero.cta.secondary")}
-                  </span>
-                </a>
-              </div>
+          <p className="reveal reveal-delay-2 mt-4 text-[13px] text-muted-foreground leading-relaxed lg:mt-0 lg:max-w-xl lg:text-lg">
+            {t("home.hero.lede")}
+          </p>
 
-              <div className="reveal reveal-delay-4 grid grid-cols-3 gap-px bg-gold/10 mt-12 max-w-3xl">
-                {[
-                  { v: t("home.hero.stat.1.v"), l: t("home.hero.stat.1.l") },
-                  { v: t("home.hero.stat.2.v"), l: t("home.hero.stat.2.l") },
-                  { v: t("home.hero.stat.3.v"), l: t("home.hero.stat.3.l") },
-                ].map((s) => (
-                  <div key={s.l} className="bg-onyx/80 px-6 py-6">
-                    <div className="font-display text-3xl text-gold">{s.v}</div>
-                    <div className="stat-label text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
-                      {s.l}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="mt-5 space-y-2 lg:flex lg:flex-wrap lg:items-center lg:gap-4 lg:space-y-0">
+            <Link
+              to="/contact"
+              className="reveal reveal-delay-3 group inline-flex w-full items-center justify-center gap-2 bg-gold px-4 py-3.5 text-onyx shadow-glow transition-all duration-300 hover:bg-gold-soft lg:w-auto lg:gap-3 lg:px-8 lg:py-4"
+            >
+              <span className="text-[10px] tracking-[0.25em] uppercase font-medium lg:text-xs lg:tracking-[0.3em]">
+                {t("home.hero.cta.primary")}
+              </span>
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 lg:w-4 lg:h-4" />
+            </Link>
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="reveal reveal-delay-4 group inline-flex w-full items-center justify-center gap-2 glass-strong border border-gold/20 px-4 py-3 text-ivory backdrop-blur-md transition-all hover:border-gold/40 lg:w-auto lg:gap-3 lg:border-0 lg:px-8 lg:py-4"
+            >
+              <MessageCircle className="w-3.5 h-3.5 text-[#25D366] lg:w-4 lg:h-4" />
+              <span className="text-[10px] tracking-[0.25em] uppercase font-medium lg:text-xs lg:tracking-[0.3em]">
+                {t("home.hero.cta.secondary")}
+              </span>
+            </a>
+          </div>
 
-            <div className="lg:col-span-5">
-              <div className="relative">
-                <div
-                  className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70 drift"
-                  aria-hidden
-                />
-
-                <div className="reveal reveal-delay-3 absolute -top-4 -right-4 z-20 glass-strong px-4 py-3 border-l-2 border-gold">
-                  <div className="flex items-center gap-2.5">
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
-                    </span>
-                    <div>
-                      <div className="text-[9px] tracking-[0.35em] uppercase text-gold leading-none">
-                        {t("home.hero.available")}
-                      </div>
-                      <div className="text-[11px] text-ivory mt-1 leading-none">
-                        {t("home.hero.location")}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="reveal reveal-delay-2 relative">
-                  <span className="pointer-events-none absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-gold z-10" />
-                  <span className="pointer-events-none absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-gold z-10" />
-                  <span className="pointer-events-none absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-gold z-10" />
-                  <span className="pointer-events-none absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-gold z-10" />
-
-                  <div className="relative overflow-hidden aspect-[4/5] tilt-hover gold-sweep">
-                    <img
-                      src={portrait}
-                      alt="Rahil Mostafaee"
-                      className="w-full h-full object-cover slow-pan"
-                      width={900}
-                      height={1125}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/30 to-transparent" />
-                    <div className="absolute bottom-0 inset-x-0 p-7">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="h-px w-6 bg-gold" />
-                        <span className="text-[9px] tracking-[0.45em] uppercase text-gold">
-                          {t("home.hero.founder")}
-                        </span>
-                      </div>
-                      <div className="font-display text-3xl text-ivory leading-tight">
-                        {t("home.hero.name.first")}
-                        <br />
-                        <span className="italic gradient-gold-text">
-                          {t("home.hero.name.last")}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="reveal reveal-delay-4 mt-6 flex items-center justify-between text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-                  <span>{t("home.hero.signature")}</span>
-                  <span className="font-mono text-gold">— RM</span>
+          <div className="reveal reveal-delay-4 -mx-6 mt-6 grid grid-cols-3 gap-px border-t border-gold/25 bg-gold/15 lg:mx-0 lg:mt-12 lg:max-w-3xl lg:border-t-0 lg:bg-gold/10">
+            {[
+              { v: t("home.hero.stat.1.v"), l: t("home.hero.stat.1.l") },
+              { v: t("home.hero.stat.2.v"), l: t("home.hero.stat.2.l") },
+              { v: t("home.hero.stat.3.v"), l: t("home.hero.stat.3.l") },
+            ].map((s) => (
+              <div
+                key={s.l}
+                className="bg-onyx/95 px-2 py-4 text-center backdrop-blur lg:bg-onyx/80 lg:px-6 lg:py-6 lg:text-start"
+              >
+                <div className="font-display text-xl text-gold leading-none lg:text-3xl">{s.v}</div>
+                <div className="stat-label mt-1.5 text-[9px] tracking-[0.14em] uppercase text-muted-foreground leading-tight lg:mt-1 lg:text-[10px] lg:tracking-[0.3em]">
+                  {s.l}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 z-10">
-          <span className="text-[9px] tracking-[0.45em] uppercase text-muted-foreground">
-            {t("home.hero.scroll")}
-          </span>
-          <span className="h-10 w-px bg-gradient-to-b from-gold/60 to-transparent animate-pulse" />
+        <div className="hidden lg:col-span-5 lg:block">
+          <div className="relative">
+            <div
+              className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70 drift"
+              aria-hidden
+            />
+
+            <div className="reveal reveal-delay-3 absolute -top-4 -right-4 z-20 glass-strong px-4 py-3 border-l-2 border-gold">
+              <div className="flex items-center gap-2.5">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
+                </span>
+                <div>
+                  <div className="text-[9px] tracking-[0.35em] uppercase text-gold leading-none">
+                    {t("home.hero.available")}
+                  </div>
+                  <div className="text-[11px] text-ivory mt-1 leading-none">
+                    {t("home.hero.location")}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="reveal reveal-delay-2 relative">
+              <span className="pointer-events-none absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-gold z-10" />
+              <span className="pointer-events-none absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-gold z-10" />
+              <span className="pointer-events-none absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-gold z-10" />
+              <span className="pointer-events-none absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-gold z-10" />
+
+              <div className="relative overflow-hidden aspect-[4/5] tilt-hover gold-sweep">
+                <img
+                  src={portrait}
+                  alt="Rahil Mostafaee"
+                  className="w-full h-full object-cover slow-pan"
+                  width={900}
+                  height={1125}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/30 to-transparent" />
+                <div className="absolute bottom-0 inset-x-0 p-7">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="h-px w-6 bg-gold" />
+                    <span className="text-[9px] tracking-[0.45em] uppercase text-gold">
+                      {t("home.hero.founder")}
+                    </span>
+                  </div>
+                  <div className="font-display text-3xl text-ivory leading-tight">
+                    {t("home.hero.name.first")}
+                    <br />
+                    <span className="italic gradient-gold-text">{t("home.hero.name.last")}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="reveal reveal-delay-4 mt-6 flex items-center justify-between text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+              <span>{t("home.hero.signature")}</span>
+              <span className="font-mono text-gold">— RM</span>
+            </div>
+          </div>
         </div>
-      </section>
-    </>
+      </div>
+
+      <div className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex">
+        <span className="text-[9px] tracking-[0.45em] uppercase text-muted-foreground">
+          {t("home.hero.scroll")}
+        </span>
+        <span className="h-10 w-px bg-gradient-to-b from-gold/60 to-transparent animate-pulse" />
+      </div>
+    </section>
   );
 }
 
