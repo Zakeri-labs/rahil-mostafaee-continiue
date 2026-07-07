@@ -243,7 +243,7 @@ function Hero() {
 }
 
 function HeroHeadlineText({ lang, title }: { lang: "en" | "fa"; title: string }) {
-  const highlight = lang === "fa" ? "بازیابی دارایی" : "& Asset Recovery";
+  const highlight = lang === "fa" ? "راحیل مصطفایی" : "& Asset Recovery";
   const [before, after] = title.split(highlight);
 
   if (!after) return <>{title}</>;

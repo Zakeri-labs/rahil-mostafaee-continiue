@@ -368,7 +368,7 @@ const en: Dict = {
   "svc.who.h2": "Who these services are for",
   "svc.who.1": "Importers and exporters",
   "svc.who.2": "Iranian investors in the UAE",
-  "svc.who.3": "SME owners",
+  "svc.who.3": "Medium and large business owners",
   "svc.who.4": "Founders and business partners",
   "svc.who.5": "Companies with receivables from UAE counterparties",
   "svc.who.6": "Individuals whose money or assets are stuck in the UAE",
@@ -525,7 +525,7 @@ const en: Dict = {
   "about.work.2.t": "Review documents and risks",
   "about.work.2.b":
     "Contracts, invoices, payment proof, communications, counterparty details, and urgency are reviewed.",
-  "about.work.3.t": "Assess the legal route",
+  "about.work.3.t": "Legal Route Design",
   "about.work.3.b":
     "Based on the initial information, possible routes such as negotiation, notice, urgent action, litigation, enforcement, or debt recovery can be reviewed.",
   "about.work.4.t": "Define the next step",
@@ -717,7 +717,7 @@ const en: Dict = {
   "home.pain.3.t": "Business Partner in Dispute",
   "home.pain.3.b":
     "Unauthorized withdrawals, blocked accounts, lost access, or management disputes are putting company assets at risk.",
-  "home.pain.4.t": "SME Owner",
+  "home.pain.4.t": "Medium and Large Business Owner",
   "home.pain.4.b":
     "Unpaid invoices and commercial debts are creating cash-flow pressure and operational risk.",
   "home.pain.5.t": "Iran-UAE Cross-Border Matter",
@@ -745,8 +745,8 @@ const en: Dict = {
   "home.process.kicker": "Process",
   "home.process.h2": "Case Review and Engagement Process",
   "home.process.s1": "Initial intake",
-  "home.process.s2": "Document and counterparty review",
-  "home.process.s3": "Legal route assessment",
+  "home.process.s2": "Commercial Documentation Engineering",
+  "home.process.s3": "Legal Route Design",
   "home.process.s4": "Action, negotiation, or formal notice",
   "home.process.s5": "Follow-up toward the available outcome",
 
@@ -1159,7 +1159,7 @@ const fa: Dict = {
   "svc.who.h2": "این خدمات برای چه کسانی مناسب است؟",
   "svc.who.1": "تجار واردکننده و صادرکننده",
   "svc.who.2": "سرمایه‌گذاران ایرانی در امارات",
-  "svc.who.3": "صاحبان کسب‌وکار کوچک و متوسط",
+  "svc.who.3": "صاحبان کسب‌وکار متوسط و بزرگ",
   "svc.who.4": "founders و شرکای تجاری",
   "svc.who.5": "شرکت‌هایی که از طرف اماراتی طلب دارند",
   "svc.who.6": "افرادی که پول یا دارایی‌شان در امارات گیر کرده است",
@@ -1315,7 +1315,7 @@ const fa: Dict = {
   "about.work.2.t": "بررسی اسناد و ریسک‌ها",
   "about.work.2.b":
     "قرارداد، فاکتور، رسید پرداخت، مکاتبات، اطلاعات شرکت یا شخص مقابل و فوریت پرونده بررسی می‌شود.",
-  "about.work.3.t": "تشخیص مسیر حقوقی",
+  "about.work.3.t": "طراحی مسیر حقوقی",
   "about.work.3.b":
     "بر اساس اطلاعات اولیه، مسیرهایی مثل مذاکره، اخطار، اقدام فوری، دعوا، اجرا یا پیگیری وصول مطالبات قابل بررسی می‌شود.",
   "about.work.4.t": "تصمیم‌گیری مرحله بعد",
@@ -1473,7 +1473,7 @@ const fa: Dict = {
 
   // Homepage rebuild: commercial disputes and asset recovery
   "home.hero.kicker": "اختلافات تجاری ایران–امارات · بازیابی دارایی · وصول مطالبات",
-  "home.hero.h1": "وکیل اختلافات تجاری و بازیابی دارایی برای ایرانی‌ها در امارات",
+  "home.hero.h1": "راحیل مصطفایی وکیل اختلافات تجاری و متخصص در اثبات دعوی",
   "home.hero.lede":
     "اگر پول، طلب، سرمایه یا قرارداد تجاری شما در امارات گیر کرده، مسیر حقوقی هنوز قابل بررسی است. ما پرونده‌های تجاری ایران–امارات، وصول مطالبات، اختلاف شرکا و بازیابی دارایی را با رویکردی محرمانه و ساختاریافته پیگیری می‌کنیم.",
   "home.hero.cta.primary": "بررسی محرمانه پرونده",
@@ -1504,7 +1504,7 @@ const fa: Dict = {
   "home.pain.3.t": "شریک درگیر اختلاف",
   "home.pain.3.b":
     "برداشت غیرمجاز، قفل شدن حساب، قطع دسترسی یا اختلاف مدیریتی، کنترل دارایی شرکت را تهدید می‌کند.",
-  "home.pain.4.t": "صاحب کسب‌وکار کوچک یا متوسط",
+  "home.pain.4.t": "صاحب کسب‌وکار متوسط و بزرگ",
   "home.pain.4.b":
     "فاکتورهای پرداخت‌نشده و بدهی‌های تجاری باعث فشار نقدینگی و ریسک عملیاتی شده‌اند.",
   "home.pain.5.t": "پرونده مرزی ایران–امارات",
@@ -1532,8 +1532,8 @@ const fa: Dict = {
   "home.process.kicker": "روند پرونده",
   "home.process.h2": "روند بررسی و شروع پرونده",
   "home.process.s1": "دریافت اطلاعات اولیه",
-  "home.process.s2": "بررسی اسناد و طرف مقابل",
-  "home.process.s3": "تشخیص مسیر حقوقی",
+  "home.process.s2": "مهندسی مستندات تجاری",
+  "home.process.s3": "طراحی مسیر حقوقی",
   "home.process.s4": "اقدام، مذاکره یا اخطار رسمی",
   "home.process.s5": "پیگیری تا نتیجه ممکن",
 
