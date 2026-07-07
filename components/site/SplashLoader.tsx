@@ -16,17 +16,35 @@ export function SplashLoader() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem("splash-shown") === "1") {
+
+    const getSplashShown = () => {
+      try {
+        return window.sessionStorage.getItem("splash-shown") === "1";
+      } catch {
+        return false;
+      }
+    };
+
+    const setSplashShown = () => {
+      try {
+        window.sessionStorage.setItem("splash-shown", "1");
+      } catch {
+        // Storage can be blocked in private or restricted browser contexts.
+      }
+    };
+
+    if (getSplashShown()) {
       setPhase("done");
       return;
     }
+
     document.body.style.overflow = "hidden";
     const t1 = setTimeout(() => setPhase("hold"), 700); // ring formed, logo + name in
     const t2 = setTimeout(() => setPhase("iris"), 1900); // iris opens, logo flies to corner
     const t3 = setTimeout(() => setPhase("settle"), 3100); // overlay fully transparent
     const t4 = setTimeout(() => {
       setPhase("done");
-      sessionStorage.setItem("splash-shown", "1");
+      setSplashShown();
       document.body.style.overflow = "";
     }, 3700);
     return () => {
