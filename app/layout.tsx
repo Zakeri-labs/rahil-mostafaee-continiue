@@ -1,0 +1,60 @@
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+import { Providers } from "./providers";
+import { Nav } from "@/components/site/Nav";
+import { Footer } from "@/components/site/Footer";
+import { SplashLoader } from "@/components/site/SplashLoader";
+import { WhatsAppFab } from "@/components/site/WhatsAppFab";
+import { MobileBottomNav } from "@/components/site/MobileBottomNav";
+
+const previewImage =
+  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69bde703-9d13-4c09-8970-6aa38ca5aa8f/id-preview-dd3066eb--968f7a0d-6eab-41ef-8230-5310d790e022.lovable.app-1778573785780.png";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Rahil Mostafaee — Strategic Legal Counsel for Iranians in Dubai",
+    template: "%s",
+  },
+  description:
+    "Discreet, cross-border legal representation for high-value Iranian clients in Dubai. Residency, corporate, real estate, DIFC wills, international coordination.",
+  authors: [{ name: "Rahil Mostafaee Legal" }],
+  openGraph: {
+    title: "Rahil Mostafaee — Strategic Legal Counsel for Iranians in Dubai",
+    description:
+      "Discreet, cross-border legal representation for high-value Iranian clients in Dubai. Residency, corporate, real estate, DIFC wills, international coordination.",
+    type: "website",
+    images: [previewImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rahil Mostafaee — Strategic Legal Counsel for Iranians in Dubai",
+    description:
+      "Discreet, cross-border legal representation for high-value Iranian clients in Dubai. Residency, corporate, real estate, DIFC wills, international coordination.",
+    images: [previewImage],
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0e0d0b",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en">
+      <body>
+        <Providers>
+          <SplashLoader />
+          <div className="flex min-h-screen flex-col">
+            <Nav />
+            <main className="flex-1 pt-24">{children}</main>
+            <Footer />
+            <WhatsAppFab />
+            <MobileBottomNav />
+          </div>
+        </Providers>
+      </body>
+    </html>
+  );
+}
