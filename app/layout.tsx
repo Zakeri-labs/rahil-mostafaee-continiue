@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Nav } from "@/components/site/Nav";
@@ -9,6 +10,58 @@ import { MobileBottomNav } from "@/components/site/MobileBottomNav";
 
 const previewImage =
   "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69bde703-9d13-4c09-8970-6aa38ca5aa8f/id-preview-dd3066eb--968f7a0d-6eab-41ef-8230-5310d790e022.lovable.app-1778573785780.png";
+
+const peyda = localFont({
+  src: [
+    {
+      path: "./fonts/peyda/PEYDA-THIN.ttf",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "./fonts/peyda/PEYDA-EXTRALIGHT.ttf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "./fonts/peyda/PEYDA-LIGHT.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/peyda/PEYDA-REGULAR.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/peyda/PEYDA-MEDIUM.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/peyda/PEYDA-SEMIBOLD.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/peyda/PEYDA-BOLD.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/peyda/PEYDA-EXTRABOLD.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "./fonts/peyda/PEYDA-BLACK.ttf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-peyda",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -43,7 +96,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={peyda.variable}>
         <Providers>
           <SplashLoader />
           <div className="flex min-h-screen flex-col">

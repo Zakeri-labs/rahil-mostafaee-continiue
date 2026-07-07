@@ -1,4 +1,4 @@
-/* Persian webfonts — IRANSans (primary), Estedad (display), Vazirmatn (fallback) */
+/* Persian webfonts — Peyda (primary), IRANSans/Estedad/Vazirmatn (fallbacks) */
 @import url("https://v1.fontapi.ir/css/IRANSansX");
 @import url("https://v1.fontapi.ir/css/Estedad");
 @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap");
@@ -15,8 +15,9 @@
 @theme inline {
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
-  --font-fa: "IRANSansX", "IRANSans", "Vazirmatn", "Tahoma", sans-serif;
-  --font-fa-display: "Estedad", "IRANSansX", "Vazirmatn", "Tahoma", sans-serif;
+  --font-fa: var(--font-peyda), "IRANSansX", "IRANSans", "Vazirmatn", "Tahoma", sans-serif;
+  --font-fa-display: var(--font-peyda), "Estedad", "IRANSansX", "Vazirmatn", "Tahoma",
+    sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   --radius-sm: 4px;
@@ -110,6 +111,10 @@
     scroll-behavior: smooth;
   }
   body {
+    --peyda-persian-font: var(--font-peyda), "IRANSansX", "IRANSans", "Vazirmatn", "Tahoma",
+      sans-serif;
+    --peyda-persian-display-font: var(--font-peyda), "Estedad", "IRANSansX", "Vazirmatn",
+      "Tahoma", sans-serif;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
@@ -134,7 +139,7 @@
     font-family: var(--font-mono);
   }
   .font-fa {
-    font-family: var(--font-fa);
+    font-family: var(--peyda-persian-font);
   }
 
   [dir="rtl"],
@@ -143,10 +148,10 @@
   [dir="rtl"] textarea,
   [dir="rtl"] button,
   [dir="rtl"] select {
-    font-family: var(--font-fa);
+    font-family: var(--peyda-persian-font);
   }
   [dir="rtl"] .font-display {
-    font-family: var(--font-fa-display);
+    font-family: var(--peyda-persian-display-font);
     font-weight: 600;
     letter-spacing: 0;
     line-height: 1.35;
