@@ -400,6 +400,12 @@
     text-wrap: balance;
   }
 
+  @media (min-width: 1024px) and (max-height: 900px) {
+    [data-hero-portrait-column] {
+      align-self: start;
+    }
+  }
+
   @keyframes ken-burns {
     0% {
       transform: scale(1.05) translate3d(0, 0, 0);

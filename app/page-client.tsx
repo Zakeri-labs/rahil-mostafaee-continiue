@@ -55,8 +55,9 @@ function Hero() {
   const waHref = whatsappHref(t("home.hero.whatsappMsg"));
   const headlineClassName =
     lang === "fa"
-      ? "text-[2.25rem] leading-[1.3] min-[430px]:text-[2.45rem] md:text-[2.8rem] lg:text-[5rem] lg:leading-[1.18]"
-      : "text-[2.7rem] leading-[1.04] min-[430px]:text-[3.15rem] md:text-[3.35rem] lg:text-[6.75rem] lg:leading-[0.95]";
+      ? "text-[2.25rem] leading-[1.3] min-[430px]:text-[2.45rem] md:text-[2.8rem] lg:text-[4.25rem] lg:leading-[1.18]"
+      : "text-[2.7rem] leading-[1.04] min-[430px]:text-[3.15rem] md:text-[3.35rem] lg:text-[6.125rem] lg:leading-[0.95]";
+  const copyColumnClassName = lang === "fa" ? "lg:max-w-[39rem] lg:justify-self-start" : "";
 
   return (
     <section className="relative -mt-24 overflow-visible pt-0 lg:flex lg:min-h-screen lg:items-center lg:overflow-hidden lg:pt-32">
@@ -140,7 +141,7 @@ function Hero() {
         </div>
 
         <div
-          className="min-w-0 border-y border-gold/15 bg-onyx/10 px-4 py-5 shadow-luxe backdrop-blur-2xl sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none sm:self-center lg:col-span-7 lg:space-y-10"
+          className={`min-w-0 border-y border-gold/15 bg-onyx/10 px-4 py-5 shadow-luxe backdrop-blur-2xl sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none sm:self-center lg:col-span-7 lg:space-y-10 ${copyColumnClassName}`}
           data-hero-copy
         >
           <div className="reveal mb-3 flex items-center gap-2 lg:mb-0 lg:gap-3">
@@ -206,7 +207,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="hidden lg:col-span-5 lg:block">
+        <div className="hidden lg:col-span-5 lg:block" data-hero-portrait-column>
           <div className="relative">
             <div
               className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70 drift"
