@@ -193,7 +193,7 @@ function BookingPage() {
                         setServiceId(s.id);
                         setSlot(null);
                       }}
-                      className={`relative h-full w-full flex flex-col p-8 text-left cursor-pointer transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                      className={`relative h-full w-full flex flex-col p-8 text-start cursor-pointer transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                         active ? "ring-2 ring-gold shadow-glow z-1" : ""
                       } ${featured ? "glass-strong border border-gold/40 shadow-luxe" : "glass hover:border-gold/30"}`}
                     >

@@ -271,7 +271,7 @@ function FAQ() {
               key={faq.q}
               className="group bg-onyx p-6 lg:p-7 open:bg-charcoal/60 transition-colors"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-left">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-start">
                 <span className="font-display text-xl lg:text-2xl text-ivory leading-tight break-words">
                   {faq.q}
                 </span>

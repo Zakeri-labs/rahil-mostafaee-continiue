@@ -215,6 +215,30 @@
   [dir="rtl"] .uppercase {
     text-transform: none;
   }
+  [dir="rtl"] .text-left {
+    text-align: right;
+  }
+  [dir="ltr"] .text-right {
+    text-align: left;
+  }
+  [dir="rtl"] input,
+  [dir="rtl"] textarea,
+  [dir="rtl"] select {
+    text-align: right;
+  }
+  [dir="ltr"] input,
+  [dir="ltr"] textarea,
+  [dir="ltr"] select {
+    text-align: left;
+  }
+  @media (min-width: 640px) {
+    [dir="rtl"] .sm\:text-left {
+      text-align: right;
+    }
+    [dir="ltr"] .sm\:text-right {
+      text-align: left;
+    }
+  }
   [dir="rtl"] .stat-label {
     font-size: 0.8rem;
     letter-spacing: 0.05em;

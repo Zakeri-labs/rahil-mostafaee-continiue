@@ -1596,6 +1596,7 @@ const I18nContext = createContext<Ctx | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("fa");
+  const dir = lang === "fa" ? "rtl" : "ltr";
 
   useEffect(() => {
     const stored =
@@ -1606,10 +1607,12 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (typeof document !== "undefined") {
       document.documentElement.lang = lang;
-      document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
+      document.documentElement.dir = dir;
       document.documentElement.classList.toggle("font-fa", lang === "fa");
+      document.body.lang = lang;
+      document.body.dir = dir;
     }
-  }, [lang]);
+  }, [dir, lang]);
 
   const setLang = (l: Lang) => {
     setLangState(l);
@@ -1619,8 +1622,10 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const t = (k: string) => dict[lang][k] ?? dict.en[k] ?? k;
 
   return (
-    <I18nContext.Provider value={{ lang, setLang, t, dir: lang === "fa" ? "rtl" : "ltr" }}>
-      {children}
+    <I18nContext.Provider value={{ lang, setLang, t, dir }}>
+      <div lang={lang} dir={dir} data-lang={lang} className="min-h-screen">
+        {children}
+      </div>
     </I18nContext.Provider>
   );
 }

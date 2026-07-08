@@ -11,6 +11,21 @@ import { MobileBottomNav } from "@/components/site/MobileBottomNav";
 const previewImage =
   "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69bde703-9d13-4c09-8970-6aa38ca5aa8f/id-preview-dd3066eb--968f7a0d-6eab-41ef-8230-5310d790e022.lovable.app-1778573785780.png";
 
+const directionScript = `
+  (function () {
+    try {
+      var lang = window.localStorage.getItem("lang") || "fa";
+      var dir = lang === "fa" ? "rtl" : "ltr";
+      document.documentElement.lang = lang;
+      document.documentElement.dir = dir;
+      if (document.body) {
+        document.body.lang = lang;
+        document.body.dir = dir;
+      }
+    } catch (_) {}
+  })();
+`;
+
 const peyda = localFont({
   src: [
     {
@@ -95,8 +110,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={peyda.variable}>
+    <html lang="fa" dir="rtl" suppressHydrationWarning>
+      <body className={peyda.variable} lang="fa" dir="rtl">
+        <script dangerouslySetInnerHTML={{ __html: directionScript }} />
         <Providers>
           <SplashLoader />
           <div className="flex min-h-screen flex-col">
