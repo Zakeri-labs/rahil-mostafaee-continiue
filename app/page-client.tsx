@@ -35,7 +35,7 @@ function whatsappHref(message: string) {
 function Home() {
   const { dir } = useI18n();
   return (
-    <div className="overflow-hidden" dir={dir}>
+    <div className="overflow-visible lg:overflow-hidden" dir={dir}>
       <ScrollProgress />
       <Hero />
       <PainCards />
@@ -59,7 +59,7 @@ function Hero() {
       : "text-[2.7rem] leading-[1.04] min-[430px]:text-[3.15rem] md:text-[3.35rem] lg:text-[6.75rem] lg:leading-[0.95]";
 
   return (
-    <section className="relative -mt-24 overflow-hidden pt-28 lg:flex lg:min-h-screen lg:items-center lg:pt-32">
+    <section className="relative -mt-24 overflow-visible pt-0 lg:flex lg:min-h-screen lg:items-center lg:overflow-hidden lg:pt-32">
       <div className="absolute inset-0 -z-10 lg:hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-onyx via-charcoal/60 to-onyx" />
         <div
@@ -105,10 +105,24 @@ function Hero() {
         <span className="h-px w-10 bg-gold/40" />
       </div>
 
-      <div className="relative z-[2] grid w-full gap-5 px-6 pb-8 sm:grid-cols-[minmax(0,0.82fr)_minmax(0,1fr)] sm:items-start sm:gap-6 md:gap-8 lg:mx-auto lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-20 lg:pb-24 lg:pt-12">
+      <div className="sticky top-0 z-0 h-svh overflow-hidden sm:hidden" data-hero-mobile-image>
+        <img
+          src={rahilCutoutMobile.src}
+          alt="Rahil Mostafaee"
+          className="h-full w-full scale-[1.04] object-cover"
+          style={{ objectPosition: "center 12%" }}
+          width={595}
+          height={1192}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-onyx/10 via-onyx/20 to-onyx/92" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-onyx/80 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-onyx/80 to-transparent" />
+      </div>
+
+      <div className="relative z-[2] -mt-[42svh] grid w-full gap-5 px-6 pb-8 sm:mt-0 sm:grid-cols-[minmax(0,0.82fr)_minmax(0,1fr)] sm:items-start sm:gap-6 md:gap-8 lg:mx-auto lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-20 lg:pb-24 lg:pt-12">
         <div
-          className="relative -mx-6 h-[43svh] min-h-[318px] max-h-[430px] overflow-hidden sm:mx-0 sm:h-auto sm:min-h-0 sm:max-h-none sm:self-start lg:hidden"
-          data-hero-mobile-image
+          className="relative -mx-6 hidden h-[43svh] min-h-[318px] max-h-[430px] overflow-hidden sm:mx-0 sm:block sm:h-auto sm:min-h-0 sm:max-h-none sm:self-start lg:hidden"
+          data-hero-tablet-image
         >
           <div className="absolute inset-0 sm:relative sm:aspect-[4/5]">
             <img
@@ -125,7 +139,10 @@ function Hero() {
           </div>
         </div>
 
-        <div className="min-w-0 sm:self-center lg:col-span-7 lg:space-y-10" data-hero-copy>
+        <div
+          className="min-w-0 border-y border-gold/15 bg-onyx/10 px-4 py-5 shadow-luxe backdrop-blur-2xl sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none sm:self-center lg:col-span-7 lg:space-y-10"
+          data-hero-copy
+        >
           <div className="reveal mb-3 flex items-center gap-2 lg:mb-0 lg:gap-3">
             <span className="h-px w-8 bg-gold lg:w-12" />
             <span className="text-[10px] tracking-[0.3em] uppercase text-gold leading-tight lg:tracking-[0.4em]">
