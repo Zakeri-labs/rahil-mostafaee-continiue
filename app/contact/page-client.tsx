@@ -235,7 +235,7 @@ function ReviewHelp() {
               {t("contact.include.kicker")}
             </span>
           </div>
-          <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight leading-[1.05] break-words">
+          <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight leading-[1.05] break-words">
             {t("contact.include.h2")}
           </h2>
         </div>
@@ -260,7 +260,7 @@ function UrgentAction() {
     <section className="border-t border-gold/10 py-28">
       <div className="mx-auto max-w-5xl px-6 lg:px-10 glass-strong p-8 lg:p-12">
         <AlertTriangle className="w-7 h-7 text-gold mb-8" strokeWidth={1.2} />
-        <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight leading-[1.05] break-words">
+        <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight leading-[1.05] break-words">
           {t("contact.urgent.h2")}
         </h2>
         <p className="text-muted-foreground text-lg leading-relaxed mt-6">
@@ -278,7 +278,7 @@ function WhatsAppCTA({ waHref }: { waHref: string }) {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-8 space-y-5">
           <MessageCircle className="w-7 h-7 text-[#25D366]" />
-          <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight leading-[1.05] break-words">
+          <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight leading-[1.05] break-words">
             {t("contact.whatsapp.title")}
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">

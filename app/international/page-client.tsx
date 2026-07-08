@@ -99,7 +99,7 @@ function SectionIntro({
         <span className="text-[10px] tracking-[0.4em] uppercase text-gold">{kicker}</span>
         {centered && <span className="h-px w-12 bg-gold" />}
       </div>
-      <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight leading-[1.05] break-words">
+      <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight leading-[1.05] break-words">
         {title}
       </h2>
       {body && <p className="text-muted-foreground text-lg leading-relaxed">{body}</p>}
@@ -113,7 +113,7 @@ function WhyDifferent() {
     <section className="border-t border-gold/10 py-28">
       <div className="mx-auto max-w-5xl px-6 lg:px-10 glass-strong p-8 lg:p-12">
         <Scale className="w-8 h-8 text-gold mb-8" strokeWidth={1.2} />
-        <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight leading-[1.05] break-words">
+        <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight leading-[1.05] break-words">
           {t("intl.why.h2")}
         </h2>
         <p className="text-muted-foreground text-lg leading-relaxed mt-6">{t("intl.why.body")}</p>
@@ -207,7 +207,7 @@ function Process({ stepNum }: { stepNum: (n: number) => string }) {
   return (
     <section className="border-t border-gold/10 py-32">
       <div className="mx-auto max-w-5xl px-6 lg:px-10 space-y-12">
-        <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight break-words">
+        <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight break-words">
           {t("intl.process.h2")}
         </h2>
         <ol className="space-y-px bg-gold/10 hairline">
@@ -293,7 +293,7 @@ function FinalCTA() {
   return (
     <section className="py-32">
       <div className="mx-auto max-w-5xl px-6 lg:px-10 text-center space-y-10">
-        <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight break-words">
+        <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight break-words">
           {t("intl.cta.title")}
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">

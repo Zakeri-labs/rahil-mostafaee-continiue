@@ -55,7 +55,7 @@ function InsightsPage() {
             <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
               {t("ins.categories.kicker")}
             </span>
-            <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight leading-tight break-words">
+            <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight leading-tight break-words">
               {t("ins.categories.h2")}
             </h2>
           </div>
@@ -86,7 +86,7 @@ function InsightsPage() {
             <Clock className="w-5 h-5" />
             <span className="text-[10px] tracking-[0.4em] uppercase">{t("ins.future.kicker")}</span>
           </div>
-          <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight leading-tight break-words">
+          <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight leading-tight break-words">
             {t("ins.future.h2")}
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">{t("ins.future.body")}</p>
@@ -95,7 +95,7 @@ function InsightsPage() {
 
       <section className="py-32 border-t border-gold/10">
         <div className="mx-auto max-w-3xl px-6 lg:px-10 text-center space-y-8">
-          <h2 className="font-display text-4xl lg:text-5xl text-ivory tracking-tight break-words">
+          <h2 className="font-display text-2xl lg:text-3xl text-ivory tracking-tight break-words">
             {t("ins.cta.title")}
           </h2>
           <p className="text-muted-foreground">{t("ins.cta.body")}</p>

@@ -275,7 +275,7 @@ function SectionIntro({
         <span className="text-[10px] tracking-[0.35em] uppercase text-gold">{kicker}</span>
         {centered && <span className="h-px w-12 bg-gold" />}
       </div>
-      <h2 className="font-display text-4xl lg:text-6xl text-ivory leading-[1.05] tracking-tight">
+      <h2 className="font-display text-2xl lg:text-4xl text-ivory leading-[1.05] tracking-tight">
         {title}
       </h2>
       {body && <p className="text-muted-foreground text-lg leading-relaxed">{body}</p>}
@@ -541,7 +541,7 @@ function FinalCTA() {
     <section className="relative py-32 lg:py-40 border-t border-gold/10">
       <div className="mx-auto max-w-5xl px-6 lg:px-10 text-center space-y-10">
         <Reveal className="space-y-8">
-          <h2 className="font-display text-4xl lg:text-7xl text-ivory tracking-tight leading-[1.02]">
+          <h2 className="font-display text-2xl lg:text-5xl text-ivory tracking-tight leading-[1.02]">
             {t("home.cta.h2")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">

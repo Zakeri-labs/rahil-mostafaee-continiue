@@ -102,7 +102,7 @@ function SectionIntro({
         <span className="text-[10px] tracking-[0.4em] uppercase text-gold">{kicker}</span>
         {centered && <span className="h-px w-12 bg-gold" />}
       </div>
-      <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight leading-[1.05] break-words">
+      <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight leading-[1.05] break-words">
         {title}
       </h2>
       {body && <p className="text-muted-foreground text-lg leading-relaxed">{body}</p>}
@@ -322,7 +322,7 @@ function FinalCTA({ waHref }: { waHref: string }) {
     <section className="py-32" id="contact-cta">
       <div className="mx-auto max-w-5xl px-6 lg:px-10 text-center space-y-10">
         <AlertTriangle className="w-8 h-8 text-gold mx-auto" strokeWidth={1.2} />
-        <h2 className="font-display text-4xl lg:text-6xl text-ivory tracking-tight break-words">
+        <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight break-words">
           {t("svc.cta.title")}
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">

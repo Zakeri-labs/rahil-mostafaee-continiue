@@ -138,7 +138,7 @@ function BookingPage() {
       <>
         <PaymentTestModeBanner />
         <div className="max-w-3xl mx-auto px-6 py-16" dir={dir}>
-          <h2 className="font-display text-3xl text-ivory mb-6">{t("book.step.pay")}</h2>
+          <h2 className="font-display text-xl text-ivory mb-6">{t("book.step.pay")}</h2>
           <StripeEmbeddedCheckoutMount clientSecret={clientSecret} />
         </div>
       </>
@@ -172,7 +172,7 @@ function BookingPage() {
                 </span>
                 <span className="h-px w-12 bg-gold" />
               </div>
-              <h1 className="font-display text-5xl lg:text-6xl text-ivory tracking-tight">
+              <h1 className="font-display text-3xl lg:text-4xl text-ivory tracking-tight">
                 {t("home.pkg.h2.a")}{" "}
                 <span className="italic gradient-gold-text">{t("home.pkg.h2.b")}</span>
               </h1>
