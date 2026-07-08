@@ -19,7 +19,7 @@ import {
   Users,
 } from "lucide-react";
 import hero from "@/assets/hero-skyline.jpg";
-import rahilCutout from "@/assets/rahil-cutout.png";
+import rahilCutoutMobile from "@/assets/rahil-cutout-mobile.png";
 import office from "@/assets/office-interior.jpg";
 import portrait from "@/assets/rahil-ai-1.jpg";
 import { Reveal } from "@/components/site/Reveal";
@@ -53,21 +53,18 @@ function Home() {
 function Hero() {
   const { t, lang } = useI18n();
   const waHref = whatsappHref(t("home.hero.whatsappMsg"));
+  const headlineClassName =
+    lang === "fa"
+      ? "text-[2.25rem] leading-[1.3] min-[430px]:text-[2.45rem] md:text-[2.8rem] lg:text-[5rem] lg:leading-[1.18]"
+      : "text-[2.7rem] leading-[1.04] min-[430px]:text-[3.15rem] md:text-[3.35rem] lg:text-[6.75rem] lg:leading-[0.95]";
 
   return (
-    <section className="relative -mt-24 flex flex-col overflow-hidden lg:min-h-screen lg:items-center lg:pt-32">
+    <section className="relative -mt-24 overflow-hidden pt-28 lg:flex lg:min-h-screen lg:items-center lg:pt-32">
       <div className="absolute inset-0 -z-10 lg:hidden">
-        <img
-          src={rahilCutout.src}
-          alt="Rahil Mostafaee"
-          className="w-full h-full object-cover ken-burns"
-          style={{ objectPosition: "center 22%" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-onyx/75 via-onyx/35 to-onyx" />
-        <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/65 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-onyx via-charcoal/60 to-onyx" />
         <div
           className="absolute inset-0"
-          style={{ background: "var(--gradient-radial-gold)", opacity: 0.16 }}
+          style={{ background: "var(--gradient-radial-gold)", opacity: 0.2 }}
         />
       </div>
 
@@ -108,10 +105,27 @@ function Hero() {
         <span className="h-px w-10 bg-gold/40" />
       </div>
 
-      <div className="h-[55svh] lg:hidden" aria-hidden />
+      <div className="relative z-[2] grid w-full gap-5 px-6 pb-8 sm:grid-cols-[minmax(0,0.82fr)_minmax(0,1fr)] sm:items-start sm:gap-6 md:gap-8 lg:mx-auto lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-20 lg:pb-24 lg:pt-12">
+        <div
+          className="relative -mx-6 h-[43svh] min-h-[318px] max-h-[430px] overflow-hidden sm:mx-0 sm:h-auto sm:min-h-0 sm:max-h-none sm:self-start lg:hidden"
+          data-hero-mobile-image
+        >
+          <div className="absolute inset-0 sm:relative sm:aspect-[4/5]">
+            <img
+              src={rahilCutoutMobile.src}
+              alt="Rahil Mostafaee"
+              className="h-full w-full scale-[1.02] object-cover sm:scale-100"
+              style={{ objectPosition: "center 12%" }}
+              width={595}
+              height={1192}
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-onyx/20 via-transparent to-onyx/88" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-onyx/80 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-onyx/80 to-transparent" />
+          </div>
+        </div>
 
-      <div className="relative z-[2] w-full px-6 pb-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-20 lg:pb-24 lg:pt-12">
-        <div className="lg:col-span-7 lg:space-y-10">
+        <div className="min-w-0 sm:self-center lg:col-span-7 lg:space-y-10" data-hero-copy>
           <div className="reveal mb-3 flex items-center gap-2 lg:mb-0 lg:gap-3">
             <span className="h-px w-8 bg-gold lg:w-12" />
             <span className="text-[10px] tracking-[0.3em] uppercase text-gold leading-tight lg:tracking-[0.4em]">
@@ -119,11 +133,14 @@ function Hero() {
             </span>
           </div>
 
-          <h1 className="reveal reveal-delay-1 font-display text-[3.25rem] leading-[0.98] tracking-tight text-ivory break-words lg:text-balance lg:text-[6.75rem] lg:leading-[0.95]">
+          <h1
+            className={`reveal reveal-delay-1 font-display tracking-tight text-ivory break-words lg:text-balance ${headlineClassName}`}
+            data-hero-headline
+          >
             <HeroHeadlineText lang={lang} title={t("home.hero.h1")} />
           </h1>
 
-          <p className="reveal reveal-delay-2 mt-4 text-[13px] text-muted-foreground leading-relaxed lg:mt-0 lg:max-w-xl lg:text-lg">
+          <p className="reveal reveal-delay-2 mt-4 text-[13px] text-muted-foreground leading-relaxed sm:max-w-xl lg:mt-0 lg:text-lg">
             {t("home.hero.lede")}
           </p>
 
@@ -150,7 +167,10 @@ function Hero() {
             </a>
           </div>
 
-          <div className="reveal reveal-delay-4 -mx-6 mt-6 grid grid-cols-3 gap-px border-t border-gold/25 bg-gold/15 lg:mx-0 lg:mt-12 lg:max-w-3xl lg:border-t-0 lg:bg-gold/10">
+          <div
+            className="reveal reveal-delay-4 -mx-6 mt-6 grid grid-cols-3 gap-px border-t border-gold/25 bg-gold/15 sm:mx-0 lg:mt-12 lg:max-w-3xl lg:border-t-0 lg:bg-gold/10"
+            data-hero-stats
+          >
             {[
               { v: t("home.hero.stat.1.v"), l: t("home.hero.stat.1.l") },
               { v: t("home.hero.stat.2.v"), l: t("home.hero.stat.2.l") },
