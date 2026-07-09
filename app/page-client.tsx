@@ -27,6 +27,7 @@ import hero from "@/assets/hero-skyline.jpg";
 import rahilCutoutMobile from "@/assets/rahil-cutout-mobile.png";
 import office from "@/assets/office-interior.jpg";
 import portrait from "@/assets/rahil-ai-1.jpg";
+import timeSensitiveReviewImage from "@/assets/Time-Sensitive-Review .png";
 import { Reveal } from "@/components/site/Reveal";
 import { Parallax, ScrollProgress } from "@/components/site/Parallax";
 import { useI18n } from "@/lib/i18n";
@@ -461,8 +462,13 @@ function FastAction() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-5">
           <Reveal className="relative overflow-hidden aspect-[4/5] frame-gold">
-            <img src={office.src} alt="" className="w-full h-full object-cover" loading="lazy" />
-            <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-transparent" />
+            <img
+              src={timeSensitiveReviewImage.src}
+              alt=""
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-onyx/55 via-onyx/15 to-transparent" />
             <div className="absolute bottom-0 inset-x-0 p-7">
               <Clock className="w-7 h-7 text-gold mb-4" strokeWidth={1.2} />
               <div className="text-[10px] tracking-[0.35em] uppercase text-gold">
@@ -472,11 +478,13 @@ function FastAction() {
           </Reveal>
         </div>
         <div className="lg:col-span-7">
-          <SectionIntro
-            kicker={t("home.fast.kicker")}
-            title={t("home.fast.h2")}
-            body={t("home.fast.body")}
-          />
+          <div className="max-w-2xl">
+            <SectionIntro
+              kicker={t("home.fast.kicker")}
+              title={t("home.fast.h2")}
+              body={t("home.fast.body")}
+            />
+          </div>
         </div>
       </div>
     </section>
