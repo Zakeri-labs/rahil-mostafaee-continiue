@@ -1,23 +1,28 @@
 "use client";
 
 import Link from "next/link";
+import type { StaticImageData } from "next/image";
 import {
-  AlertTriangle,
   ArrowUpRight,
   Banknote,
-  Briefcase,
   Building2,
   CheckCircle2,
   Clock,
   FileSearch,
   FileText,
-  Globe2,
   HelpCircle,
   MessageCircle,
   Scale,
   ShieldCheck,
   Users,
 } from "lucide-react";
+import importerExporterImage from "@/assets/1-Importer-Exporter .png";
+import affectedInvestorImage from "@/assets/2-Affected-Investor.png";
+import partnerDisputeImage from "@/assets/3-Partner-in-Dispute.png";
+import mediumLargeBusinessImage from "@/assets/4-Medium-Large-Business-Owner.png";
+import crossBorderMatterImage from "@/assets/5-Iran-UAE-Cross-Border.png";
+import commercialDisputesImage from "@/assets/Path1-Iran-UAE-Commercial-Disputes.png";
+import assetRecoveryImage from "@/assets/Path2-Asset-Recovery.png";
 import hero from "@/assets/hero-skyline.jpg";
 import rahilCutoutMobile from "@/assets/rahil-cutout-mobile.png";
 import office from "@/assets/office-interior.jpg";
@@ -46,6 +51,31 @@ function Home() {
       <ServiceCards />
       <FAQ />
       <FinalCTA />
+    </div>
+  );
+}
+
+function CardImage({
+  image,
+  alt,
+  className = "mb-7 aspect-[4/3]",
+}: {
+  image: StaticImageData;
+  alt: string;
+  className?: string;
+}) {
+  return (
+    <div className={`relative overflow-hidden rounded-2xl bg-charcoal/60 shadow-luxe ${className}`}>
+      <img
+        src={image.src}
+        alt={alt}
+        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+        loading="lazy"
+        width={image.width}
+        height={image.height}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-onyx/35 via-onyx/5 to-gold/10" />
+      <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold/15" />
     </div>
   );
 }
@@ -324,11 +354,31 @@ function SectionIntro({
 function PainCards() {
   const { t } = useI18n();
   const cards = [
-    { icon: Briefcase, title: t("home.pain.1.t"), body: t("home.pain.1.b") },
-    { icon: AlertTriangle, title: t("home.pain.2.t"), body: t("home.pain.2.b") },
-    { icon: Users, title: t("home.pain.3.t"), body: t("home.pain.3.b") },
-    { icon: Banknote, title: t("home.pain.4.t"), body: t("home.pain.4.b") },
-    { icon: Globe2, title: t("home.pain.5.t"), body: t("home.pain.5.b") },
+    {
+      title: t("home.pain.1.t"),
+      body: t("home.pain.1.b"),
+      image: importerExporterImage,
+    },
+    {
+      title: t("home.pain.2.t"),
+      body: t("home.pain.2.b"),
+      image: affectedInvestorImage,
+    },
+    {
+      title: t("home.pain.3.t"),
+      body: t("home.pain.3.b"),
+      image: partnerDisputeImage,
+    },
+    {
+      title: t("home.pain.4.t"),
+      body: t("home.pain.4.b"),
+      image: mediumLargeBusinessImage,
+    },
+    {
+      title: t("home.pain.5.t"),
+      body: t("home.pain.5.b"),
+      image: crossBorderMatterImage,
+    },
   ];
 
   return (
@@ -338,15 +388,12 @@ function PainCards() {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-gold/10 hairline">
           {cards.map((card, i) => (
             <Reveal key={card.title} delay={i * 80}>
-              <article className="h-full bg-onyx p-7 lg:p-8 group hover:bg-charcoal transition-colors duration-500">
-                <card.icon
-                  className="w-6 h-6 text-gold mb-7 group-hover:scale-110 transition-transform"
-                  strokeWidth={1.2}
-                />
-                <h3 className="font-display text-2xl text-ivory leading-tight mb-4">
+              <article className="h-full bg-onyx p-4 text-center group hover:bg-charcoal transition-colors duration-500 sm:p-5 lg:p-5">
+                <CardImage image={card.image} alt={card.title} className="mb-6 aspect-square" />
+                <h3 className="font-display text-2xl text-ivory leading-tight mb-4 mx-auto">
                   {card.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{card.body}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mx-auto">{card.body}</p>
               </article>
             </Reveal>
           ))}
@@ -363,11 +410,13 @@ function ServiceAxes() {
       icon: Scale,
       title: t("home.axes.1.t"),
       bullets: [1, 2, 3, 4].map((n) => t(`home.axes.1.b${n}`)),
+      image: commercialDisputesImage,
     },
     {
       icon: FileSearch,
       title: t("home.axes.2.t"),
       bullets: [1, 2, 3, 4].map((n) => t(`home.axes.2.b${n}`)),
+      image: assetRecoveryImage,
     },
   ];
 
@@ -383,6 +432,7 @@ function ServiceAxes() {
           {axes.map((axis, i) => (
             <Reveal key={axis.title} delay={i * 120}>
               <article className="h-full glass-strong p-8 lg:p-10 shadow-luxe">
+                <CardImage image={axis.image} alt={axis.title} className="mb-7 aspect-video" />
                 <axis.icon className="w-8 h-8 text-gold mb-8" strokeWidth={1.2} />
                 <h3 className="font-display text-3xl lg:text-4xl text-ivory leading-tight mb-8">
                   {axis.title}
