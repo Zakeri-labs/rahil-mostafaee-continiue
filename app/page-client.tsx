@@ -7,9 +7,9 @@ import {
   Banknote,
   Building2,
   CheckCircle2,
+  ChevronRight,
   Clock,
   FileSearch,
-  FileText,
   HelpCircle,
   MessageCircle,
   Scale,
@@ -23,6 +23,11 @@ import mediumLargeBusinessImage from "@/assets/4-Medium-Large-Business-Owner.png
 import crossBorderMatterImage from "@/assets/5-Iran-UAE-Cross-Border.png";
 import commercialDisputesImage from "@/assets/Path1-Iran-UAE-Commercial-Disputes.png";
 import assetRecoveryImage from "@/assets/Path2-Asset-Recovery.png";
+import processImage1 from "@/assets/Process-1.png";
+import processImage2 from "@/assets/Process-2.png";
+import processImage3 from "@/assets/Process-3.png";
+import processImage4 from "@/assets/Process-4.png";
+import processImage5 from "@/assets/Process-5.png";
 import hero from "@/assets/hero-skyline.jpg";
 import rahilCutoutMobile from "@/assets/rahil-cutout-mobile.png";
 import office from "@/assets/office-interior.jpg";
@@ -493,31 +498,71 @@ function FastAction() {
 
 function Process() {
   const { t, lang } = useI18n();
-  const steps = [1, 2, 3, 4, 5].map((n) => t(`home.process.s${n}`));
-  const num = (n: number) =>
-    lang === "fa" ? n.toLocaleString("fa-IR") : String(n).padStart(2, "0");
+  const processCards = [
+    {
+      title: t("home.process.s1"),
+      image: processImage1,
+    },
+    {
+      title: t("home.process.s2"),
+      image: processImage2,
+    },
+    {
+      title: t("home.process.s3"),
+      image: processImage3,
+    },
+    {
+      title: t("home.process.s4"),
+      image: processImage4,
+    },
+    {
+      title: t("home.process.s5"),
+      image: processImage5,
+    },
+  ];
 
   return (
     <section className="relative py-24 lg:py-32 border-t border-gold/10 overflow-hidden">
       <div
-        className="absolute inset-0 opacity-30 pointer-events-none"
-        style={{ background: "var(--gradient-radial-gold)" }}
+        className="absolute inset-0 opacity-60"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 18% 20%, oklch(0.78 0.12 80 / 0.08), transparent 22%), linear-gradient(135deg, oklch(0.07 0.004 70), oklch(0.12 0.006 80) 45%, oklch(0.06 0.003 60))",
+        }}
       />
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 space-y-16">
+      <div
+        className="absolute inset-0 opacity-[0.08] mix-blend-screen pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(115deg, transparent 0 18%, oklch(0.78 0.12 80 / 0.45) 18.4%, transparent 19.2% 56%, oklch(0.78 0.12 80 / 0.34) 56.3%, transparent 57%), linear-gradient(23deg, transparent 0 34%, oklch(0.78 0.12 80 / 0.28) 34.3%, transparent 35.1% 82%, oklch(0.95 0.02 80 / 0.24) 82.3%, transparent 83%)",
+        }}
+      />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 space-y-14 lg:space-y-16">
         <SectionIntro kicker={t("home.process.kicker")} title={t("home.process.h2")} centered />
-        <ol className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-gold/10 hairline">
-          {steps.map((step, i) => (
-            <Reveal key={step} delay={i * 90}>
-              <li className="h-full bg-onyx p-8 group hover:bg-charcoal transition-colors duration-500">
-                <div className="flex items-center justify-between mb-8">
-                  <span className="font-mono text-xs tracking-[0.3em] text-gold">{num(i + 1)}</span>
-                  <FileText
-                    className="w-5 h-5 text-gold group-hover:scale-110 transition-transform"
-                    strokeWidth={1.2}
-                  />
-                </div>
-                <div className="font-display text-2xl text-ivory leading-tight">{step}</div>
+
+        <ol className="grid gap-8 md:grid-cols-[repeat(2,max-content)] md:justify-center lg:grid-cols-[repeat(5,max-content)] lg:gap-8">
+          {processCards.map((card, i) => (
+            <Reveal key={card.title} delay={i * 90} className="relative">
+              <li className="group relative mx-auto flex h-[300px] w-[188px] items-center justify-center overflow-hidden rounded-none shadow-luxe transition-transform duration-500 hover:-translate-y-1 sm:h-[320px] sm:w-[200px] lg:h-[340px] lg:w-[213px]">
+                <img
+                  src={card.image.src}
+                  alt={card.title}
+                  className="block h-full w-full object-contain scale-[0.94] transition-transform duration-500 ease-out group-hover:scale-[0.97]"
+                  loading="lazy"
+                  width={card.image.width}
+                  height={card.image.height}
+                />
               </li>
+              {i < processCards.length - 1 && (
+                <div className="pointer-events-none absolute top-1/2 z-20 hidden -translate-y-1/2 lg:-right-5 lg:flex">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-ivory/80 bg-gold/90 text-ivory shadow-luxe">
+                    <ChevronRight
+                      className={`h-4 w-4 ${lang === "fa" ? "rotate-180" : ""}`}
+                      strokeWidth={2.2}
+                    />
+                  </span>
+                </div>
+              )}
             </Reveal>
           ))}
         </ol>
