@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import type { StaticImageData } from "next/image";
 import {
@@ -7,6 +8,8 @@ import {
   Banknote,
   Building2,
   CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
   Clock,
   FileSearch,
   HelpCircle,
@@ -498,6 +501,7 @@ function FastAction() {
 
 function Process() {
   const { t } = useI18n();
+  const processRailRef = useRef<HTMLOListElement>(null);
   const processCards = [
     {
       title: t("home.process.s1"),
@@ -520,6 +524,15 @@ function Process() {
       image: processImage5,
     },
   ];
+  const scrollProcessRail = (direction: "left" | "right") => {
+    const rail = processRailRef.current;
+    if (!rail) return;
+
+    rail.scrollBy({
+      left: direction === "left" ? -220 : 220,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section className="relative py-24 lg:py-32 border-t border-gold/10 overflow-hidden">
@@ -540,19 +553,26 @@ function Process() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 space-y-14 lg:space-y-16">
         <SectionIntro kicker={t("home.process.kicker")} title={t("home.process.h2")} centered />
 
-        <ol className="grid gap-8 md:grid-cols-[repeat(2,max-content)] md:justify-center lg:grid-cols-[repeat(5,max-content)] lg:gap-8">
+        <ol
+          ref={processRailRef}
+          className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 py-2 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-[repeat(2,max-content)] md:justify-center md:gap-8 md:overflow-visible md:px-0 md:py-0 md:pb-0 lg:grid-cols-[repeat(5,max-content)] lg:gap-8 [&::-webkit-scrollbar]:hidden"
+        >
           {processCards.map((card, i) => (
-            <Reveal key={card.title} delay={i * 90} className="relative">
-              <li className="group relative mx-auto flex h-[300px] w-[188px] items-center justify-center overflow-hidden rounded-none shadow-luxe transition-transform duration-500 hover:-translate-y-1 sm:h-[320px] sm:w-[200px] lg:h-[340px] lg:w-[213px]">
+            <Reveal
+              key={card.title}
+              delay={i * 90}
+              className="relative shrink-0 snap-center first:snap-start last:snap-end md:snap-none"
+            >
+              <li className="group relative mx-auto flex h-[300px] w-[188px] items-center justify-center overflow-hidden rounded-none shadow-luxe transition-transform duration-500 md:hover:-translate-y-1 sm:h-[320px] sm:w-[200px] lg:h-[340px] lg:w-[213px]">
                 <img
                   src={card.image.src}
                   alt={card.title}
-                  className="block h-full w-full object-contain scale-[0.94] transition-transform duration-500 ease-out group-hover:scale-[0.97]"
+                  className="block h-full w-full object-contain scale-[0.94] transition-transform duration-500 ease-out md:group-hover:scale-[0.97]"
                   loading="lazy"
                   width={card.image.width}
                   height={card.image.height}
                 />
-                <div className="pointer-events-none absolute inset-0 scale-[0.94] transition-transform duration-500 ease-out group-hover:scale-[0.97]">
+                <div className="pointer-events-none absolute inset-0 scale-[0.94] transition-transform duration-500 ease-out md:group-hover:scale-[0.97]">
                   <div
                     className={`absolute inset-x-0 bottom-0 flex h-[38%] items-end justify-center px-4 pb-6 text-center ${
                       i < 3
@@ -560,7 +580,7 @@ function Process() {
                         : "bg-gradient-to-t from-ivory/72 via-ivory/24 to-transparent text-onyx"
                     }`}
                   >
-                    <h3 className="mx-auto max-w-[10.5rem] translate-y-0 font-display text-[1.12rem] leading-[1.1] text-balance transition-transform duration-500 ease-out group-hover:-translate-y-1 sm:text-[1.18rem] lg:text-[1.24rem]">
+                    <h3 className="mx-auto max-w-[10.5rem] translate-y-0 font-display text-[1.12rem] leading-[1.1] text-balance transition-transform duration-500 ease-out md:group-hover:-translate-y-1 sm:text-[1.18rem] lg:text-[1.24rem]">
                       {card.title}
                     </h3>
                   </div>
@@ -572,6 +592,26 @@ function Process() {
             </Reveal>
           ))}
         </ol>
+        <div className="-mt-2 flex justify-center md:hidden">
+          <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-onyx/70 p-1.5 text-gold/85 shadow-luxe backdrop-blur">
+            <button
+              type="button"
+              aria-label="Scroll process cards left"
+              onClick={() => scrollProcessRail("left")}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/15 bg-gold/10 transition-colors hover:bg-gold/20 active:bg-gold/25"
+            >
+              <ChevronLeft className="h-4 w-4" strokeWidth={1.8} />
+            </button>
+            <button
+              type="button"
+              aria-label="Scroll process cards right"
+              onClick={() => scrollProcessRail("right")}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/15 bg-gold/10 transition-colors hover:bg-gold/20 active:bg-gold/25"
+            >
+              <ChevronRight className="h-4 w-4" strokeWidth={1.8} />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );
