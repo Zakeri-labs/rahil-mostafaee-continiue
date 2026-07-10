@@ -552,6 +552,19 @@ function Process() {
                   width={card.image.width}
                   height={card.image.height}
                 />
+                <div className="pointer-events-none absolute inset-0 scale-[0.94] transition-transform duration-500 ease-out group-hover:scale-[0.97]">
+                  <div
+                    className={`absolute inset-x-0 bottom-0 flex h-[38%] items-end justify-center px-4 pb-6 text-center ${
+                      i < 3
+                        ? "bg-gradient-to-t from-onyx/82 via-onyx/34 to-transparent text-ivory"
+                        : "bg-gradient-to-t from-ivory/72 via-ivory/24 to-transparent text-onyx"
+                    }`}
+                  >
+                    <h3 className="mx-auto max-w-[10.5rem] translate-y-0 font-display text-[1.12rem] leading-[1.1] text-balance transition-transform duration-500 ease-out group-hover:-translate-y-1 sm:text-[1.18rem] lg:text-[1.24rem]">
+                      {card.title}
+                    </h3>
+                  </div>
+                </div>
               </li>
               {i < processCards.length - 1 && (
                 <ProcessConnector direction="right" showOnMobile={false} />
