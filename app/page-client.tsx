@@ -7,7 +7,6 @@ import {
   Banknote,
   Building2,
   CheckCircle2,
-  ChevronRight,
   Clock,
   FileSearch,
   HelpCircle,
@@ -33,6 +32,7 @@ import rahilCutoutMobile from "@/assets/rahil-cutout-mobile.png";
 import office from "@/assets/office-interior.jpg";
 import portrait from "@/assets/rahil-ai-1.jpg";
 import timeSensitiveReviewImage from "@/assets/Time-Sensitive-Review .png";
+import { ProcessConnector } from "@/components/site/ProcessConnector";
 import { Reveal } from "@/components/site/Reveal";
 import { Parallax, ScrollProgress } from "@/components/site/Parallax";
 import { useI18n } from "@/lib/i18n";
@@ -497,7 +497,7 @@ function FastAction() {
 }
 
 function Process() {
-  const { t, lang } = useI18n();
+  const { t } = useI18n();
   const processCards = [
     {
       title: t("home.process.s1"),
@@ -554,14 +554,7 @@ function Process() {
                 />
               </li>
               {i < processCards.length - 1 && (
-                <div className="pointer-events-none absolute top-1/2 z-20 hidden -translate-y-1/2 lg:-right-5 lg:flex">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-ivory/80 bg-gold/90 text-ivory shadow-luxe">
-                    <ChevronRight
-                      className={`h-4 w-4 ${lang === "fa" ? "rotate-180" : ""}`}
-                      strokeWidth={2.2}
-                    />
-                  </span>
-                </div>
+                <ProcessConnector direction="right" showOnMobile={false} />
               )}
             </Reveal>
           ))}
