@@ -409,13 +409,11 @@ function ServiceAxes() {
   const { t } = useI18n();
   const axes = [
     {
-      icon: Scale,
       title: t("home.axes.1.t"),
       bullets: [1, 2, 3, 4].map((n) => t(`home.axes.1.b${n}`)),
       image: commercialDisputesImage,
     },
     {
-      icon: FileSearch,
       title: t("home.axes.2.t"),
       bullets: [1, 2, 3, 4].map((n) => t(`home.axes.2.b${n}`)),
       image: assetRecoveryImage,
@@ -435,7 +433,6 @@ function ServiceAxes() {
             <Reveal key={axis.title} delay={i * 120}>
               <article className="h-full glass-strong p-8 lg:p-10 shadow-luxe">
                 <CardImage image={axis.image} alt={axis.title} className="mb-7 aspect-video" />
-                <axis.icon className="w-8 h-8 text-gold mb-8" strokeWidth={1.2} />
                 <h3 className="font-display text-3xl lg:text-4xl text-ivory leading-tight mb-8">
                   {axis.title}
                 </h3>
