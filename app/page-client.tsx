@@ -548,15 +548,15 @@ function Process() {
 
         <ol
           ref={processRailRef}
-          className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 py-2 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-[repeat(2,max-content)] md:justify-center md:gap-8 md:overflow-visible md:px-0 md:py-0 md:pb-0 lg:grid-cols-[repeat(5,max-content)] lg:gap-8 [&::-webkit-scrollbar]:hidden"
+          className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 py-2 pb-3 [scrollbar-width:none] md:gap-6 xl:mx-0 xl:grid xl:grid-cols-[repeat(5,max-content)] xl:justify-center xl:gap-8 xl:overflow-visible xl:px-0 xl:py-0 xl:pb-0 [&::-webkit-scrollbar]:hidden"
         >
           {processCards.map((card, i) => (
             <Reveal
               key={card.title}
               delay={i * 90}
-              className="relative shrink-0 snap-center first:snap-start last:snap-end md:snap-none"
+              className="relative shrink-0 basis-[calc((100%_-_1rem)/2)] snap-center first:snap-start last:snap-end sm:basis-[calc((100%_-_1rem)/2)] md:basis-[calc((100%_-_2rem)/3)] xl:basis-auto xl:snap-none"
             >
-              <li className="group relative mx-auto flex h-[300px] w-[188px] items-center justify-center overflow-hidden rounded-none shadow-luxe transition-transform duration-500 md:hover:-translate-y-1 sm:h-[320px] sm:w-[200px] lg:h-[340px] lg:w-[213px]">
+              <li className="group relative mx-auto flex h-[300px] w-full items-center justify-center overflow-hidden rounded-none shadow-luxe transition-transform duration-500 md:h-[320px] md:hover:-translate-y-1 xl:h-[340px] xl:w-[213px]">
                 <img
                   src={card.image.src}
                   alt={card.title}
@@ -585,7 +585,7 @@ function Process() {
             </Reveal>
           ))}
         </ol>
-        <div className="-mt-2 flex justify-center md:hidden">
+        <div className="-mt-2 flex justify-center xl:hidden">
           <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-onyx/70 p-1.5 text-gold/85 shadow-luxe backdrop-blur">
             <button
               type="button"
@@ -593,7 +593,7 @@ function Process() {
               onClick={() => scrollProcessRail("left")}
               className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/15 bg-gold/10 transition-colors hover:bg-gold/20 active:bg-gold/25"
             >
-              <ChevronLeft className="h-4 w-4" strokeWidth={1.8} />
+              <ChevronRight className="h-4 w-4" strokeWidth={1.8} />
             </button>
             <button
               type="button"
@@ -601,7 +601,7 @@ function Process() {
               onClick={() => scrollProcessRail("right")}
               className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/15 bg-gold/10 transition-colors hover:bg-gold/20 active:bg-gold/25"
             >
-              <ChevronRight className="h-4 w-4" strokeWidth={1.8} />
+              <ChevronLeft className="h-4 w-4" strokeWidth={1.8} />
             </button>
           </div>
         </div>
