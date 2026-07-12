@@ -52,6 +52,11 @@ export function TrustBand({
           <div className="absolute inset-0 bg-onyx/88" />
         </div>
       )}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{ backgroundImage: "var(--lp-marble-overlay, none)" }}
+      />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 space-y-14">
         <SectionIntro kicker={kicker} title={title} description={description} align="center" />
         <div className={cn("grid gap-px bg-gold/10 hairline", COLS[columns])}>
