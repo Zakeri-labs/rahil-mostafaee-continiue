@@ -50,7 +50,7 @@ export function Nav() {
               <div className="font-display text-2xl tracking-wide text-ivory">
                 Rahil <span className="text-gold">Mostafaee</span>
               </div>
-              <div className="truncate text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
+              <div className="truncate text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1 lg:text-xs lg:tracking-[0.22em]">
                 {t("tag.legal")}
               </div>
             </div>
@@ -61,7 +61,7 @@ export function Nav() {
               <Link
                 key={l.to}
                 href={l.to}
-                className={`whitespace-nowrap text-sm tracking-wide transition-colors hover:text-gold ${
+                className={`whitespace-nowrap text-sm tracking-wide transition-colors hover:text-gold min-[1180px]:text-[15px] min-[1180px]:tracking-normal 2xl:text-base ${
                   pathname === l.to ? "text-gold" : "text-muted-foreground"
                 }`}
               >
@@ -71,7 +71,7 @@ export function Nav() {
           </nav>
 
           <div className="hidden shrink-0 items-center justify-end gap-2 xl:gap-3 lg:flex">
-            <div className="flex shrink-0 items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden">
+            <div className="flex shrink-0 items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden lg:text-xs lg:tracking-[0.16em]">
               <button
                 onClick={() => switchLang("en")}
                 className={`px-3 py-1.5 transition-colors ${lang === "en" ? "bg-gold text-onyx" : "text-muted-foreground hover:text-gold"}`}
@@ -88,7 +88,7 @@ export function Nav() {
 
             <Link
               href="/contact"
-              className="whitespace-nowrap px-4 py-2.5 text-xs tracking-[0.2em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all duration-300 xl:px-5"
+              className="whitespace-nowrap px-4 py-2.5 text-xs tracking-[0.2em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all duration-300 lg:text-sm lg:tracking-[0.16em] xl:px-5"
             >
               {t("nav.book")}
             </Link>

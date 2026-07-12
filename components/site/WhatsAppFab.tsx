@@ -24,7 +24,7 @@ export function WhatsAppFab() {
         <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white" />
       </span>
       <MessageCircle className="w-5 h-5" strokeWidth={1.8} />
-      <span className="hidden sm:inline text-xs tracking-[0.2em] uppercase font-medium">
+      <span className="hidden sm:inline text-xs tracking-[0.2em] uppercase font-medium lg:text-sm lg:tracking-[0.16em]">
         {t("fab.whatsapp.label")}
       </span>
     </a>

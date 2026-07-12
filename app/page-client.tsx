@@ -138,13 +138,6 @@ function Hero() {
         <span className="h-24 w-px bg-gradient-to-b from-gold/60 to-transparent" />
       </div>
 
-      <div className="absolute right-8 top-32 z-10 hidden items-center gap-3 lg:flex">
-        <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground">
-          N° 001
-        </span>
-        <span className="h-px w-10 bg-gold/40" />
-      </div>
-
       <div className="sticky top-0 z-0 h-svh overflow-hidden sm:hidden" data-hero-mobile-image>
         <img
           src={rahilCutoutMobile.src}
@@ -185,7 +178,7 @@ function Hero() {
         >
           <div className="reveal mb-3 flex items-center gap-2 lg:mb-0 lg:gap-3">
             <span className="h-px w-8 bg-gold lg:w-12" />
-            <span className="text-[10px] tracking-[0.3em] uppercase text-gold leading-tight lg:tracking-[0.4em]">
+            <span className="text-[10px] tracking-[0.3em] uppercase text-gold leading-tight lg:text-xs lg:tracking-[0.28em]">
               {t("home.hero.kicker")}
             </span>
           </div>
@@ -206,7 +199,7 @@ function Hero() {
               href="/contact"
               className="reveal reveal-delay-3 group inline-flex w-full items-center justify-center gap-2 bg-gold px-4 py-3.5 text-onyx shadow-glow transition-all duration-300 hover:bg-gold-soft lg:w-auto lg:gap-3 lg:px-8 lg:py-4"
             >
-              <span className="text-[10px] tracking-[0.25em] uppercase font-medium lg:text-xs lg:tracking-[0.3em]">
+              <span className="text-xs tracking-[0.22em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
                 {t("home.hero.cta.primary")}
               </span>
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 lg:w-4 lg:h-4" />
@@ -218,7 +211,7 @@ function Hero() {
               className="reveal reveal-delay-4 group inline-flex w-full items-center justify-center gap-2 glass-strong border border-gold/20 px-4 py-3 text-ivory backdrop-blur-md transition-all hover:border-gold/40 lg:w-auto lg:gap-3 lg:border-0 lg:px-8 lg:py-4"
             >
               <MessageCircle className="w-3.5 h-3.5 text-[#25D366] lg:w-4 lg:h-4" />
-              <span className="text-[10px] tracking-[0.25em] uppercase font-medium lg:text-xs lg:tracking-[0.3em]">
+              <span className="text-xs tracking-[0.22em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
                 {t("home.hero.cta.secondary")}
               </span>
             </a>
@@ -238,7 +231,7 @@ function Hero() {
                 className="bg-onyx/95 px-2 py-4 text-center backdrop-blur lg:bg-onyx/80 lg:px-6 lg:py-6 lg:text-start"
               >
                 <div className="font-display text-xl text-gold leading-none lg:text-3xl">{s.v}</div>
-                <div className="stat-label mt-1.5 text-[9px] tracking-[0.14em] uppercase text-muted-foreground leading-tight lg:mt-1 lg:text-[10px] lg:tracking-[0.3em]">
+                <div className="stat-label mt-1.5 text-[9px] tracking-[0.14em] uppercase text-muted-foreground leading-tight lg:mt-1 lg:text-xs lg:tracking-[0.22em]">
                   {s.l}
                 </div>
               </div>
@@ -260,7 +253,7 @@ function Hero() {
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
                 </span>
                 <div>
-                  <div className="text-[9px] tracking-[0.35em] uppercase text-gold leading-none">
+                  <div className="text-[9px] tracking-[0.35em] uppercase text-gold leading-none lg:text-xs lg:tracking-[0.24em]">
                     {t("home.hero.available")}
                   </div>
                   <div className="text-[11px] text-ivory mt-1 leading-none">
@@ -288,7 +281,7 @@ function Hero() {
                 <div className="absolute bottom-0 inset-x-0 p-7">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="h-px w-6 bg-gold" />
-                    <span className="text-[9px] tracking-[0.45em] uppercase text-gold">
+                    <span className="text-[9px] tracking-[0.45em] uppercase text-gold lg:text-xs lg:tracking-[0.28em]">
                       {t("home.hero.founder")}
                     </span>
                   </div>
@@ -301,7 +294,7 @@ function Hero() {
               </div>
             </div>
 
-            <div className="reveal reveal-delay-4 mt-6 flex items-center justify-between text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+            <div className="reveal reveal-delay-4 mt-6 flex items-center justify-between text-[10px] tracking-[0.3em] uppercase text-muted-foreground lg:text-xs lg:tracking-[0.22em]">
               <span>{t("home.hero.signature")}</span>
               <span className="font-mono text-gold">— RM</span>
             </div>
@@ -310,7 +303,7 @@ function Hero() {
       </div>
 
       <div className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex">
-        <span className="text-[9px] tracking-[0.45em] uppercase text-muted-foreground">
+        <span className="text-[9px] tracking-[0.45em] uppercase text-muted-foreground lg:text-xs lg:tracking-[0.28em]">
           {t("home.hero.scroll")}
         </span>
         <span className="h-10 w-px bg-gradient-to-b from-gold/60 to-transparent animate-pulse" />
@@ -674,7 +667,7 @@ function ServiceCards() {
                 <h3 className="font-display text-2xl text-ivory leading-tight mb-6">
                   {service.title}
                 </h3>
-                <div className="inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-gold">
+                <div className="inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-gold lg:text-xs lg:tracking-[0.18em]">
                   {t("home.serviceCards.link")}{" "}
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
@@ -739,7 +732,7 @@ function FinalCTA() {
               href="/contact"
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gold text-onyx hover:bg-gold-soft transition-all duration-300 shadow-glow"
             >
-              <span className="text-xs tracking-[0.22em] uppercase font-medium">
+              <span className="text-xs tracking-[0.22em] uppercase font-medium lg:text-sm lg:tracking-[0.16em]">
                 {t("home.cta.primary")}
               </span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -751,7 +744,7 @@ function FinalCTA() {
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 glass-strong text-ivory hover:border-gold/40 transition-all"
             >
               <MessageCircle className="w-4 h-4 text-[#25D366]" />
-              <span className="text-xs tracking-[0.22em] uppercase font-medium">
+              <span className="text-xs tracking-[0.22em] uppercase font-medium lg:text-sm lg:tracking-[0.16em]">
                 {t("home.cta.secondary")}
               </span>
             </a>

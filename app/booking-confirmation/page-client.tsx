@@ -32,7 +32,7 @@ function ConfirmationPage() {
         )}
         <Link
           href="/"
-          className="mt-8 inline-block px-6 py-3 text-xs tracking-[0.3em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all"
+          className="mt-8 inline-block px-6 py-3 text-xs tracking-[0.3em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all lg:text-sm lg:tracking-[0.18em]"
         >
           {t("book.return")}
         </Link>

@@ -62,7 +62,7 @@ function Hero({ waHref }: { waHref: string }) {
             href="/contact"
             className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gold text-onyx hover:bg-gold-soft transition-all shadow-glow"
           >
-            <span className="text-xs tracking-[0.3em] uppercase font-medium">
+            <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
               {t("svc.hero.primary")}
             </span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -74,7 +74,7 @@ function Hero({ waHref }: { waHref: string }) {
             className="group inline-flex items-center justify-center gap-3 px-8 py-4 glass-strong text-ivory hover:border-gold/40 transition-all"
           >
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
-            <span className="text-xs tracking-[0.3em] uppercase font-medium">
+            <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
               {t("svc.hero.secondary")}
             </span>
           </a>
@@ -183,7 +183,7 @@ function ServicePillars() {
                     </li>
                   ))}
                 </ul>
-                <div className="inline-flex items-center gap-2 pt-4 text-[10px] tracking-[0.25em] uppercase text-gold">
+                <div className="inline-flex items-center gap-2 pt-4 text-[10px] tracking-[0.25em] uppercase text-gold lg:text-xs lg:tracking-[0.18em]">
                   {t("svc.card.link")}{" "}
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
@@ -333,7 +333,7 @@ function FinalCTA({ waHref }: { waHref: string }) {
             href="/contact"
             className="group inline-flex items-center justify-center gap-3 px-10 py-5 bg-gold text-onyx hover:bg-gold-soft transition-all shadow-glow"
           >
-            <span className="text-xs tracking-[0.3em] uppercase font-medium">
+            <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
               {t("svc.cta.primary")}
             </span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -345,7 +345,7 @@ function FinalCTA({ waHref }: { waHref: string }) {
             className="group inline-flex items-center justify-center gap-3 px-10 py-5 glass-strong text-ivory hover:border-gold/40 transition-all"
           >
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
-            <span className="text-xs tracking-[0.3em] uppercase font-medium">
+            <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
               {t("svc.cta.secondary")}
             </span>
           </a>

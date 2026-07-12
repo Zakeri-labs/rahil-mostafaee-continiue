@@ -60,7 +60,7 @@ function Hero() {
               href="/contact"
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gold text-onyx hover:bg-gold-soft transition-all shadow-glow"
             >
-              <span className="text-xs tracking-[0.3em] uppercase font-medium">
+              <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
                 {t("intl.hero.primary")}
               </span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -69,7 +69,7 @@ function Hero() {
               href="/services"
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 glass-strong text-ivory hover:border-gold/40 transition-all"
             >
-              <span className="text-xs tracking-[0.3em] uppercase font-medium">
+              <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
                 {t("intl.hero.secondary")}
               </span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -304,7 +304,7 @@ function FinalCTA() {
             href="/contact"
             className="group inline-flex items-center justify-center gap-3 px-10 py-5 bg-gold text-onyx hover:bg-gold-soft transition-all shadow-glow"
           >
-            <span className="text-xs tracking-[0.3em] uppercase font-medium">
+            <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
               {t("intl.cta.primary")}
             </span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -316,7 +316,7 @@ function FinalCTA() {
             className="group inline-flex items-center justify-center gap-3 px-10 py-5 glass-strong text-ivory hover:border-gold/40 transition-all"
           >
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
-            <span className="text-xs tracking-[0.3em] uppercase font-medium">
+            <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
               {t("intl.cta.secondary")}
             </span>
           </a>

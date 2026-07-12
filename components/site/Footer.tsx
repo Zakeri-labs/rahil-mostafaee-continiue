@@ -17,7 +17,7 @@ export function Footer() {
                 <div className="font-display text-2xl text-ivory">
                   Rahil <span className="text-gold">Mostafaee</span>
                 </div>
-                <div className="max-w-sm text-[10px] tracking-[0.3em] uppercase text-muted-foreground leading-relaxed break-words">
+                <div className="max-w-sm text-[10px] tracking-[0.3em] uppercase text-muted-foreground leading-relaxed break-words lg:text-xs lg:tracking-[0.22em]">
                   {t("footer.role")}
                 </div>
               </div>
@@ -27,7 +27,7 @@ export function Footer() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-5 py-3 text-xs tracking-[0.2em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all duration-300"
+              className="inline-flex items-center justify-center px-5 py-3 text-xs tracking-[0.2em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all duration-300 lg:text-sm lg:tracking-[0.16em]"
             >
               {t("footer.cta")}
             </Link>
@@ -37,7 +37,7 @@ export function Footer() {
 
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
             <div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4">
+              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4 lg:text-xs lg:tracking-[0.22em]">
                 {t("footer.col.practice")}
               </div>
               <ul className="space-y-3 text-muted-foreground">
@@ -69,7 +69,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4">
+              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4 lg:text-xs lg:tracking-[0.22em]">
                 {t("footer.col.firm")}
               </div>
               <ul className="space-y-3 text-muted-foreground">
@@ -101,7 +101,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4">
+              <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4 lg:text-xs lg:tracking-[0.22em]">
                 {t("footer.col.office")}
               </div>
               <ul className="space-y-3 text-muted-foreground">

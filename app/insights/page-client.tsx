@@ -43,7 +43,9 @@ function InsightsPage() {
             href="/contact"
             className="inline-flex items-center gap-3 px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all"
           >
-            <span className="text-xs tracking-[0.3em] uppercase">{t("ins.hero.cta")}</span>
+            <span className="text-xs tracking-[0.24em] uppercase lg:text-sm lg:tracking-[0.18em]">
+              {t("ins.hero.cta")}
+            </span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
@@ -104,14 +106,18 @@ function InsightsPage() {
               href="/contact"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all"
             >
-              <span className="text-xs tracking-[0.3em] uppercase">{t("ins.cta.primary")}</span>
+              <span className="text-xs tracking-[0.24em] uppercase lg:text-sm lg:tracking-[0.18em]">
+                {t("ins.cta.primary")}
+              </span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link
               href="/services"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 text-muted-foreground hover:text-gold transition-colors"
             >
-              <span className="text-xs tracking-[0.3em] uppercase">{t("ins.cta.secondary")}</span>
+              <span className="text-xs tracking-[0.24em] uppercase lg:text-sm lg:tracking-[0.18em]">
+                {t("ins.cta.secondary")}
+              </span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>

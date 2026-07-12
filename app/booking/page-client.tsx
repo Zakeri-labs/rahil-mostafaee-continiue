@@ -150,10 +150,10 @@ function BookingPage() {
       <PaymentTestModeBanner />
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-10 lg:py-16" dir={dir}>
         <div className="text-center mb-8">
-          <div className="text-[10px] tracking-[0.4em] uppercase text-gold">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-gold lg:text-xs lg:tracking-[0.28em]">
             {t("book.brand_tag")}
           </div>
-          <p className="mt-3 text-xs tracking-[0.3em] uppercase text-muted-foreground">
+          <p className="mt-3 text-xs tracking-[0.3em] uppercase text-muted-foreground lg:text-sm lg:tracking-[0.18em]">
             01 — {t("book.step.service")}
           </p>
         </div>
@@ -167,7 +167,7 @@ function BookingPage() {
             <div className="text-center max-w-3xl mx-auto space-y-6 mb-16">
               <div className="inline-flex items-center gap-3 mx-auto">
                 <span className="h-px w-12 bg-gold" />
-                <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-gold lg:text-xs lg:tracking-[0.28em]">
                   {t("home.pkg.kicker")}
                 </span>
                 <span className="h-px w-12 bg-gold" />
@@ -198,7 +198,7 @@ function BookingPage() {
                       } ${featured ? "glass-strong border border-gold/40 shadow-luxe" : "glass hover:border-gold/30"}`}
                     >
                       {featured && (
-                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gold text-onyx text-[9px] tracking-[0.35em] uppercase font-medium whitespace-nowrap pointer-events-none">
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gold text-onyx text-[9px] tracking-[0.35em] uppercase font-medium whitespace-nowrap pointer-events-none lg:text-[11px] lg:tracking-[0.22em]">
                           {s.is_emergency ? t("home.pkg.urgent") : t("home.pkg.popular")}
                         </div>
                       )}
@@ -208,7 +208,7 @@ function BookingPage() {
                         ) : (
                           <Clock className="w-4 h-4 shrink-0" />
                         )}
-                        <span className="text-[10px] tracking-[0.3em] uppercase">
+                        <span className="text-[10px] tracking-[0.3em] uppercase lg:text-xs lg:tracking-[0.2em]">
                           {lang === "fa"
                             ? `${s.duration_minutes.toLocaleString("fa-IR")} ${t("home.pkg.min")}`
                             : `${s.duration_minutes} ${t("home.pkg.min")}`}
@@ -225,7 +225,7 @@ function BookingPage() {
                         <span className="font-display text-4xl text-gold">
                           {formatAed(s.price_aed)}
                         </span>
-                        <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+                        <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground lg:text-xs lg:tracking-[0.2em]">
                           {t("home.pkg.aed")}
                         </span>
                       </div>
@@ -247,7 +247,7 @@ function BookingPage() {
                             : "border border-gold/40 text-gold"
                         } ${active ? "opacity-100" : ""}`}
                       >
-                        <span className="text-xs tracking-[0.3em] uppercase font-medium">
+                        <span className="text-xs tracking-[0.3em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
                           {active ? t("book.selected") : t("home.pkg.reserve")}
                         </span>
                         {active ? (
@@ -270,7 +270,7 @@ function BookingPage() {
 
         {serviceId && (
           <section className="mb-12">
-            <h2 className="text-xs tracking-[0.3em] uppercase text-gold mb-5">
+            <h2 className="text-xs tracking-[0.3em] uppercase text-gold mb-5 lg:text-sm lg:tracking-[0.18em]">
               02 — {t("book.step.time")}
             </h2>
             <input
@@ -310,7 +310,7 @@ function BookingPage() {
         {serviceId && slot && (
           <section className="mb-12 grid md:grid-cols-[1fr_320px] gap-8">
             <div>
-              <h2 className="text-xs tracking-[0.3em] uppercase text-gold mb-5">
+              <h2 className="text-xs tracking-[0.3em] uppercase text-gold mb-5 lg:text-sm lg:tracking-[0.18em]">
                 03 — {t("book.step.details")}
               </h2>
               <div className="space-y-3">
@@ -349,7 +349,7 @@ function BookingPage() {
               </div>
             </div>
             <aside className="border border-gold/20 rounded-xl p-6 h-fit bg-card/40">
-              <div className="text-xs tracking-[0.3em] uppercase text-gold mb-4">
+              <div className="text-xs tracking-[0.3em] uppercase text-gold mb-4 lg:text-sm lg:tracking-[0.18em]">
                 {t("book.summary")}
               </div>
               <div className="font-display text-xl text-ivory">
@@ -372,7 +372,7 @@ function BookingPage() {
               </div>
               <div className="gold-divider my-5" />
               <div className="flex items-end justify-between">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+                <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground lg:text-xs lg:tracking-[0.2em]">
                   {t("book.aed")}
                 </div>
                 <div className="font-display text-3xl text-gold">
@@ -382,7 +382,7 @@ function BookingPage() {
               <button
                 disabled={loading || !name || !email || !phone}
                 onClick={onPay}
-                className="mt-6 w-full py-3 text-xs tracking-[0.3em] uppercase bg-gold text-onyx hover:opacity-90 transition disabled:opacity-50"
+                className="mt-6 w-full py-3 text-xs tracking-[0.3em] uppercase bg-gold text-onyx hover:opacity-90 transition disabled:opacity-50 lg:text-sm lg:tracking-[0.18em]"
               >
                 {loading ? t("book.processing") : t("book.confirm_pay")}
               </button>
