@@ -322,6 +322,7 @@ function Faq() {
 function FinalCta({ waHref }: { waHref: string }) {
   const { t } = useI18n();
   const related = [
+    { href: "/uae-asset-debt-recovery", label: t("cd.related.assetRecovery") },
     { href: "/services", label: t("cd.related.services") },
     { href: "/international", label: t("cd.related.international") },
     { href: "/about", label: t("cd.related.about") },
@@ -379,7 +380,7 @@ function FinalCta({ waHref }: { waHref: string }) {
           <div className="text-[10px] tracking-[0.3em] uppercase text-gold">
             {t("cd.related.kicker")}
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-gold/10 hairline">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-px bg-gold/10 hairline">
             {related.map((item) => (
               <Link
                 key={item.href}

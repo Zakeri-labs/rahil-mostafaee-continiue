@@ -123,6 +123,13 @@ function WhyDifferent() {
   );
 }
 
+const SCENARIO_SPECIALIST_HREF: Record<string, string> = {
+  "1": "/iran-uae-commercial-disputes",
+  "2": "/uae-asset-debt-recovery",
+  "4": "/uae-asset-debt-recovery",
+  "5": "/iran-uae-commercial-disputes",
+};
+
 function Scenarios() {
   const { t } = useI18n();
   const cards = [
@@ -138,17 +145,29 @@ function Scenarios() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 space-y-16">
         <SectionIntro kicker={t("intl.scenarios.kicker")} title={t("intl.scenarios.h2")} centered />
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-gold/10 hairline">
-          {cards.map((card) => (
-            <article key={card.key} className="bg-onyx p-7 hover:bg-charcoal transition-colors">
-              <card.icon className="w-6 h-6 text-gold mb-8" strokeWidth={1.2} />
-              <h3 className="font-display text-2xl text-ivory leading-tight mb-4 break-words">
-                {t(`intl.scenario.${card.key}.t`)}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {t(`intl.scenario.${card.key}.b`)}
-              </p>
-            </article>
-          ))}
+          {cards.map((card) => {
+            const specialistHref = SCENARIO_SPECIALIST_HREF[card.key];
+            return (
+              <article key={card.key} className="bg-onyx p-7 hover:bg-charcoal transition-colors">
+                <card.icon className="w-6 h-6 text-gold mb-8" strokeWidth={1.2} />
+                <h3 className="font-display text-2xl text-ivory leading-tight mb-4 break-words">
+                  {t(`intl.scenario.${card.key}.t`)}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {t(`intl.scenario.${card.key}.b`)}
+                </p>
+                {specialistHref && (
+                  <Link
+                    href={specialistHref}
+                    className="group mt-6 inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-gold"
+                  >
+                    <span>{t(`intl.scenario.${card.key}.link`)}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </Link>
+                )}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -226,9 +245,17 @@ function Process({ stepNum }: { stepNum: (n: number) => string }) {
   );
 }
 
+const RELATED_SERVICE_HREF: Record<number, string> = {
+  1: "/iran-uae-commercial-disputes",
+  2: "/uae-asset-debt-recovery",
+  3: "/uae-asset-debt-recovery",
+  4: "/services",
+  5: "/iran-uae-commercial-disputes",
+};
+
 function RelatedServices() {
   const { t } = useI18n();
-  const cards = [1, 2, 3, 4, 5].map((n) => t(`intl.related.${n}`));
+  const cards = [1, 2, 3, 4, 5].map((n) => ({ n, label: t(`intl.related.${n}`) }));
 
   return (
     <section className="border-t border-gold/10 py-32">
@@ -237,12 +264,14 @@ function RelatedServices() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {cards.map((card) => (
             <Link
-              key={card}
-              href="/services"
+              key={card.n}
+              href={RELATED_SERVICE_HREF[card.n]}
               className="group bg-card hairline p-7 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1"
             >
               <ShieldCheck className="w-5 h-5 text-gold mb-8" strokeWidth={1.2} />
-              <h3 className="font-display text-2xl text-ivory leading-tight break-words">{card}</h3>
+              <h3 className="font-display text-2xl text-ivory leading-tight break-words">
+                {card.label}
+              </h3>
               <div className="inline-flex items-center gap-2 mt-8 text-[10px] tracking-[0.25em] uppercase text-gold">
                 {t("intl.related.link")}{" "}
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

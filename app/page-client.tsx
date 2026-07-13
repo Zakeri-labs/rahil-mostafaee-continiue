@@ -411,11 +411,15 @@ function ServiceAxes() {
       title: t("home.axes.1.t"),
       bullets: [1, 2, 3, 4].map((n) => t(`home.axes.1.b${n}`)),
       image: commercialDisputesImage,
+      href: "/iran-uae-commercial-disputes",
+      linkLabel: t("home.axes.1.link"),
     },
     {
       title: t("home.axes.2.t"),
       bullets: [1, 2, 3, 4].map((n) => t(`home.axes.2.b${n}`)),
       image: assetRecoveryImage,
+      href: "/uae-asset-debt-recovery",
+      linkLabel: t("home.axes.2.link"),
     },
   ];
 
@@ -430,7 +434,10 @@ function ServiceAxes() {
         <div className="grid lg:grid-cols-2 gap-6">
           {axes.map((axis, i) => (
             <Reveal key={axis.title} delay={i * 120}>
-              <article className="h-full glass-strong p-8 lg:p-10 shadow-luxe">
+              <Link
+                href={axis.href}
+                className="group block h-full glass-strong p-8 lg:p-10 shadow-luxe transition-all duration-500 hover:border-gold/40 hover:-translate-y-1"
+              >
                 <CardImage image={axis.image} alt={axis.title} className="mb-7 aspect-video" />
                 <h3 className="font-display text-3xl lg:text-4xl text-ivory leading-tight mb-8">
                   {axis.title}
@@ -443,7 +450,11 @@ function ServiceAxes() {
                     </li>
                   ))}
                 </ul>
-              </article>
+                <div className="mt-8 inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-gold lg:text-xs lg:tracking-[0.18em]">
+                  <span>{axis.linkLabel}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+              </Link>
             </Reveal>
           ))}
         </div>

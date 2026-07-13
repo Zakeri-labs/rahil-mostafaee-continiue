@@ -139,6 +139,13 @@ function AxesOverview() {
   );
 }
 
+const SERVICE_PILLAR_SPECIALIST_HREF: Record<string, string> = {
+  "1": "/iran-uae-commercial-disputes",
+  "2": "/uae-asset-debt-recovery",
+  "3": "/uae-asset-debt-recovery",
+  "5": "/iran-uae-commercial-disputes",
+};
+
 function ServicePillars() {
   const { t } = useI18n();
   const cards = [
@@ -154,41 +161,57 @@ function ServicePillars() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-32 space-y-16">
         <SectionIntro kicker={t("svc.pillars.kicker")} title={t("svc.pillars.h2")} />
         <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-6">
-          {cards.map((card) => (
-            <Link
-              key={card.key}
-              href="/contact"
-              className="group flex h-full flex-col bg-card hairline p-7 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1"
-            >
-              <card.icon className="w-6 h-6 text-gold mb-8" strokeWidth={1.2} />
-              <h3 className="font-display text-2xl text-ivory leading-tight mb-4 break-words">
-                {t(`svc.card.${card.key}.t`)}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-8">
-                {t(`svc.card.${card.key}.b`)}
-              </p>
-              <div className="mt-auto space-y-3">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-gold">
-                  {t("svc.typical")}
-                </div>
-                <ul className="space-y-2">
-                  {[1, 2, 3, 4].map((n) => (
-                    <li key={n} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2
-                        className="w-4 h-4 text-gold mt-0.5 shrink-0"
-                        strokeWidth={1.5}
-                      />
-                      <span>{t(`svc.card.${card.key}.m${n}`)}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="inline-flex items-center gap-2 pt-4 text-[10px] tracking-[0.25em] uppercase text-gold lg:text-xs lg:tracking-[0.18em]">
-                  {t("svc.card.link")}{" "}
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          {cards.map((card) => {
+            const specialistHref = SERVICE_PILLAR_SPECIALIST_HREF[card.key];
+            return (
+              <div
+                key={card.key}
+                className="flex h-full flex-col bg-card hairline p-7 transition-all duration-500 hover:border-gold/40 hover:-translate-y-1"
+              >
+                <card.icon className="w-6 h-6 text-gold mb-8" strokeWidth={1.2} />
+                <h3 className="font-display text-2xl text-ivory leading-tight mb-4 break-words">
+                  {t(`svc.card.${card.key}.t`)}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+                  {t(`svc.card.${card.key}.b`)}
+                </p>
+                <div className="mt-auto space-y-3">
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-gold">
+                    {t("svc.typical")}
+                  </div>
+                  <ul className="space-y-2">
+                    {[1, 2, 3, 4].map((n) => (
+                      <li key={n} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2
+                          className="w-4 h-4 text-gold mt-0.5 shrink-0"
+                          strokeWidth={1.5}
+                        />
+                        <span>{t(`svc.card.${card.key}.m${n}`)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-col gap-2 pt-4">
+                    {specialistHref && (
+                      <Link
+                        href={specialistHref}
+                        className="group inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-gold lg:text-xs lg:tracking-[0.18em]"
+                      >
+                        <span>{t(`svc.card.${card.key}.specialistLink`)}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </Link>
+                    )}
+                    <Link
+                      href="/contact"
+                      className="group inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-muted-foreground hover:text-ivory lg:text-xs lg:tracking-[0.18em]"
+                    >
+                      <span>{t("svc.card.link")}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </Link>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

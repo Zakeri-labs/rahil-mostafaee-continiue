@@ -9,4 +9,5 @@ export const INDEXABLE_ROUTE_PATHS = [
   "/international",
   "/iran-uae-commercial-disputes",
   "/services",
+  "/uae-asset-debt-recovery",
 ] as const;

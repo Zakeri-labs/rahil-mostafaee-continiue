@@ -43,12 +43,12 @@ export function Footer() {
               </div>
               <ul className="space-y-3 text-muted-foreground">
                 <li>
-                  <Link href="/services" className="hover:text-ivory">
+                  <Link href="/iran-uae-commercial-disputes" className="hover:text-ivory">
                     {t("footer.link.cross")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="hover:text-ivory">
+                  <Link href="/uae-asset-debt-recovery" className="hover:text-ivory">
                     {t("footer.link.residency")}
                   </Link>
                 </li>
