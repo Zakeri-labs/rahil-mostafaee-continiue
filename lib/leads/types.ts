@@ -4,6 +4,22 @@ export type CounterpartyType = "person" | "company" | "unknown";
 
 export type RiskAnswer = "yes" | "no" | "unknown";
 
+/**
+ * Human-readable labels for the stable machine values below, resolved at
+ * submission time from whichever language was active. This exists purely
+ * for the current WhatsApp handoff — it is optional and additive so a
+ * future backend adapter can ignore it entirely and rely only on the
+ * stable `value` fields, which never change with language.
+ */
+export type LeadPayloadDisplay = {
+  matterType: string;
+  approximateAmount: string;
+  urgency: string;
+  availableDocuments: string[];
+  counterpartyType: string;
+  assetTransferOrEvidenceRisk: string;
+};
+
 export type LeadPayload = {
   sourcePage: LeadPageType;
   language: "fa" | "en";
@@ -12,18 +28,24 @@ export type LeadPayload = {
   whatsappNumber: string;
   email?: string;
 
+  /** Stable, language-independent identifier (e.g. "breach-of-contract"). */
   matterType: string;
+  /** Stable, language-independent identifier (e.g. "under-50000-aed"). */
   approximateAmount: string;
 
   counterpartyType: CounterpartyType;
   counterpartyLocation: string;
 
+  /** Stable, language-independent identifier (e.g. "within-days"). */
   urgency: string;
+  /** Stable, language-independent identifiers (e.g. "contract"). */
   availableDocuments: string[];
   lastContact?: string;
 
   assetTransferOrEvidenceRisk: RiskAnswer;
   summary: string;
+
+  display?: LeadPayloadDisplay;
 };
 
 export type FormOption = { value: string; label: string };

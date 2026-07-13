@@ -67,6 +67,10 @@ type QualificationFormProps = {
   className?: string;
 };
 
+function resolveOptionLabel(options: FormOption[], value: string): string {
+  return options.find((option) => option.value === value)?.label ?? value;
+}
+
 function resolveErrorMessage(code: string | undefined, copy: QualificationFormCopy) {
   if (!code) return undefined;
   switch (code) {
@@ -138,6 +142,20 @@ export function QualificationForm({
       ...values,
       sourcePage: pageType,
       language,
+      // Stable `values.*` stay untouched for a future backend/CRM. `display`
+      // is only the current language's human-readable labels, resolved from
+      // the same options/copy this form already renders with — used by the
+      // WhatsApp adapter, safely ignorable by any future API adapter.
+      display: {
+        matterType: resolveOptionLabel(matterOptions, values.matterType),
+        approximateAmount: resolveOptionLabel(amountOptions, values.approximateAmount),
+        urgency: resolveOptionLabel(urgencyOptions, values.urgency),
+        availableDocuments: values.availableDocuments.map((value) =>
+          resolveOptionLabel(documentOptions, value),
+        ),
+        counterpartyType: copy.counterpartyTypeLabels[values.counterpartyType],
+        assetTransferOrEvidenceRisk: copy.riskLabels[values.assetTransferOrEvidenceRisk],
+      },
     });
     setResult(submissionResult);
     setStatus(submissionResult.ok ? "success" : "error");
@@ -244,6 +262,7 @@ export function QualificationForm({
               <TextField
                 name="whatsappNumber"
                 type="tel"
+                dir="ltr"
                 label={copy.fields.whatsappNumber.label}
                 placeholder={copy.fields.whatsappNumber.placeholder}
                 register={register}
@@ -252,6 +271,7 @@ export function QualificationForm({
               <TextField
                 name="email"
                 type="email"
+                dir="ltr"
                 label={copy.fields.email.label}
                 placeholder={copy.fields.email.placeholder}
                 register={register}
@@ -427,6 +447,7 @@ function TextField({
   label,
   placeholder,
   type = "text",
+  dir,
   register,
   error,
 }: {
@@ -434,6 +455,7 @@ function TextField({
   label: string;
   placeholder?: string;
   type?: string;
+  dir?: "ltr" | "rtl";
   register: UseFormRegister<LeadFormValues>;
   error?: string;
 }) {
@@ -449,12 +471,16 @@ function TextField({
       <input
         id={name}
         type={type}
+        dir={dir}
         placeholder={placeholder}
         aria-invalid={!!error}
         aria-describedby={error ? errorId : undefined}
         aria-required="true"
         {...register(name)}
-        className="mt-2 w-full bg-charcoal/50 border border-gold/15 focus:border-gold/50 outline-none px-4 py-3 text-ivory placeholder:text-muted-foreground/50"
+        className={cn(
+          "mt-2 w-full bg-charcoal/50 border border-gold/15 focus:border-gold/50 outline-none px-4 py-3 text-ivory placeholder:text-muted-foreground/50",
+          dir === "ltr" && "text-end",
+        )}
       />
       {error && (
         <p id={errorId} role="alert" className="mt-2 text-xs text-destructive">

@@ -76,19 +76,31 @@ export function buildWhatsAppMessage(payload: LeadPayload): string {
     if (value && value.trim().length > 0) lines.push(`${label}: ${value}`);
   };
 
+  // Prefer the localized `display` labels resolved by the form (matches the
+  // active language and reads naturally); fall back to the stable machine
+  // values only if a caller didn't supply `display` (e.g. a future adapter
+  // built around raw values only).
+  const display = payload.display;
+
   push(labels.sourcePage, sourcePageLabel);
   push(labels.language, payload.language === "fa" ? "فارسی" : "English");
   push(labels.fullName, payload.fullName);
   push(labels.whatsappNumber, payload.whatsappNumber);
   push(labels.email, payload.email);
-  push(labels.matterType, payload.matterType);
-  push(labels.approximateAmount, payload.approximateAmount);
-  push(labels.counterpartyType, payload.counterpartyType);
+  push(labels.matterType, display?.matterType ?? payload.matterType);
+  push(labels.approximateAmount, display?.approximateAmount ?? payload.approximateAmount);
+  push(labels.counterpartyType, display?.counterpartyType ?? payload.counterpartyType);
   push(labels.counterpartyLocation, payload.counterpartyLocation);
-  push(labels.urgency, payload.urgency);
-  push(labels.availableDocuments, payload.availableDocuments.join(", "));
+  push(labels.urgency, display?.urgency ?? payload.urgency);
+  push(
+    labels.availableDocuments,
+    (display?.availableDocuments ?? payload.availableDocuments).join(", "),
+  );
   push(labels.lastContact, payload.lastContact);
-  push(labels.assetTransferOrEvidenceRisk, payload.assetTransferOrEvidenceRisk);
+  push(
+    labels.assetTransferOrEvidenceRisk,
+    display?.assetTransferOrEvidenceRisk ?? payload.assetTransferOrEvidenceRisk,
+  );
   push(labels.summary, payload.summary);
 
   return lines.join("\n");

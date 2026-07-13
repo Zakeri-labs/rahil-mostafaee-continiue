@@ -794,6 +794,223 @@ const en: Dict = {
   "home.cta.secondary": "Contact via WhatsApp",
   "home.cta.whatsappMsg":
     "Hello, I would like to submit a commercial dispute or asset recovery matter for confidential review.",
+
+  "cd.hero.kicker": "Iran-UAE Commercial Disputes",
+  "cd.hero.h1": "Iran-UAE Commercial Dispute Lawyer for Iranian Traders and Companies",
+  "cd.hero.intro":
+    "If a contract has not been performed, a UAE counterparty is not responding, or you have a dispute with a buyer, seller, supplier, or commercial agent, the applicable legal route in the UAE can be reviewed confidentially.",
+  "cd.hero.primary": "Start the Legal Route Review",
+  "cd.hero.secondary": "Continue on WhatsApp",
+  "cd.hero.scopeNote":
+    "This review is limited to commercial and contractual disputes between Iran and the UAE. Receiving a message does not constitute acceptance of representation.",
+  "cd.hero.whatsappMsg":
+    "Hello, I have a commercial dispute between Iran and the UAE and would like a confidential review of the applicable legal route.",
+
+  "cd.scenarios.kicker": "Disputes Reviewed Here",
+  "cd.scenarios.h2": "What kinds of commercial disputes does this page cover?",
+  "cd.scenarios.body":
+    "If your situation matches one of these scenarios, the legal route can be reviewed.",
+  "cd.scenario.1.t": "Unperformed Contract",
+  "cd.scenario.1.b":
+    "A UAE counterparty has not fulfilled agreed contractual obligations — goods, services, or payment have not been delivered as agreed.",
+  "cd.scenario.2.t": "Buyer or Seller Dispute",
+  "cd.scenario.2.b":
+    "A commercial transaction with an Iranian or UAE party has become disputed over terms, delivery, or payment.",
+  "cd.scenario.3.t": "Supplier Dispute",
+  "cd.scenario.3.b":
+    "Quality, timing, or delivery terms from a UAE supplier have not matched the contract.",
+  "cd.scenario.4.t": "Agency or Distribution Dispute",
+  "cd.scenario.4.b":
+    "An agency or distribution agreement between the parties has become disputed or was not properly performed.",
+  "cd.scenario.5.t": "Shipping or Delivery Issue",
+  "cd.scenario.5.b":
+    "Goods were not shipped or delivered according to the agreed schedule, route, or terms.",
+  "cd.scenario.6.t": "Commercial Payment Claim",
+  "cd.scenario.6.b":
+    "An invoice or agreed amount in an Iran-UAE commercial relationship remains unpaid.",
+
+  "cd.why.h2": "Why Are Iran-UAE Commercial Cases Different?",
+  "cd.why.body":
+    "These matters usually need more than translation. Commercial conduct and correspondence, the exact contract wording, governing law, the jurisdiction of the competent forum, available documents and evidence, the counterparty's location, and the practical route for negotiation or formal action all factor into assessing an effective path. Reviewing Iranian commercial context alongside UAE legal procedure helps identify the appropriate route.",
+
+  "cd.delay.kicker": "Timing Matters",
+  "cd.delay.h2": "What Effect Does Delay Have on a Case?",
+  "cd.delay.body":
+    "Delay in reviewing a matter can make it harder to address. How much urgency applies depends on the contract, the documents, and the specific circumstances.",
+  "cd.delay.item.1": "Evidence and correspondence may weaken or become incomplete.",
+  "cd.delay.item.2": "Records of contact with the counterparty may not remain complete.",
+  "cd.delay.item.3": "The counterparty's position can change over time.",
+  "cd.delay.item.4": "Some contractual notice or action deadlines may be missed.",
+  "cd.delay.item.5": "Negotiating leverage can diminish with time.",
+  "cd.delay.item.6": "Jurisdictional or procedural complications may increase.",
+
+  "cd.process.kicker": "How It Works",
+  "cd.process.h2": "Commercial Documentation Engineering and Route Design",
+  "cd.process.step.1.t": "Initial Intake and Issue Identification",
+  "cd.process.step.1.b":
+    "A summary of the dispute, the parties, and the approximate amount is received.",
+  "cd.process.step.2.t": "Commercial Documentation Organization",
+  "cd.process.step.2.b":
+    "The contract, invoices, correspondence, and other relevant records are reviewed and organized.",
+  "cd.process.step.3.t": "Contract, Jurisdiction and Governing-Law Assessment",
+  "cd.process.step.3.b": "Contract terms, the competent forum, and applicable law are assessed.",
+  "cd.process.step.4.t": "Negotiation, Notice, Litigation or Arbitration Route Selection",
+  "cd.process.step.4.b":
+    "The appropriate next step is identified based on the specifics of the matter.",
+  "cd.process.step.5.t": "Staged Follow-Up",
+  "cd.process.step.5.b": "The matter is followed up along the selected route.",
+
+  "cd.docs.kicker": "Initial Documents",
+  "cd.docs.h2": "What Documents Help the Initial Review?",
+  "cd.docs.body":
+    "Documents that can be useful for an initial review — sending all of them is not required.",
+  "cd.docs.item.1": "Contract and any amendments",
+  "cd.docs.item.2": "Invoices and payment records",
+  "cd.docs.item.3": "Purchase order",
+  "cd.docs.item.4": "Shipping and delivery documents",
+  "cd.docs.item.5": "Email or WhatsApp correspondence",
+  "cd.docs.item.6": "Agency or distribution agreement",
+  "cd.docs.item.7": "Any notices already sent",
+  "cd.docs.item.8": "Counterparty details",
+
+  "cd.trust.kicker": "Review Process",
+  "cd.trust.h2": "Confidential, Staged Review — No Upfront Commitment",
+  "cd.trust.body":
+    "Each matter is reviewed confidentially and in stages, before any decision is made about a course of action.",
+  "cd.trust.item.1": "Confidential initial review",
+  "cd.trust.item.2": "Structured review of commercial documents",
+  "cd.trust.item.3": "Persian and English communication",
+  "cd.trust.item.4": "Clear explanation of scope",
+  "cd.trust.item.5": "No outcome is guaranteed",
+  "cd.trust.disclaimer":
+    "Initial contact or sending information does not constitute acceptance of representation or create a lawyer-client relationship.",
+  "cd.trust.imageAlt": "Workspace for reviewing commercial matters",
+
+  "cd.form.kicker": "Case Review",
+  "cd.form.h2": "Confidential Review of Your Commercial Dispute",
+  "cd.form.body":
+    "Complete the details below to start the review. The process continues over WhatsApp.",
+  "cd.form.progressLabel": "Form progress",
+  "cd.form.step1Label": "Contact and Matter",
+  "cd.form.step2Label": "Case Details",
+  "cd.form.field.fullName.label": "Full name",
+  "cd.form.field.whatsapp.label": "WhatsApp number",
+  "cd.form.field.whatsapp.placeholder": "e.g. +971 5... or +98 9...",
+  "cd.form.field.email.label": "Email (optional)",
+  "cd.form.field.matterType.label": "Type of commercial dispute",
+  "cd.form.field.amount.label": "Approximate amount in dispute",
+  "cd.form.field.counterpartyType.label": "Is the counterparty a person or a company?",
+  "cd.form.field.counterpartyLocation.label": "Counterparty country or city",
+  "cd.form.field.counterpartyLocation.placeholder": "e.g. Dubai, UAE",
+  "cd.form.field.urgency.label": "Urgency",
+  "cd.form.field.documents.label": "Available documents",
+  "cd.form.field.lastContact.label": "Last contact with the counterparty (optional)",
+  "cd.form.field.lastContact.placeholder": "e.g. about two weeks ago",
+  "cd.form.field.risk.label": "Possible asset transfer or evidence loss",
+  "cd.form.field.summary.label": "Summary of the matter",
+  "cd.form.field.summary.placeholder": "Summarize the contract, the parties, and the main events.",
+  "cd.form.field.summary.helperText":
+    "Please do not submit passwords, account-access information, or fully confidential documents at this stage.",
+  "cd.form.field.summary.counterSuffix": "characters",
+  "cd.form.counterparty.person": "Individual",
+  "cd.form.counterparty.company": "Company",
+  "cd.form.counterparty.unknown": "Not sure",
+  "cd.form.risk.yes": "Yes",
+  "cd.form.risk.no": "No",
+  "cd.form.risk.unknown": "Not sure",
+  "cd.form.button.continue": "Continue",
+  "cd.form.button.back": "Back",
+  "cd.form.button.submit": "Continue and Send via WhatsApp",
+  "cd.form.button.editForm": "Edit information",
+  "cd.form.button.tryAgain": "Try again",
+  "cd.form.error.required": "This field is required.",
+  "cd.form.error.invalidEmail": "Please enter a valid email address.",
+  "cd.form.error.invalidPhone": "Please enter a valid WhatsApp number.",
+  "cd.form.error.tooShort": "This is shorter than required.",
+  "cd.form.error.tooLong": "This exceeds the allowed length.",
+  "cd.form.privacyNotice":
+    "Information entered in this form is not stored by the website and will only be transferred to WhatsApp after your confirmation. Do not submit passwords, account-access information, or confidential documents at this stage. Sending a message does not constitute acceptance of representation, creation of a lawyer-client relationship, or a guarantee of outcome.",
+  "cd.form.success.title": "Your message is ready",
+  "cd.form.success.body":
+    "To complete the process, review the prepared message in WhatsApp and press Send. Opening WhatsApp does not mean the message has been sent.",
+  "cd.form.success.fallbackPrompt": "Open WhatsApp",
+  "cd.form.state.error.title": "WhatsApp could not be opened",
+  "cd.form.state.error.body": "Please try again or contact us directly at the number below.",
+  "cd.form.destinationPrefix": "Direct WhatsApp",
+
+  "cd.form.matter.1": "Breach of contract",
+  "cd.form.matter.2": "Buyer or seller dispute",
+  "cd.form.matter.3": "Supplier dispute",
+  "cd.form.matter.4": "Agency or distribution dispute",
+  "cd.form.matter.5": "Shipping or delivery dispute",
+  "cd.form.matter.6": "Unpaid commercial claim",
+  "cd.form.matter.7": "Jurisdiction or governing-law issue",
+  "cd.form.matter.8": "Other commercial dispute",
+  "cd.form.matter.9": "Not sure",
+
+  "cd.form.amount.1": "Under AED 50,000",
+  "cd.form.amount.2": "AED 50,000-200,000",
+  "cd.form.amount.3": "AED 200,000-1,000,000",
+  "cd.form.amount.4": "Over AED 1,000,000",
+  "cd.form.amount.5": "Not sure",
+  "cd.form.amount.6": "Prefer not to state at this stage",
+
+  "cd.form.urgency.1": "Immediate or time-sensitive",
+  "cd.form.urgency.2": "Within the next few days",
+  "cd.form.urgency.3": "Within the next few weeks",
+  "cd.form.urgency.4": "No immediate deadline",
+  "cd.form.urgency.5": "Not sure",
+
+  "cd.form.document.1": "Contract",
+  "cd.form.document.2": "Invoices or payment records",
+  "cd.form.document.3": "Purchase order",
+  "cd.form.document.4": "Shipping and delivery documents",
+  "cd.form.document.5": "Messages or emails",
+  "cd.form.document.6": "Formal notices already sent",
+  "cd.form.document.7": "Other documents",
+  "cd.form.document.8": "No documents yet",
+  "cd.form.document.9": "Not sure",
+
+  "cd.faq.kicker": "Frequently Asked Questions",
+  "cd.faq.h2": "Common Questions About Iran-UAE Commercial Disputes",
+  "cd.faq.1.q": "Can an Iran-UAE commercial dispute only be reviewed with a written contract?",
+  "cd.faq.1.a":
+    "A written contract makes the review more straightforward, but correspondence, invoices, purchase orders, and other records can also factor into an initial assessment. The exact approach depends on the specifics of each matter.",
+  "cd.faq.2.q": "What if the contract does not specify governing law or a court?",
+  "cd.faq.2.a":
+    "In that case, the applicable law and competent forum need to be assessed based on the contract's terms, where obligations were to be performed, and other factors. This assessment is part of the initial review.",
+  "cd.faq.3.q": "Is negotiation or a formal notice possible before litigation?",
+  "cd.faq.3.a":
+    "Depending on the matter, negotiation or a formal notice can be one of the routes considered before more formal action.",
+  "cd.faq.4.q": "What documents are needed for an initial review?",
+  "cd.faq.4.a":
+    "A contract, invoices, correspondence, and counterparty details are usually useful, but an initial review can also begin without every document in hand.",
+  "cd.faq.5.q": "What if the counterparty is in the UAE but I am in Iran?",
+  "cd.faq.5.a":
+    "Initial document review and the legal-route assessment can generally begin remotely. Further steps depend on the specifics of the matter.",
+  "cd.faq.6.q": "Do all disputes have to go to court?",
+  "cd.faq.6.a":
+    "No. Depending on the matter, negotiation, a formal notice, arbitration, or litigation can each be an appropriate route. The choice depends on the documents, the amount involved, and the counterparty's circumstances.",
+  "cd.faq.7.q": "Does submitting the form mean accepting representation?",
+  "cd.faq.7.a":
+    "No. Sending information or a message does not constitute acceptance of representation or create a lawyer-client relationship. The matter is reviewed first.",
+  "cd.faq.8.q": "Can the outcome of a case be guaranteed?",
+  "cd.faq.8.a":
+    "No. No legal outcome can be guaranteed. The initial review only identifies the routes that may be applicable based on the documents and circumstances of the matter.",
+
+  "cd.final.kicker": "Confidential Review",
+  "cd.final.h2": "Review the Matter Before the Route Becomes More Complicated",
+  "cd.final.body":
+    "Send a summary of the contract, the parties, and the approximate amount to have the applicable legal route reviewed.",
+  "cd.final.primary": "Start the Legal Route Review",
+  "cd.final.secondary": "Continue on WhatsApp",
+  "cd.final.disclaimer":
+    "Sending information or a message does not constitute acceptance of representation, creation of a lawyer-client relationship, or a guarantee of outcome. No legal outcome is guaranteed.",
+  "cd.related.kicker": "Related Topics",
+  "cd.related.services": "Legal Services",
+  "cd.related.international": "Iran-UAE Matters",
+  "cd.related.about": "About Our Approach",
+  "cd.related.contact": "Case Review & Contact",
 };
 
 const fa: Dict = {
@@ -1581,6 +1798,219 @@ const fa: Dict = {
   "home.cta.secondary": "تماس از طریق واتساپ",
   "home.cta.whatsappMsg":
     "سلام، می‌خواهم یک پرونده اختلاف تجاری یا بازیابی دارایی را برای بررسی محرمانه ارسال کنم.",
+
+  "cd.hero.kicker": "اختلافات تجاری ایران–امارات",
+  "cd.hero.h1": "وکیل اختلافات تجاری ایران–امارات برای تجار و شرکت‌های ایرانی",
+  "cd.hero.intro":
+    "اگر قراردادی اجرا نشده، طرف مقابل در امارات پاسخ نمی‌دهد یا اختلافی با خریدار، فروشنده، تأمین‌کننده یا نماینده تجاری دارید، مسیر حقوقی قابل‌اعمال در امارات به‌صورت محرمانه بررسی می‌شود.",
+  "cd.hero.primary": "شروع بررسی مسیر حقوقی",
+  "cd.hero.secondary": "ارسال توضیح در واتساپ",
+  "cd.hero.scopeNote":
+    "این بررسی صرفاً برای اختلافات تجاری و قراردادی میان ایران و امارات است؛ دریافت پیام به معنی پذیرش نمایندگی نیست.",
+  "cd.hero.whatsappMsg":
+    "سلام، یک اختلاف تجاری میان ایران و امارات دارم و می‌خواهم مسیر حقوقی آن را به‌صورت محرمانه بررسی کنم.",
+
+  "cd.scenarios.kicker": "اختلافات قابل بررسی",
+  "cd.scenarios.h2": "این صفحه برای چه نوع اختلافاتی است؟",
+  "cd.scenarios.body":
+    "اگر وضعیت شما با یکی از این سناریوها هم‌خوانی دارد، مسیر حقوقی آن قابل بررسی است.",
+  "cd.scenario.1.t": "قرارداد اجرا نشده",
+  "cd.scenario.1.b":
+    "طرف مقابل در امارات به تعهدات قراردادی خود عمل نکرده و کالا، خدمات یا پرداختی که توافق شده بود انجام نشده است.",
+  "cd.scenario.2.t": "اختلاف با خریدار یا فروشنده",
+  "cd.scenario.2.b":
+    "در معامله‌ای تجاری با طرف ایرانی یا اماراتی، اختلافی بر سر شرایط، تحویل یا پرداخت ایجاد شده است.",
+  "cd.scenario.3.t": "اختلاف با تأمین‌کننده",
+  "cd.scenario.3.b":
+    "کیفیت، زمان‌بندی یا شرایط تحویل از سوی تأمین‌کننده در امارات مطابق قرارداد نبوده است.",
+  "cd.scenario.4.t": "اختلاف نمایندگی یا توزیع",
+  "cd.scenario.4.b":
+    "قرارداد نمایندگی یا توزیع میان طرفین دچار اختلاف شده یا شرایط آن به‌درستی اجرا نشده است.",
+  "cd.scenario.5.t": "مشکل حمل و تحویل کالا",
+  "cd.scenario.5.b": "کالا طبق زمان‌بندی، مسیر یا شرایط توافق‌شده حمل یا تحویل داده نشده است.",
+  "cd.scenario.6.t": "مطالبه پرداخت تجاری",
+  "cd.scenario.6.b":
+    "فاکتور یا مبلغ توافق‌شده در یک رابطه تجاری میان ایران و امارات پرداخت نشده است.",
+
+  "cd.why.h2": "چرا پرونده‌های تجاری ایران–امارات متفاوت است؟",
+  "cd.why.body":
+    "این پرونده‌ها معمولاً فقط به ترجمه قرارداد نیاز ندارند. رفتار و مکاتبات تجاری، متن دقیق قرارداد، قانون حاکم، صلاحیت مرجع رسیدگی، مستندات و شواهد موجود، محل طرف مقابل، و مسیر قابل‌اعمال برای مذاکره یا اقدام رسمی، همگی در ارزیابی مسیر مؤثر نقش دارند. بررسی هم‌زمان زمینه تجاری ایرانی و رویه حقوقی امارات به انتخاب مسیر مناسب کمک می‌کند.",
+
+  "cd.delay.kicker": "اهمیت زمان",
+  "cd.delay.h2": "تأخیر چه تأثیری بر پرونده دارد؟",
+  "cd.delay.body":
+    "تأخیر در بررسی می‌تواند مسیر پرونده را دشوارتر کند. میزان فوریت به قرارداد، مدارک و شرایط خاص هر پرونده بستگی دارد.",
+  "cd.delay.item.1": "شواهد و مکاتبات ممکن است کمرنگ یا ناقص شوند.",
+  "cd.delay.item.2": "سوابق ارتباط با طرف مقابل ممکن است کامل نمانند.",
+  "cd.delay.item.3": "موضع طرف مقابل می‌تواند در طول زمان تغییر کند.",
+  "cd.delay.item.4": "برخی مهلت‌های اخطار یا اقدام قراردادی ممکن است از دست بروند.",
+  "cd.delay.item.5": "قدرت مذاکره با گذشت زمان می‌تواند کاهش یابد.",
+  "cd.delay.item.6": "پیچیدگی‌های صلاحیت یا رویه رسیدگی ممکن است افزایش یابد.",
+
+  "cd.process.kicker": "روش کار",
+  "cd.process.h2": "مهندسی مستندات تجاری و طراحی مسیر مؤثر",
+  "cd.process.step.1.t": "دریافت اولیه و شناسایی موضوع",
+  "cd.process.step.1.b": "خلاصه‌ای از اختلاف، طرفین و مبلغ تقریبی دریافت می‌شود.",
+  "cd.process.step.2.t": "سازمان‌دهی مستندات تجاری",
+  "cd.process.step.2.b": "قرارداد، فاکتور، مکاتبات و سایر مدارک مرتبط بررسی و مرتب می‌شوند.",
+  "cd.process.step.3.t": "ارزیابی قرارداد، صلاحیت و قانون حاکم",
+  "cd.process.step.3.b": "شرایط قرارداد، صلاحیت مرجع رسیدگی و قانون قابل‌اعمال بررسی می‌شود.",
+  "cd.process.step.4.t": "انتخاب مسیر مذاکره، اخطار، دعوا یا داوری",
+  "cd.process.step.4.b": "بسته به شرایط پرونده، مسیر مناسب برای اقدام بعدی مشخص می‌شود.",
+  "cd.process.step.5.t": "پیگیری مرحله‌ای پرونده",
+  "cd.process.step.5.b": "روند پرونده در مسیر انتخاب‌شده پیگیری می‌شود.",
+
+  "cd.docs.kicker": "مدارک اولیه",
+  "cd.docs.h2": "چه مدارکی برای بررسی اولیه مفید است؟",
+  "cd.docs.body": "مدارکی که در بررسی اولیه می‌توانند مفید باشند؛ ارسال همه موارد الزامی نیست.",
+  "cd.docs.item.1": "قرارداد و الحاقیه‌های آن",
+  "cd.docs.item.2": "فاکتورها و مدارک پرداخت",
+  "cd.docs.item.3": "سفارش خرید",
+  "cd.docs.item.4": "مدارک حمل و تحویل کالا",
+  "cd.docs.item.5": "مکاتبات ایمیل یا واتساپ",
+  "cd.docs.item.6": "قرارداد نمایندگی یا توزیع",
+  "cd.docs.item.7": "اخطارهای ارسال‌شده قبلی",
+  "cd.docs.item.8": "مشخصات طرف مقابل",
+
+  "cd.trust.kicker": "روند بررسی",
+  "cd.trust.h2": "بررسی محرمانه، مرحله‌ای و بدون تعهد اولیه",
+  "cd.trust.body":
+    "هر پرونده به‌صورت محرمانه و مرحله‌ای بررسی می‌شود، پیش از هر تصمیمی درباره مسیر اقدام.",
+  "cd.trust.item.1": "بررسی محرمانه اولیه",
+  "cd.trust.item.2": "بررسی ساختاریافته مستندات تجاری",
+  "cd.trust.item.3": "ارتباط به فارسی و انگلیسی",
+  "cd.trust.item.4": "توضیح شفاف محدوده بررسی",
+  "cd.trust.item.5": "بدون تضمین نتیجه",
+  "cd.trust.disclaimer":
+    "تماس اولیه یا ارسال اطلاعات به معنی پذیرش نمایندگی یا ایجاد رابطه وکیل و موکل نیست.",
+  "cd.trust.imageAlt": "فضای کاری برای بررسی پرونده‌های تجاری",
+
+  "cd.form.kicker": "بررسی پرونده",
+  "cd.form.h2": "بررسی محرمانه اختلاف تجاری شما",
+  "cd.form.body":
+    "برای شروع بررسی، اطلاعات زیر را تکمیل کنید. ادامه فرایند از طریق واتساپ خواهد بود.",
+  "cd.form.progressLabel": "مراحل فرم",
+  "cd.form.step1Label": "اطلاعات و موضوع پرونده",
+  "cd.form.step2Label": "جزئیات پرونده",
+  "cd.form.field.fullName.label": "نام و نام خانوادگی",
+  "cd.form.field.whatsapp.label": "شماره واتساپ",
+  "cd.form.field.whatsapp.placeholder": "مثال: +971 5... یا +98 9...",
+  "cd.form.field.email.label": "ایمیل (اختیاری)",
+  "cd.form.field.matterType.label": "نوع اختلاف تجاری",
+  "cd.form.field.amount.label": "مبلغ تقریبی اختلاف",
+  "cd.form.field.counterpartyType.label": "طرف مقابل شخص است یا شرکت؟",
+  "cd.form.field.counterpartyLocation.label": "کشور یا شهر طرف مقابل",
+  "cd.form.field.counterpartyLocation.placeholder": "مثال: دبی، امارات",
+  "cd.form.field.urgency.label": "میزان فوریت",
+  "cd.form.field.documents.label": "مدارک موجود",
+  "cd.form.field.lastContact.label": "آخرین ارتباط با طرف مقابل (اختیاری)",
+  "cd.form.field.lastContact.placeholder": "مثال: حدود دو هفته پیش",
+  "cd.form.field.risk.label": "احتمال انتقال دارایی یا از بین رفتن مدارک",
+  "cd.form.field.summary.label": "خلاصه موضوع",
+  "cd.form.field.summary.placeholder": "خلاصه‌ای از قرارداد، طرفین و اتفاقات اصلی بنویسید.",
+  "cd.form.field.summary.helperText":
+    "لطفاً از ارسال رمز عبور، اطلاعات ورود به حساب یا مدارک کاملاً محرمانه در این مرحله خودداری کنید.",
+  "cd.form.field.summary.counterSuffix": "نویسه",
+  "cd.form.counterparty.person": "شخص حقیقی",
+  "cd.form.counterparty.company": "شرکت",
+  "cd.form.counterparty.unknown": "مشخص نیست",
+  "cd.form.risk.yes": "بله",
+  "cd.form.risk.no": "خیر",
+  "cd.form.risk.unknown": "مشخص نیست",
+  "cd.form.button.continue": "ادامه",
+  "cd.form.button.back": "بازگشت",
+  "cd.form.button.submit": "ادامه و ارسال در واتساپ",
+  "cd.form.button.editForm": "ویرایش اطلاعات",
+  "cd.form.button.tryAgain": "تلاش مجدد",
+  "cd.form.error.required": "تکمیل این بخش الزامی است.",
+  "cd.form.error.invalidEmail": "لطفاً یک ایمیل معتبر وارد کنید.",
+  "cd.form.error.invalidPhone": "لطفاً شماره واتساپ را به‌صورت معتبر وارد کنید.",
+  "cd.form.error.tooShort": "این متن کوتاه‌تر از حد لازم است.",
+  "cd.form.error.tooLong": "این متن از حد مجاز طولانی‌تر است.",
+  "cd.form.privacyNotice":
+    "اطلاعات واردشده در این فرم در وب‌سایت ذخیره نمی‌شود و پس از تأیید شما فقط از طریق واتساپ ارسال خواهد شد. از ارسال رمز عبور، اطلاعات ورود یا مدارک کاملاً محرمانه در این مرحله خودداری کنید. ارسال پیام به معنی پذیرش نمایندگی، ایجاد رابطه وکیل و موکل یا تضمین نتیجه نیست.",
+  "cd.form.success.title": "پیام شما آماده شد",
+  "cd.form.success.body":
+    "برای تکمیل ارسال، لطفاً متن آماده‌شده را در واتساپ بررسی و دکمه ارسال را انتخاب کنید. بازشدن واتساپ به معنی ارسال نهایی پیام نیست.",
+  "cd.form.success.fallbackPrompt": "باز کردن واتساپ",
+  "cd.form.state.error.title": "بازکردن واتساپ انجام نشد",
+  "cd.form.state.error.body":
+    "لطفاً دوباره تلاش کنید یا مستقیماً از طریق شماره زیر با ما تماس بگیرید.",
+  "cd.form.destinationPrefix": "تماس مستقیم واتساپ",
+
+  "cd.form.matter.1": "قرارداد اجرا نشده",
+  "cd.form.matter.2": "اختلاف با خریدار یا فروشنده",
+  "cd.form.matter.3": "اختلاف با تأمین‌کننده",
+  "cd.form.matter.4": "اختلاف نمایندگی یا توزیع",
+  "cd.form.matter.5": "مشکل حمل یا تحویل کالا",
+  "cd.form.matter.6": "مطالبه پرداخت تجاری پرداخت‌نشده",
+  "cd.form.matter.7": "ابهام در قانون حاکم یا صلاحیت مرجع",
+  "cd.form.matter.8": "سایر اختلافات تجاری",
+  "cd.form.matter.9": "مشخص نیست",
+
+  "cd.form.amount.1": "کمتر از ۵۰,۰۰۰ درهم",
+  "cd.form.amount.2": "۵۰,۰۰۰ تا ۲۰۰,۰۰۰ درهم",
+  "cd.form.amount.3": "۲۰۰,۰۰۰ تا ۱,۰۰۰,۰۰۰ درهم",
+  "cd.form.amount.4": "بیش از ۱,۰۰۰,۰۰۰ درهم",
+  "cd.form.amount.5": "مشخص نیست",
+  "cd.form.amount.6": "ترجیح می‌دهم در این مرحله نگویم",
+
+  "cd.form.urgency.1": "فوری یا زمان‌محور",
+  "cd.form.urgency.2": "در حد چند روز آینده",
+  "cd.form.urgency.3": "در حد چند هفته آینده",
+  "cd.form.urgency.4": "مهلت فوری مشخصی وجود ندارد",
+  "cd.form.urgency.5": "مشخص نیست",
+
+  "cd.form.document.1": "قرارداد",
+  "cd.form.document.2": "فاکتور یا مدارک پرداخت",
+  "cd.form.document.3": "سفارش خرید",
+  "cd.form.document.4": "مدارک حمل و تحویل",
+  "cd.form.document.5": "پیام‌ها یا ایمیل‌ها",
+  "cd.form.document.6": "اخطارهای رسمی ارسال‌شده",
+  "cd.form.document.7": "سایر مدارک",
+  "cd.form.document.8": "هنوز مدرکی ندارم",
+  "cd.form.document.9": "مشخص نیست",
+
+  "cd.faq.kicker": "سوالات متداول",
+  "cd.faq.h2": "سوالات پرتکرار درباره اختلافات تجاری ایران–امارات",
+  "cd.faq.1.q": "آیا اختلاف تجاری ایران–امارات فقط با قرارداد کتبی قابل بررسی است؟",
+  "cd.faq.1.a":
+    "قرارداد کتبی بررسی را ساده‌تر می‌کند، اما مکاتبات، فاکتورها، سفارش‌ها و سایر مستندات نیز می‌توانند در ارزیابی اولیه نقش داشته باشند. مسیر دقیق به شرایط هر پرونده بستگی دارد.",
+  "cd.faq.2.q": "اگر قرارداد قانون حاکم یا دادگاه مشخص نکرده باشد چه می‌شود؟",
+  "cd.faq.2.a":
+    "در این حالت، قانون حاکم و مرجع صالح باید بر اساس شرایط قرارداد، محل انجام تعهدات و سایر عوامل بررسی شود. این ارزیابی بخشی از مرحله بررسی اولیه است.",
+  "cd.faq.3.q": "آیا قبل از دعوا امکان مذاکره یا اخطار رسمی وجود دارد؟",
+  "cd.faq.3.a":
+    "بسته به شرایط پرونده، مذاکره یا ارسال اخطار رسمی می‌تواند یکی از مسیرهای قابل بررسی پیش از اقدام رسمی‌تر باشد.",
+  "cd.faq.4.q": "برای بررسی اولیه چه مدارکی لازم است؟",
+  "cd.faq.4.a":
+    "قرارداد، فاکتورها، مکاتبات و مشخصات طرف مقابل معمولاً مفید هستند؛ اما بررسی اولیه بدون همه مدارک نیز قابل شروع است.",
+  "cd.faq.5.q": "اگر طرف مقابل در امارات باشد ولی من در ایران باشم چه می‌شود؟",
+  "cd.faq.5.a":
+    "بررسی اولیه اسناد و مسیر حقوقی معمولاً می‌تواند از راه دور آغاز شود. جزئیات بعدی به شرایط پرونده بستگی دارد.",
+  "cd.faq.6.q": "آیا همه اختلافات باید به دادگاه برسند؟",
+  "cd.faq.6.a":
+    "خیر. بسته به پرونده، مذاکره، اخطار رسمی، داوری یا دعوا هرکدام می‌توانند مسیر مناسب باشند. انتخاب مسیر به مدارک، مبلغ و شرایط طرف مقابل بستگی دارد.",
+  "cd.faq.7.q": "آیا ارسال فرم به معنی قبول وکالت است؟",
+  "cd.faq.7.a":
+    "خیر. ارسال اطلاعات یا پیام به معنی پذیرش نمایندگی یا ایجاد رابطه وکیل و موکل نیست. ابتدا پرونده بررسی می‌شود.",
+  "cd.faq.8.q": "آیا نتیجه پرونده قابل تضمین است؟",
+  "cd.faq.8.a":
+    "خیر. هیچ نتیجه حقوقی قابل تضمین نیست. بررسی اولیه صرفاً مسیرهای قابل‌اعمال را بر اساس مدارک و شرایط پرونده مشخص می‌کند.",
+
+  "cd.final.kicker": "بررسی محرمانه",
+  "cd.final.h2": "پیش از پیچیده‌تر شدن مسیر، پرونده را بررسی کنید",
+  "cd.final.body":
+    "خلاصه‌ای از قرارداد، طرفین و مبلغ تقریبی ارسال کنید تا مسیر حقوقی قابل‌اعمال بررسی شود.",
+  "cd.final.primary": "شروع بررسی مسیر حقوقی",
+  "cd.final.secondary": "ارسال توضیح در واتساپ",
+  "cd.final.disclaimer":
+    "ارسال اطلاعات یا پیام به معنی پذیرش نمایندگی، ایجاد رابطه وکیل و موکل یا تضمین نتیجه نیست. هیچ نتیجه حقوقی تضمین نمی‌شود.",
+  "cd.related.kicker": "موضوعات مرتبط",
+  "cd.related.services": "خدمات حقوقی",
+  "cd.related.international": "پرونده‌های ایران–امارات",
+  "cd.related.about": "درباره رویکرد ما",
+  "cd.related.contact": "بررسی پرونده و تماس",
 };
 
 const dict: Record<Lang, Dict> = { en, fa };
