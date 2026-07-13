@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import BookingPage from "./page-client";
 
 export const metadata: Metadata = {
-  title: "Book a Consultation — Rahil Mostafaee",
+  title: "Book a Consultation — Rahil Mostafaei",
 };
 
 export default function Page() {

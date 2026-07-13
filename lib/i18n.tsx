@@ -80,8 +80,8 @@ const en: Dict = {
 
   "splash.tag": "Legal Counsel · Dubai",
   "splash.name.first": "Rahil",
-  "splash.name.last": "Mostafaee",
-  "book.brand_tag": "Rahil Mostafaee · Dubai",
+  "splash.name.last": "Mostafaei",
+  "book.brand_tag": "Rahil Mostafaei · Dubai",
 
   "footer.role": "Commercial Disputes & Asset Recovery for Iranian Clients in the UAE",
   "footer.blurb":
@@ -118,7 +118,7 @@ const en: Dict = {
   "home.hero.rotate.3": "Decisive",
   "home.hero.rotate.4": "Borderless",
   "home.hero.name.first": "Rahil",
-  "home.hero.name.last": "Mostafaee",
+  "home.hero.name.last": "Mostafaei",
   "home.hero.cta.book": "Book Confidential Consultation",
   "home.hero.cta.emergency": "Emergency Legal Line",
   "home.hero.stat.years": "Years Practice",
@@ -218,7 +218,7 @@ const en: Dict = {
   "home.platform.stage": "Stage",
   "home.platform.stageVal": "Structuring",
   "home.platform.lead": "Lead Counsel",
-  "home.platform.leadVal": "R. Mostafaee",
+  "home.platform.leadVal": "R. Mostafaei",
   "home.platform.next": "Next Review",
   "home.platform.nextVal": "12 Mar",
   "home.platform.task1": "Initial Strategy Memo",

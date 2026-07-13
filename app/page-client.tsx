@@ -140,7 +140,7 @@ function Hero() {
       <div className="sticky top-0 z-0 h-svh overflow-hidden sm:hidden" data-hero-mobile-image>
         <img
           src={rahilCutoutMobile.src}
-          alt="Rahil Mostafaee"
+          alt="Rahil Mostafaei"
           className="h-full w-full scale-[1.04] object-cover"
           style={{ objectPosition: "center 12%" }}
           width={595}
@@ -159,7 +159,7 @@ function Hero() {
           <div className="absolute inset-0 sm:relative sm:aspect-[4/5]">
             <img
               src={rahilCutoutMobile.src}
-              alt="Rahil Mostafaee"
+              alt="Rahil Mostafaei"
               className="h-full w-full scale-[1.02] object-cover sm:scale-100"
               style={{ objectPosition: "center 12%" }}
               width={595}
@@ -271,7 +271,7 @@ function Hero() {
               <div className="relative overflow-hidden aspect-[4/5] tilt-hover gold-sweep">
                 <img
                   src={portrait.src}
-                  alt="Rahil Mostafaee"
+                  alt="Rahil Mostafaei"
                   className="w-full h-full object-cover slow-pan"
                   width={900}
                   height={1125}

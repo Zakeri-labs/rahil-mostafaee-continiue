@@ -16,7 +16,7 @@ export function Footer() {
               <img src={logo.src} alt="" className="h-12 w-12 object-contain" loading="lazy" />
               <div>
                 <div className="font-display text-2xl text-ivory">
-                  Rahil <span className="text-gold">Mostafaee</span>
+                  Rahil <span className="text-gold">Mostafaei</span>
                 </div>
                 <div className="max-w-sm text-[10px] tracking-[0.3em] uppercase text-muted-foreground leading-relaxed break-words lg:text-xs lg:tracking-[0.22em]">
                   {t("footer.role")}
@@ -117,7 +117,7 @@ export function Footer() {
 
         <div className="mt-16 pt-8 border-t border-gold/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <div>
-            © {new Date().getFullYear()} Rahil Mostafaee Legal. {t("footer.copyright")}
+            © {new Date().getFullYear()} Rahil Mostafaei Legal. {t("footer.copyright")}
           </div>
           <div className="tracking-[0.25em] uppercase">{t("footer.privileged")}</div>
         </div>

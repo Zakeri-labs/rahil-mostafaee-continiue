@@ -75,7 +75,7 @@ function Hero() {
           <div className="aspect-[3/4] overflow-hidden frame-gold">
             <img
               src={founder.src}
-              alt="Rahil Mostafaee"
+              alt="Rahil Mostafaei"
               className="w-full h-full object-cover"
               loading="lazy"
             />

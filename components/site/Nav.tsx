@@ -43,12 +43,12 @@ export function Nav() {
           >
             <img
               src={logo.src}
-              alt="Rahil Mostafaee"
+              alt="Rahil Mostafaei"
               className={`object-contain transition-all duration-500 ${scrolled ? "h-12 w-12" : "h-14 w-14"}`}
             />
             <div className="min-w-0 leading-tight lg:whitespace-nowrap">
               <div className="font-display text-2xl tracking-wide text-ivory">
-                Rahil <span className="text-gold">Mostafaee</span>
+                Rahil <span className="text-gold">Mostafaei</span>
               </div>
               <div className="truncate text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1 lg:text-xs lg:tracking-[0.22em]">
                 {t("tag.legal")}

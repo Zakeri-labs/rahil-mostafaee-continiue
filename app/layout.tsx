@@ -80,19 +80,14 @@ const peyda = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Rahil Mostafaee",
+    default: "Rahil Mostafaei",
     template: "%s",
-  },
-  icons: {
-    icon: "/assets/logo-mark.png",
-    shortcut: "/assets/logo-mark.png",
-    apple: "/assets/logo-mark.png",
   },
   description:
     "Discreet, cross-border legal representation for high-value Iranian clients in Dubai. Residency, corporate, real estate, DIFC wills, international coordination.",
-  authors: [{ name: "Rahil Mostafaee Legal" }],
+  authors: [{ name: "Rahil Mostafaei Legal" }],
   openGraph: {
-    title: "Rahil Mostafaee",
+    title: "Rahil Mostafaei",
     description:
       "Discreet, cross-border legal representation for high-value Iranian clients in Dubai. Residency, corporate, real estate, DIFC wills, international coordination.",
     type: "website",
@@ -100,7 +95,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rahil Mostafaee",
+    title: "Rahil Mostafaei",
     description:
       "Discreet, cross-border legal representation for high-value Iranian clients in Dubai. Residency, corporate, real estate, DIFC wills, international coordination.",
     images: [previewImage],
