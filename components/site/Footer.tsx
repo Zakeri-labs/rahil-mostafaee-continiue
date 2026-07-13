@@ -3,6 +3,7 @@
 import Link from "next/link";
 import logo from "@/assets/logo-mark.png";
 import { useI18n } from "@/lib/i18n";
+import { LEADS_WHATSAPP_DISPLAY_NUMBER } from "@/lib/leads/config";
 
 export function Footer() {
   const { t, dir } = useI18n();
@@ -107,7 +108,7 @@ export function Footer() {
               <ul className="space-y-3 text-muted-foreground">
                 <li>{t("footer.office.area")}</li>
                 <li>{t("footer.office.city")}</li>
-                <li>+971 ·· ··· ····</li>
+                <li>{LEADS_WHATSAPP_DISPLAY_NUMBER}</li>
                 <li>{t("footer.office.byappt")}</li>
               </ul>
             </div>

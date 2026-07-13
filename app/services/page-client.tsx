@@ -17,11 +17,10 @@ import {
   Users,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-
-const WHATSAPP_NUMBER = "971500000000";
+import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 
 function whatsappHref(message: string) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${LEADS_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
 function ServicesPage() {

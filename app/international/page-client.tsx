@@ -16,6 +16,7 @@ import {
   Users,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 
 function InternationalPage() {
   const { t, dir, lang } = useI18n();
@@ -310,7 +311,7 @@ function FinalCTA() {
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
           <a
-            href="https://wa.me/971500000000"
+            href={`https://wa.me/${LEADS_WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-3 px-10 py-5 glass-strong text-ivory hover:border-gold/40 transition-all"

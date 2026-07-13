@@ -14,11 +14,10 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-
-const WHATSAPP_NUMBER = "971500000000";
+import { LEADS_WHATSAPP_DISPLAY_NUMBER, LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 
 function whatsappHref(message: string) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${LEADS_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
 function ContactPage() {
@@ -72,7 +71,7 @@ function ContactPage() {
             <div className="space-y-6 pt-6">
               {[
                 { icon: MapPin, l: t("contact.info.office"), v: t("contact.info.officeVal") },
-                { icon: Phone, l: t("contact.info.direct"), v: "+971 ·· ··· ····" },
+                { icon: Phone, l: t("contact.info.direct"), v: LEADS_WHATSAPP_DISPLAY_NUMBER },
                 { icon: Mail, l: t("contact.info.email"), v: "office@rahilmostafaee.com" },
                 { icon: Clock, l: t("contact.info.hours"), v: t("contact.info.hoursVal") },
               ].map((c) => (

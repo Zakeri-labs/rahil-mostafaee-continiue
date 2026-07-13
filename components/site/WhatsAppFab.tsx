@@ -2,14 +2,12 @@
 
 import { MessageCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-
-// TODO: replace with real number (E.164, no '+' or spaces)
-const WHATSAPP_NUMBER = "971500000000";
+import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 
 export function WhatsAppFab() {
   const { t, dir } = useI18n();
   const message = encodeURIComponent(t("fab.whatsapp.msg"));
-  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+  const href = `https://wa.me/${LEADS_WHATSAPP_NUMBER}?text=${message}`;
   const side = dir === "rtl" ? "left-6" : "right-6";
   return (
     <a

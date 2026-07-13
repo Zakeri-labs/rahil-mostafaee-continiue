@@ -16,8 +16,7 @@ import {
   Building2,
 } from "lucide-react";
 import { useI18n, type Lang } from "@/lib/i18n";
-
-const WHATSAPP_NUMBER = "971500000000";
+import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 
 export function MobileBottomNav() {
   const { t, lang, setLang } = useI18n();
@@ -25,7 +24,7 @@ export function MobileBottomNav() {
   const [open, setOpen] = useState(false);
 
   const waMsg = encodeURIComponent(t("fab.whatsapp.msg"));
-  const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`;
+  const waHref = `https://wa.me/${LEADS_WHATSAPP_NUMBER}?text=${waMsg}`;
 
   const switchLang = (l: Lang) => setLang(l);
 

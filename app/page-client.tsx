@@ -25,6 +25,7 @@ import mediumLargeBusinessImage from "@/assets/4-Medium-Large-Business-Owner.png
 import crossBorderMatterImage from "@/assets/5-Iran-UAE-Cross-Border.png";
 import commercialDisputesImage from "@/assets/Path1-Iran-UAE-Commercial-Disputes.png";
 import assetRecoveryImage from "@/assets/Path2-Asset-Recovery.png";
+import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 import processImage1 from "@/assets/Process-1.png";
 import processImage2 from "@/assets/Process-2.png";
 import processImage3 from "@/assets/Process-3.png";
@@ -40,10 +41,8 @@ import { Reveal } from "@/components/site/Reveal";
 import { Parallax, ScrollProgress } from "@/components/site/Parallax";
 import { useI18n } from "@/lib/i18n";
 
-const WHATSAPP_NUMBER = "971500000000";
-
 function whatsappHref(message: string) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${LEADS_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
 function Home() {
