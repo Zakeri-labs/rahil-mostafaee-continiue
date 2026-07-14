@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Nav } from "@/components/site/Nav";
@@ -25,6 +26,8 @@ const directionScript = `
     } catch (_) {}
   })();
 `;
+
+const isProduction = process.env.VERCEL_ENV === "production";
 
 const peyda = localFont({
   src: [
@@ -112,6 +115,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="fa" dir="rtl" suppressHydrationWarning>
       <body className={peyda.variable} lang="fa" dir="rtl">
+        {isProduction ? <GoogleTagManager gtmId="GTM-WSNZJ7MH" /> : null}
         <script dangerouslySetInnerHTML={{ __html: directionScript }} />
         <Providers>
           <SplashLoader />
