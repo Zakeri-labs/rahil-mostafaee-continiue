@@ -39,6 +39,7 @@ import timeSensitiveReviewImage from "@/assets/Time-Sensitive-Review .png";
 import { ProcessConnector } from "@/components/site/ProcessConnector";
 import { Reveal } from "@/components/site/Reveal";
 import { Parallax, ScrollProgress } from "@/components/site/Parallax";
+import { ConfidentialCaseIntakeWizard } from "@/components/site/ConfidentialCaseIntakeWizard";
 import { useI18n } from "@/lib/i18n";
 
 function whatsappHref(message: string) {
@@ -721,45 +722,7 @@ function FAQ() {
 }
 
 function FinalCTA() {
-  const { t } = useI18n();
-  const waHref = whatsappHref(t("home.cta.whatsappMsg"));
-
-  return (
-    <section className="relative py-32 lg:py-40 border-t border-gold/10">
-      <div className="mx-auto max-w-5xl px-6 lg:px-10 text-center space-y-10">
-        <Reveal className="space-y-8">
-          <h2 className="font-display text-2xl lg:text-5xl text-ivory tracking-tight leading-[1.02]">
-            {t("home.cta.h2")}
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            {t("home.cta.body")}
-          </p>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gold text-onyx hover:bg-gold-soft transition-all duration-300 shadow-glow"
-            >
-              <span className="text-xs tracking-[0.22em] uppercase font-medium lg:text-sm lg:tracking-[0.16em]">
-                {t("home.cta.primary")}
-              </span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
-            <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 glass-strong text-ivory hover:border-gold/40 transition-all"
-            >
-              <MessageCircle className="w-4 h-4 text-[#25D366]" />
-              <span className="text-xs tracking-[0.22em] uppercase font-medium lg:text-sm lg:tracking-[0.16em]">
-                {t("home.cta.secondary")}
-              </span>
-            </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
+  return <ConfidentialCaseIntakeWizard />;
 }
 
 export default Home;

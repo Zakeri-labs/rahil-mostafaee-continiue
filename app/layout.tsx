@@ -114,7 +114,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fa" dir="rtl" suppressHydrationWarning>
-      <body className={peyda.variable} lang="fa" dir="rtl">
+      <body className={peyda.variable} lang="fa" dir="rtl" suppressHydrationWarning>
         {isProduction ? <GoogleTagManager gtmId="GTM-WSNZJ7MH" /> : null}
         <script dangerouslySetInnerHTML={{ __html: directionScript }} />
         <Providers>
