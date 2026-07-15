@@ -11,11 +11,16 @@ import {
   ChevronLeft,
   ChevronRight,
   Clock,
+  FilePenLine,
   FileSearch,
+  FolderOpen,
+  Handshake,
   HelpCircle,
+  Landmark,
   MessageCircle,
   Scale,
   ShieldCheck,
+  Target,
   Users,
 } from "lucide-react";
 import importerExporterImage from "@/assets/1-Importer-Exporter .png";
@@ -26,11 +31,7 @@ import crossBorderMatterImage from "@/assets/5-Iran-UAE-Cross-Border.png";
 import commercialDisputesImage from "@/assets/Path1-Iran-UAE-Commercial-Disputes.png";
 import assetRecoveryImage from "@/assets/Path2-Asset-Recovery.png";
 import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
-import processImage1 from "@/assets/Process-1.png";
-import processImage2 from "@/assets/Process-2.png";
-import processImage3 from "@/assets/Process-3.png";
-import processImage4 from "@/assets/Process-4.png";
-import processImage5 from "@/assets/Process-5.png";
+import processImage from "@/assets/Process.png";
 import hero from "@/assets/hero-skyline.jpg";
 import rahilCutoutMobile from "@/assets/rahil-cutout-mobile.png";
 import office from "@/assets/office-interior.jpg";
@@ -506,23 +507,28 @@ function Process() {
   const processCards = [
     {
       title: t("home.process.s1"),
-      image: processImage1,
+      image: processImage,
+      icon: FilePenLine,
     },
     {
       title: t("home.process.s2"),
-      image: processImage2,
+      image: processImage,
+      icon: FolderOpen,
     },
     {
       title: t("home.process.s3"),
-      image: processImage3,
+      image: processImage,
+      icon: Landmark,
     },
     {
       title: t("home.process.s4"),
-      image: processImage4,
+      image: processImage,
+      icon: Handshake,
     },
     {
       title: t("home.process.s5"),
-      image: processImage5,
+      image: processImage,
+      icon: Target,
     },
   ];
   const scrollProcessRail = (direction: "left" | "right") => {
@@ -565,22 +571,30 @@ function Process() {
               className="relative shrink-0 basis-[calc((100%_-_1rem)/2)] snap-center first:snap-start last:snap-end sm:basis-[calc((100%_-_1rem)/2)] md:basis-[calc((100%_-_2rem)/3)] xl:basis-auto xl:snap-none"
             >
               <li className="group relative mx-auto flex h-[300px] w-full items-center justify-center overflow-hidden rounded-none shadow-luxe transition-transform duration-500 md:h-[320px] md:hover:-translate-y-1 xl:h-[340px] xl:w-[213px]">
-                <img
-                  src={card.image.src}
-                  alt={card.title}
-                  className="block h-full w-full object-contain scale-[0.94] transition-transform duration-500 ease-out md:group-hover:scale-[0.97]"
-                  loading="lazy"
-                  width={card.image.width}
-                  height={card.image.height}
-                />
+                <div className="absolute inset-0 scale-[0.94] transition-transform duration-500 ease-out md:group-hover:scale-[0.97]">
+                  <img
+                    src={card.image.src}
+                    alt=""
+                    aria-hidden="true"
+                    className="block h-full w-full object-cover"
+                    loading="lazy"
+                    width={card.image.width}
+                    height={card.image.height}
+                  />
+                </div>
                 <div className="pointer-events-none absolute inset-0 scale-[0.94] transition-transform duration-500 ease-out md:group-hover:scale-[0.97]">
-                  <div
-                    className={`absolute inset-x-0 bottom-0 flex h-[38%] items-end justify-center px-4 pb-6 text-center ${
-                      i < 3
-                        ? "bg-gradient-to-t from-onyx/82 via-onyx/34 to-transparent text-ivory"
-                        : "bg-gradient-to-t from-ivory/72 via-ivory/24 to-transparent text-onyx"
-                    }`}
-                  >
+                  <div className="absolute inset-x-0 top-0 px-7 pt-7 text-gold-soft">
+                    <span className="block font-display text-4xl leading-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="mt-3 block h-px w-10 bg-gold-soft" />
+                  </div>
+                  <div className="absolute left-1/2 top-[49%] -translate-x-1/2 -translate-y-1/2">
+                    <span className="flex h-20 w-20 items-center justify-center rounded-full border border-gold/50 text-gold-soft">
+                      <card.icon className="h-10 w-10" strokeWidth={1.2} />
+                    </span>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 flex h-[38%] items-end justify-center bg-gradient-to-t from-onyx/85 via-onyx/35 to-transparent px-4 pb-6 text-center text-ivory">
                     <h3 className="mx-auto max-w-[10.5rem] translate-y-0 font-display text-[1.12rem] leading-[1.1] text-balance transition-transform duration-500 ease-out md:group-hover:-translate-y-1 sm:text-[1.18rem] lg:text-[1.24rem]">
                       {card.title}
                     </h3>

@@ -108,7 +108,9 @@ export function Footer() {
               <ul className="space-y-3 text-muted-foreground">
                 <li>{t("footer.office.area")}</li>
                 <li>{t("footer.office.city")}</li>
-                <li>{LEADS_WHATSAPP_DISPLAY_NUMBER}</li>
+                <li dir="ltr" className="text-left">
+                  {LEADS_WHATSAPP_DISPLAY_NUMBER}
+                </li>
                 <li>{t("footer.office.byappt")}</li>
               </ul>
             </div>
