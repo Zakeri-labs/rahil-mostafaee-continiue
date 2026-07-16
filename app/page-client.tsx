@@ -534,6 +534,11 @@ function Process() {
       icon: Target,
     },
   ];
+  const formatProcessNumber = (number: number) =>
+    dir === "rtl"
+      ? number.toLocaleString("fa-IR", { minimumIntegerDigits: 2, useGrouping: false })
+      : String(number).padStart(2, "0");
+
   const scrollProcessRail = (direction: "left" | "right") => {
     const rail = processRailRef.current;
     if (!rail) return;
@@ -581,8 +586,12 @@ function Process() {
               <li className="group relative mx-auto flex h-[300px] w-full items-center justify-center overflow-hidden rounded-[15px] border border-gold/45 bg-[#171819] shadow-luxe transition-transform duration-500 md:h-[320px] md:hover:-translate-y-1 xl:h-[340px] xl:w-[213px]">
                 <div className="pointer-events-none absolute inset-0">
                   <div className="absolute inset-x-0 top-0 px-7 pt-7 text-gold">
-                    <span className="block font-display text-4xl leading-none">
-                      {String(i + 1).padStart(2, "0")}
+                    <span
+                      className={`block text-4xl leading-none ${
+                        dir === "rtl" ? "font-fa font-light tracking-[0.08em]" : "font-display"
+                      }`}
+                    >
+                      {formatProcessNumber(i + 1)}
                     </span>
                     <span className="mt-3 block h-px w-10 bg-gold" />
                   </div>
