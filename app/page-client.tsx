@@ -31,7 +31,6 @@ import crossBorderMatterImage from "@/assets/5-Iran-UAE-Cross-Border.png";
 import commercialDisputesImage from "@/assets/Path1-Iran-UAE-Commercial-Disputes.png";
 import assetRecoveryImage from "@/assets/Path2-Asset-Recovery.png";
 import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
-import processImage from "@/assets/Process.png";
 import hero from "@/assets/hero-skyline.jpg";
 import rahilCutoutMobile from "@/assets/rahil-cutout-mobile.png";
 import office from "@/assets/office-interior.jpg";
@@ -333,11 +332,13 @@ function SectionIntro({
   title,
   body,
   centered = false,
+  divider = false,
 }: {
   kicker: string;
   title: string;
   body?: string;
   centered?: boolean;
+  divider?: boolean;
 }) {
   return (
     <Reveal className={`space-y-6 ${centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}`}>
@@ -349,6 +350,13 @@ function SectionIntro({
       <h2 className="font-display text-2xl lg:text-4xl text-ivory leading-[1.05] tracking-tight">
         {title}
       </h2>
+      {divider && (
+        <div dir="ltr" className="flex items-center justify-center gap-3 pt-1" aria-hidden="true">
+          <span className="h-px w-24 bg-gradient-to-r from-transparent via-gold/70 to-gold/70" />
+          <span className="h-3 w-3 rotate-45 border border-gold/80" />
+          <span className="h-px w-24 bg-gradient-to-l from-transparent via-gold/70 to-gold/70" />
+        </div>
+      )}
       {body && <p className="text-muted-foreground text-lg leading-relaxed">{body}</p>}
     </Reveal>
   );
@@ -502,32 +510,27 @@ function FastAction() {
 }
 
 function Process() {
-  const { t } = useI18n();
+  const { t, dir } = useI18n();
   const processRailRef = useRef<HTMLOListElement>(null);
   const processCards = [
     {
       title: t("home.process.s1"),
-      image: processImage,
       icon: FilePenLine,
     },
     {
       title: t("home.process.s2"),
-      image: processImage,
       icon: FolderOpen,
     },
     {
       title: t("home.process.s3"),
-      image: processImage,
       icon: Landmark,
     },
     {
       title: t("home.process.s4"),
-      image: processImage,
       icon: Handshake,
     },
     {
       title: t("home.process.s5"),
-      image: processImage,
       icon: Target,
     },
   ];
@@ -558,7 +561,12 @@ function Process() {
         }}
       />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 space-y-14 lg:space-y-16">
-        <SectionIntro kicker={t("home.process.kicker")} title={t("home.process.h2")} centered />
+        <SectionIntro
+          kicker={t("home.process.kicker")}
+          title={t("home.process.h2")}
+          centered
+          divider
+        />
 
         <ol
           ref={processRailRef}
@@ -570,27 +578,16 @@ function Process() {
               delay={i * 90}
               className="relative shrink-0 basis-[calc((100%_-_1rem)/2)] snap-center first:snap-start last:snap-end sm:basis-[calc((100%_-_1rem)/2)] md:basis-[calc((100%_-_2rem)/3)] xl:basis-auto xl:snap-none"
             >
-              <li className="group relative mx-auto flex h-[300px] w-full items-center justify-center overflow-hidden rounded-none shadow-luxe transition-transform duration-500 md:h-[320px] md:hover:-translate-y-1 xl:h-[340px] xl:w-[213px]">
-                <div className="absolute inset-0 scale-[0.94] transition-transform duration-500 ease-out md:group-hover:scale-[0.97]">
-                  <img
-                    src={card.image.src}
-                    alt=""
-                    aria-hidden="true"
-                    className="block h-full w-full object-cover"
-                    loading="lazy"
-                    width={card.image.width}
-                    height={card.image.height}
-                  />
-                </div>
-                <div className="pointer-events-none absolute inset-0 scale-[0.94] transition-transform duration-500 ease-out md:group-hover:scale-[0.97]">
-                  <div className="absolute inset-x-0 top-0 px-7 pt-7 text-gold-soft">
+              <li className="group relative mx-auto flex h-[300px] w-full items-center justify-center overflow-hidden rounded-[15px] border border-gold/45 bg-[#171819] shadow-luxe transition-transform duration-500 md:h-[320px] md:hover:-translate-y-1 xl:h-[340px] xl:w-[213px]">
+                <div className="pointer-events-none absolute inset-0">
+                  <div className="absolute inset-x-0 top-0 px-7 pt-7 text-gold">
                     <span className="block font-display text-4xl leading-none">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="mt-3 block h-px w-10 bg-gold-soft" />
+                    <span className="mt-3 block h-px w-10 bg-gold" />
                   </div>
                   <div className="absolute left-1/2 top-[49%] -translate-x-1/2 -translate-y-1/2">
-                    <span className="flex h-20 w-20 items-center justify-center rounded-full border border-gold/50 text-gold-soft">
+                    <span className="flex h-20 w-20 items-center justify-center rounded-full border border-gold/30 text-gold">
                       <card.icon className="h-10 w-10" strokeWidth={1.2} />
                     </span>
                   </div>
@@ -602,7 +599,10 @@ function Process() {
                 </div>
               </li>
               {i < processCards.length - 1 && (
-                <ProcessConnector direction="right" showOnMobile={false} />
+                <ProcessConnector
+                  direction={dir === "rtl" ? "left" : "right"}
+                  showOnMobile={false}
+                />
               )}
             </Reveal>
           ))}
