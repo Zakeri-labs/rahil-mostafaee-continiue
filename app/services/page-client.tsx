@@ -176,20 +176,27 @@ function ServicePillars() {
                   {t(`svc.card.${card.key}.b`)}
                 </p>
                 <div className="mt-auto space-y-3">
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-gold">
-                    {t("svc.typical")}
-                  </div>
-                  <ul className="space-y-2">
-                    {[1, 2, 3, 4].map((n) => (
-                      <li key={n} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <CheckCircle2
-                          className="w-4 h-4 text-gold mt-0.5 shrink-0"
-                          strokeWidth={1.5}
-                        />
-                        <span>{t(`svc.card.${card.key}.m${n}`)}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {!specialistHref && (
+                    <>
+                      <div className="text-[10px] tracking-[0.3em] uppercase text-gold">
+                        {t("svc.typical")}
+                      </div>
+                      <ul className="space-y-2">
+                        {[1, 2, 3, 4].map((n) => (
+                          <li
+                            key={n}
+                            className="flex items-start gap-2 text-sm text-muted-foreground"
+                          >
+                            <CheckCircle2
+                              className="w-4 h-4 text-gold mt-0.5 shrink-0"
+                              strokeWidth={1.5}
+                            />
+                            <span>{t(`svc.card.${card.key}.m${n}`)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
                   <div className="flex flex-col gap-2 pt-4">
                     {specialistHref && (
                       <Link
@@ -245,7 +252,10 @@ function WhoWeHelp() {
 
 function DocumentsNeeded() {
   const { t } = useI18n();
-  const items = [1, 2, 3, 4, 5, 6].map((n) => t(`svc.docs.${n}`));
+  const links = [
+    { href: "/iran-uae-commercial-disputes#documents", label: t("svc.docs.linkCd") },
+    { href: "/uae-asset-debt-recovery#documents", label: t("svc.docs.linkAdr") },
+  ];
 
   return (
     <section className="border-t border-gold/10 py-32">
@@ -257,14 +267,16 @@ function DocumentsNeeded() {
             body={t("svc.docs.body")}
           />
         </div>
-        <div className="lg:col-span-7 space-y-px bg-gold/10 hairline">
-          {items.map((item, i) => (
-            <div key={item} className="bg-onyx p-6 grid grid-cols-[auto_1fr] gap-5">
-              <span className="font-mono text-xs tracking-[0.3em] text-gold">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="text-ivory">{item}</span>
-            </div>
+        <div className="lg:col-span-7 grid sm:grid-cols-2 gap-px bg-gold/10 hairline">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="group flex items-center justify-between gap-4 bg-onyx p-7 hover:bg-charcoal transition-colors"
+            >
+              <span className="font-display text-xl text-ivory leading-tight">{link.label}</span>
+              <ArrowUpRight className="w-4 h-4 text-gold shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
           ))}
         </div>
       </div>

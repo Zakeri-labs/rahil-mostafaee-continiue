@@ -176,7 +176,7 @@ function Scenarios() {
 
 function KeyQuestions() {
   const { t } = useI18n();
-  const items = [1, 2, 3, 4, 5, 6, 7].map((n) => t(`intl.questions.${n}`));
+  const items = [1, 4, 5, 8].map((n) => t(`intl.questions.${n}`));
 
   return (
     <section className="border-t border-gold/10 py-32">
@@ -199,7 +199,7 @@ function KeyQuestions() {
 
 function Documents() {
   const { t } = useI18n();
-  const items = [1, 2, 3, 4, 5, 6].map((n) => t(`intl.docs.${n}`));
+  const items = [1, 2, 3, 4, 5].map((n) => t(`intl.docs.${n}`));
 
   return (
     <section className="border-t border-gold/10 py-32">
