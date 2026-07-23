@@ -230,10 +230,10 @@ function Hero() {
                 key={s.title}
                 className="bg-onyx/95 px-2 py-4 text-center backdrop-blur lg:bg-onyx/80 lg:px-6 lg:py-6 lg:text-start"
               >
-                <div className="font-display text-xl text-gold leading-none lg:text-3xl">
+                <div className="line-clamp-2 min-h-[2.3em] font-display text-[9px] leading-tight text-gold sm:text-[10px] lg:text-xl">
                   {s.title}
                 </div>
-                <div className="stat-label mt-1.5 text-[9px] tracking-[0.14em] uppercase text-muted-foreground leading-tight lg:mt-1 lg:text-xs lg:tracking-[0.22em]">
+                <div className="stat-label mt-1.5 line-clamp-2 min-h-[2.3em] text-[7px] leading-tight tracking-[0.08em] uppercase text-muted-foreground lg:mt-1 lg:text-[10px] lg:tracking-[0.14em]">
                   {s.description}
                 </div>
               </div>
