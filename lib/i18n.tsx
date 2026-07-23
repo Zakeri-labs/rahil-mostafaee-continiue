@@ -2,6 +2,9 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 
 export type Lang = "en" | "fa";
 
+// Temporary switch: Persian translations remain intact and can be re-enabled later.
+export const PERSIAN_LANGUAGE_ENABLED = false;
+
 type Dict = Record<string, string>;
 
 const en: Dict = {
@@ -2772,13 +2775,14 @@ interface Ctx {
 const I18nContext = createContext<Ctx | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("fa");
+  const [lang, setLangState] = useState<Lang>("en");
   const dir = lang === "fa" ? "rtl" : "ltr";
 
   useEffect(() => {
-    const stored =
-      (typeof window !== "undefined" && (localStorage.getItem("lang") as Lang)) || "fa";
-    setLangState(stored);
+    const stored = typeof window !== "undefined" ? localStorage.getItem("lang") : null;
+    const nextLang: Lang = PERSIAN_LANGUAGE_ENABLED && stored === "fa" ? "fa" : "en";
+    setLangState(nextLang);
+    if (typeof window !== "undefined") localStorage.setItem("lang", nextLang);
   }, []);
 
   useEffect(() => {
@@ -2792,8 +2796,9 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   }, [dir, lang]);
 
   const setLang = (l: Lang) => {
-    setLangState(l);
-    if (typeof window !== "undefined") localStorage.setItem("lang", l);
+    const nextLang: Lang = !PERSIAN_LANGUAGE_ENABLED && l === "fa" ? "en" : l;
+    setLangState(nextLang);
+    if (typeof window !== "undefined") localStorage.setItem("lang", nextLang);
   };
 
   const t = (k: string) => dict[lang][k] ?? dict.en[k] ?? k;

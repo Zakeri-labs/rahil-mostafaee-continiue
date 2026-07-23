@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import logo from "@/assets/logo-mark.png";
-import { useI18n, type Lang } from "@/lib/i18n";
+import { PERSIAN_LANGUAGE_ENABLED, useI18n, type Lang } from "@/lib/i18n";
 
 const links: { to: string; key: string }[] = [
   { to: "/", key: "nav.home" },
@@ -71,20 +71,22 @@ export function Nav() {
           </nav>
 
           <div className="hidden shrink-0 items-center justify-end gap-2 xl:gap-3 lg:flex">
-            <div className="flex shrink-0 items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden lg:text-xs lg:tracking-[0.16em]">
-              <button
-                onClick={() => switchLang("en")}
-                className={`px-3 py-1.5 transition-colors ${lang === "en" ? "bg-gold text-onyx" : "text-muted-foreground hover:text-gold"}`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => switchLang("fa")}
-                className={`px-3 py-1.5 transition-colors font-fa ${lang === "fa" ? "bg-gold text-onyx" : "text-muted-foreground hover:text-gold"}`}
-              >
-                فا
-              </button>
-            </div>
+            {PERSIAN_LANGUAGE_ENABLED && (
+              <div className="flex shrink-0 items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden lg:text-xs lg:tracking-[0.16em]">
+                <button
+                  onClick={() => switchLang("en")}
+                  className={`px-3 py-1.5 transition-colors ${lang === "en" ? "bg-gold text-onyx" : "text-muted-foreground hover:text-gold"}`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => switchLang("fa")}
+                  className={`px-3 py-1.5 transition-colors font-fa ${lang === "fa" ? "bg-gold text-onyx" : "text-muted-foreground hover:text-gold"}`}
+                >
+                  فا
+                </button>
+              </div>
+            )}
 
             <Link
               href="/contact"
@@ -95,20 +97,22 @@ export function Nav() {
           </div>
 
           {/* Mobile: language toggle in top bar; full menu lives in bottom nav */}
-          <div className="lg:hidden flex items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden">
-            <button
-              onClick={() => switchLang("en")}
-              className={`px-2.5 py-1 transition-colors ${lang === "en" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
-            >
-              EN
-            </button>
-            <button
-              onClick={() => switchLang("fa")}
-              className={`px-2.5 py-1 transition-colors font-fa ${lang === "fa" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
-            >
-              فا
-            </button>
-          </div>
+          {PERSIAN_LANGUAGE_ENABLED && (
+            <div className="lg:hidden flex items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden">
+              <button
+                onClick={() => switchLang("en")}
+                className={`px-2.5 py-1 transition-colors ${lang === "en" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => switchLang("fa")}
+                className={`px-2.5 py-1 transition-colors font-fa ${lang === "fa" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
+              >
+                فا
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </header>

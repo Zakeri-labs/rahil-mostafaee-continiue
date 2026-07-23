@@ -15,8 +15,8 @@ const previewImage =
 const directionScript = `
   (function () {
     try {
-      var lang = window.localStorage.getItem("lang") || "fa";
-      var dir = lang === "fa" ? "rtl" : "ltr";
+      var lang = "en";
+      var dir = "ltr";
       document.documentElement.lang = lang;
       document.documentElement.dir = dir;
       if (document.body) {
@@ -113,8 +113,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fa" dir="rtl" suppressHydrationWarning>
-      <body className={peyda.variable} lang="fa" dir="rtl" suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
+      <body className={peyda.variable} lang="en" dir="ltr" suppressHydrationWarning>
         {isProduction ? <GoogleTagManager gtmId="GTM-WSNZJ7MH" /> : null}
         <script dangerouslySetInnerHTML={{ __html: directionScript }} />
         <Providers>

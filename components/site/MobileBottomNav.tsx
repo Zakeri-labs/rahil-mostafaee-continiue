@@ -15,7 +15,7 @@ import {
   BookOpen,
   Building2,
 } from "lucide-react";
-import { useI18n, type Lang } from "@/lib/i18n";
+import { PERSIAN_LANGUAGE_ENABLED, useI18n, type Lang } from "@/lib/i18n";
 import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 
 export function MobileBottomNav() {
@@ -155,20 +155,22 @@ export function MobileBottomNav() {
             </div>
 
             <div className="mt-6 pt-6 border-t border-gold/10 flex items-center justify-between">
-              <div className="flex items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden">
-                <button
-                  onClick={() => switchLang("en")}
-                  className={`px-4 py-2 transition-colors ${lang === "en" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
-                >
-                  EN
-                </button>
-                <button
-                  onClick={() => switchLang("fa")}
-                  className={`px-4 py-2 transition-colors font-fa ${lang === "fa" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
-                >
-                  فا
-                </button>
-              </div>
+              {PERSIAN_LANGUAGE_ENABLED && (
+                <div className="flex items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden">
+                  <button
+                    onClick={() => switchLang("en")}
+                    className={`px-4 py-2 transition-colors ${lang === "en" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
+                  >
+                    EN
+                  </button>
+                  <button
+                    onClick={() => switchLang("fa")}
+                    className={`px-4 py-2 transition-colors font-fa ${lang === "fa" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
+                  >
+                    فا
+                  </button>
+                </div>
+              )}
 
               <Link
                 href="/booking"
