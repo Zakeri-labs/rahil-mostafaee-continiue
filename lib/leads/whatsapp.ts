@@ -21,7 +21,7 @@ type MessageLabels = {
 
 const SOURCE_PAGE_LABELS: Record<"en" | "fa", Record<LeadPayload["sourcePage"], string>> = {
   en: {
-    "commercial-dispute": "Iran-UAE Commercial Disputes",
+    "commercial-dispute": "Corporate Commercial Disputes",
     "asset-debt-recovery": "UAE Asset & Debt Recovery",
   },
   fa: {

@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import AboutPage from "./page-client";
 
 export const metadata: Metadata = {
-  title: "About Our Iran-UAE Commercial Dispute and Asset Recovery Approach",
+  title: "About the Corporate and Commercial Legal Practice",
   description:
-    "Focused legal support for Persian-speaking clients dealing with UAE commercial disputes, financial claims, debt recovery, and asset recovery matters.",
+    "Focused legal assessment for corporations, business groups, shareholders and institutional investors dealing with UAE commercial disputes, major claims and asset recovery matters.",
   openGraph: {
-    title: "About Our Iran-UAE Commercial Dispute and Asset Recovery Approach",
+    title: "About the Corporate and Commercial Legal Practice",
     description:
-      "Focused legal support for Persian-speaking clients dealing with UAE commercial disputes, financial claims, debt recovery, and asset recovery matters.",
+      "Focused legal assessment for corporations, business groups, shareholders and institutional investors dealing with UAE commercial disputes, major claims and asset recovery matters.",
+    locale: "en_AE",
   },
 };
 

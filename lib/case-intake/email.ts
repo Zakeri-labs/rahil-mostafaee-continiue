@@ -53,7 +53,6 @@ const labels: Record<EmailLocale, LabelSet> = {
       debt_recovery: "Debt recovery or unpaid invoice",
       asset_or_fraud_recovery: "Asset recovery or suspected investment fraud",
       partner_shareholder_dispute: "Partner or shareholder dispute",
-      iran_uae_cross_border: "Iran–UAE cross-border matter",
       other: "Other matter",
     },
     estimatedValue: {
@@ -67,7 +66,6 @@ const labels: Record<EmailLocale, LabelSet> = {
     counterpartyLocation: {
       dubai: "Dubai",
       other_uae: "Another Emirate",
-      iran: "Iran",
       other_country: "Another country",
       unknown_location: "The exact location is unclear",
     },
@@ -167,7 +165,7 @@ function phoneHref(phone: string): string | null {
 }
 
 export function buildCaseIntakeEmail(payload: CaseIntakePayload): CaseIntakeEmail {
-  const locale: EmailLocale = payload.locale === "fa" ? "fa" : "en";
+  const locale: EmailLocale = "en";
   const copy = labels[locale];
   const urgency = displayValue(copy.urgency, payload.urgency);
   const matterType = displayValue(copy.matterType, payload.matterType);
@@ -190,7 +188,7 @@ export function buildCaseIntakeEmail(payload: CaseIntakePayload): CaseIntakeEmai
       payload.availableDocuments.map((value) => displayValue(copy.documents, value)).join(", "),
     ],
     [copy.fields.summary, payload.summary],
-    [copy.fields.locale, payload.locale === "fa" ? "فارسی" : "English"],
+    [copy.fields.locale, "English"],
     [copy.fields.submittedAt, payload.submittedAt],
     [copy.fields.pagePath, payload.pagePath],
     [copy.fields.referrer, payload.referrer || "—"],

@@ -448,11 +448,6 @@ export function ConfidentialCaseIntakeWizard() {
                             t("home.intake.matter.partner_shareholder_dispute.title"),
                             t("home.intake.matter.partner_shareholder_dispute.description"),
                           ],
-                          [
-                            "iran_uae_cross_border",
-                            t("home.intake.matter.iran_uae_cross_border.title"),
-                            t("home.intake.matter.iran_uae_cross_border.description"),
-                          ],
                           ["other", t("home.intake.matter.other.title"), undefined],
                         ]}
                         onChange={(value) =>
@@ -491,7 +486,6 @@ export function ConfidentialCaseIntakeWizard() {
                           options={[
                             ["dubai", t("home.intake.location.dubai")],
                             ["other_uae", t("home.intake.location.other_uae")],
-                            ["iran", t("home.intake.location.iran")],
                             ["other_country", t("home.intake.location.other_country")],
                             ["unknown_location", t("home.intake.location.unknown_location")],
                           ]}
@@ -614,11 +608,7 @@ export function ConfidentialCaseIntakeWizard() {
                           name="preferredLanguage"
                           value={form.preferredLanguage}
                           error={errors.preferredLanguage}
-                          options={[
-                            ["fa", t("home.intake.language.fa")],
-                            ["en", t("home.intake.language.en")],
-                            ["ar", t("home.intake.language.ar")],
-                          ]}
+                          options={[["en", t("home.intake.language.en")]]}
                           onChange={(value) =>
                             updateField(
                               "preferredLanguage",

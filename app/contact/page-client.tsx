@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { LEADS_WHATSAPP_DISPLAY_NUMBER, LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
+import { CaseReviewCredential } from "@/components/credentials/CaseReviewCredential";
 
 function whatsappHref(message: string) {
   return `https://wa.me/${LEADS_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -133,88 +134,91 @@ function IntakeForm({
           <p className="text-muted-foreground max-w-sm mx-auto">{t("contact.success.body")}</p>
         </div>
       ) : (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSubmitted(true);
-          }}
-          className="space-y-6"
-        >
-          <div className="text-[10px] tracking-[0.3em] uppercase text-gold">
-            {t("contact.form.kicker")}
-          </div>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <Field label={t("contact.form.name")} name="name" />
-            <Field
-              label={t("contact.form.lang")}
-              name="lang"
-              placeholder={t("contact.form.langPh")}
-            />
-          </div>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <Field label={t("contact.form.email")} name="email" type="email" />
-            <Field label={t("contact.form.phone")} name="phone" type="tel" />
-          </div>
-          <Select
-            label={t("contact.form.matter")}
-            name="matter"
-            options={[
-              t("contact.matter.1"),
-              t("contact.matter.2"),
-              t("contact.matter.3"),
-              t("contact.matter.4"),
-              t("contact.matter.5"),
-              t("contact.matter.6"),
-              t("contact.matter.7"),
-            ]}
-          />
-          <Select
-            label={t("contact.form.urgency")}
-            name="urgency"
-            options={[
-              t("contact.urg.1"),
-              t("contact.urg.2"),
-              t("contact.urg.3"),
-              t("contact.urg.4"),
-              t("contact.urg.5"),
-            ]}
-          />
-          <div className="grid sm:grid-cols-2 gap-4">
-            <Field label={t("contact.form.amount")} name="amount" />
-            <Field label={t("contact.form.counterparty")} name="counterparty_location" />
-          </div>
-          <Field label={t("contact.form.documents")} name="documents" />
-          <div>
-            <label
-              htmlFor="brief"
-              className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground"
-            >
-              {t("contact.form.brief")}
-            </label>
-            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-              {t("contact.form.guidance")}
-            </p>
-            <textarea
-              id="brief"
-              name="brief"
-              rows={5}
-              className="mt-3 w-full bg-charcoal/50 border border-gold/15 focus:border-gold/50 outline-none px-4 py-3 text-ivory placeholder:text-muted-foreground/50 resize-none"
-              placeholder={t("contact.form.briefPh")}
-            />
-          </div>
-          <button
-            type="submit"
-            className="group w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-gold text-onyx hover:bg-gold-soft transition-all shadow-glow"
+        <>
+          <CaseReviewCredential />
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              setSubmitted(true);
+            }}
+            className="space-y-6"
           >
-            <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
-              {t("contact.form.submit")}
-            </span>
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
-          <p className="text-[10px] tracking-wider text-muted-foreground text-center">
-            {t("contact.form.disclaimer")}
-          </p>
-        </form>
+            <div className="text-[10px] tracking-[0.3em] uppercase text-gold">
+              {t("contact.form.kicker")}
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Field label={t("contact.form.name")} name="name" />
+              <Field
+                label={t("contact.form.lang")}
+                name="lang"
+                placeholder={t("contact.form.langPh")}
+              />
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Field label={t("contact.form.email")} name="email" type="email" />
+              <Field label={t("contact.form.phone")} name="phone" type="tel" />
+            </div>
+            <Select
+              label={t("contact.form.matter")}
+              name="matter"
+              options={[
+                t("contact.matter.1"),
+                t("contact.matter.2"),
+                t("contact.matter.3"),
+                t("contact.matter.4"),
+                t("contact.matter.5"),
+                t("contact.matter.6"),
+                t("contact.matter.7"),
+              ]}
+            />
+            <Select
+              label={t("contact.form.urgency")}
+              name="urgency"
+              options={[
+                t("contact.urg.1"),
+                t("contact.urg.2"),
+                t("contact.urg.3"),
+                t("contact.urg.4"),
+                t("contact.urg.5"),
+              ]}
+            />
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Field label={t("contact.form.amount")} name="amount" />
+              <Field label={t("contact.form.counterparty")} name="counterparty_location" />
+            </div>
+            <Field label={t("contact.form.documents")} name="documents" />
+            <div>
+              <label
+                htmlFor="brief"
+                className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground"
+              >
+                {t("contact.form.brief")}
+              </label>
+              <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                {t("contact.form.guidance")}
+              </p>
+              <textarea
+                id="brief"
+                name="brief"
+                rows={5}
+                className="mt-3 w-full bg-charcoal/50 border border-gold/15 focus:border-gold/50 outline-none px-4 py-3 text-ivory placeholder:text-muted-foreground/50 resize-none"
+                placeholder={t("contact.form.briefPh")}
+              />
+            </div>
+            <button
+              type="submit"
+              className="group w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-gold text-onyx hover:bg-gold-soft transition-all shadow-glow"
+            >
+              <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
+                {t("contact.form.submit")}
+              </span>
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </button>
+            <p className="text-[10px] tracking-wider text-muted-foreground text-center">
+              {t("contact.form.disclaimer")}
+            </p>
+          </form>
+        </>
       )}
     </div>
   );

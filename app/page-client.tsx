@@ -222,17 +222,19 @@ function Hero() {
             data-hero-stats
           >
             {[
-              { v: t("home.hero.stat.1.v"), l: t("home.hero.stat.1.l") },
-              { v: t("home.hero.stat.2.v"), l: t("home.hero.stat.2.l") },
-              { v: t("home.hero.stat.3.v"), l: t("home.hero.stat.3.l") },
+              { title: t("home.hero.feature.1.t"), description: t("home.hero.feature.1.b") },
+              { title: t("home.hero.feature.2.t"), description: t("home.hero.feature.2.b") },
+              { title: t("home.hero.feature.3.t"), description: t("home.hero.feature.3.b") },
             ].map((s) => (
               <div
-                key={s.l}
+                key={s.title}
                 className="bg-onyx/95 px-2 py-4 text-center backdrop-blur lg:bg-onyx/80 lg:px-6 lg:py-6 lg:text-start"
               >
-                <div className="font-display text-xl text-gold leading-none lg:text-3xl">{s.v}</div>
+                <div className="font-display text-xl text-gold leading-none lg:text-3xl">
+                  {s.title}
+                </div>
                 <div className="stat-label mt-1.5 text-[9px] tracking-[0.14em] uppercase text-muted-foreground leading-tight lg:mt-1 lg:text-xs lg:tracking-[0.22em]">
-                  {s.l}
+                  {s.description}
                 </div>
               </div>
             ))}
@@ -313,7 +315,7 @@ function Hero() {
 }
 
 function HeroHeadlineText({ lang, title }: { lang: "en" | "fa"; title: string }) {
-  const highlight = lang === "fa" ? "راحیل مصطفایی" : "& Asset Recovery";
+  const highlight = lang === "fa" ? "راحیل مصطفایی" : "Commercial and Corporate";
   const [before, after] = title.split(highlight);
 
   if (!after) return <>{title}</>;
@@ -421,7 +423,7 @@ function ServiceAxes() {
       title: t("home.axes.1.t"),
       bullets: [1, 2, 3, 4].map((n) => t(`home.axes.1.b${n}`)),
       image: commercialDisputesImage,
-      href: "/iran-uae-commercial-disputes",
+      href: "/corporate-commercial-disputes",
       linkLabel: t("home.axes.1.link"),
     },
     {

@@ -4,6 +4,7 @@ import Link from "next/link";
 import logo from "@/assets/logo-mark.png";
 import { useI18n } from "@/lib/i18n";
 import { LEADS_WHATSAPP_DISPLAY_NUMBER } from "@/lib/leads/config";
+import { FooterProfessionalRegistration } from "@/components/credentials/FooterProfessionalRegistration";
 
 export function Footer() {
   const { t, dir } = useI18n();
@@ -26,6 +27,7 @@ export function Footer() {
             <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
               {t("footer.blurb")}
             </p>
+            <FooterProfessionalRegistration />
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-5 py-3 text-xs tracking-[0.2em] uppercase border border-gold/40 text-gold hover:bg-gold hover:text-onyx transition-all duration-300 lg:text-sm lg:tracking-[0.16em]"
@@ -43,7 +45,7 @@ export function Footer() {
               </div>
               <ul className="space-y-3 text-muted-foreground">
                 <li>
-                  <Link href="/iran-uae-commercial-disputes" className="hover:text-ivory">
+                  <Link href="/corporate-commercial-disputes" className="hover:text-ivory">
                     {t("footer.link.cross")}
                   </Link>
                 </li>

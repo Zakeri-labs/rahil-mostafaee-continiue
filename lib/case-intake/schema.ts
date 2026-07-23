@@ -6,7 +6,6 @@ export const matterTypeValues = [
   "debt_recovery",
   "asset_or_fraud_recovery",
   "partner_shareholder_dispute",
-  "iran_uae_cross_border",
   "other",
 ] as const;
 export const estimatedValueValues = [
@@ -20,7 +19,6 @@ export const estimatedValueValues = [
 export const counterpartyLocationValues = [
   "dubai",
   "other_uae",
-  "iran",
   "other_country",
   "unknown_location",
 ] as const;
@@ -32,7 +30,7 @@ export const documentValues = [
   "counterparty_information",
   "no_documents",
 ] as const;
-export const preferredLanguageValues = ["fa", "en", "ar"] as const;
+export const preferredLanguageValues = ["en"] as const;
 
 export type Urgency = (typeof urgencyValues)[number];
 export type MatterType = (typeof matterTypeValues)[number];
@@ -99,7 +97,7 @@ export const caseIntakeSchema = caseIntakeFormSchema
     utmTerm: z.string().trim().max(200),
     formStartedAt: z.string().datetime({ offset: true }),
     submittedAt: z.string().datetime({ offset: true }),
-    locale: z.enum(["fa", "en"]),
+    locale: z.literal("en"),
     honeypot: z.string().max(200),
   })
   .superRefine((payload, context) => {

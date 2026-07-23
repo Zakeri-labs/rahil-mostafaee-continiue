@@ -140,10 +140,10 @@ function AxesOverview() {
 }
 
 const SERVICE_PILLAR_SPECIALIST_HREF: Record<string, string> = {
-  "1": "/iran-uae-commercial-disputes",
+  "1": "/corporate-commercial-disputes",
   "2": "/uae-asset-debt-recovery",
   "3": "/uae-asset-debt-recovery",
-  "5": "/iran-uae-commercial-disputes",
+  "5": "/corporate-commercial-disputes",
 };
 
 function ServicePillars() {
@@ -253,7 +253,7 @@ function WhoWeHelp() {
 function DocumentsNeeded() {
   const { t } = useI18n();
   const links = [
-    { href: "/iran-uae-commercial-disputes#documents", label: t("svc.docs.linkCd") },
+    { href: "/corporate-commercial-disputes#documents", label: t("svc.docs.linkCd") },
     { href: "/uae-asset-debt-recovery#documents", label: t("svc.docs.linkAdr") },
   ];
 

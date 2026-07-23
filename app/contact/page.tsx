@@ -4,11 +4,12 @@ import ContactPage from "./page-client";
 export const metadata: Metadata = {
   title: "Confidential Commercial Dispute and Asset Recovery Case Review in the UAE",
   description:
-    "Submit a confidential matter review for UAE commercial disputes, debt recovery, asset recovery, partner disputes, and Iran-UAE financial claims.",
+    "Submit a confidential matter review for UAE commercial disputes, major receivables, asset recovery, shareholder conflicts and cross-border financial claims.",
   openGraph: {
-    title: "بررسی پرونده تجاری و مالی در امارات | اختلافات تجاری و بازیابی دارایی",
+    title: "Confidential Corporate and Commercial Case Review in the UAE",
     description:
-      "ارسال محرمانه پرونده برای بررسی اختلاف تجاری، وصول مطالبات، بازیابی دارایی، اختلاف شریک یا پرونده مالی ایران و امارات.",
+      "Submit a confidential matter review for UAE commercial disputes, major receivables, asset recovery, shareholder conflicts and cross-border financial claims.",
+    locale: "en_AE",
   },
 };
 

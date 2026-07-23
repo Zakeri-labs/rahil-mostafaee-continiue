@@ -4,11 +4,12 @@ import InsightsPage from "./page-client";
 export const metadata: Metadata = {
   title: "UAE Commercial Dispute and Asset Recovery Insights",
   description:
-    "Practical educational insights for commercial disputes, debt recovery, asset recovery, partner disputes, and Iran-UAE financial claims.",
+    "Practical educational insights for corporate and commercial disputes, major receivables, asset recovery, shareholder conflicts and cross-border financial matters.",
   openGraph: {
     title: "UAE Commercial Dispute and Asset Recovery Insights",
     description:
-      "Practical educational insights for commercial disputes, debt recovery, asset recovery, partner disputes, and Iran-UAE financial claims.",
+      "Practical educational insights for corporate and commercial disputes, major receivables, asset recovery, shareholder conflicts and cross-border financial matters.",
+    locale: "en_AE",
   },
 };
 

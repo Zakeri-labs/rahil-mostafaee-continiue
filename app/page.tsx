@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Home from "./page-client";
 
 export const metadata: Metadata = {
-  title: "Rahil Mostafaei",
+  title: "Corporate and Commercial Legal Consultant in Dubai",
   description:
-    "Legal support for Iran-UAE commercial disputes, debt recovery, asset recovery, partner disputes, and financial claims involving the UAE.",
+    "Strategic legal assessment for corporations, business groups, shareholders and institutional investors handling complex commercial disputes, major claims and asset recovery matters in the UAE.",
   openGraph: {
-    title: "Rahil Mostafaei",
+    title: "Rahil Mostafaei | Corporate and Commercial Legal Consultant in Dubai",
     description:
-      "Legal support for Iran-UAE commercial disputes, debt recovery, asset recovery, partner disputes, and financial claims involving the UAE.",
+      "Strategic legal assessment for corporations, business groups, shareholders and institutional investors handling complex commercial disputes, major claims and asset recovery matters in the UAE.",
+    locale: "en_AE",
   },
 };
 

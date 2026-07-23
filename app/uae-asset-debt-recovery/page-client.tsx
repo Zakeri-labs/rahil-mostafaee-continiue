@@ -399,7 +399,7 @@ function Faq() {
 function FinalCta({ waHref }: { waHref: string }) {
   const { t } = useI18n();
   const related = [
-    { href: "/iran-uae-commercial-disputes", label: t("adr.related.commercialDisputes") },
+    { href: "/corporate-commercial-disputes", label: t("adr.related.commercialDisputes") },
     { href: "/services", label: t("adr.related.services") },
     { href: "/international", label: t("adr.related.international") },
     { href: "/about", label: t("adr.related.about") },

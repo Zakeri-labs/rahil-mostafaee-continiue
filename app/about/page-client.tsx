@@ -14,12 +14,14 @@ import {
 import founder from "@/assets/founder-silhouette.jpg";
 import office from "@/assets/office-interior.jpg";
 import { useI18n } from "@/lib/i18n";
+import { ProfessionalRegistrationSection } from "@/components/credentials/ProfessionalRegistrationSection";
 
 function AboutPage() {
   const { t, dir } = useI18n();
   return (
     <div dir={dir}>
       <Hero />
+      <ProfessionalRegistrationSection />
       <Positioning />
       <WhyFocus />
       <HowWeWork />

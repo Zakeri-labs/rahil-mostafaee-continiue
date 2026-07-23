@@ -8,6 +8,9 @@ import { Footer } from "@/components/site/Footer";
 import { SplashLoader } from "@/components/site/SplashLoader";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { MobileBottomNav } from "@/components/site/MobileBottomNav";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildPersonSchema } from "@/lib/seo/json-ld";
+import { getSiteUrl } from "@/lib/seo/site-url";
 
 const previewImage =
   "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69bde703-9d13-4c09-8970-6aa38ca5aa8f/id-preview-dd3066eb--968f7a0d-6eab-41ef-8230-5310d790e022.lovable.app-1778573785780.png";
@@ -82,25 +85,29 @@ const peyda = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.rahilmostafaee.com"),
   title: {
-    default: "Rahil Mostafaei",
-    template: "%s",
+    default: "Rahil Mostafaei | Corporate and Commercial Legal Consultant in Dubai",
+    template: "%s | Rahil Mostafaei",
   },
   description:
-    "Discreet, cross-border legal representation for high-value Iranian clients in Dubai. Residency, corporate, real estate, DIFC wills, international coordination.",
-  authors: [{ name: "Rahil Mostafaei Legal" }],
+    "Rahil Mostafaei is a Legal Consultant registered with the Government of Dubai Legal Affairs Department, focusing on complex commercial disputes, major claims, shareholder conflicts and asset recovery matters in the UAE.",
+  authors: [{ name: "Rahil Mostafaei" }],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Rahil Mostafaei",
+    title: "Rahil Mostafaei | Corporate and Commercial Legal Consultant in Dubai",
     description:
-      "Discreet, cross-border legal representation for high-value Iranian clients in Dubai. Residency, corporate, real estate, DIFC wills, international coordination.",
+      "Rahil Mostafaei is a Legal Consultant registered with the Government of Dubai Legal Affairs Department, focusing on complex commercial disputes, major claims, shareholder conflicts and asset recovery matters in the UAE.",
     type: "website",
+    locale: "en_AE",
+    siteName: "Rahil Mostafaei",
     images: [previewImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rahil Mostafaei",
+    title: "Rahil Mostafaei | Corporate and Commercial Legal Consultant in Dubai",
     description:
-      "Discreet, cross-border legal representation for high-value Iranian clients in Dubai. Residency, corporate, real estate, DIFC wills, international coordination.",
+      "Rahil Mostafaei is a Legal Consultant registered with the Government of Dubai Legal Affairs Department, focusing on complex commercial disputes, major claims, shareholder conflicts and asset recovery matters in the UAE.",
     images: [previewImage],
   },
 };
@@ -118,6 +125,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {isProduction ? <GoogleTagManager gtmId="GTM-WSNZJ7MH" /> : null}
         <script dangerouslySetInnerHTML={{ __html: directionScript }} />
         <Providers>
+          <JsonLd data={buildPersonSchema(getSiteUrl())} />
           <SplashLoader />
           <div className="flex min-h-screen flex-col">
             <Nav />

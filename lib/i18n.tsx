@@ -10,7 +10,7 @@ type Dict = Record<string, string>;
 const en: Dict = {
   "nav.home": "Home",
   "nav.practice": "Services",
-  "nav.international": "Iran-UAE",
+  "nav.international": "Cross-Border Matters",
   "nav.firm": "About",
   "nav.insights": "Insights",
   "nav.contact": "Case Review",
@@ -86,22 +86,22 @@ const en: Dict = {
   "splash.name.last": "Mostafaei",
   "book.brand_tag": "Rahil Mostafaei · Dubai",
 
-  "footer.role": "Commercial Disputes & Asset Recovery for Iranian Clients in the UAE",
+  "footer.role": "Corporate & Commercial Disputes · Asset Recovery",
   "footer.blurb":
-    "We focus on reviewing and pursuing legal routes for Iran-UAE commercial and financial matters, debt recovery, partner disputes, and asset recovery in the UAE.",
-  "footer.langs": "فارسی · English · العربية",
+    "We focus on structured legal assessment for complex commercial disputes, major receivables, shareholder conflicts, and asset recovery matters in the UAE.",
+  "footer.langs": "English",
   "footer.cta": "Confidential Case Review",
   "footer.col.practice": "Specialized Services",
   "footer.col.firm": "Main Pages",
   "footer.col.office": "Office",
-  "footer.link.cross": "Iran–UAE Commercial Disputes",
+  "footer.link.cross": "Corporate Commercial Disputes",
   "footer.link.residency": "Asset and Debt Recovery",
   "footer.link.corporate": "Debt Recovery",
   "footer.link.realestate": "Partner Disputes",
-  "footer.link.wills": "Iran-UAE Matters",
+  "footer.link.wills": "Cross-Border Matters",
   "footer.link.services": "Services",
   "footer.link.about": "About",
-  "footer.link.intl": "Iran-UAE",
+  "footer.link.intl": "Cross-Border Matters",
   "footer.link.insights": "Insights",
   "footer.link.contact": "Case Review",
   "footer.office.area": "Business Bay",
@@ -132,7 +132,8 @@ const en: Dict = {
   "home.pillars.discretion.t": "Discretion",
   "home.pillars.discretion.b": "Every matter handled under absolute confidentiality protocols.",
   "home.pillars.intl.t": "International",
-  "home.pillars.intl.b": "Coordinated counsel across UAE, EU, UK and Iran jurisdictions.",
+  "home.pillars.intl.b":
+    "Structured strategy for multi-jurisdiction contracts, payments, and enforcement.",
   "home.pillars.elite.t": "Elite Access",
   "home.pillars.elite.b": "Trusted advisor to investors, family offices and executives.",
   "home.pillars.protect.t": "Protection-First",
@@ -179,12 +180,12 @@ const en: Dict = {
   "home.practice.6.tag2": "Investigations",
   "home.practice.6.tag3": "Confidential",
 
-  "home.intl.kicker": "Iran-UAE Matters",
-  "home.intl.h2.a": "Iran-UAE commercial",
+  "home.intl.kicker": "Cross-Border Matters",
+  "home.intl.h2.a": "Cross-border commercial",
   "home.intl.h2.b": "and financial matters.",
   "home.intl.body":
-    "In Iran-UAE commercial relationships, a dispute is rarely limited to the contract text. Payments, counterparties, identifiable assets, enforcement route, urgency, and available legal actions should be reviewed together.",
-  "home.intl.cta": "Review Iran-UAE Matter",
+    "When a commercial relationship spans jurisdictions, a dispute is rarely limited to the contract text. Payments, counterparties, identifiable assets, enforcement route, urgency, and available legal actions should be reviewed together.",
+  "home.intl.cta": "Review Cross-Border Matter",
   "home.intl.s1": "Commercial Contract Review",
   "home.intl.s2": "Receivables and Payment Evidence",
   "home.intl.s3": "Counterparty and Asset Review",
@@ -267,7 +268,7 @@ const en: Dict = {
   "home.founder.kicker": "Counsel",
   "home.founder.role": "Founder · Strategic Legal Counsel",
   "home.founder.body":
-    "An Iranian advocate based in Dubai advising investors, entrepreneurs and high-net-worth families on cross-border legal strategy. Known for a calm, structured approach to complex matters — and an obsession with protecting client interests across borders, generations and jurisdictions.",
+    "A Dubai-based Legal Consultant advising corporations, shareholders, business groups, and institutional investors on structured cross-border legal strategy. Known for a calm, considered approach to complex matters and high-value claims.",
   "home.founder.philT": "Practice Philosophy",
   "home.founder.philB":
     "Protection over performance. Strategy over volume. Relationships over transactions.",
@@ -315,16 +316,16 @@ const en: Dict = {
   "svc.kicker": "Services Hub",
   "svc.h1": "Legal Services for Commercial Disputes and Asset Recovery in the UAE",
   "svc.intro":
-    "If your money, receivables, investment, contract, or business relationship in the UAE has become disputed, this page outlines our core legal service paths for Iran-UAE commercial disputes, debt recovery, partner disputes, and asset recovery.",
+    "If your company is facing a disputed receivable, investment, contract, or business relationship in the UAE, this page outlines core legal paths for commercial disputes, debt recovery, shareholder conflicts, and asset recovery.",
   "svc.hero.primary": "Request Confidential Case Review",
   "svc.hero.secondary": "Contact via WhatsApp",
   "svc.whatsapp.msg":
     "Hello, I would like a confidential review of a UAE-related commercial dispute or asset recovery matter.",
   "svc.axes.kicker": "Core Focus",
   "svc.axes.h2": "Our services focus on two core axes",
-  "svc.axes.1.t": "Iran-UAE Commercial Disputes",
+  "svc.axes.1.t": "Corporate and Commercial Disputes",
   "svc.axes.1.b":
-    "Matters arising from breached contracts, incomplete transactions, buyer or seller disputes, agency, shipping, distribution, or commercial relationships between Iran and the UAE.",
+    "Matters arising from breached contracts, incomplete transactions, buyer or seller disputes, agency, shipping, distribution, and complex corporate relationships.",
   "svc.axes.2.t": "Asset Recovery and Debt Collection",
   "svc.axes.2.b":
     "Matters where money, receivables, investment, assets, or financial rights are stuck in the UAE and require legal review, negotiation, notice, urgent action, or recovery follow-up.",
@@ -335,7 +336,7 @@ const en: Dict = {
   "svc.card.1.specialistLink": "Review Commercial Dispute Services",
   "svc.card.2.specialistLink": "Review Recovery Options",
   "svc.card.3.specialistLink": "Asset and Debt Recovery",
-  "svc.card.5.specialistLink": "Iran–UAE Commercial Disputes",
+  "svc.card.5.specialistLink": "Corporate Commercial Disputes",
   "svc.card.1.t": "Commercial Disputes",
   "svc.card.1.b":
     "Review and handling of disputes arising from contracts, trade, supply, agency, distribution, shipping, and unperformed commercial obligations in the UAE.",
@@ -364,9 +365,9 @@ const en: Dict = {
   "svc.card.4.m2": "Blocked accounts",
   "svc.card.4.m3": "Loss of access",
   "svc.card.4.m4": "Management disputes",
-  "svc.card.5.t": "Iran-UAE Contracts and Cross-Border Matters",
+  "svc.card.5.t": "Cross-Border Contracts and Corporate Matters",
   "svc.card.5.b":
-    "Analysis of contracts, jurisdiction, governing law, enforcement path, and legal risk in commercial relationships between Iran and the UAE.",
+    "Analysis of contracts, jurisdiction, governing law, enforcement path, and legal risk in multi-jurisdiction commercial relationships.",
   "svc.card.5.m1": "Cross-border contracts",
   "svc.card.5.m2": "Enforcement ambiguity",
   "svc.card.5.m3": "Governing law",
@@ -374,11 +375,11 @@ const en: Dict = {
   "svc.who.kicker": "Who We Help",
   "svc.who.h2": "Who these services are for",
   "svc.who.1": "Importers and exporters",
-  "svc.who.2": "Iranian investors in the UAE",
+  "svc.who.2": "Institutional investors and corporate shareholders",
   "svc.who.3": "Medium and large business owners",
   "svc.who.4": "Founders and business partners",
   "svc.who.5": "Companies with receivables from UAE counterparties",
-  "svc.who.6": "Individuals whose money or assets are stuck in the UAE",
+  "svc.who.6": "Companies managing significant receivables or asset-recovery risk",
   "svc.docs.kicker": "Initial Documents",
   "svc.docs.h2": "Documents usually needed for initial review",
   "svc.docs.body":
@@ -409,7 +410,7 @@ const en: Dict = {
   "svc.faq.3.q": "Is debt recovery or asset recovery guaranteed?",
   "svc.faq.3.a":
     "No legal outcome is guaranteed. However, the recovery path, evidence quality, counterparty position, and available actions can be reviewed.",
-  "svc.faq.4.q": "Can the process start from Iran?",
+  "svc.faq.4.q": "Can the process start before the company is physically in the UAE?",
   "svc.faq.4.a":
     "In many cases, initial document review and legal route assessment can begin remotely. Formal action depends on the specific matter.",
   "svc.faq.5.q": "When is urgent action needed?",
@@ -422,20 +423,20 @@ const en: Dict = {
   "svc.cta.secondary": "Message on WhatsApp",
 
   // International page
-  "intl.kicker": "Iran-UAE Matters",
-  "intl.h1": "Iran-UAE Commercial and Financial Matters",
+  "intl.kicker": "International Commercial Matters",
+  "intl.h1": "Cross-Border Commercial Disputes and Complex Corporate Matters",
   "intl.intro":
-    "When a contract, payment, shipment, business partner, or financial obligation between Iran and the UAE becomes disputed, the legal route should be reviewed with both Iranian commercial context and UAE legal procedure in mind.",
+    "When contracts, payments, assets or corporate obligations span multiple jurisdictions, the legal strategy must account for governing law, jurisdiction, enforceability, asset location and the structure of the parties involved.",
   "intl.hero.primary": "Request Confidential Review",
   "intl.hero.secondary": "View Services",
-  "intl.why.h2": "Why Iran-UAE matters are different",
+  "intl.why.h2": "Why cross-border matters require a structured review",
   "intl.why.body":
     "These matters are not only about translating a contract or sending a notice. Several issues usually need to be reviewed together: counterparty location, payment evidence, governing law, enforcement options, identifiable assets, negotiation route, and the risk of delayed action.",
   "intl.scenarios.kicker": "Common Scenarios",
   "intl.scenarios.h2": "Common matters we review",
   "intl.scenario.1.t": "Breached Contract",
   "intl.scenario.1.b":
-    "A contract between an Iranian party and a UAE counterparty exists, but goods, services, payment, or core obligations have not been performed.",
+    "A contract spans jurisdictions, but goods, services, payment, or core obligations have not been performed.",
   "intl.scenario.2.t": "Unpaid Invoice or Receivable",
   "intl.scenario.2.b":
     "Payment for goods, services, or a commercial relationship in the UAE remains unpaid and the recovery route needs to be reviewed.",
@@ -472,7 +473,7 @@ const en: Dict = {
   "intl.docs.4": "Certified translations of key documents",
   "intl.docs.5": "Correspondence or records spanning more than one jurisdiction",
   "intl.docs.6": "Timeline summary and approximate disputed amount",
-  "intl.process.h2": "Iran-UAE matter review process",
+  "intl.process.h2": "Cross-border matter review process",
   "intl.process.1": "Identify the countries, parties, and documents involved",
   "intl.process.2": "Review governing law and jurisdiction",
   "intl.process.3": "Organize bilingual or cross-border evidence",
@@ -484,11 +485,11 @@ const en: Dict = {
   "intl.related.2": "Asset Recovery",
   "intl.related.3": "Debt Recovery",
   "intl.related.4": "Partner Disputes",
-  "intl.related.5": "Iran-UAE Contract Review",
+  "intl.related.5": "Cross-Border Contract Review",
   "intl.related.link": "View service",
   "intl.faq.kicker": "FAQ",
   "intl.faq.h2": "Frequently Asked Questions",
-  "intl.faq.1.q": "Where should action be taken if the contract involves Iran and the UAE?",
+  "intl.faq.1.q": "Where should action be taken when a contract spans multiple jurisdictions?",
   "intl.faq.1.a":
     "It depends on the parties, contract terms, place of performance, asset location, governing law, and dispute resolution forum. These points need to be reviewed initially.",
   "intl.faq.2.q": "Why does it matter if the counterparty has a UAE company?",
@@ -497,13 +498,13 @@ const en: Dict = {
   "intl.faq.3.q": "Can the review start without being physically present in the UAE?",
   "intl.faq.3.a":
     "In many cases, the initial document review and legal route assessment can start remotely. Formal action depends on the specific matter.",
-  "intl.faq.4.q": "What if money moved from Iran or another country to the UAE?",
+  "intl.faq.4.q": "What if money moved across more than one jurisdiction?",
   "intl.faq.4.a":
     "The transfer route, payment evidence, recipient, payment purpose, contract, and communications should be reviewed to assess the possible legal route.",
   "intl.faq.5.q": "Is the outcome guaranteed?",
   "intl.faq.5.a":
     "No legal outcome is guaranteed. However, the evidence quality, counterparty position, urgency, risks, and available routes can be reviewed.",
-  "intl.cta.title": "Submit your Iran-UAE matter for initial review",
+  "intl.cta.title": "Submit your cross-border matter for initial review",
   "intl.cta.body":
     "Send a short summary, approximate amount, counterparty, relevant countries or cities, and available documents. Receiving a message does not create representation; the legal route must first be reviewed.",
   "intl.cta.primary": "Submit Matter for Review",
@@ -511,19 +512,19 @@ const en: Dict = {
 
   // About page
   "about.kicker": "Focused Approach",
-  "about.h1": "About Our Approach to Iran-UAE Commercial and Financial Matters",
+  "about.h1": "A Focused Approach to Complex Commercial and Corporate Matters",
   "about.intro":
-    "We focus on reviewing and pursuing legal routes for commercial disputes, debt recovery, asset recovery, partner disputes, and financial matters involving Iranian clients and the UAE.",
+    "We focus on the structured assessment of commercial disputes, major debt and receivables recovery, asset recovery, shareholder conflicts, and complex financial matters in the UAE.",
   "about.hero.primary": "Request Confidential Case Review",
   "about.hero.secondary": "View Services",
   "about.position.h2": "Focused practice, not scattered services",
   "about.position.body":
-    "In commercial and financial matters, focus matters. Our clients are usually facing a real and urgent issue: unpaid money, an unperformed contract, an unresponsive partner, assets that are no longer accessible, or an unclear legal route between Iran and the UAE. That is why our service structure is built around commercial disputes and asset recovery.",
+    "In commercial and financial matters, focus matters. Corporate stakeholders may be facing unpaid receivables, an unperformed contract, an unresponsive partner, inaccessible assets, or an unclear legal route across jurisdictions. That is why our service structure is built around complex disputes and asset recovery.",
   "about.why.kicker": "Why It Matters",
   "about.why.h2": "Why these matters require a different approach",
-  "about.why.1.t": "Iranian commercial context",
+  "about.why.1.t": "Commercial context and documentation",
   "about.why.1.b":
-    "Business behavior, verbal trust, informal messages, partnership dynamics, and payment patterns can play an important role in Iranian matters.",
+    "Commercial conduct, informal communications, partnership dynamics, and payment patterns can materially affect the assessment of a dispute.",
   "about.why.2.t": "UAE legal pathway",
   "about.why.2.b":
     "Effective action requires reviewing the counterparty, assets, evidence, place of performance, urgency, and legal route in the UAE together.",
@@ -550,7 +551,7 @@ const en: Dict = {
   "about.trust.1": "Focus on commercial and financial matters, not scattered services",
   "about.trust.2": "Confidential review of documents and initial information",
   "about.trust.3": "No guaranteed outcomes or unrealistic promises",
-  "about.trust.4": "Combined review of Iranian context and UAE legal route",
+  "about.trust.4": "Combined review of commercial context and UAE legal route",
   "about.trust.5": "Clarifying the next step before major action begins",
   "about.trust.6": "Attention to urgency, assets, evidence, and delay risk",
   "about.review.kicker": "Initial Review",
@@ -568,13 +569,13 @@ const en: Dict = {
   "about.promise.body":
     "No legal matter should begin with a guaranteed outcome. Asset recovery, debt collection, or success in a dispute depends on evidence, counterparty position, identifiable assets, urgency, jurisdiction, and the legal route. At the first stage, the commitment is to review the information more carefully and clarify the available path, not to promise a certain result.",
   "about.lang.kicker": "Client Context",
-  "about.lang.h2": "Built for Iranian clients connected to the UAE",
+  "about.lang.h2": "Built for corporate stakeholders connected to the UAE",
   "about.lang.body":
-    "Many clients in these matters are Persian-speaking, while the documents, companies, contracts, or counterparties are connected to the UAE. Clear Persian communication, commercial English context, and understanding of the UAE legal pathway are therefore important.",
-  "about.lang.badge.1": "Persian",
+    "Corporations, business groups, shareholders, and institutional investors need clear communication while documents, contracts, assets, and counterparties span jurisdictions. The work therefore emphasizes structured commercial analysis and a clear UAE legal pathway.",
+  "about.lang.badge.1": "Corporations",
   "about.lang.badge.2": "English",
   "about.lang.badge.3": "Arabic",
-  "about.lang.badge.4": "Iran-UAE",
+  "about.lang.badge.4": "Cross-Border",
   "about.lang.badge.5": "Financial matters",
   "about.lang.badge.6": "Commercial disputes",
   "about.cta.title": "Start with an initial case review",
@@ -588,11 +589,11 @@ const en: Dict = {
   "ins.h1.a": "Legal Insights on UAE",
   "ins.h1.b": "Commercial Disputes and Asset Recovery",
   "ins.intro":
-    "Specialized articles will be published soon on the official blog. Future content will focus on Iran-UAE commercial disputes, debt recovery, asset recovery, partner disputes, and financial matters connected to the UAE.",
+    "Specialized articles will be published soon on the official blog. Future content will focus on commercial disputes, debt recovery, asset recovery, shareholder conflicts, and cross-border financial matters connected to the UAE.",
   "ins.hero.cta": "Request Confidential Case Review",
   "ins.categories.kicker": "Resource Gateway",
   "ins.categories.h2": "Topics coming soon",
-  "ins.cat.1.title": "Iran-UAE Commercial Disputes",
+  "ins.cat.1.title": "Corporate Commercial Disputes",
   "ins.cat.1.body":
     "Unperformed contracts, buyer or seller disputes, supplier disputes, shipping, distribution, and commercial claims.",
   "ins.cat.2.title": "Asset Recovery",
@@ -604,7 +605,7 @@ const en: Dict = {
   "ins.cat.4.title": "Partner Disputes",
   "ins.cat.4.body":
     "Shareholder disputes, unauthorized withdrawals, blocked accounts, loss of access, and control of company assets.",
-  "ins.cat.5.title": "Iran-UAE Contracts and Matters",
+  "ins.cat.5.title": "Cross-Border Contracts and Matters",
   "ins.cat.5.body":
     "Governing law, jurisdiction, performance of obligations, enforcement route, and risks in cross-border contracts.",
   "ins.future.kicker": "Purpose",
@@ -623,7 +624,7 @@ const en: Dict = {
   "contact.kicker": "Confidential Intake",
   "contact.h1": "Confidential Review of Your UAE Commercial or Financial Matter",
   "contact.intro":
-    "If you are facing a commercial dispute, debt recovery issue, asset recovery matter, partner dispute, or Iran-UAE financial claim, send a short summary and initial documents so the available legal route can be reviewed.",
+    "If your company is facing a commercial dispute, debt recovery issue, asset recovery matter, shareholder conflict, or cross-border financial claim, send a short summary and initial documents so the available legal route can be reviewed.",
   "contact.hero.primary": "Submit Matter Details",
   "contact.hero.secondary": "Message on WhatsApp",
   "contact.before.title": "Before submitting your matter",
@@ -638,7 +639,7 @@ const en: Dict = {
   "contact.form.kicker": "Confidential Matter Intake",
   "contact.form.name": "Full Name",
   "contact.form.lang": "Preferred Language",
-  "contact.form.langPh": "English / فارسی / العربية",
+  "contact.form.langPh": "English",
   "contact.form.email": "Email",
   "contact.form.phone": "Phone / WhatsApp",
   "contact.form.matter": "Matter Type",
@@ -659,7 +660,7 @@ const en: Dict = {
   "contact.matter.3": "Asset recovery or lost funds",
   "contact.matter.4": "Fraud or suspicious investment",
   "contact.matter.5": "Partner or shareholder dispute",
-  "contact.matter.6": "Iran-UAE contract or cross-border matter",
+  "contact.matter.6": "Cross-border contract or corporate matter",
   "contact.matter.7": "Other commercial or financial matter",
   "contact.urg.1": "Urgent; possible asset transfer",
   "contact.urg.2": "Urgent; counterparty unresponsive",
@@ -673,7 +674,7 @@ const en: Dict = {
   "contact.include.3": "Contract, invoice, payment proof, or statement of account",
   "contact.include.4": "WhatsApp, email, or message communications",
   "contact.include.5": "Timeline of the dispute and latest action taken",
-  "contact.include.6": "Whether the counterparty is in the UAE, Iran, or another country",
+  "contact.include.6": "Whether the counterparty is in the UAE or another jurisdiction",
   "contact.urgent.h2": "When should you avoid delay?",
   "contact.urgent.body":
     "If funds have moved, the counterparty is unresponsive, access to accounts or documents has been blocked, assets may be transferred, or evidence is at risk, the matter should be reviewed quickly.",
@@ -684,11 +685,11 @@ const en: Dict = {
   "contact.whatsapp.msg":
     "Hello, I would like a confidential review of a UAE commercial or financial matter.",
   "contact.final.disclaimer":
-    "Receiving a message or form submission does not automatically create attorney-client representation. After the initial review, the next step and possible route will be clarified.",
+    "Receiving a message or form submission does not automatically create a professional-client relationship. After the initial review, the next step and possible route will be clarified.",
   "contact.success.title": "Received.",
   "contact.success.body":
     "Your matter summary has been received confidentially. The available route and next step will be reviewed before any representation is accepted.",
-  "marquee.1": "Iran-UAE Commercial Disputes",
+  "marquee.1": "Corporate Commercial Disputes",
   "marquee.2": "Asset Recovery",
   "marquee.3": "Debt Collection",
   "marquee.4": "Partner Disputes",
@@ -700,26 +701,28 @@ const en: Dict = {
   "marquee.10": "Confidential Case Review",
 
   // Homepage rebuild: commercial disputes and asset recovery
-  "home.hero.kicker": "Iran-UAE Commercial Disputes · Asset Recovery · Debt Collection",
-  "home.hero.h1": "Commercial Disputes & Asset Recovery Lawyer for Iranian Clients in the UAE",
+  "home.hero.kicker":
+    "Registered Legal Consultant in Dubai with the Government of Dubai Legal Affairs Department",
+  "home.hero.h1": "Legal Consultant for Complex Commercial and Corporate Matters in the UAE",
   "home.hero.lede":
-    "If your money, receivables, investment, or commercial contract is stuck in the UAE, the legal path may still be worth reviewing. We handle Iran-UAE commercial disputes, debt recovery, partner disputes, and asset recovery through a confidential and structured legal approach.",
+    "Strategic legal assessment for corporations, business groups, shareholders and institutional investors handling high-value claims, contractual disputes and asset recovery matters.",
   "home.hero.cta.primary": "Request Confidential Case Review",
   "home.hero.cta.secondary": "Message on WhatsApp",
   "home.hero.whatsappMsg":
-    "Hello, I would like a confidential review of an Iran-UAE commercial dispute or asset recovery matter.",
-  "home.hero.stat.1.v": "Iran-UAE",
-  "home.hero.stat.1.l": "Commercial Disputes",
-  "home.hero.stat.2.v": "Asset",
-  "home.hero.stat.2.l": "Recovery Review",
-  "home.hero.stat.3.v": "Debt",
-  "home.hero.stat.3.l": "Collection Path",
+    "Hello, I would like a confidential review of a complex corporate or commercial matter.",
+  "home.hero.feature.1.t": "Registered Legal Consultant in Dubai",
+  "home.hero.feature.1.b":
+    "Government of Dubai Legal Affairs Department · Registration No. L-07168",
+  "home.hero.feature.2.t": "Complex Corporate and Commercial Matters",
+  "home.hero.feature.2.b": "High-value disputes, major claims and shareholder conflicts",
+  "home.hero.feature.3.t": "Confidential Strategic Review",
+  "home.hero.feature.3.b": "For corporations, business groups and institutional investors",
   "home.hero.available": "Case Review",
-  "home.hero.location": "UAE · Iran",
+  "home.hero.location": "Dubai · UAE",
   "home.hero.founder": "Counsel",
   "home.hero.signature": "Commercial Disputes",
   "home.hero.scroll": "Scroll",
-  "home.hero.est": "Iran · UAE · Asset Recovery",
+  "home.hero.est": "Corporate Commercial Disputes · Asset Recovery · Major Claims",
 
   "home.pain.kicker": "Client Situations",
   "home.pain.h2": "Which problem are you facing?",
@@ -735,13 +738,13 @@ const en: Dict = {
   "home.pain.4.t": "Medium and Large Business Owner",
   "home.pain.4.b":
     "Unpaid invoices and commercial debts are creating cash-flow pressure and operational risk.",
-  "home.pain.5.t": "Iran-UAE Cross-Border Matter",
+  "home.pain.5.t": "Cross-Border Commercial Matter",
   "home.pain.5.b":
-    "A contract, payment, enforcement issue, jurisdiction question, or counterparty dispute spans Iran and the UAE.",
+    "A contract, payment, enforcement issue, jurisdiction question, or counterparty dispute spans multiple jurisdictions.",
 
   "home.axes.kicker": "Two Legal Paths",
   "home.axes.h2": "Two Core Legal Paths",
-  "home.axes.1.t": "Iran-UAE Commercial Disputes",
+  "home.axes.1.t": "Corporate and Commercial Disputes",
   "home.axes.1.b1": "Breach of commercial contracts",
   "home.axes.1.b2": "Buyer, seller, or supplier disputes",
   "home.axes.1.b3": "Agency, distribution, and shipping disputes",
@@ -768,13 +771,13 @@ const en: Dict = {
   "home.process.s5": "Follow-up toward the available outcome",
 
   "home.trust.kicker": "Cross-Border Judgment",
-  "home.trust.h2": "Iranian business context, UAE legal execution",
+  "home.trust.h2": "Commercial context, UAE legal execution",
   "home.trust.body":
-    "Iran-UAE matters are not only about translating contracts. They require understanding Iranian commercial behavior, UAE legal procedure, negotiation dynamics, litigation risk, enforcement, and confidentiality at the same time.",
-  "home.trust.item.1": "Iranian commercial context",
+    "Cross-border matters are not only about translating contracts. They require understanding commercial conduct, UAE legal procedure, negotiation dynamics, litigation risk, enforcement, and confidentiality at the same time.",
+  "home.trust.item.1": "Commercial context",
   "home.trust.item.2": "UAE legal pathway",
   "home.trust.item.3": "Confidential document review",
-  "home.trust.item.4": "Persian, English, and Arabic",
+  "home.trust.item.4": "Clear English communication",
   "home.trust.item.5": "Focus on commercial and financial matters",
 
   "home.serviceCards.kicker": "Specialized Services",
@@ -783,7 +786,7 @@ const en: Dict = {
   "home.serviceCards.2": "Asset Recovery",
   "home.serviceCards.3": "Debt Recovery",
   "home.serviceCards.4": "Partner Disputes",
-  "home.serviceCards.5": "Iran-UAE Contracts",
+  "home.serviceCards.5": "Cross-Border Contracts",
   "home.serviceCards.link": "View Services",
 
   "home.faq.kicker": "FAQ",
@@ -861,9 +864,6 @@ const en: Dict = {
   "home.intake.matter.partner_shareholder_dispute.title": "Partner or shareholder dispute",
   "home.intake.matter.partner_shareholder_dispute.description":
     "Withdrawals, loss of access, management conflict, or company asset transfers.",
-  "home.intake.matter.iran_uae_cross_border.title": "Iran–UAE cross-border matter",
-  "home.intake.matter.iran_uae_cross_border.description":
-    "A contract, payment, jurisdiction, performance, or party based in both countries.",
   "home.intake.matter.other.title": "My matter does not fit these categories",
   "home.intake.value.under_100k_aed": "Under AED 100,000 or equivalent",
   "home.intake.value.100k_to_500k_aed": "AED 100,000 to AED 500,000",
@@ -873,7 +873,6 @@ const en: Dict = {
   "home.intake.value.non_financial": "The matter is not necessarily financial",
   "home.intake.location.dubai": "Dubai",
   "home.intake.location.other_uae": "Another Emirate",
-  "home.intake.location.iran": "Iran",
   "home.intake.location.other_country": "Another country",
   "home.intake.location.unknown_location": "The exact location is unclear",
   "home.intake.step4.summaryHeading": "Briefly explain what has happened",
@@ -891,11 +890,9 @@ const en: Dict = {
   "home.intake.field.phone": "Mobile or WhatsApp number",
   "home.intake.field.email": "Email — optional",
   "home.intake.field.preferredLanguage": "Preferred communication language",
-  "home.intake.language.fa": "فارسی",
   "home.intake.language.en": "English",
-  "home.intake.language.ar": "العربية",
   "home.intake.consent":
-    "I confirm that the information above may be used for an initial review of the matter and to coordinate the next step. Submission does not constitute acceptance of representation, creation of a lawyer-client relationship, or a guarantee of outcome.",
+    "I confirm that the information above may be used for an initial review of the matter and to coordinate the next step. Submission does not constitute acceptance of representation, creation of a professional-client relationship, or a guarantee of outcome.",
   "home.intake.submitHelper": "Your information will be sent directly to the case review team.",
   "home.intake.back": "Back",
   "home.intake.continue": "Continue",
@@ -917,20 +914,20 @@ const en: Dict = {
   "home.intake.success.description":
     "The matter summary has been sent for an initial review. If the matter can be considered further, the team will contact you to coordinate the next step.",
   "home.intake.success.disclaimer":
-    "Receipt of this form does not constitute acceptance of the matter or creation of a lawyer-client relationship.",
+    "Receipt of this form does not constitute acceptance of the matter or creation of a professional-client relationship.",
   "home.intake.success.home": "Return to Home",
   "home.intake.success.whatsapp": "Send an Additional WhatsApp Message",
 
-  "cd.hero.kicker": "Iran-UAE Commercial Disputes",
-  "cd.hero.h1": "Iran-UAE Commercial Dispute Lawyer for Iranian Traders and Companies",
+  "cd.hero.kicker": "Corporate Commercial Disputes",
+  "cd.hero.h1": "Complex Corporate and Commercial Disputes in the UAE",
   "cd.hero.intro":
     "If a contract has not been performed, a UAE counterparty is not responding, or you have a dispute with a buyer, seller, supplier, or commercial agent, the applicable legal route in the UAE can be reviewed confidentially.",
   "cd.hero.primary": "Start the Legal Route Review",
   "cd.hero.secondary": "Continue on WhatsApp",
   "cd.hero.scopeNote":
-    "This review is limited to commercial and contractual disputes between Iran and the UAE. Receiving a message does not constitute acceptance of representation.",
+    "This review is focused on complex commercial and contractual disputes in the UAE. Receiving a message does not constitute acceptance of representation.",
   "cd.hero.whatsappMsg":
-    "Hello, I have a commercial dispute between Iran and the UAE and would like a confidential review of the applicable legal route.",
+    "Hello, I have a complex corporate or commercial dispute in the UAE and would like a confidential review of the applicable legal route.",
 
   "cd.scenarios.kicker": "Disputes Reviewed Here",
   "cd.scenarios.h2": "What kinds of commercial disputes does this page cover?",
@@ -941,7 +938,7 @@ const en: Dict = {
     "A UAE counterparty has not fulfilled agreed contractual obligations — goods, services, or payment have not been delivered as agreed.",
   "cd.scenario.2.t": "Buyer or Seller Dispute",
   "cd.scenario.2.b":
-    "A commercial transaction with an Iranian or UAE party has become disputed over terms, delivery, or payment.",
+    "A commercial transaction has become disputed over terms, delivery, payment, or performance.",
   "cd.scenario.3.t": "Supplier Dispute",
   "cd.scenario.3.b":
     "Quality, timing, or delivery terms from a UAE supplier have not matched the contract.",
@@ -953,11 +950,11 @@ const en: Dict = {
     "Goods were not shipped or delivered according to the agreed schedule, route, or terms.",
   "cd.scenario.6.t": "Commercial Payment Claim",
   "cd.scenario.6.b":
-    "An invoice or agreed amount in an Iran-UAE commercial relationship remains unpaid.",
+    "An invoice or agreed amount in a corporate or commercial relationship remains unpaid.",
 
-  "cd.why.h2": "Why Are Iran-UAE Commercial Cases Different?",
+  "cd.why.h2": "Why Complex Corporate and Commercial Cases Need a Structured Review",
   "cd.why.body":
-    "These matters usually need more than translation. Commercial conduct and correspondence, the exact contract wording, governing law, the jurisdiction of the competent forum, available documents and evidence, the counterparty's location, and the practical route for negotiation or formal action all factor into assessing an effective path. Reviewing Iranian commercial context alongside UAE legal procedure helps identify the appropriate route.",
+    "These matters usually need more than a document review. Commercial conduct and correspondence, the exact contract wording, governing law, the jurisdiction of the competent forum, available evidence, the counterparty's location, and the practical route for negotiation or formal action all factor into assessing an effective path.",
 
   "cd.delay.kicker": "Timing Matters",
   "cd.delay.h2": "What Effect Does Delay Have on a Case?",
@@ -1005,11 +1002,11 @@ const en: Dict = {
     "Each matter is reviewed confidentially and in stages, before any decision is made about a course of action.",
   "cd.trust.item.1": "Confidential initial review",
   "cd.trust.item.2": "Structured review of commercial documents",
-  "cd.trust.item.3": "Persian and English communication",
+  "cd.trust.item.3": "Clear English communication",
   "cd.trust.item.4": "Clear explanation of scope",
   "cd.trust.item.5": "No outcome is guaranteed",
   "cd.trust.disclaimer":
-    "Initial contact or sending information does not constitute acceptance of representation or create a lawyer-client relationship.",
+    "Initial contact or sending information does not constitute acceptance of representation or create a professional-client relationship.",
   "cd.trust.imageAlt": "Workspace for reviewing commercial matters",
 
   "cd.form.kicker": "Case Review",
@@ -1055,7 +1052,7 @@ const en: Dict = {
   "cd.form.error.tooShort": "This is shorter than required.",
   "cd.form.error.tooLong": "This exceeds the allowed length.",
   "cd.form.privacyNotice":
-    "Information entered in this form is not stored by the website and will only be transferred to WhatsApp after your confirmation. Do not submit passwords, account-access information, or confidential documents at this stage. Sending a message does not constitute acceptance of representation, creation of a lawyer-client relationship, or a guarantee of outcome.",
+    "Information entered in this form is not stored by the website and will only be transferred to WhatsApp after your confirmation. Do not submit passwords, account-access information, or confidential documents at this stage. Sending a message does not constitute acceptance of representation, creation of a professional-client relationship, or a guarantee of outcome.",
   "cd.form.success.title": "Your message is ready",
   "cd.form.success.body":
     "To complete the process, review the prepared message in WhatsApp and press Send. Opening WhatsApp does not mean the message has been sent.",
@@ -1098,8 +1095,8 @@ const en: Dict = {
   "cd.form.document.9": "Not sure",
 
   "cd.faq.kicker": "Frequently Asked Questions",
-  "cd.faq.h2": "Common Questions About Iran-UAE Commercial Disputes",
-  "cd.faq.1.q": "Can an Iran-UAE commercial dispute only be reviewed with a written contract?",
+  "cd.faq.h2": "Common Questions About Corporate and Commercial Disputes",
+  "cd.faq.1.q": "Can a commercial dispute only be reviewed with a written contract?",
   "cd.faq.1.a":
     "A written contract makes the review more straightforward, but correspondence, invoices, purchase orders, and other records can also factor into an initial assessment. The exact approach depends on the specifics of each matter.",
   "cd.faq.2.q": "What if the contract does not specify governing law or a court?",
@@ -1111,7 +1108,7 @@ const en: Dict = {
   "cd.faq.4.q": "What documents are needed for an initial review?",
   "cd.faq.4.a":
     "A contract, invoices, correspondence, and counterparty details are usually useful, but an initial review can also begin without every document in hand.",
-  "cd.faq.5.q": "What if the counterparty is in the UAE but I am in Iran?",
+  "cd.faq.5.q": "What if the counterparty is in the UAE but the company is elsewhere?",
   "cd.faq.5.a":
     "Initial document review and the legal-route assessment can generally begin remotely. Further steps depend on the specifics of the matter.",
   "cd.faq.6.q": "Do all disputes have to go to court?",
@@ -1119,7 +1116,7 @@ const en: Dict = {
     "No. Depending on the matter, negotiation, a formal notice, arbitration, or litigation can each be an appropriate route. The choice depends on the documents, the amount involved, and the counterparty's circumstances.",
   "cd.faq.7.q": "Does submitting the form mean accepting representation?",
   "cd.faq.7.a":
-    "No. Sending information or a message does not constitute acceptance of representation or create a lawyer-client relationship. The matter is reviewed first.",
+    "No. Sending information or a message does not constitute acceptance of representation or create a professional-client relationship. The matter is reviewed first.",
   "cd.faq.8.q": "Can the outcome of a case be guaranteed?",
   "cd.faq.8.a":
     "No. No legal outcome can be guaranteed. The initial review only identifies the routes that may be applicable based on the documents and circumstances of the matter.",
@@ -1131,16 +1128,16 @@ const en: Dict = {
   "cd.final.primary": "Start the Legal Route Review",
   "cd.final.secondary": "Continue on WhatsApp",
   "cd.final.disclaimer":
-    "Sending information or a message does not constitute acceptance of representation, creation of a lawyer-client relationship, or a guarantee of outcome. No legal outcome is guaranteed.",
+    "Sending information or a message does not constitute acceptance of representation, creation of a professional-client relationship, or a guarantee of outcome. No legal outcome is guaranteed.",
   "cd.related.kicker": "Related Topics",
   "cd.related.assetRecovery": "Asset and Debt Recovery",
   "cd.related.services": "Legal Services",
-  "cd.related.international": "Iran-UAE Matters",
+  "cd.related.international": "Cross-Border Matters",
   "cd.related.about": "About Our Approach",
   "cd.related.contact": "Case Review & Contact",
 
   "adr.hero.kicker": "UAE Asset & Debt Recovery",
-  "adr.hero.h1": "UAE Debt Recovery and Asset Recovery Lawyer for Iranian Clients",
+  "adr.hero.h1": "UAE Debt Recovery and Asset Recovery for Corporate Matters",
   "adr.hero.intro":
     "If an amount in the UAE remains unpaid, an investment has not produced the promised result, or there are signs that require review, the possibility of pursuit can be assessed based on the evidence, the counterparty, and available asset information.",
   "adr.hero.primary": "Assess the Possibility of Pursuit",
@@ -1251,7 +1248,7 @@ const en: Dict = {
     "Each matter is reviewed based on the available evidence and applicable legal routes.",
   "adr.trust.item.1": "Confidential initial review",
   "adr.trust.item.2": "Structured review of financial and commercial records",
-  "adr.trust.item.3": "Persian and English communication",
+  "adr.trust.item.3": "Clear English communication",
   "adr.trust.item.4": "Clear separation between initial review and formal representation",
   "adr.trust.item.5": "No guarantee of recovery or outcome",
   "adr.trust.disclaimer":
@@ -1302,7 +1299,7 @@ const en: Dict = {
   "adr.form.error.tooShort": "This is shorter than required.",
   "adr.form.error.tooLong": "This exceeds the allowed length.",
   "adr.form.privacyNotice":
-    "Information entered in this form is not stored by the website and will only be transferred to WhatsApp after your confirmation. Do not submit passwords, account-access information, or confidential documents at this stage. Sending a message does not constitute acceptance of representation, creation of a lawyer-client relationship, or a guarantee of outcome.",
+    "Information entered in this form is not stored by the website and will only be transferred to WhatsApp after your confirmation. Do not submit passwords, account-access information, or confidential documents at this stage. Sending a message does not constitute acceptance of representation, creation of a professional-client relationship, or a guarantee of outcome.",
   "adr.form.success.title": "Your message is ready",
   "adr.form.success.body":
     "To complete the process, review the prepared message in WhatsApp and press Send. Opening WhatsApp does not mean the message has been sent.",
@@ -1371,7 +1368,7 @@ const en: Dict = {
     "Whether a judgment can be enforced depends on the type of judgment, the issuing authority, and the specifics of the matter, and needs to be assessed individually.",
   "adr.faq.7.q": "Does submitting the form mean accepting representation?",
   "adr.faq.7.a":
-    "No. Sending information or a message does not constitute acceptance of representation or create a lawyer-client relationship. The matter is reviewed first.",
+    "No. Sending information or a message does not constitute acceptance of representation or create a professional-client relationship. The matter is reviewed first.",
   "adr.faq.8.q": "Is asset recovery or debt collection guaranteed?",
   "adr.faq.8.a":
     "No. No legal outcome is guaranteed. The initial review only identifies the possibility of pursuit based on the documents and circumstances of the matter.",
@@ -1386,11 +1383,11 @@ const en: Dict = {
   "adr.final.primary": "Assess the Possibility of Pursuit",
   "adr.final.secondary": "Continue on WhatsApp",
   "adr.final.disclaimer":
-    "Sending information or a message does not constitute acceptance of representation, creation of a lawyer-client relationship, or a guarantee of outcome. No legal outcome is guaranteed.",
+    "Sending information or a message does not constitute acceptance of representation, creation of a professional-client relationship, or a guarantee of outcome. No legal outcome is guaranteed.",
   "adr.related.kicker": "Related Topics",
-  "adr.related.commercialDisputes": "Iran-UAE Commercial Disputes",
+  "adr.related.commercialDisputes": "Corporate Commercial Disputes",
   "adr.related.services": "Legal Services",
-  "adr.related.international": "Iran-UAE Matters",
+  "adr.related.international": "Cross-Border Matters",
   "adr.related.about": "About Our Approach",
   "adr.related.contact": "Case Review & Contact",
 };
@@ -2775,15 +2772,8 @@ interface Ctx {
 const I18nContext = createContext<Ctx | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
-  const dir = lang === "fa" ? "rtl" : "ltr";
-
-  useEffect(() => {
-    const stored = typeof window !== "undefined" ? localStorage.getItem("lang") : null;
-    const nextLang: Lang = PERSIAN_LANGUAGE_ENABLED && stored === "fa" ? "fa" : "en";
-    setLangState(nextLang);
-    if (typeof window !== "undefined") localStorage.setItem("lang", nextLang);
-  }, []);
+  const [lang] = useState<Lang>("en");
+  const dir = "ltr";
 
   useEffect(() => {
     if (typeof document !== "undefined") {
@@ -2795,11 +2785,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     }
   }, [dir, lang]);
 
-  const setLang = (l: Lang) => {
-    const nextLang: Lang = !PERSIAN_LANGUAGE_ENABLED && l === "fa" ? "en" : l;
-    setLangState(nextLang);
-    if (typeof window !== "undefined") localStorage.setItem("lang", nextLang);
-  };
+  const setLang = (_l: Lang) => undefined;
 
   const t = (k: string) => dict[lang][k] ?? dict.en[k] ?? k;
 

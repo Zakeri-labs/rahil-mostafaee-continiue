@@ -124,10 +124,10 @@ function WhyDifferent() {
 }
 
 const SCENARIO_SPECIALIST_HREF: Record<string, string> = {
-  "1": "/iran-uae-commercial-disputes",
+  "1": "/corporate-commercial-disputes",
   "2": "/uae-asset-debt-recovery",
   "4": "/uae-asset-debt-recovery",
-  "5": "/iran-uae-commercial-disputes",
+  "5": "/corporate-commercial-disputes",
 };
 
 function Scenarios() {
@@ -246,11 +246,11 @@ function Process({ stepNum }: { stepNum: (n: number) => string }) {
 }
 
 const RELATED_SERVICE_HREF: Record<number, string> = {
-  1: "/iran-uae-commercial-disputes",
+  1: "/corporate-commercial-disputes",
   2: "/uae-asset-debt-recovery",
   3: "/uae-asset-debt-recovery",
   4: "/services",
-  5: "/iran-uae-commercial-disputes",
+  5: "/corporate-commercial-disputes",
 };
 
 function RelatedServices() {

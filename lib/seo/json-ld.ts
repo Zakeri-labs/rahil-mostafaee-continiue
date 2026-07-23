@@ -6,6 +6,29 @@ type LegalServiceInput = {
   siteUrl: string;
 };
 
+export function buildPersonSchema(siteUrl: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${siteUrl}#person`,
+    name: "Rahil Mostafaei",
+    jobTitle: "Legal Consultant",
+    url: siteUrl,
+    worksFor: {
+      "@type": "Organization",
+      name: "Lutfi & Company Advocates & Legal Consultants",
+    },
+    knowsAbout: [
+      "Commercial disputes",
+      "Corporate disputes",
+      "Contractual disputes",
+      "Asset recovery",
+      "Cross-border commercial matters",
+    ],
+    inLanguage: "en-AE",
+  };
+}
+
 export function buildLegalServiceSchema({
   id,
   name,
@@ -23,7 +46,8 @@ export function buildLegalServiceSchema({
     areaServed: "United Arab Emirates",
     audience: {
       "@type": "Audience",
-      audienceType: "Iranian and Persian-speaking clients with UAE-related matters",
+      audienceType:
+        "Corporations, business groups, shareholders, board members, senior executives, and institutional investors",
     },
     provider: {
       "@type": "Person",
@@ -31,7 +55,7 @@ export function buildLegalServiceSchema({
       url: siteUrl,
     },
     serviceType: name,
-    inLanguage: ["fa", "en"],
+    inLanguage: "en-AE",
   };
 }
 
