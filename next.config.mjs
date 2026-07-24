@@ -15,6 +15,18 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/blog",
+        destination: "https://wp-origin.rahilmostafaei.com/",
+      },
+      {
+        source: "/blog/:path*",
+        destination: "https://wp-origin.rahilmostafaei.com/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
