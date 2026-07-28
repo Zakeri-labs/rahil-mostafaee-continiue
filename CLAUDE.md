@@ -10,11 +10,22 @@ See also `AGENTS.md` for contributor conventions (commit style, PR expectations,
 
 - `npm run dev` — local dev server
 - `npm run build` — production build
-- `npm run start` — serve the production build
+- `npm run start` — prohibited for agents; it may connect to production services/databases
 - `npm run lint` — ESLint + Prettier check (this is the primary gate; **there is no test runner**)
 - `npm run format` — Prettier write
 
 Use **npm** (`package-lock.json` is the source of truth). `bun.lock` and `yarn.lock` also exist — do not update them unless intentionally switching package managers. Verify changes with `npm run lint` and `npm run build`.
+
+## Environment and production safety
+
+Next.js selects `.env.development` for `npm run dev` and `.env.production` for
+`npm run build` and `npm run start`. Keep separate Supabase projects, database URLs,
+payment credentials, and other secrets in those files. Never copy production values into
+development configuration or commit populated secret values.
+
+Claude Code must never run `npm run start` in this repository. It can connect to the
+production database and potentially cause production data changes. Use `npm run dev` for
+local runtime checks and `npm run build` for production-build verification.
 
 ## Architecture
 

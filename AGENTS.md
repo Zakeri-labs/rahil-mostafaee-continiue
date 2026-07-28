@@ -12,9 +12,19 @@ logic are in `lib/`. Visual assets are stored in `assets/`.
 
 - `npm run dev`: start the local Next.js development server.
 - `npm run build`: create the production build.
-- `npm run start`: start the production server after a build.
+- Do not run `npm run start` in this repository. It can connect to production services/databases and cause production data changes. Use `npm run dev` for local runtime checks; use `npm run build` only to verify the production build.
 - `npm run lint`: run ESLint and Prettier checks across the repo.
 - `npm run format`: format files with Prettier.
+
+## Environment Safety
+
+Next.js automatically loads `.env.development` for `npm run dev` and `.env.production`
+for `npm run build` and `npm run start`. Keep development and production Supabase
+projects, database URLs, payment credentials, and other secrets separate. Do not copy
+production values into `.env.development`, and never commit populated secret values.
+
+Agents must not execute `npm run start`; it is intentionally prohibited because it may
+connect to production databases.
 
 Prefer npm commands because `package-lock.json` is present. Other lockfiles exist; do not update them unless intentionally changing package manager workflow.
 
