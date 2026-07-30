@@ -20,7 +20,7 @@ import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 import { LanguageSwitcher } from "@/components/site/LanguageSwitcher";
 
 export function MobileBottomNav() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -135,18 +135,22 @@ export function MobileBottomNav() {
                 <Building2 className="w-4 h-4 text-gold" strokeWidth={1.4} />
                 <span className="text-sm text-ivory">{t("nav.firm")}</span>
               </Link>
-              <Link
-                href="/insights"
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors"
-              >
-                <BookOpen className="w-4 h-4 text-gold" strokeWidth={1.4} />
-                <span className="text-sm text-ivory">{t("nav.insights")}</span>
-              </Link>
+              {lang === "fa" && (
+                <Link
+                  href="/blog"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors"
+                >
+                  <BookOpen className="w-4 h-4 text-gold" strokeWidth={1.4} />
+                  <span className="text-sm text-ivory">{t("nav.blog")}</span>
+                </Link>
+              )}
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors"
+                className={`flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors ${
+                  lang === "en" ? "col-span-2" : ""
+                }`}
               >
                 <Mail className="w-4 h-4 text-gold" strokeWidth={1.4} />
                 <span className="text-sm text-ivory">{t("nav.contact")}</span>

@@ -1395,6 +1395,7 @@ const fa: Dict = {
   "nav.international": "ایران–امارات",
   "nav.firm": "درباره",
   "nav.insights": "بینش‌ها",
+  "nav.blog": "بلاگ",
   "nav.contact": "بررسی پرونده",
   "nav.book": "بررسی محرمانه پرونده",
   "nav.review": "پرونده",

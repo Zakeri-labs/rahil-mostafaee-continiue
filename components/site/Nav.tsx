@@ -7,19 +7,19 @@ import logo from "@/assets/logo-mark.png";
 import { useI18n } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/site/LanguageSwitcher";
 
-const links: { to: string; key: string }[] = [
+const links: { to: string; key: string; lang?: "fa" }[] = [
   { to: "/", key: "nav.home" },
   { to: "/services", key: "nav.practice" },
   { to: "/international", key: "nav.international" },
   { to: "/about", key: "nav.firm" },
-  { to: "/insights", key: "nav.insights" },
+  { to: "/blog", key: "nav.blog", lang: "fa" },
   { to: "/contact", key: "nav.contact" },
 ];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -56,17 +56,19 @@ export function Nav() {
           </Link>
 
           <nav className="hidden min-w-0 items-center justify-center gap-2 xl:gap-3 2xl:gap-4 lg:flex">
-            {links.map((l) => (
-              <Link
-                key={l.to}
-                href={l.to}
-                className={`whitespace-nowrap text-sm tracking-wide transition-colors hover:text-gold min-[1180px]:text-[15px] min-[1180px]:tracking-normal 2xl:text-base ${
-                  pathname === l.to ? "text-gold" : "text-muted-foreground"
-                }`}
-              >
-                {t(l.key)}
-              </Link>
-            ))}
+            {links
+              .filter((link) => !link.lang || link.lang === lang)
+              .map((link) => (
+                <Link
+                  key={link.to}
+                  href={link.to}
+                  className={`whitespace-nowrap text-sm tracking-wide transition-colors hover:text-gold min-[1180px]:text-[15px] min-[1180px]:tracking-normal 2xl:text-base ${
+                    pathname === link.to ? "text-gold" : "text-muted-foreground"
+                  }`}
+                >
+                  {t(link.key)}
+                </Link>
+              ))}
           </nav>
 
           <div className="hidden shrink-0 items-center justify-end gap-2 xl:gap-3 lg:flex">
