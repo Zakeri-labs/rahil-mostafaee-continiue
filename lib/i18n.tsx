@@ -2769,13 +2769,12 @@ interface Ctx {
 const I18nContext = createContext<Ctx | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("fa");
+  const [lang, setLangState] = useState<Lang>("en");
   const dir = lang === "fa" ? "rtl" : "ltr";
 
   useEffect(() => {
-    const stored =
-      (typeof window !== "undefined" && (localStorage.getItem("lang") as Lang)) || "fa";
-    setLangState(stored);
+    const stored = typeof window !== "undefined" ? localStorage.getItem("lang") : null;
+    setLangState(stored === "fa" ? "fa" : "en");
   }, []);
 
   useEffect(() => {
