@@ -2,9 +2,6 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 
 export type Lang = "en" | "fa";
 
-// Temporary switch: Persian translations remain intact and can be re-enabled later.
-export const PERSIAN_LANGUAGE_ENABLED = false;
-
 type Dict = Record<string, string>;
 
 const en: Dict = {
@@ -2772,8 +2769,14 @@ interface Ctx {
 const I18nContext = createContext<Ctx | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang] = useState<Lang>("en");
-  const dir = "ltr";
+  const [lang, setLangState] = useState<Lang>("fa");
+  const dir = lang === "fa" ? "rtl" : "ltr";
+
+  useEffect(() => {
+    const stored =
+      (typeof window !== "undefined" && (localStorage.getItem("lang") as Lang)) || "fa";
+    setLangState(stored);
+  }, []);
 
   useEffect(() => {
     if (typeof document !== "undefined") {
@@ -2785,7 +2788,10 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     }
   }, [dir, lang]);
 
-  const setLang = (_l: Lang) => undefined;
+  const setLang = (l: Lang) => {
+    setLangState(l);
+    if (typeof window !== "undefined") localStorage.setItem("lang", l);
+  };
 
   const t = (k: string) => dict[lang][k] ?? dict.en[k] ?? k;
 

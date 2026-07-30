@@ -15,16 +15,17 @@ import {
   BookOpen,
   Building2,
 } from "lucide-react";
-import { useI18n } from "@/lib/i18n";
+import { useI18n, type Lang } from "@/lib/i18n";
 import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 
 export function MobileBottomNav() {
-  const { t } = useI18n();
+  const { t, lang, setLang } = useI18n();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const waMsg = encodeURIComponent(t("fab.whatsapp.msg"));
   const waHref = `https://wa.me/${LEADS_WHATSAPP_NUMBER}?text=${waMsg}`;
+  const switchLang = (l: Lang) => setLang(l);
 
   return (
     <>
@@ -153,6 +154,21 @@ export function MobileBottomNav() {
             </div>
 
             <div className="mt-6 pt-6 border-t border-gold/10 flex items-center justify-between">
+              <div className="flex items-center text-[10px] tracking-[0.25em] uppercase border border-gold/20 rounded-full overflow-hidden">
+                <button
+                  onClick={() => switchLang("en")}
+                  className={`px-4 py-2 transition-colors ${lang === "en" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => switchLang("fa")}
+                  className={`px-4 py-2 transition-colors font-fa ${lang === "fa" ? "bg-gold text-onyx" : "text-muted-foreground"}`}
+                >
+                  فا
+                </button>
+              </div>
+
               <Link
                 href="/booking"
                 onClick={() => setOpen(false)}
