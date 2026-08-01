@@ -9,6 +9,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/insights",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
         source: "/iran-uae-commercial-disputes",
         destination: "/corporate-commercial-disputes",
         permanent: true,

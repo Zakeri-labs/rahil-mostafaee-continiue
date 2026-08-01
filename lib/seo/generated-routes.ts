@@ -6,7 +6,6 @@ export const INDEXABLE_ROUTE_PATHS = [
   "/booking",
   "/contact",
   "/corporate-commercial-disputes",
-  "/insights",
   "/international",
   "/services",
   "/uae-asset-debt-recovery",
