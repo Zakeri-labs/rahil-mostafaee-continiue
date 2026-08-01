@@ -85,7 +85,7 @@ const peyda = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.rahilmostafaee.com"),
+  metadataBase: new URL("https://www.rahilmostafaei.com"),
   title: {
     default: "Rahil Mostafaei | Corporate and Commercial Legal Consultant in Dubai",
     template: "%s | Rahil Mostafaei",
