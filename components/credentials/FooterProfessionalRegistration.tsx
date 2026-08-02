@@ -1,18 +1,18 @@
-import { professionalCredential } from "@/lib/site/professional-credential";
+import { useI18n } from "@/lib/i18n";
 
 export function FooterProfessionalRegistration() {
+  const { t } = useI18n();
+
   return (
     <div className="max-w-sm border-t border-gold/15 pt-6">
       <h2 className="text-[10px] tracking-[0.3em] uppercase text-gold">
-        Professional Registration
+        {t("footer.registration.title")}
       </h2>
       <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-        {professionalCredential.professionalName} is registered as a {professionalCredential.title}{" "}
-        with the {professionalCredential.authority} under Professional Registration No.{" "}
-        {professionalCredential.registrationNumber}.
+        {t("footer.registration.body")}
       </p>
       <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-        Firm listed on registration: {professionalCredential.firmName}
+        {t("footer.registration.firm")}
       </p>
     </div>
   );

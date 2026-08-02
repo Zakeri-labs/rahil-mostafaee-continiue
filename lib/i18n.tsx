@@ -86,6 +86,11 @@ const en: Dict = {
   "footer.role": "Corporate & Commercial Disputes · Asset Recovery",
   "footer.blurb":
     "We focus on structured legal assessment for complex commercial disputes, major receivables, shareholder conflicts, and asset recovery matters in the UAE.",
+  "footer.registration.title": "Professional Registration",
+  "footer.registration.body":
+    "Rahil Mostafaei is registered as a Legal Consultant with the Government of Dubai Legal Affairs Department under Professional Registration No. L-07168.",
+  "footer.registration.firm":
+    "Firm listed on registration: Lutfi & Company Advocates & Legal Consultants",
   "footer.langs": "English",
   "footer.cta": "Confidential Case Review",
   "footer.col.practice": "Specialized Services",
@@ -1472,6 +1477,10 @@ const fa: Dict = {
   "footer.role": "اختلافات تجاری و بازیابی دارایی برای ایرانی‌های درگیر با امارات",
   "footer.blurb":
     "تمرکز ما بر بررسی و پیگیری مسیر حقوقی پرونده‌های تجاری و مالی ایران–امارات، وصول مطالبات، اختلاف شرکا و بازیابی دارایی در امارات است.",
+  "footer.registration.title": "ثبت حرفه‌ای",
+  "footer.registration.body":
+    "راحیل مصطفایی به‌عنوان مشاور حقوقی در اداره امور حقوقی دولت دبی، با شماره ثبت حرفه‌ای L-07168 ثبت شده است.",
+  "footer.registration.firm": "مؤسسه درج‌شده در ثبت: Lutfi & Company Advocates & Legal Consultants",
   "footer.langs": "فارسی · English · العربية",
   "footer.cta": "بررسی محرمانه پرونده",
   "footer.col.practice": "خدمات تخصصی",
