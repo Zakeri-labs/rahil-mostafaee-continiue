@@ -93,7 +93,6 @@ export const metadata: Metadata = {
   description:
     "Rahil Mostafaei is a Legal Consultant registered with the Government of Dubai Legal Affairs Department, focusing on complex commercial disputes, major claims, shareholder conflicts and asset recovery matters in the UAE.",
   authors: [{ name: "Rahil Mostafaei" }],
-  alternates: { canonical: "/" },
   openGraph: {
     title: "Rahil Mostafaei | Corporate and Commercial Legal Consultant in Dubai",
     description:

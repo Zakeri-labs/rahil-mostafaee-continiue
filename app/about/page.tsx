@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "About the Corporate and Commercial Legal Practice",
   description:
     "Focused legal assessment for corporations, business groups, shareholders and institutional investors dealing with UAE commercial disputes, major claims and asset recovery matters.",
+  alternates: { canonical: "/about" },
   openGraph: {
     title: "About the Corporate and Commercial Legal Practice",
     description:
