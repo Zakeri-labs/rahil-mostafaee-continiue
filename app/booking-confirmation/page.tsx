@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import ConfirmationPage from "./page-client";
 
 export const metadata: Metadata = {
-  title: "Booking Confirmation — Rahil Mostafaei",
+  title: "Booking Confirmation",
   robots: {
     index: false,
     follow: true,

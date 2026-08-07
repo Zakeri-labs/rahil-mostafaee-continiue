@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import BookingPage from "./page-client";
 
 export const metadata: Metadata = {
-  title: "Book a Consultation — Rahil Mostafaei",
+  title: "Book a Consultation",
   alternates: { canonical: "/booking" },
   openGraph: { locale: "en_AE" },
 };
