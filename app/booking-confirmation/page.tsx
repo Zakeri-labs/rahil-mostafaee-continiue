@@ -4,6 +4,10 @@ import ConfirmationPage from "./page-client";
 
 export const metadata: Metadata = {
   title: "Booking Confirmation — Rahil Mostafaei",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function Page() {
