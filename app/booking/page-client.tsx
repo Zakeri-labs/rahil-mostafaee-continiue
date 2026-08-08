@@ -167,15 +167,15 @@ function BookingPage() {
             <div className="text-center max-w-3xl mx-auto space-y-6 mb-16">
               <div className="inline-flex items-center gap-3 mx-auto">
                 <span className="h-px w-12 bg-gold" />
-                <span className="text-[10px] tracking-[0.4em] uppercase text-gold lg:text-xs lg:tracking-[0.28em]">
+                <h1 className="text-[10px] tracking-[0.4em] uppercase text-gold lg:text-xs lg:tracking-[0.28em]">
                   {t("home.pkg.kicker")}
-                </span>
+                </h1>
                 <span className="h-px w-12 bg-gold" />
               </div>
-              <h1 className="font-display text-3xl lg:text-4xl text-ivory tracking-tight">
+              <p className="font-display text-3xl lg:text-4xl text-ivory tracking-tight">
                 {t("home.pkg.h2.a")}{" "}
                 <span className="italic gradient-gold-text">{t("home.pkg.h2.b")}</span>
-              </h1>
+              </p>
               <p className="text-muted-foreground">{t("home.pkg.body")}</p>
             </div>
 
