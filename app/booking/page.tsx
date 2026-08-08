@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/booking" },
   openGraph: {
     url: "/booking",
+    type: "website",
+    siteName: "Rahil Mostafaei",
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },

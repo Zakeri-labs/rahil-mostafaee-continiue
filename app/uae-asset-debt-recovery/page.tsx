@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     url: "/uae-asset-debt-recovery",
+    type: "website",
+    siteName: "Rahil Mostafaei",
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },

@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     description:
       "Submit a confidential matter review for UAE commercial disputes, major receivables, asset recovery, shareholder conflicts and cross-border financial claims.",
     url: "/contact",
+    type: "website",
+    siteName: "Rahil Mostafaei",
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },

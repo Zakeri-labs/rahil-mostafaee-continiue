@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     description:
       "Cross-border legal assessment for multi-jurisdiction contracts, payments, corporate disputes, asset location, governing law and enforcement strategy.",
     url: "/international",
+    type: "website",
+    siteName: "Rahil Mostafaei",
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },
