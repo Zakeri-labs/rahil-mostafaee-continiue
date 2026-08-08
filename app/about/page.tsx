@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About the Corporate and Commercial Legal Practice",
     description:
-      "Focused legal assessment for corporations, business groups, shareholders and institutional investors dealing with UAE commercial disputes, major claims and asset recovery matters.",
+      "Learn about Rahil Mostafaei’s legal practice, professional registration and approach to complex commercial disputes and asset recovery in the UAE.",
     url: "/about",
     type: "website",
     siteName: "Rahil Mostafaei",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About the Corporate and Commercial Legal Practice",
     description:
-      "Focused legal assessment for corporations, business groups, shareholders and institutional investors dealing with UAE commercial disputes, major claims and asset recovery matters.",
+      "Learn about Rahil Mostafaei’s legal practice, professional registration and approach to complex commercial disputes and asset recovery in the UAE.",
     images: ["/social/rahil-mostafaei-social.png"],
   },
 };
