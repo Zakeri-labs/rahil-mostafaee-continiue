@@ -25,6 +25,12 @@ export const metadata: Metadata = {
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle,
+    description: pageDescription,
+    images: ["/social/rahil-mostafaei-social.png"],
+  },
 };
 
 const commercialFaqs = [

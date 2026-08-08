@@ -16,6 +16,13 @@ export const metadata: Metadata = {
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "About the Corporate and Commercial Legal Practice",
+    description:
+      "Focused legal assessment for corporations, business groups, shareholders and institutional investors dealing with UAE commercial disputes, major claims and asset recovery matters.",
+    images: ["/social/rahil-mostafaei-social.png"],
+  },
 };
 
 export default function Page() {

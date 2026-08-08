@@ -16,6 +16,13 @@ export const metadata: Metadata = {
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Confidential Corporate and Commercial Case Review in the UAE",
+    description:
+      "Submit a confidential matter review for UAE commercial disputes, major receivables, asset recovery, shareholder conflicts and cross-border financial claims.",
+    images: ["/social/rahil-mostafaei-social.png"],
+  },
 };
 
 export default function Page() {

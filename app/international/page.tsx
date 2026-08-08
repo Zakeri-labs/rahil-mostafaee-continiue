@@ -16,6 +16,13 @@ export const metadata: Metadata = {
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cross-Border Commercial Disputes and Corporate Matters",
+    description:
+      "Cross-border legal assessment for multi-jurisdiction contracts, payments, corporate disputes, asset location, governing law and enforcement strategy.",
+    images: ["/social/rahil-mostafaei-social.png"],
+  },
 };
 
 export default function Page() {

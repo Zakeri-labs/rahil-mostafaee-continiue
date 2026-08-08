@@ -16,6 +16,13 @@ export const metadata: Metadata = {
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rahil Mostafaei | Corporate and Commercial Legal Consultant in Dubai",
+    description:
+      "Strategic legal assessment for corporations, business groups, shareholders and institutional investors handling complex commercial disputes, major claims and asset recovery matters in the UAE.",
+    images: ["/social/rahil-mostafaei-social.png"],
+  },
 };
 
 export default function Page() {
