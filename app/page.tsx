@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: "Rahil Mostafaei | Corporate and Commercial Legal Consultant in Dubai",
     description:
       "Strategic legal assessment for corporations, business groups, shareholders and institutional investors handling complex commercial disputes, major claims and asset recovery matters in the UAE.",
+    url: "/",
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },

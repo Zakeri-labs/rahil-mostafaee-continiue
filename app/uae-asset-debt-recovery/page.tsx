@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: pageTitle,
     description: pageDescription,
+    url: "/uae-asset-debt-recovery",
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },

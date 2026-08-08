@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: "Confidential Corporate and Commercial Case Review in the UAE",
     description:
       "Submit a confidential matter review for UAE commercial disputes, major receivables, asset recovery, shareholder conflicts and cross-border financial claims.",
+    url: "/contact",
     locale: "en_AE",
     images: ["/social/rahil-mostafaei-social.png"],
   },
