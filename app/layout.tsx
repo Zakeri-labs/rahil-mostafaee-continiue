@@ -12,8 +12,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buildPersonSchema } from "@/lib/seo/json-ld";
 import { getSiteUrl } from "@/lib/seo/site-url";
 
-const previewImage =
-  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69bde703-9d13-4c09-8970-6aa38ca5aa8f/id-preview-dd3066eb--968f7a0d-6eab-41ef-8230-5310d790e022.lovable.app-1778573785780.png";
+const socialImage = "/social/rahil-mostafaei-social.png";
 
 const directionScript = `
   (function () {
@@ -100,14 +99,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_AE",
     siteName: "Rahil Mostafaei",
-    images: [previewImage],
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "Rahil Mostafaei | Corporate and Commercial Legal Consultant in Dubai",
     description:
       "Rahil Mostafaei is a Legal Consultant registered with the Government of Dubai Legal Affairs Department, focusing on complex commercial disputes, major claims, shareholder conflicts and asset recovery matters in the UAE.",
-    images: [previewImage],
+    images: [socialImage],
   },
 };
 

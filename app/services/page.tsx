@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "Legal services for complex corporate and commercial disputes, asset recovery, major debt and receivables recovery, shareholder conflicts and cross-border matters in the UAE.",
     locale: "en_AE",
+    images: ["/social/rahil-mostafaei-social.png"],
   },
 };
 

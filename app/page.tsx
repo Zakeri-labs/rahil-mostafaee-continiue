@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description:
       "Strategic legal assessment for corporations, business groups, shareholders and institutional investors handling complex commercial disputes, major claims and asset recovery matters in the UAE.",
     locale: "en_AE",
+    images: ["/social/rahil-mostafaei-social.png"],
   },
 };
 

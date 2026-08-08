@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     locale: "en_AE",
+    images: ["/social/rahil-mostafaei-social.png"],
   },
 };
 

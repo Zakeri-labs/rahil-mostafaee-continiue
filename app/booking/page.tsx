@@ -7,7 +7,10 @@ export const metadata: Metadata = {
   description:
     "Book a confidential consultation with Rahil Mostafaei to discuss commercial disputes, asset recovery, shareholder conflicts, and cross-border matters in the UAE.",
   alternates: { canonical: "/booking" },
-  openGraph: { locale: "en_AE" },
+  openGraph: {
+    locale: "en_AE",
+    images: ["/social/rahil-mostafaei-social.png"],
+  },
 };
 
 export default function Page() {
