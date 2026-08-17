@@ -30,7 +30,7 @@ const serviceLinks = [
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const { t, lang } = useI18n();
+  const { t, lang, dir } = useI18n();
   const servicesActive = serviceLinks.some((link) => pathname === link.to);
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export function Nav() {
           </Link>
 
           <nav className="hidden min-w-0 items-center justify-center gap-2 xl:gap-3 2xl:gap-4 lg:flex">
-            <DropdownMenu>
+            <DropdownMenu dir={dir}>
               <DropdownMenuTrigger asChild>
                 <button
                   type="button"
@@ -86,6 +86,7 @@ export function Nav() {
               <DropdownMenuContent
                 align="start"
                 sideOffset={12}
+                style={{ direction: dir }}
                 className="min-w-72 border-gold/20 bg-charcoal p-2 text-ivory shadow-luxe"
               >
                 {serviceLinks.map((serviceLink) => (

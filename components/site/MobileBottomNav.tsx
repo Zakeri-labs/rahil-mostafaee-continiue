@@ -26,7 +26,7 @@ const serviceLinks = [
 ] as const;
 
 export function MobileBottomNav() {
-  const { t, lang } = useI18n();
+  const { t, lang, dir } = useI18n();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -92,7 +92,7 @@ export function MobileBottomNav() {
 
       {/* Slide-up menu sheet */}
       {open && (
-        <div className="lg:hidden fixed inset-0 z-[95]" role="dialog" aria-modal="true">
+        <div className="lg:hidden fixed inset-0 z-[95]" role="dialog" aria-modal="true" dir={dir}>
           <button
             className="absolute inset-0 bg-onyx/80 backdrop-blur-sm animate-fade-in"
             onClick={() => setOpen(false)}
