@@ -2,33 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import {
-  Briefcase,
-  CalendarCheck,
-  MessageCircle,
-  Menu as MenuIcon,
-  X,
-  ChevronDown,
-  Globe,
-  Mail,
-  BookOpen,
-  Building2,
-} from "lucide-react";
+import { CalendarCheck, MessageCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
-import { LanguageSwitcher } from "@/components/site/LanguageSwitcher";
-
-const serviceLinks = [
-  { to: "/corporate-commercial-disputes", key: "nav.services.commercial" },
-  { to: "/uae-asset-debt-recovery", key: "nav.services.asset" },
-  { to: "/services", key: "nav.services.other" },
-] as const;
 
 export function MobileBottomNav() {
-  const { t, lang, dir } = useI18n();
+  const { t } = useI18n();
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
 
   const waMsg = encodeURIComponent(t("fab.whatsapp.msg"));
   const waHref = `https://wa.me/${LEADS_WHATSAPP_NUMBER}?text=${waMsg}`;
@@ -41,154 +21,38 @@ export function MobileBottomNav() {
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         aria-label="Mobile navigation"
       >
-        <div className="grid grid-cols-4 items-end h-16">
-          <Link
-            href="/services"
-            className={`flex h-full flex-col items-center justify-center gap-1 transition-colors hover:text-gold ${
-              pathname === "/services" ? "text-gold" : "text-muted-foreground"
-            }`}
-          >
-            <Briefcase className="w-5 h-5" strokeWidth={1.5} />
-            <span className="text-[9px] tracking-[0.15em] uppercase">{t("nav.practice")}</span>
-          </Link>
-
-          {/* Center CTA — case review */}
-          <Link
-            href="/contact"
-            className="relative flex flex-col items-center justify-end h-full"
-            aria-label={t("nav.review")}
-          >
-            <span className="absolute -top-5 flex items-center justify-center w-14 h-14 rounded-full bg-gold text-onyx shadow-glow ring-4 ring-onyx">
-              <CalendarCheck className="w-6 h-6" strokeWidth={1.6} />
-            </span>
-            <span className="text-[9px] tracking-[0.15em] uppercase text-gold mb-2">
-              {t("nav.review")}
-            </span>
-          </Link>
-
+        <div className="grid h-16 grid-cols-2">
           <a
             href={waHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center gap-1 text-muted-foreground hover:text-[#25D366] transition-colors h-full"
+            className="relative flex h-full flex-col items-center justify-end text-[#25D366]"
             aria-label={t("fab.whatsapp.aria")}
           >
-            <MessageCircle className="w-5 h-5 text-[#25D366]" strokeWidth={1.5} />
-            <span className="text-[9px] tracking-[0.15em] uppercase">
+            <span className="absolute -top-5 flex h-14 w-14 items-center justify-center rounded-full bg-onyx text-[#25D366] shadow-glow ring-4 ring-[#25D366]">
+              <MessageCircle className="h-6 w-6" strokeWidth={1.6} />
+            </span>
+            <span className="mb-2 text-[9px] tracking-[0.15em] uppercase text-[#25D366]">
               {t("fab.whatsapp.label")}
             </span>
           </a>
 
-          <button
-            onClick={() => setOpen(true)}
-            className="flex flex-col items-center justify-center gap-1 text-muted-foreground hover:text-gold transition-colors h-full"
-            aria-label={t("nav.menu.open")}
+          <Link
+            href="/contact"
+            className={`relative flex h-full flex-col items-center justify-end ${
+              pathname === "/contact" ? "text-gold" : "text-muted-foreground"
+            }`}
+            aria-label={t("nav.review")}
           >
-            <MenuIcon className="w-5 h-5" strokeWidth={1.5} />
-            <span className="text-[9px] tracking-[0.15em] uppercase">{t("nav.more")}</span>
-          </button>
+            <span className="absolute -top-5 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-onyx shadow-glow ring-4 ring-onyx">
+              <CalendarCheck className="h-6 w-6" strokeWidth={1.6} />
+            </span>
+            <span className="mb-2 text-[9px] tracking-[0.15em] uppercase text-gold">
+              {t("nav.review")}
+            </span>
+          </Link>
         </div>
       </nav>
-
-      {/* Slide-up menu sheet */}
-      {open && (
-        <div className="lg:hidden fixed inset-0 z-[95]" role="dialog" aria-modal="true" dir={dir}>
-          <button
-            className="absolute inset-0 bg-onyx/80 backdrop-blur-sm animate-fade-in"
-            onClick={() => setOpen(false)}
-            aria-label={t("nav.menu.close")}
-          />
-          <div
-            className="absolute bottom-0 inset-x-0 bg-charcoal border-t border-gold/30 rounded-t-3xl p-6 pb-10 animate-fade-in shadow-luxe"
-            style={{ paddingBottom: "calc(2.5rem + env(safe-area-inset-bottom))" }}
-          >
-            <div className="flex items-center justify-between mb-6">
-              <div className="text-[10px] tracking-[0.4em] uppercase text-gold">
-                {t("nav.more")}
-              </div>
-              <button
-                onClick={() => setOpen(false)}
-                className="text-muted-foreground hover:text-gold"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div className="col-span-2 border border-gold/15 p-4">
-                <div className="flex items-center gap-3 text-sm text-gold">
-                  <Briefcase className="w-4 h-4" strokeWidth={1.4} />
-                  <span>{t("nav.practice")}</span>
-                  <ChevronDown className="ms-auto w-4 h-4" aria-hidden="true" />
-                </div>
-                <div className="mt-3 space-y-2 border-s border-gold/15 ps-4">
-                  {serviceLinks.map((serviceLink) => (
-                    <Link
-                      key={serviceLink.to}
-                      href={serviceLink.to}
-                      onClick={() => setOpen(false)}
-                      className={`block py-1 text-sm text-muted-foreground transition-colors hover:text-gold ${
-                        pathname === serviceLink.to ? "text-gold" : ""
-                      }`}
-                    >
-                      {t(serviceLink.key)}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              <Link
-                href="/international"
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors"
-              >
-                <Globe className="w-4 h-4 text-gold" strokeWidth={1.4} />
-                <span className="text-sm text-ivory">{t("nav.international")}</span>
-              </Link>
-              <Link
-                href="/about"
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors"
-              >
-                <Building2 className="w-4 h-4 text-gold" strokeWidth={1.4} />
-                <span className="text-sm text-ivory">{t("nav.firm")}</span>
-              </Link>
-              {lang === "fa" && (
-                <Link
-                  href="/blog"
-                  onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors"
-                >
-                  <BookOpen className="w-4 h-4 text-gold" strokeWidth={1.4} />
-                  <span className="text-sm text-ivory">{t("nav.blog")}</span>
-                </Link>
-              )}
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className={`flex items-center gap-3 p-4 border border-gold/15 hover:border-gold/40 transition-colors ${
-                  lang === "en" ? "col-span-2" : ""
-                }`}
-              >
-                <Mail className="w-4 h-4 text-gold" strokeWidth={1.4} />
-                <span className="text-sm text-ivory">{t("nav.contact")}</span>
-              </Link>
-            </div>
-
-            <div className="mt-6 pt-6 border-t border-gold/10 flex items-center justify-between">
-              <LanguageSwitcher />
-
-              <Link
-                href="/booking"
-                onClick={() => setOpen(false)}
-                className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold hover:text-gold-soft"
-              >
-                {t("nav.book")}
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Spacer so page content isn't hidden behind the bar */}
       <div className="lg:hidden h-20" aria-hidden />

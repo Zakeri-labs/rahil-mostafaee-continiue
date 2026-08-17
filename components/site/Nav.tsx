@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { BookOpen, Building2, ChevronDown, Globe, Mail, Menu, X } from "lucide-react";
 import logo from "@/assets/logo-mark.png";
 import { useI18n } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/site/LanguageSwitcher";
@@ -29,6 +29,7 @@ const serviceLinks = [
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const { t, lang, dir } = useI18n();
   const servicesActive = serviceLinks.some((link) => pathname === link.to);
@@ -39,6 +40,26 @@ export function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [menuOpen]);
 
   return (
     <header
@@ -130,9 +151,119 @@ export function Nav() {
             </Link>
           </div>
 
-          <LanguageSwitcher compact className="lg:hidden" />
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation-menu"
+            aria-label={t("nav.menu.open")}
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/20 text-muted-foreground transition-colors hover:border-gold/40 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 lg:hidden"
+          >
+            <Menu className="size-5" aria-hidden="true" />
+          </button>
         </div>
       </div>
+
+      {menuOpen && (
+        <div className="fixed inset-0 z-[70] lg:hidden" role="dialog" aria-modal="true">
+          <button
+            type="button"
+            className="absolute inset-0 bg-onyx/80 backdrop-blur-sm animate-fade-in"
+            onClick={() => setMenuOpen(false)}
+            aria-label={t("nav.menu.close")}
+          />
+
+          <aside
+            id="mobile-navigation-menu"
+            dir={dir}
+            className={`absolute inset-y-0 w-[min(88vw,24rem)] overflow-y-auto border-gold/30 bg-charcoal px-6 pb-8 shadow-luxe animate-fade-in ${dir === "rtl" ? "left-0 border-r" : "right-0 border-l"}`}
+          >
+            <div className="flex items-center justify-between border-b border-gold/10 pb-5 pt-6">
+              <div>
+                <div className="text-[10px] tracking-[0.4em] uppercase text-gold">
+                  {t("nav.more")}
+                </div>
+                <div className="mt-1 text-xs text-muted-foreground">{t("tag.legal")}</div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setMenuOpen(false)}
+                aria-label={t("nav.menu.close")}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50"
+              >
+                <X className="size-5" aria-hidden="true" />
+              </button>
+            </div>
+
+            <nav aria-label={t("nav.more")} className="space-y-2 py-6">
+              <div className="border border-gold/15 p-4">
+                <div className="flex items-center gap-3 text-sm text-gold">
+                  <span>{t("nav.practice")}</span>
+                  <ChevronDown className="ms-auto size-4" aria-hidden="true" />
+                </div>
+                <div className="mt-3 space-y-1 border-s border-gold/15 ps-4">
+                  {serviceLinks.map((serviceLink) => (
+                    <Link
+                      key={serviceLink.to}
+                      href={serviceLink.to}
+                      onClick={() => setMenuOpen(false)}
+                      className={`block py-2 text-sm text-muted-foreground transition-colors hover:text-gold ${pathname === serviceLink.to ? "text-gold" : ""}`}
+                    >
+                      {t(serviceLink.key)}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <Link
+                href="/international"
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center gap-3 border border-gold/15 p-4 text-sm transition-colors hover:border-gold/40 hover:text-gold ${pathname === "/international" ? "text-gold" : "text-ivory"}`}
+              >
+                <Globe className="size-4 text-gold" strokeWidth={1.4} aria-hidden="true" />
+                <span>{t("nav.international")}</span>
+              </Link>
+              <Link
+                href="/about"
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center gap-3 border border-gold/15 p-4 text-sm transition-colors hover:border-gold/40 hover:text-gold ${pathname === "/about" ? "text-gold" : "text-ivory"}`}
+              >
+                <Building2 className="size-4 text-gold" strokeWidth={1.4} aria-hidden="true" />
+                <span>{t("nav.firm")}</span>
+              </Link>
+              {lang === "fa" && (
+                <Link
+                  href="/blog"
+                  onClick={() => setMenuOpen(false)}
+                  className={`flex items-center gap-3 border border-gold/15 p-4 text-sm transition-colors hover:border-gold/40 hover:text-gold ${pathname === "/blog" ? "text-gold" : "text-ivory"}`}
+                >
+                  <BookOpen className="size-4 text-gold" strokeWidth={1.4} aria-hidden="true" />
+                  <span>{t("nav.blog")}</span>
+                </Link>
+              )}
+              <Link
+                href="/contact"
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center gap-3 border border-gold/15 p-4 text-sm transition-colors hover:border-gold/40 hover:text-gold ${pathname === "/contact" ? "text-gold" : "text-ivory"}`}
+              >
+                <Mail className="size-4 text-gold" strokeWidth={1.4} aria-hidden="true" />
+                <span>{t("nav.contact")}</span>
+              </Link>
+            </nav>
+
+            <div className="space-y-3 border-t border-gold/10 pt-6">
+              <Link
+                href="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="flex w-full items-center justify-center rounded-full border border-gold/40 px-4 py-3 text-center text-xs tracking-[0.16em] uppercase text-gold transition-all hover:bg-gold hover:text-onyx"
+              >
+                {t("nav.book")}
+              </Link>
+              <LanguageSwitcher className="w-full" />
+            </div>
+          </aside>
+        </div>
+      )}
     </header>
   );
 }
