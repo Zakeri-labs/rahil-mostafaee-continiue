@@ -16,8 +16,7 @@
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-fa: var(--font-peyda), "IRANSansX", "IRANSans", "Vazirmatn", "Tahoma", sans-serif;
-  --font-fa-display: var(--font-peyda), "Estedad", "IRANSansX", "Vazirmatn", "Tahoma",
-    sans-serif;
+  --font-fa-display: var(--font-peyda), "Estedad", "IRANSansX", "Vazirmatn", "Tahoma", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   --radius-sm: 4px;
@@ -111,10 +110,10 @@
     scroll-behavior: smooth;
   }
   body {
-    --peyda-persian-font: var(--font-peyda), "IRANSansX", "IRANSans", "Vazirmatn", "Tahoma",
-      sans-serif;
-    --peyda-persian-display-font: var(--font-peyda), "Estedad", "IRANSansX", "Vazirmatn",
-      "Tahoma", sans-serif;
+    --peyda-persian-font:
+      var(--font-peyda), "IRANSansX", "IRANSans", "Vazirmatn", "Tahoma", sans-serif;
+    --peyda-persian-display-font:
+      var(--font-peyda), "Estedad", "IRANSansX", "Vazirmatn", "Tahoma", sans-serif;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
@@ -383,6 +382,32 @@
     animation: float 6s ease-in-out infinite;
   }
 
+  @keyframes hero-whatsapp-float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -14px, 0);
+    }
+  }
+  .hero-whatsapp-float {
+    box-shadow:
+      0 18px 50px -14px rgb(18 96 78 / 72%),
+      0 0 26px rgb(18 96 78 / 24%);
+  }
+  .hero-whatsapp-float:hover {
+    box-shadow:
+      0 20px 56px -12px rgb(18 96 78 / 82%),
+      0 0 32px rgb(18 96 78 / 32%);
+  }
+  @media (min-width: 1024px) {
+    .hero-whatsapp-float {
+      animation: hero-whatsapp-float 3.2s ease-in-out infinite;
+      will-change: transform;
+    }
+  }
+
   @keyframes pulse-gold {
     0%,
     100% {
@@ -504,6 +529,7 @@
     .ken-burns,
     .slow-pan,
     .float,
+    .hero-whatsapp-float,
     .drift,
     .pulse-gold,
     .shimmer {

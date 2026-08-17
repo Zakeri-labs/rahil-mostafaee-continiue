@@ -31,14 +31,13 @@ import crossBorderMatterImage from "@/assets/5-Iran-UAE-Cross-Border.png";
 import commercialDisputesImage from "@/assets/Path1-Iran-UAE-Commercial-Disputes.png";
 import assetRecoveryImage from "@/assets/Path2-Asset-Recovery.png";
 import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
-import hero from "@/assets/hero-skyline.jpg";
-import rahilCutoutMobile from "@/assets/rahil-cutout-mobile.png";
+import heroOfficeWide from "@/assets/rahil-hero-office-wide.webp";
+import heroMobile from "@/assets/hero-mobile.webp";
 import office from "@/assets/office-interior.jpg";
-import portrait from "@/assets/rahil-ai-1.jpg";
 import timeSensitiveReviewImage from "@/assets/Time-Sensitive-Review .png";
 import { ProcessConnector } from "@/components/site/ProcessConnector";
 import { Reveal } from "@/components/site/Reveal";
-import { Parallax, ScrollProgress } from "@/components/site/Parallax";
+import { ScrollProgress } from "@/components/site/Parallax";
 import { ConfidentialCaseIntakeWizard } from "@/components/site/ConfidentialCaseIntakeWizard";
 import { useI18n } from "@/lib/i18n";
 
@@ -94,43 +93,49 @@ function Hero() {
   const waHref = whatsappHref(t("home.hero.whatsappMsg"));
   const headlineClassName =
     lang === "fa"
-      ? "text-[2.25rem] leading-[1.3] min-[430px]:text-[2.45rem] md:text-[2.8rem] lg:text-[4.25rem] lg:leading-[1.18]"
-      : "text-[2.7rem] leading-[1.04] min-[430px]:text-[3.15rem] md:text-[3.35rem] lg:text-[6.125rem] lg:leading-[0.95]";
-  const copyColumnClassName = lang === "fa" ? "lg:max-w-[39rem] lg:justify-self-start" : "";
+      ? "text-[2.15rem] leading-[1.48] min-[430px]:text-[2.45rem] min-[430px]:leading-[1.45] md:text-[3.2rem] lg:text-[3.65rem] lg:leading-[1.22]"
+      : "text-[2.55rem] leading-[1.12] min-[430px]:text-[2.95rem] min-[430px]:leading-[1.1] md:text-[3.9rem] lg:text-[4.65rem] lg:leading-[0.96]";
+
+  const features = [
+    { title: t("home.hero.feature.1.t"), description: t("home.hero.feature.1.b") },
+    { title: t("home.hero.feature.2.t"), description: t("home.hero.feature.2.b") },
+    { title: t("home.hero.feature.3.t"), description: t("home.hero.feature.3.b") },
+  ];
 
   return (
-    <section className="relative -mt-24 overflow-visible pt-0 lg:flex lg:min-h-screen lg:items-center lg:overflow-hidden lg:pt-32">
-      <div className="absolute inset-0 -z-10 lg:hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-onyx via-charcoal/60 to-onyx" />
+    <section className="relative -mt-24 min-h-[70rem] overflow-visible bg-onyx sm:min-h-[68rem] md:min-h-[60rem] lg:min-h-[max(100svh,50rem)]">
+      <div className="absolute inset-x-0 bottom-0 top-24 overflow-hidden md:inset-x-6 md:top-28 lg:inset-0 lg:translate-y-24 2xl:translate-y-5">
+        <picture className={`block h-full w-full ${lang === "fa" ? "scale-x-[-1]" : ""}`}>
+          <source media="(max-width: 1023px)" srcSet={heroMobile.src} />
+          <img
+            src={heroOfficeWide.src}
+            alt="Rahil Mostafaei in her Dubai legal office"
+            className="h-full w-full object-cover object-[28%_top] lg:object-contain lg:object-center"
+            width={heroOfficeWide.width}
+            height={heroOfficeWide.height}
+          />
+        </picture>
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-onyx/5 via-transparent to-onyx/20 md:from-onyx/10 md:via-transparent md:to-onyx/35" />
         <div
-          className="absolute inset-0"
-          style={{ background: "var(--gradient-radial-gold)", opacity: 0.2 }}
+          className={`pointer-events-none absolute inset-0 ${lang === "fa" ? "bg-gradient-to-l" : "bg-gradient-to-r"} from-onyx/20 via-onyx/5 via-40% to-transparent md:via-30% lg:from-onyx/55 lg:via-onyx/30 lg:to-transparent`}
+        />
+        <div
+          className={`pointer-events-none absolute inset-y-0 w-px bg-gold/30 ${lang === "fa" ? "right-0" : "left-0"}`}
+        />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.045] mix-blend-overlay"
+          style={{
+            backgroundImage: "radial-gradient(oklch(0.9 0.08 80) 1px, transparent 1px)",
+            backgroundSize: "3px 3px",
+          }}
         />
       </div>
 
-      <div className="absolute inset-0 hidden lg:block">
-        <Parallax speed={60} className="absolute inset-0">
-          <img
-            src={hero.src}
-            alt="Dubai skyline"
-            className="w-full h-full object-cover opacity-[0.42] ken-burns scale-110"
-            width={1920}
-            height={1280}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-onyx/70 via-onyx/50 to-onyx" />
-          <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/60 to-transparent" />
-          <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)" }} />
-          <div
-            className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
-            style={{
-              backgroundImage: "radial-gradient(oklch(0.78 0.12 80) 1px, transparent 1px)",
-              backgroundSize: "3px 3px",
-            }}
-          />
-        </Parallax>
-      </div>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-60% to-onyx/70 md:hidden" />
 
-      <div className="absolute left-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-6 lg:flex">
+      <div
+        className={`absolute top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-5 2xl:flex ${lang === "fa" ? "right-5" : "left-5"}`}
+      >
         <span className="h-24 w-px bg-gradient-to-b from-transparent to-gold/60" />
         <span className="font-mono text-[10px] tracking-[0.5em] uppercase text-gold/80 [writing-mode:vertical-rl] rotate-180">
           {t("home.hero.est")}
@@ -138,47 +143,18 @@ function Hero() {
         <span className="h-24 w-px bg-gradient-to-b from-gold/60 to-transparent" />
       </div>
 
-      <div className="sticky top-0 z-0 h-svh overflow-hidden sm:hidden" data-hero-mobile-image>
-        <img
-          src={rahilCutoutMobile.src}
-          alt="Rahil Mostafaei"
-          className="h-full w-full scale-[1.04] object-cover"
-          style={{ objectPosition: "center 12%" }}
-          width={595}
-          height={1192}
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-onyx/10 via-onyx/20 to-onyx/92" />
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-onyx/80 to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-onyx/80 to-transparent" />
-      </div>
-
-      <div className="relative z-[2] -mt-[42svh] grid w-full gap-5 px-6 pb-8 sm:mt-0 sm:grid-cols-[minmax(0,0.82fr)_minmax(0,1fr)] sm:items-start sm:gap-6 md:gap-8 lg:mx-auto lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-20 lg:pb-24 lg:pt-12">
+      <div
+        className={`relative z-10 mx-auto flex min-h-[70rem] max-w-[100rem] items-start px-6 pb-56 pt-[8.5rem] sm:min-h-[68rem] sm:pb-24 sm:pt-44 md:min-h-[60rem] md:px-10 md:pt-44 lg:min-h-[max(100svh,50rem)] lg:items-center lg:px-20 lg:pb-28 lg:pt-40 ${lang === "fa" ? "justify-start" : ""}`}
+        dir={lang === "fa" ? "rtl" : "ltr"}
+      >
         <div
-          className="relative -mx-6 hidden h-[43svh] min-h-[318px] max-h-[430px] overflow-hidden sm:mx-0 sm:block sm:h-auto sm:min-h-0 sm:max-h-none sm:self-start lg:hidden"
-          data-hero-tablet-image
-        >
-          <div className="absolute inset-0 sm:relative sm:aspect-[4/5]">
-            <img
-              src={rahilCutoutMobile.src}
-              alt="Rahil Mostafaei"
-              className="h-full w-full scale-[1.02] object-cover sm:scale-100"
-              style={{ objectPosition: "center 12%" }}
-              width={595}
-              height={1192}
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-onyx/20 via-transparent to-onyx/88" />
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-onyx/80 to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-onyx/80 to-transparent" />
-          </div>
-        </div>
-
-        <div
-          className={`min-w-0 border-y border-gold/15 bg-onyx/10 px-4 py-5 shadow-luxe backdrop-blur-2xl sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none sm:self-center lg:col-span-7 lg:space-y-10 ${copyColumnClassName}`}
+          className={`w-full min-w-0 max-w-[17rem] sm:max-w-[54%] md:max-w-[52%] lg:max-w-[45rem] xl:max-w-[48rem] ${lang === "fa" ? "lg:max-w-[42rem]" : ""}`}
           data-hero-copy
+          dir={lang === "fa" ? "rtl" : "ltr"}
         >
-          <div className="reveal mb-3 flex items-center gap-2 lg:mb-0 lg:gap-3">
-            <span className="h-px w-8 bg-gold lg:w-12" />
-            <span className="text-[10px] tracking-[0.3em] uppercase text-gold leading-tight lg:text-xs lg:tracking-[0.28em]">
+          <div className="reveal mb-7 flex items-center gap-3 lg:mb-9">
+            <span className="h-px w-10 shrink-0 bg-gold lg:w-14" />
+            <span className="max-w-xl text-[10px] leading-relaxed tracking-[0.26em] uppercase text-gold lg:text-[11px] lg:tracking-[0.24em]">
               {t("home.hero.kicker")}
             </span>
           </div>
@@ -190,121 +166,112 @@ function Hero() {
             <HeroHeadlineText lang={lang} title={t("home.hero.h1")} />
           </h1>
 
-          <p className="reveal reveal-delay-2 mt-4 text-[13px] text-muted-foreground leading-relaxed sm:max-w-xl lg:mt-0 lg:text-lg">
+          <p className="reveal reveal-delay-2 mt-7 max-w-2xl text-[13px] leading-relaxed text-ivory/70 sm:text-[15px] lg:mt-9 lg:text-base lg:leading-7">
             {t("home.hero.lede")}
           </p>
 
-          <div className="mt-5 space-y-2 lg:flex lg:flex-wrap lg:items-center lg:gap-4 lg:space-y-0">
-            <Link
-              href="/contact"
-              className="reveal reveal-delay-3 group inline-flex w-full items-center justify-center gap-2 bg-gold px-4 py-3.5 text-onyx shadow-glow transition-all duration-300 hover:bg-gold-soft lg:w-auto lg:gap-3 lg:px-8 lg:py-4"
-            >
-              <span className="text-xs tracking-[0.22em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
-                {t("home.hero.cta.primary")}
-              </span>
-              <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 lg:w-4 lg:h-4" />
-            </Link>
-            <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="reveal reveal-delay-4 group inline-flex w-full items-center justify-center gap-2 glass-strong border border-gold/20 px-4 py-3 text-ivory backdrop-blur-md transition-all hover:border-gold/40 lg:w-auto lg:gap-3 lg:border-0 lg:px-8 lg:py-4"
-            >
-              <MessageCircle className="w-3.5 h-3.5 text-[#25D366] lg:w-4 lg:h-4" />
-              <span className="text-xs tracking-[0.22em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
-                {t("home.hero.cta.secondary")}
-              </span>
-            </a>
-          </div>
-
-          <div
-            className="reveal reveal-delay-4 -mx-6 mt-6 grid grid-cols-3 gap-px border-t border-gold/25 bg-gold/15 sm:mx-0 lg:mt-12 lg:max-w-3xl lg:border-t-0 lg:bg-gold/10"
-            data-hero-stats
-          >
-            {[
-              { title: t("home.hero.feature.1.t"), description: t("home.hero.feature.1.b") },
-              { title: t("home.hero.feature.2.t"), description: t("home.hero.feature.2.b") },
-              { title: t("home.hero.feature.3.t"), description: t("home.hero.feature.3.b") },
-            ].map((s) => (
-              <div
-                key={s.title}
-                className="bg-onyx/95 px-2 py-4 text-center backdrop-blur lg:bg-onyx/80 lg:px-6 lg:py-6 lg:text-start"
-              >
-                <div className="line-clamp-2 min-h-[2.3em] font-display text-[9px] leading-tight text-gold sm:text-[10px] lg:text-xl">
-                  {s.title}
-                </div>
-                <div className="stat-label mt-1.5 line-clamp-2 min-h-[2.3em] text-[7px] leading-tight tracking-[0.08em] uppercase text-muted-foreground lg:mt-1 lg:text-[10px] lg:tracking-[0.14em]">
-                  {s.description}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="hidden lg:col-span-5 lg:block" data-hero-portrait-column>
-          <div className="relative">
+          <div className="reveal reveal-delay-2 mt-7 max-w-60 lg:mt-9 xl:hidden">
             <div
-              className="absolute -inset-16 rounded-full bg-gold/10 blur-3xl opacity-70 drift"
-              aria-hidden
-            />
-
-            <div className="reveal reveal-delay-3 absolute -top-4 -right-4 z-20 glass-strong px-4 py-3 border-l-2 border-gold">
-              <div className="flex items-center gap-2.5">
-                <span className="relative flex h-1.5 w-1.5">
+              className={`bg-onyx/70 px-3 py-2.5 shadow-luxe backdrop-blur-xl ${lang === "fa" ? "border-r-2 border-gold" : "border-l-2 border-gold"}`}
+            >
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-1.5 w-1.5 shrink-0">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-gold" />
                 </span>
                 <div>
-                  <div className="text-[9px] tracking-[0.35em] uppercase text-gold leading-none lg:text-xs lg:tracking-[0.24em]">
+                  <div className="text-[9px] leading-none tracking-[0.24em] uppercase text-gold">
                     {t("home.hero.available")}
                   </div>
-                  <div className="text-[11px] text-ivory mt-1 leading-none">
+                  <div className="mt-1 text-[10px] leading-none text-ivory">
                     {t("home.hero.location")}
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="reveal reveal-delay-2 relative">
-              <span className="pointer-events-none absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-gold z-10" />
-              <span className="pointer-events-none absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-gold z-10" />
-              <span className="pointer-events-none absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-gold z-10" />
-              <span className="pointer-events-none absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-gold z-10" />
+          <div
+            className="mt-7 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center lg:mt-9 lg:w-[calc(min(100vw,100rem)-10rem)] lg:justify-between lg:gap-6"
+            dir={lang === "fa" ? "rtl" : "ltr"}
+          >
+            <Link
+              href="/contact"
+              className={`reveal reveal-delay-3 group inline-flex w-full items-center justify-center gap-2 bg-gold px-5 py-3.5 text-onyx shadow-glow transition-all duration-300 hover:bg-gold-soft sm:w-auto lg:h-[52px] lg:gap-3 lg:px-7 lg:py-4 ${lang === "fa" ? "lg:ml-auto" : ""}`}
+            >
+              <span className="text-xs font-medium tracking-[0.18em] uppercase lg:text-[13px] lg:tracking-[0.15em]">
+                {t("home.hero.cta.primary")}
+              </span>
+              <ArrowUpRight
+                className={`h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 lg:h-4 lg:w-4 ${lang === "fa" ? "scale-x-[-1]" : ""}`}
+              />
+            </Link>
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`hero-whatsapp-float group inline-flex w-full items-center justify-center gap-3 border border-[#12604e]/55 bg-onyx/75 px-5 py-3.5 text-ivory opacity-100 backdrop-blur-xl transition-colors duration-300 hover:border-[#12604e]/85 hover:bg-onyx/90 sm:w-auto lg:h-[52px] lg:px-7 lg:py-4 ${lang === "fa" ? "lg:absolute lg:left-20 lg:bottom-32 lg:z-30 2xl:left-14" : ""}`}
+            >
+              <MessageCircle className="h-3.5 w-3.5 text-[#25D366] lg:h-4 lg:w-4" />
+              <span className="text-xs font-medium tracking-[0.18em] uppercase lg:text-[13px] lg:tracking-[0.15em]">
+                {t("home.hero.cta.secondary")}
+              </span>
+              <ArrowUpRight
+                className={`h-3.5 w-3.5 text-gold transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 lg:h-4 lg:w-4 ${lang === "fa" ? "scale-x-[-1]" : ""}`}
+              />
+            </a>
+          </div>
+        </div>
+      </div>
 
-              <div className="relative overflow-hidden aspect-[4/5] tilt-hover gold-sweep">
-                <img
-                  src={portrait.src}
-                  alt="Rahil Mostafaei"
-                  className="w-full h-full object-cover slow-pan"
-                  width={900}
-                  height={1125}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/30 to-transparent" />
-                <div className="absolute bottom-0 inset-x-0 p-7">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="h-px w-6 bg-gold" />
-                    <span className="text-[9px] tracking-[0.45em] uppercase text-gold lg:text-xs lg:tracking-[0.28em]">
-                      {t("home.hero.founder")}
-                    </span>
-                  </div>
-                  <div className="font-display text-3xl text-ivory leading-tight">
-                    {t("home.hero.name.first")}
-                    <br />
-                    <span className="italic gradient-gold-text">{t("home.hero.name.last")}</span>
-                  </div>
-                </div>
-              </div>
+      <div
+        className={`reveal reveal-delay-3 absolute top-[20%] z-20 hidden bg-onyx/65 px-4 py-3 shadow-luxe backdrop-blur-xl xl:block ${lang === "fa" ? "left-8 border-r-2 border-gold text-right 2xl:left-14" : "right-8 border-l-2 border-gold 2xl:right-14"}`}
+      >
+        <div className="flex items-center gap-2.5">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 pulse-gold" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-gold" />
+          </span>
+          <div>
+            <div className="text-[10px] leading-none tracking-[0.24em] uppercase text-gold">
+              {t("home.hero.available")}
             </div>
-
-            <div className="reveal reveal-delay-4 mt-6 flex items-center justify-between text-[10px] tracking-[0.3em] uppercase text-muted-foreground lg:text-xs lg:tracking-[0.22em]">
-              <span>{t("home.hero.signature")}</span>
-              <span className="font-mono text-gold">— RM</span>
+            <div className="mt-1.5 text-[11px] leading-none text-ivory">
+              {t("home.hero.location")}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex">
+      <div
+        className="absolute inset-x-0 bottom-0 z-40 translate-y-1/2"
+        dir={lang === "fa" ? "rtl" : "ltr"}
+      >
+        <div className="mx-auto max-w-[100rem] px-6 md:px-10 lg:px-20">
+          <div
+            className={`reveal reveal-delay-4 grid gap-px bg-gold/20 sm:grid-cols-3 lg:max-w-3xl ${lang === "fa" ? "lg:ml-auto lg:mr-0" : "lg:ml-0 lg:mr-auto"}`}
+            data-hero-stats
+            dir={lang === "fa" ? "rtl" : "ltr"}
+          >
+            {features.map((feature) => (
+              <div
+                key={feature.title}
+                className="bg-onyx/90 px-4 py-3.5 backdrop-blur-xl sm:px-3 sm:py-4 lg:bg-onyx/75 lg:px-5 lg:py-5"
+                dir={lang === "fa" ? "rtl" : "ltr"}
+              >
+                <div className="font-display text-sm leading-tight text-gold sm:min-h-[2.5em] sm:text-[13px] lg:text-[17px]">
+                  {feature.title}
+                </div>
+                <div className="stat-label mt-1.5 text-[8px] leading-relaxed tracking-[0.1em] uppercase text-ivory/55 lg:text-[9px] lg:tracking-[0.12em]">
+                  {feature.description}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute top-[calc(100%+4.5rem)] left-1/2 z-30 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex">
         <span className="text-[9px] tracking-[0.45em] uppercase text-muted-foreground lg:text-xs lg:tracking-[0.28em]">
           {t("home.hero.scroll")}
         </span>
@@ -395,7 +362,7 @@ function PainCards() {
   ];
 
   return (
-    <section className="relative py-24 lg:py-32 border-t border-gold/10">
+    <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 border-t border-gold/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 space-y-14">
         <SectionIntro kicker={t("home.pain.kicker")} title={t("home.pain.h2")} />
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-gold/10 hairline">
