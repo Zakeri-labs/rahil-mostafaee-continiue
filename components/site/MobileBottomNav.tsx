@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
-  Home,
   Briefcase,
   CalendarCheck,
   MessageCircle,
   Menu as MenuIcon,
   X,
+  ChevronDown,
   Globe,
   Mail,
   BookOpen,
@@ -18,6 +18,12 @@ import {
 import { useI18n } from "@/lib/i18n";
 import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 import { LanguageSwitcher } from "@/components/site/LanguageSwitcher";
+
+const serviceLinks = [
+  { to: "/corporate-commercial-disputes", key: "nav.services.commercial" },
+  { to: "/uae-asset-debt-recovery", key: "nav.services.asset" },
+  { to: "/services", key: "nav.services.other" },
+] as const;
 
 export function MobileBottomNav() {
   const { t, lang } = useI18n();
@@ -35,17 +41,7 @@ export function MobileBottomNav() {
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         aria-label="Mobile navigation"
       >
-        <div className="grid grid-cols-5 items-end h-16">
-          <Link
-            href="/"
-            className={`flex h-full flex-col items-center justify-center gap-1 transition-colors hover:text-gold ${
-              pathname === "/" ? "text-gold" : "text-muted-foreground"
-            }`}
-          >
-            <Home className="w-5 h-5" strokeWidth={1.5} />
-            <span className="text-[9px] tracking-[0.15em] uppercase">{t("nav.home")}</span>
-          </Link>
-
+        <div className="grid grid-cols-4 items-end h-16">
           <Link
             href="/services"
             className={`flex h-full flex-col items-center justify-center gap-1 transition-colors hover:text-gold ${
@@ -119,6 +115,28 @@ export function MobileBottomNav() {
             </div>
 
             <div className="grid grid-cols-2 gap-3">
+              <div className="col-span-2 border border-gold/15 p-4">
+                <div className="flex items-center gap-3 text-sm text-gold">
+                  <Briefcase className="w-4 h-4" strokeWidth={1.4} />
+                  <span>{t("nav.practice")}</span>
+                  <ChevronDown className="ms-auto w-4 h-4" aria-hidden="true" />
+                </div>
+                <div className="mt-3 space-y-2 border-s border-gold/15 ps-4">
+                  {serviceLinks.map((serviceLink) => (
+                    <Link
+                      key={serviceLink.to}
+                      href={serviceLink.to}
+                      onClick={() => setOpen(false)}
+                      className={`block py-1 text-sm text-muted-foreground transition-colors hover:text-gold ${
+                        pathname === serviceLink.to ? "text-gold" : ""
+                      }`}
+                    >
+                      {t(serviceLink.key)}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
               <Link
                 href="/international"
                 onClick={() => setOpen(false)}

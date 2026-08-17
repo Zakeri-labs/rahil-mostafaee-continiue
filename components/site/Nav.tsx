@@ -3,23 +3,35 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import logo from "@/assets/logo-mark.png";
 import { useI18n } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/site/LanguageSwitcher";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const links: { to: string; key: string; lang?: "fa" }[] = [
-  { to: "/", key: "nav.home" },
-  { to: "/services", key: "nav.practice" },
   { to: "/international", key: "nav.international" },
   { to: "/about", key: "nav.firm" },
   { to: "/blog", key: "nav.blog", lang: "fa" },
   { to: "/contact", key: "nav.contact" },
 ];
 
+const serviceLinks = [
+  { to: "/corporate-commercial-disputes", key: "nav.services.commercial" },
+  { to: "/uae-asset-debt-recovery", key: "nav.services.asset" },
+  { to: "/services", key: "nav.services.other" },
+] as const;
+
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const { t, lang } = useI18n();
+  const servicesActive = serviceLinks.some((link) => pathname === link.to);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -56,6 +68,41 @@ export function Nav() {
           </Link>
 
           <nav className="hidden min-w-0 items-center justify-center gap-2 xl:gap-3 2xl:gap-4 lg:flex">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  type="button"
+                  className={`group inline-flex items-center gap-1 whitespace-nowrap text-sm tracking-wide transition-colors hover:text-gold min-[1180px]:text-[15px] min-[1180px]:tracking-normal 2xl:text-base ${
+                    servicesActive ? "text-gold" : "text-muted-foreground"
+                  }`}
+                >
+                  {t("nav.practice")}
+                  <ChevronDown
+                    className="size-3.5 transition-transform duration-200 group-data-[state=open]:rotate-180"
+                    aria-hidden="true"
+                  />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="start"
+                sideOffset={12}
+                className="min-w-72 border-gold/20 bg-charcoal p-2 text-ivory shadow-luxe"
+              >
+                {serviceLinks.map((serviceLink) => (
+                  <DropdownMenuItem key={serviceLink.to} asChild>
+                    <Link
+                      href={serviceLink.to}
+                      className={`cursor-pointer px-3 py-2.5 text-sm text-muted-foreground hover:text-ivory focus:bg-gold/10 focus:text-ivory ${
+                        pathname === serviceLink.to ? "text-gold" : ""
+                      }`}
+                    >
+                      {t(serviceLink.key)}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             {links
               .filter((link) => !link.lang || link.lang === lang)
               .map((link) => (

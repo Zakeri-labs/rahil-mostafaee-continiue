@@ -16,7 +16,6 @@ import {
   Landmark,
   MessageCircle,
   Scale,
-  ShieldCheck,
   Target,
   Users,
 } from "lucide-react";
@@ -596,7 +595,13 @@ function Process() {
 
 function Trust() {
   const { t } = useI18n();
-  const items = [1, 2, 3, 4, 5].map((n) => t(`home.trust.item.${n}`));
+  const items = [
+    { icon: Building2, label: t("home.trust.item.1") },
+    { icon: Scale, label: t("home.trust.item.2") },
+    { icon: FileSearch, label: t("home.trust.item.3") },
+    { icon: MessageCircle, label: t("home.trust.item.4") },
+    { icon: Banknote, label: t("home.trust.item.5") },
+  ];
 
   return (
     <section className="relative py-24 lg:py-32 border-t border-gold/10 overflow-hidden">
@@ -612,14 +617,17 @@ function Trust() {
           centered
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-gold/10 hairline">
-          {items.map((item, i) => (
-            <Reveal key={item} delay={i * 80}>
-              <div className="h-full bg-onyx/80 backdrop-blur-md p-7 text-center">
-                <ShieldCheck className="w-6 h-6 text-gold mx-auto mb-5" strokeWidth={1.2} />
-                <div className="text-sm text-ivory leading-relaxed">{item}</div>
-              </div>
-            </Reveal>
-          ))}
+          {items.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <Reveal key={item.label} delay={i * 80}>
+                <div className="h-full bg-onyx/80 backdrop-blur-md p-7 text-center">
+                  <Icon className="w-6 h-6 text-gold mx-auto mb-5" strokeWidth={1.2} />
+                  <div className="text-sm text-ivory leading-relaxed">{item.label}</div>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

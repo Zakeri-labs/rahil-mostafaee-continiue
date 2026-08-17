@@ -7,6 +7,9 @@ type Dict = Record<string, string>;
 const en: Dict = {
   "nav.home": "Home",
   "nav.practice": "Services",
+  "nav.services.commercial": "Corporate & Commercial Disputes",
+  "nav.services.asset": "UAE Asset & Debt Recovery",
+  "nav.services.other": "Other Services",
   "nav.international": "Cross-Border Matters",
   "nav.firm": "About",
   "nav.insights": "Insights",
@@ -1396,6 +1399,9 @@ const en: Dict = {
 const fa: Dict = {
   "nav.home": "خانه",
   "nav.practice": "خدمات",
+  "nav.services.commercial": "دعاوی تجاری و شرکتی",
+  "nav.services.asset": "وصول مطالبات و دارایی در امارات",
+  "nav.services.other": "سایر خدمات",
   "nav.international": "ایران–امارات",
   "nav.firm": "درباره",
   "nav.insights": "بینش‌ها",
