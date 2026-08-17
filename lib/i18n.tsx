@@ -516,6 +516,39 @@ const en: Dict = {
   "intl.cta.secondary": "Contact via WhatsApp",
 
   // About page
+  "about.profile.kicker": "About Rahil Mostafaei",
+  "about.profile.h1":
+    "Rahil Mostafaei; A Focused Legal Perspective on Complex Commercial and Financial Matters",
+  "about.profile.p1":
+    "Rahil Mostafaei is a Dubai-registered Legal Consultant whose professional focus is centered on complex commercial, corporate and financial matters connected to the UAE.",
+  "about.profile.p2a":
+    "Her approach begins with understanding the commercial story behind a dispute — the documents, communications, payment history, relationships between the parties, location of assets and the practical risks surrounding the matter — before determining the appropriate legal route.",
+  "about.profile.p3a":
+    "Rather than treating every dispute as a standard litigation matter, Rahil places particular emphasis on ",
+  "about.profile.p3strong":
+    "structured document analysis, commercial context and clear legal route design",
+  "about.profile.p3b":
+    ". This allows each matter to be assessed in stages, with attention to evidence, jurisdiction, urgency and the realistic options available before significant action is taken.",
+  "about.profile.p4":
+    "Her work is particularly aligned with matters involving corporations, business owners, shareholders, investors and cross-border commercial relationships where financial exposure, confidentiality and timing can materially affect the strategy.",
+  "about.profile.imageAlt": "Rahil Mostafaei in her office",
+  "about.registration.kicker": "Professional Credentials",
+  "about.registration.title": "Professional Registration in Dubai",
+  "about.registration.body":
+    "Rahil Mostafaei is professionally registered as a Legal Consultant with the Government of Dubai Legal Affairs Department. Her work focuses on the structured assessment of complex commercial disputes, major claims, corporate conflicts and financial matters in the UAE.",
+  "about.registration.cardTitle": "Registered Legal Consultant in Dubai",
+  "about.registration.label.title": "Professional Title",
+  "about.registration.label.authority": "Registration Authority",
+  "about.registration.label.number": "Professional Registration Number",
+  "about.registration.label.date": "Registration Date",
+  "about.registration.label.expiry": "Valid Until",
+  "about.registration.label.firm": "Firm Listed on Registration",
+  "about.registration.value.title": "Legal Consultant",
+  "about.registration.value.authority": "Government of Dubai Legal Affairs Department",
+  "about.registration.value.number": "L-07168",
+  "about.registration.value.date": "11 March 2026",
+  "about.registration.value.expiry": "10 March 2027",
+  "about.registration.value.firm": "Lutfi & Company Advocates & Legal Consultants",
   "about.kicker": "Focused Approach",
   "about.h1": "A Focused Approach to Complex Commercial and Corporate Matters",
   "about.intro":
@@ -1905,6 +1938,36 @@ const fa: Dict = {
   "intl.cta.secondary": "تماس از طریق واتساپ",
 
   // About page
+  "about.profile.kicker": "درباره راحیل مصطفایی",
+  "about.profile.h1": "نگاهی متمرکز به مسائل پیچیده تجاری و مالی",
+  "about.profile.p1":
+    "راحیل مصطفایی مشاور حقوقی ثبت‌شده در دبی است و تمرکز حرفه‌ای او بر مسائل پیچیده تجاری، شرکتی و مالی مرتبط با امارات متحده عربی قرار دارد.",
+  "about.profile.p2a":
+    "رویکرد او با درک داستان تجاری پشت هر اختلاف آغاز می‌شود؛ از جمله اسناد، مکاتبات، سابقه پرداخت، روابط میان طرفین، محل دارایی‌ها و ریسک‌های عملی پیرامون موضوع، پیش از آنکه مسیر حقوقی مناسب تعیین شود.",
+  "about.profile.p3a": "راحیل به‌جای آنکه هر اختلاف را صرفاً یک پرونده معمولی دعوا تلقی کند، بر ",
+  "about.profile.p3strong": "تحلیل ساختاریافته اسناد، زمینه تجاری و طراحی روشن مسیر حقوقی",
+  "about.profile.p3b":
+    " تأکید ویژه دارد. این رویکرد امکان می‌دهد هر موضوع به‌صورت مرحله‌ای و با توجه به ادله، صلاحیت، فوریت و گزینه‌های واقع‌بینانه موجود، پیش از انجام اقدامات مهم بررسی شود.",
+  "about.profile.p4":
+    "حوزه فعالیت او به‌ویژه با موضوعاتی مرتبط است که شرکت‌ها، صاحبان کسب‌وکار، سهام‌داران، سرمایه‌گذاران و روابط تجاری فرامرزی را دربرمی‌گیرد؛ جایی که میزان ریسک مالی، محرمانگی و زمان‌بندی می‌تواند بر راهبرد پرونده اثر جدی بگذارد.",
+  "about.profile.imageAlt": "راحیل مصطفایی در دفتر کار خود",
+  "about.registration.kicker": "اعتبار حرفه‌ای",
+  "about.registration.title": "ثبت حرفه‌ای در دبی",
+  "about.registration.body":
+    "راحیل مصطفایی به‌عنوان مشاور حقوقی در اداره امور حقوقی دولت دبی به‌صورت حرفه‌ای ثبت شده است. تمرکز فعالیت او بر ارزیابی ساختاریافته اختلافات تجاری پیچیده، مطالبات مهم، تعارضات شرکتی و مسائل مالی در امارات متحده عربی است.",
+  "about.registration.cardTitle": "مشاور حقوقی ثبت‌شده در دبی",
+  "about.registration.label.title": "عنوان حرفه‌ای",
+  "about.registration.label.authority": "مرجع ثبت",
+  "about.registration.label.number": "شماره ثبت حرفه‌ای",
+  "about.registration.label.date": "تاریخ ثبت",
+  "about.registration.label.expiry": "اعتبار تا",
+  "about.registration.label.firm": "مؤسسه درج‌شده در ثبت",
+  "about.registration.value.title": "مشاور حقوقی",
+  "about.registration.value.authority": "اداره امور حقوقی دولت دبی",
+  "about.registration.value.number": "L-07168",
+  "about.registration.value.date": "۱۱ مارس ۲۰۲۶",
+  "about.registration.value.expiry": "۱۰ مارس ۲۰۲۷",
+  "about.registration.value.firm": "Lutfi & Company Advocates & Legal Consultants",
   "about.kicker": "رویکرد متمرکز",
   "about.h1": "درباره رویکرد ما در پرونده‌های تجاری و مالی ایران–امارات",
   "about.intro":

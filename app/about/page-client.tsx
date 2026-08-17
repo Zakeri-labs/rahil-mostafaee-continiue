@@ -11,10 +11,10 @@ import {
   Scale,
   ShieldCheck,
 } from "lucide-react";
-import founder from "@/assets/founder-silhouette.jpg";
+import aboutImage from "@/assets/About-1.webp";
 import office from "@/assets/office-interior.jpg";
-import { useI18n } from "@/lib/i18n";
 import { ProfessionalRegistrationSection } from "@/components/credentials/ProfessionalRegistrationSection";
+import { useI18n } from "@/lib/i18n";
 
 function AboutPage() {
   const { t, dir } = useI18n();
@@ -37,50 +37,39 @@ function AboutPage() {
 function Hero() {
   const { t } = useI18n();
   return (
-    <section className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-16">
-        <div className="lg:col-span-7 space-y-10">
+    <section className="relative border-b border-gold/10 py-20 lg:py-28">
+      <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start lg:gap-16 lg:px-10">
+        <div className="lg:sticky lg:top-28">
+          <div className="aspect-[9/16] overflow-hidden frame-gold bg-charcoal">
+            <img
+              src={aboutImage.src}
+              alt={t("about.profile.imageAlt")}
+              className="h-full w-full object-cover"
+              fetchPriority="high"
+            />
+          </div>
+        </div>
+
+        <div className="space-y-8">
           <div className="flex items-center gap-3">
             <span className="h-px w-12 bg-gold" />
             <span className="text-[10px] tracking-[0.4em] uppercase text-gold">
-              {t("about.kicker")}
+              {t("about.profile.kicker")}
             </span>
           </div>
-          <h1 className="font-display text-6xl lg:text-8xl text-ivory leading-[0.95] tracking-tight break-words">
-            {t("about.h1")}
+          <h1 className="font-display text-4xl leading-[1.05] tracking-tight text-ivory break-words lg:text-6xl">
+            {t("about.profile.h1")}
           </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            {t("about.intro")}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/contact"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gold text-onyx hover:bg-gold-soft transition-all shadow-glow"
-            >
-              <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
-                {t("about.hero.primary")}
-              </span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
-            <Link
-              href="/services"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 glass-strong text-ivory hover:border-gold/40 transition-all"
-            >
-              <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
-                {t("about.hero.secondary")}
-              </span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
-          </div>
-        </div>
-        <div className="lg:col-span-5 relative">
-          <div className="aspect-[3/4] overflow-hidden frame-gold">
-            <img
-              src={founder.src}
-              alt="Rahil Mostafaei"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
+
+          <div className="max-w-3xl space-y-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
+            <p className="text-ivory">{t("about.profile.p1")}</p>
+            <p>{t("about.profile.p2a")}</p>
+            <p>
+              {t("about.profile.p3a")}
+              <strong className="font-medium text-ivory">{t("about.profile.p3strong")}</strong>
+              {t("about.profile.p3b")}
+            </p>
+            <p>{t("about.profile.p4")}</p>
           </div>
         </div>
       </div>
