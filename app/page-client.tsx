@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
 import type { StaticImageData } from "next/image";
 import {
@@ -8,8 +7,6 @@ import {
   Banknote,
   Building2,
   CheckCircle2,
-  ChevronLeft,
-  ChevronRight,
   Clock,
   FilePenLine,
   FileSearch,
@@ -34,8 +31,8 @@ import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 import heroOfficeWide from "@/assets/rahil-hero-office-wide.webp";
 import heroMobile from "@/assets/hero-mobile.webp";
 import office from "@/assets/office-interior.jpg";
+import processPortrait from "@/assets/rahil-process-portrait.webp";
 import timeSensitiveReviewImage from "@/assets/Time-Sensitive-Review .png";
-import { ProcessConnector } from "@/components/site/ProcessConnector";
 import { Reveal } from "@/components/site/Reveal";
 import { ScrollProgress } from "@/components/site/Parallax";
 import { ConfidentialCaseIntakeWizard } from "@/components/site/ConfidentialCaseIntakeWizard";
@@ -48,7 +45,7 @@ function whatsappHref(message: string) {
 function Home() {
   const { dir } = useI18n();
   return (
-    <div className="overflow-visible lg:overflow-hidden" dir={dir}>
+    <div className="overflow-visible" dir={dir}>
       <ScrollProgress />
       <Hero />
       <PainCards />
@@ -480,7 +477,6 @@ function FastAction() {
 
 function Process() {
   const { t, dir } = useI18n();
-  const processRailRef = useRef<HTMLOListElement>(null);
   const processCards = [
     {
       title: t("home.process.s1"),
@@ -508,18 +504,8 @@ function Process() {
       ? number.toLocaleString("fa-IR", { minimumIntegerDigits: 2, useGrouping: false })
       : String(number).padStart(2, "0");
 
-  const scrollProcessRail = (direction: "left" | "right") => {
-    const rail = processRailRef.current;
-    if (!rail) return;
-
-    rail.scrollBy({
-      left: direction === "left" ? -220 : 220,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <section className="relative py-24 lg:py-32 border-t border-gold/10 overflow-hidden">
+    <section id="process" className="relative border-t border-gold/10">
       <div
         className="absolute inset-0 opacity-60"
         style={{
@@ -534,75 +520,73 @@ function Process() {
             "linear-gradient(115deg, transparent 0 18%, oklch(0.78 0.12 80 / 0.45) 18.4%, transparent 19.2% 56%, oklch(0.78 0.12 80 / 0.34) 56.3%, transparent 57%), linear-gradient(23deg, transparent 0 34%, oklch(0.78 0.12 80 / 0.28) 34.3%, transparent 35.1% 82%, oklch(0.95 0.02 80 / 0.24) 82.3%, transparent 83%)",
         }}
       />
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 space-y-14 lg:space-y-16">
-        <SectionIntro
-          kicker={t("home.process.kicker")}
-          title={t("home.process.h2")}
-          centered
-          divider
-        />
-
-        <ol
-          ref={processRailRef}
-          className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 py-2 pb-3 [scrollbar-width:none] md:gap-6 xl:mx-0 xl:grid xl:grid-cols-[repeat(5,max-content)] xl:justify-center xl:gap-8 xl:overflow-visible xl:px-0 xl:py-0 xl:pb-0 [&::-webkit-scrollbar]:hidden"
-        >
-          {processCards.map((card, i) => (
-            <Reveal
-              key={card.title}
-              delay={i * 90}
-              className="relative shrink-0 basis-[calc((100%_-_1rem)/2)] snap-center first:snap-start last:snap-end sm:basis-[calc((100%_-_1rem)/2)] md:basis-[calc((100%_-_2rem)/3)] xl:basis-auto xl:snap-none"
-            >
-              <li className="group relative mx-auto flex h-[300px] w-full items-center justify-center overflow-hidden rounded-[15px] border border-gold/45 bg-[#171819] shadow-luxe transition-transform duration-500 md:h-[320px] md:hover:-translate-y-1 xl:h-[340px] xl:w-[213px]">
-                <div className="pointer-events-none absolute inset-0">
-                  <div className="absolute inset-x-0 top-0 px-7 pt-7 text-gold">
-                    <span
-                      className={`block text-4xl leading-none ${
-                        dir === "rtl" ? "font-fa font-light tracking-[0.08em]" : "font-display"
-                      }`}
-                    >
-                      {formatProcessNumber(i + 1)}
-                    </span>
-                    <span className="mt-3 block h-px w-10 bg-gold" />
-                  </div>
-                  <div className="absolute left-1/2 top-[49%] -translate-x-1/2 -translate-y-1/2">
-                    <span className="flex h-20 w-20 items-center justify-center rounded-full border border-gold/30 text-gold">
-                      <card.icon className="h-10 w-10" strokeWidth={1.2} />
-                    </span>
-                  </div>
-                  <div className="absolute inset-x-0 bottom-0 flex h-[38%] items-end justify-center bg-gradient-to-t from-onyx/85 via-onyx/35 to-transparent px-4 pb-6 text-center text-ivory">
-                    <h3 className="mx-auto max-w-[10.5rem] translate-y-0 font-display text-[1.12rem] leading-[1.1] text-balance transition-transform duration-500 ease-out md:group-hover:-translate-y-1 sm:text-[1.18rem] lg:text-[1.24rem]">
-                      {card.title}
-                    </h3>
-                  </div>
-                </div>
-              </li>
-              {i < processCards.length - 1 && (
-                <ProcessConnector
-                  direction={dir === "rtl" ? "left" : "right"}
-                  showOnMobile={false}
-                />
-              )}
+      <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
+        <div className="mb-12 lg:mb-16">
+          <SectionIntro
+            kicker={t("home.process.kicker")}
+            title={t("home.process.h2")}
+            centered
+            divider
+          />
+        </div>
+        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-16">
+          <div className="lg:sticky lg:top-24 lg:h-[calc(100svh-6rem)] lg:min-h-[42rem] lg:py-2">
+            <Reveal className="relative h-[min(78svh,42rem)] min-h-[32rem] overflow-hidden rounded-[2rem] border border-gold/35 bg-[#0b0c0c] shadow-luxe sm:h-[min(78svh,48rem)] lg:h-full">
+              <img
+                src={processPortrait.src}
+                alt="Rahil Mostafaei in her legal office"
+                className="absolute inset-0 h-full w-full object-contain"
+                width={processPortrait.width}
+                height={processPortrait.height}
+              />
             </Reveal>
-          ))}
-        </ol>
-        <div className="-mt-2 flex justify-center xl:hidden">
-          <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-onyx/70 p-1.5 text-gold/85 shadow-luxe backdrop-blur">
-            <button
-              type="button"
-              aria-label="Scroll process cards left"
-              onClick={() => scrollProcessRail("left")}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/15 bg-gold/10 transition-colors hover:bg-gold/20 active:bg-gold/25"
-            >
-              <ChevronRight className="h-4 w-4" strokeWidth={1.8} />
-            </button>
-            <button
-              type="button"
-              aria-label="Scroll process cards right"
-              onClick={() => scrollProcessRail("right")}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/15 bg-gold/10 transition-colors hover:bg-gold/20 active:bg-gold/25"
-            >
-              <ChevronLeft className="h-4 w-4" strokeWidth={1.8} />
-            </button>
+          </div>
+
+          <div className="relative">
+            <span
+              aria-hidden="true"
+              className={`absolute bottom-8 top-8 w-px bg-gradient-to-b from-transparent via-gold/65 to-transparent ${
+                dir === "rtl" ? "right-4" : "left-4"
+              }`}
+            />
+            <div className={`${dir === "rtl" ? "pr-10" : "pl-10"}`} role="list">
+              {processCards.map((card, i) => (
+                <Reveal
+                  key={card.title}
+                  delay={i * 90}
+                  className="relative flex min-h-[clamp(10rem,18svh,14rem)] items-center"
+                >
+                  <span
+                    aria-hidden="true"
+                    className={`absolute top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-gold/70 bg-onyx text-gold shadow-[0_0_0_6px_rgba(11,12,12,0.85)] ${
+                      dir === "rtl" ? "-right-10" : "-left-10"
+                    }`}
+                  >
+                    <span className="h-2.5 w-2.5 rounded-full bg-gold shadow-[0_0_16px_rgba(214,170,70,0.8)]" />
+                  </span>
+                  <article className="group relative flex w-full flex-col gap-4 overflow-hidden rounded-[1.15rem] border border-gold/35 bg-[linear-gradient(120deg,rgba(22,23,23,0.96),rgba(10,11,11,0.9))] p-4 shadow-luxe transition-[border-color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:border-gold/70 hover:shadow-glow sm:flex-row sm:items-center sm:gap-5 sm:p-5">
+                    <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,rgba(216,174,75,0.05)_48%,transparent_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold/45 bg-onyx text-gold shadow-[inset_0_0_0_6px_rgba(214,170,70,0.04)] sm:h-16 sm:w-16">
+                      <card.icon className="h-7 w-7" strokeWidth={1.25} />
+                    </div>
+                    <div className="relative flex min-w-0 flex-1 items-center gap-4 sm:gap-5">
+                      <div className="shrink-0 border-x border-gold/20 px-3 text-gold sm:px-4">
+                        <span
+                          className={`block text-2xl leading-none ${
+                            dir === "rtl" ? "font-fa font-light tracking-[0.08em]" : "font-display"
+                          }`}
+                        >
+                          {formatProcessNumber(i + 1)}
+                        </span>
+                      </div>
+                      <h3 className="max-w-xl font-display text-lg leading-tight text-ivory text-balance sm:text-xl lg:text-[1.45rem]">
+                        {card.title}
+                      </h3>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </div>
