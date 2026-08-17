@@ -12,7 +12,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import aboutImage from "@/assets/About-1.webp";
-import office from "@/assets/office-interior.jpg";
+import focusedPracticeImage from "@/assets/focused-practice.jpg";
 import { ProfessionalRegistrationSection } from "@/components/credentials/ProfessionalRegistrationSection";
 import { useI18n } from "@/lib/i18n";
 
@@ -104,17 +104,69 @@ function SectionIntro({
 }
 
 function Positioning() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   return (
-    <section className="border-t border-gold/10 py-28">
-      <div className="mx-auto max-w-5xl px-6 lg:px-10 glass-strong p-8 lg:p-12">
-        <Scale className="w-8 h-8 text-gold mb-8" strokeWidth={1.2} />
-        <h2 className="font-display text-2xl lg:text-4xl text-ivory tracking-tight leading-[1.05] break-words">
-          {t("about.position.h2")}
-        </h2>
-        <p className="text-muted-foreground text-lg leading-relaxed mt-6">
-          {t("about.position.body")}
-        </p>
+    <section className="relative overflow-hidden border-t border-gold/10 py-14 sm:py-20 lg:py-28">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <div className="relative overflow-hidden border border-gold/35 bg-[#080f0b] p-2 shadow-luxe sm:p-3">
+          <div className="pointer-events-none absolute inset-2 border border-gold/10" />
+
+          <div className="grid min-w-0 gap-8 lg:min-h-[620px] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-0">
+            <div className="relative aspect-[3/4] min-w-0 overflow-hidden lg:aspect-auto lg:min-h-[620px]">
+              <div className="absolute inset-0 overflow-hidden rounded-[35%] border border-gold/55 bg-[#080f0b] shadow-[18px_0_0_-17px_rgba(211,166,72,0.35)] sm:rounded-[50%]">
+                <img
+                  src={focusedPracticeImage.src}
+                  alt={t("about.position.imageAlt")}
+                  className="h-full w-full object-cover object-center"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#080f0b]/95" />
+              </div>
+            </div>
+
+            <div className="relative flex min-w-0 items-center px-5 py-10 sm:px-10 sm:py-14 lg:px-16 lg:py-20 xl:px-24">
+              <div className="relative z-10 min-w-0 max-w-3xl space-y-6 sm:space-y-8">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                  <span className="h-px w-12 bg-gold" />
+                  <span className="h-2 w-2 rotate-45 border border-gold" />
+                  <span className="text-[9px] tracking-[0.3em] uppercase text-gold sm:text-[10px] sm:tracking-[0.4em]">
+                    {t("about.position.kicker")}
+                  </span>
+                </div>
+                <h2 className="break-words font-display text-[clamp(2rem,8vw,3rem)] leading-[1.08] tracking-tight text-ivory sm:text-4xl lg:text-5xl xl:text-6xl">
+                  {lang === "fa" ? (
+                    <>
+                      <span className="text-gold">{t("about.position.fa.focus")}</span>{" "}
+                      {t("about.position.fa.middle")}،{" "}
+                      <span className="text-gold">{t("about.position.fa.not")}</span>{" "}
+                      {t("about.position.fa.services")}{" "}
+                      <span className="text-gold">{t("about.position.fa.scattered")}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-gold">{t("about.position.en.focus")}</span>{" "}
+                      {t("about.position.en.practice")}{" "}
+                      <span className="text-gold">{t("about.position.en.not")}</span>{" "}
+                      <span className="text-gold">{t("about.position.en.scattered")}</span>{" "}
+                      {t("about.position.en.services")}
+                    </>
+                  )}
+                </h2>
+                <p className="max-w-2xl text-base leading-7 text-ivory/75 sm:text-lg sm:leading-relaxed lg:text-xl">
+                  {t("about.position.body")}
+                </p>
+              </div>
+
+              <div className="absolute bottom-10 right-6 top-10 hidden flex-col items-center justify-between lg:flex xl:right-10">
+                <span className="h-24 w-px bg-gradient-to-b from-transparent via-gold to-gold/40" />
+                <span className="flex h-11 w-11 rotate-45 items-center justify-center border border-gold/70 bg-[#080f0b]">
+                  <Scale className="h-5 w-5 -rotate-45 text-gold" strokeWidth={1.2} />
+                </span>
+                <span className="h-24 w-px bg-gradient-to-t from-transparent via-gold to-gold/40" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -185,11 +237,7 @@ function TrustPrinciples() {
   const items = [1, 2, 3, 4, 5, 6].map((n) => t(`about.trust.${n}`));
 
   return (
-    <section className="relative py-32 border-t border-gold/10 overflow-hidden">
-      <div className="absolute inset-0 opacity-40">
-        <img src={office.src} alt="" className="w-full h-full object-cover" loading="lazy" />
-        <div className="absolute inset-0 bg-onyx/85" />
-      </div>
+    <section className="relative bg-onyx py-32 border-t border-gold/10 overflow-hidden">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 space-y-14">
         <SectionIntro kicker={t("about.trust.kicker")} title={t("about.trust.h2")} centered />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/10 hairline">
