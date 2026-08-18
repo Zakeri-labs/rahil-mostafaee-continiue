@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Fragment } from "react";
 import {
   AlertTriangle,
   ArrowUpRight,
@@ -9,11 +10,11 @@ import {
   FileText,
   Languages,
   Scale,
-  ShieldCheck,
 } from "lucide-react";
 import aboutImage from "@/assets/About-1.webp";
 import focusedPracticeImage from "@/assets/focused-practice.jpg";
 import { ProfessionalRegistrationSection } from "@/components/credentials/ProfessionalRegistrationSection";
+import { Reveal } from "@/components/site/Reveal";
 import { useI18n } from "@/lib/i18n";
 
 function AboutPage() {
@@ -173,30 +174,229 @@ function Positioning() {
 }
 
 function WhyFocus() {
-  const { t } = useI18n();
-  const cards = [
-    { icon: ShieldCheck, key: "1" },
-    { icon: Scale, key: "2" },
-    { icon: AlertTriangle, key: "3" },
-    { icon: FileSearch, key: "4" },
+  const { t, lang } = useI18n();
+  const zones = [
+    {
+      key: "1",
+      number: "01",
+      title: t("about.why.1.t"),
+      body: t("about.why.1.b"),
+      placement: "lg:col-start-1 lg:row-start-2 lg:justify-self-start",
+      alignment: "text-left lg:text-left",
+      connector: "-right-[24%] top-1/2 h-px w-[24%]",
+    },
+    {
+      key: "2",
+      number: "02",
+      title: t("about.why.2.t"),
+      body: t("about.why.2.b"),
+      placement: "lg:col-start-3 lg:row-start-2 lg:justify-self-end",
+      alignment: "text-left lg:text-right",
+      connector: "-left-[24%] top-1/2 h-px w-[24%]",
+    },
+    {
+      key: "3",
+      number: "03",
+      title: t("about.why.3.t"),
+      body: t("about.why.3.b"),
+      placement: "lg:col-start-2 lg:row-start-1 lg:justify-self-center lg:self-end",
+      alignment: "text-left lg:text-center",
+      connector: "-bottom-[26%] left-1/2 h-[26%] w-px",
+    },
+    {
+      key: "4",
+      number: "04",
+      title: t("about.why.4.t"),
+      body: t("about.why.4.b"),
+      placement: "lg:col-start-2 lg:row-start-3 lg:justify-self-center lg:self-start",
+      alignment: "text-left lg:text-center",
+      connector: "-top-[26%] left-1/2 h-[26%] w-px",
+    },
   ] as const;
 
+  const microLabels = [
+    { key: "evidence", label: t("about.why.matrix.node.evidence"), position: "-left-16 top-4" },
+    { key: "assets", label: t("about.why.matrix.node.assets"), position: "-right-12 top-4" },
+    {
+      key: "counterparty",
+      label: t("about.why.matrix.node.counterparty"),
+      position: "-left-24 bottom-4",
+    },
+    {
+      key: "jurisdiction",
+      label: t("about.why.matrix.node.jurisdiction"),
+      position: "-right-24 bottom-4",
+    },
+    {
+      key: "timing",
+      label: t("about.why.matrix.node.timing"),
+      position: "bottom-[-2.25rem] left-1/2 -translate-x-1/2",
+    },
+  ];
+
   return (
-    <section className="border-t border-gold/10 py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 space-y-16">
-        <SectionIntro kicker={t("about.why.kicker")} title={t("about.why.h2")} centered />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gold/10 hairline">
-          {cards.map((card) => (
-            <article key={card.key} className="bg-onyx p-8 hover:bg-charcoal transition-colors">
-              <card.icon className="w-6 h-6 text-gold mb-8" strokeWidth={1.2} />
-              <h3 className="font-display text-2xl text-ivory leading-tight mb-4 break-words">
-                {t(`about.why.${card.key}.t`)}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {t(`about.why.${card.key}.b`)}
-              </p>
-            </article>
-          ))}
+    <section id="why-it-matters" className="relative overflow-hidden py-20 sm:py-28 lg:py-36">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <header className="mx-auto max-w-4xl text-center">
+          <div className="flex items-center justify-center gap-3 sm:gap-4">
+            <span className="h-px w-10 bg-gold sm:w-16" />
+            <span className="text-[9px] tracking-[0.3em] uppercase text-gold sm:text-[10px] sm:tracking-[0.4em]">
+              {t("about.why.kicker")}
+            </span>
+            <span className="h-px w-10 bg-gold sm:w-16" />
+          </div>
+          <h2 className="mt-7 break-words font-display text-[clamp(2.35rem,5vw,4.8rem)] leading-[0.98] tracking-tight text-ivory">
+            {t("about.why.h2")}
+          </h2>
+          <div className="mt-7 flex items-center justify-center gap-3 text-[9px] tracking-[0.35em] uppercase text-emerald-200/60 sm:text-[10px] sm:tracking-[0.45em]">
+            <span className="h-1 w-1 rounded-full bg-gold" />
+            <span>{t("about.why.matrix.label")}</span>
+            <span className="h-1 w-1 rounded-full bg-gold" />
+          </div>
+        </header>
+
+        <div className="group/matrix relative mx-auto mt-14 min-h-[72rem] max-w-[92rem] overflow-hidden border border-gold/20 bg-[#06100b]/70 px-5 py-8 shadow-luxe sm:mt-20 sm:min-h-[68rem] sm:px-8 sm:py-10 lg:mt-24 lg:min-h-[760px] lg:px-10 lg:py-12">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-4 border border-gold/10 sm:inset-6"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-0 top-0 h-24 w-24 border-l border-t border-gold/55"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-0 right-0 h-24 w-24 border-b border-r border-gold/55"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-0 left-0 h-12 w-12 border-b border-l border-gold/25"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0 top-0 h-12 w-12 border-r border-t border-gold/25"
+          />
+
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-8 top-1/2 hidden h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent lg:block lg:inset-x-16"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-8 left-1/2 top-8 hidden w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent lg:block"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[min(70vw,42rem)] w-[min(70vw,42rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-gold/10 lg:block"
+          />
+
+          <div
+            className="absolute left-6 top-[calc(50%_+_12rem)] z-10 hidden -translate-y-1/2 items-center gap-3 lg:flex"
+            dir="ltr"
+          >
+            <span className="h-px w-10 bg-gold/55" />
+            <span className="h-2 w-2 rotate-45 border-l border-t border-gold/80" />
+            <span className="font-mono text-[9px] tracking-[0.28em] uppercase text-gold/75">
+              {t("about.why.matrix.axis.commercial")}
+            </span>
+          </div>
+          <div
+            className="absolute right-6 top-[calc(50%_+_12rem)] z-10 hidden -translate-y-1/2 items-center gap-3 lg:flex"
+            dir="ltr"
+          >
+            <span className="font-mono text-[9px] tracking-[0.28em] uppercase text-gold/75">
+              {t("about.why.matrix.axis.pathway")}
+            </span>
+            <span className="h-2 w-2 rotate-45 border-r border-t border-gold/80" />
+            <span className="h-px w-10 bg-gold/55" />
+          </div>
+          <div
+            className="absolute left-1/2 top-5 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex"
+            dir="ltr"
+          >
+            <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-gold/75">
+              {t("about.why.matrix.axis.urgency")}
+            </span>
+            <span className="h-8 w-px bg-gradient-to-b from-gold/65 to-transparent" />
+            <span className="h-2 w-2 rotate-45 border-l border-t border-gold/80" />
+          </div>
+          <div
+            className="absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex"
+            dir="ltr"
+          >
+            <span className="h-2 w-2 rotate-45 border-r border-b border-gold/80" />
+            <span className="h-8 w-px bg-gradient-to-t from-gold/65 to-transparent" />
+            <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-gold/75">
+              {t("about.why.matrix.axis.confidentiality")}
+            </span>
+          </div>
+
+          <div className="relative z-20 grid min-h-[66rem] grid-cols-1 gap-4 lg:min-h-[680px] lg:grid-cols-[minmax(0,1fr)_minmax(18rem,25rem)_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)_minmax(13rem,18rem)_minmax(0,1fr)] lg:gap-0">
+            <div className="relative z-30 flex min-h-[15rem] items-center justify-center lg:hidden">
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-12 top-5 h-px bg-gradient-to-r from-transparent via-gold/35 to-transparent"
+              />
+              <div className="relative flex h-48 w-48 items-center justify-center">
+                <span className="absolute inset-0 rounded-full border border-gold/20" />
+                <span className="absolute inset-3 rounded-full border border-gold/45" />
+                <span className="absolute inset-8 rounded-full border border-dashed border-emerald-200/25" />
+                <span className="absolute inset-12 rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(45,104,75,0.6),rgba(5,16,11,0.96)_72%)] shadow-[0_0_0_1px_rgba(211,166,72,0.42),0_0_45px_rgba(211,166,72,0.12)]" />
+                <span className="relative z-10 max-w-[6rem] text-center font-mono text-[10px] leading-5 tracking-[0.2em] uppercase text-ivory">
+                  {t("about.why.matrix.center")}
+                </span>
+              </div>
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-12 bottom-5 h-px bg-gradient-to-r from-transparent via-gold/35 to-transparent"
+              />
+            </div>
+
+            {zones.map((zone, index) => (
+              <Fragment key={zone.key}>
+                <Reveal
+                  delay={index * 90}
+                  className={`relative z-20 flex min-w-0 max-w-[24rem] flex-col justify-center py-8 ${zone.placement} ${zone.alignment}`}
+                >
+                  <article className="group/zone relative px-5 sm:px-7 lg:px-4">
+                    <span className="pointer-events-none absolute -inset-y-2 -left-2 border-l border-gold/10 transition-colors duration-500 group-hover/zone:border-gold/45 lg:-inset-y-5" />
+                    <span
+                      aria-hidden="true"
+                      className={`pointer-events-none absolute hidden bg-gold/15 transition-colors duration-500 group-hover/zone:bg-gold/85 lg:block ${zone.connector}`}
+                    />
+                    <div className="font-display text-[4.5rem] leading-none text-gold/85 transition-colors duration-500 group-hover/zone:text-gold sm:text-[5.2rem]">
+                      {lang === "fa" ? (index + 1).toLocaleString("fa-IR") : zone.number}
+                    </div>
+                    <div className="mt-3 h-px w-12 bg-gold/55 transition-all duration-500 group-hover/zone:w-20" />
+                    <h3 className="mt-5 max-w-[20rem] break-words font-display text-2xl leading-[1.05] text-ivory sm:text-3xl">
+                      {zone.title}
+                    </h3>
+                    <p className="mt-4 max-w-[22rem] text-sm leading-7 text-ivory/60 sm:text-[15px]">
+                      {zone.body}
+                    </p>
+                  </article>
+                </Reveal>
+              </Fragment>
+            ))}
+          </div>
+
+          <div className="pointer-events-none absolute left-1/2 top-1/2 z-30 hidden h-56 w-56 -translate-x-1/2 -translate-y-1/2 items-center justify-center lg:flex sm:h-64 sm:w-64">
+            <span className="absolute inset-0 rounded-full border border-gold/20" />
+            <span className="absolute inset-3 rounded-full border border-gold/45 transition-transform duration-700 group-hover/matrix:scale-105" />
+            <span className="absolute inset-8 rounded-full border border-dashed border-emerald-200/25" />
+            <span className="absolute inset-12 rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(45,104,75,0.6),rgba(5,16,11,0.96)_72%)] shadow-[0_0_0_1px_rgba(211,166,72,0.42),0_0_45px_rgba(211,166,72,0.12)]" />
+            <span className="relative z-10 max-w-[7rem] text-center font-mono text-[11px] leading-5 tracking-[0.2em] uppercase text-ivory">
+              {t("about.why.matrix.center")}
+            </span>
+            {microLabels.map((item) => (
+              <span
+                key={item.key}
+                className={`absolute hidden whitespace-nowrap font-mono text-[8px] tracking-[0.22em] uppercase text-gold/65 sm:block ${item.position}`}
+              >
+                {item.label}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
