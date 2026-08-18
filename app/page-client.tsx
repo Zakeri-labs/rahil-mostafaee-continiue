@@ -106,7 +106,7 @@ function Hero() {
           <img
             src={heroOfficeWide.src}
             alt="Rahil Mostafaei in her Dubai legal office"
-            className="h-full w-full object-cover object-[28%_top] lg:object-contain lg:object-center"
+            className="h-full w-full object-cover object-[60%_top] lg:object-contain lg:object-center"
             width={heroOfficeWide.width}
             height={heroOfficeWide.height}
           />
