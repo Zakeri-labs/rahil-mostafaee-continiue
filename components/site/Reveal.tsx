@@ -8,11 +8,21 @@ type Props = {
   y?: number;
   className?: string;
   as?: "div" | "section" | "span" | "article";
+  reverseOnScrollUp?: boolean;
 };
 
-export function Reveal({ children, delay = 0, y = 24, className = "", as = "div" }: Props) {
+export function Reveal({
+  children,
+  delay = 0,
+  y = 24,
+  className = "",
+  as = "div",
+  reverseOnScrollUp = false,
+}: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [shown, setShown] = useState(false);
+  const scrollDirection = useRef<"up" | "down">("down");
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const el = ref.current;
@@ -21,25 +31,57 @@ export function Reveal({ children, delay = 0, y = 24, className = "", as = "div"
       setShown(true);
       return;
     }
+
+    if (!reverseOnScrollUp) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              setShown(true);
+              io.disconnect();
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      );
+      io.observe(el);
+      return () => io.disconnect();
+    }
+
+    lastScrollY.current = window.scrollY;
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY !== lastScrollY.current) {
+        scrollDirection.current = currentScrollY > lastScrollY.current ? "down" : "up";
+        lastScrollY.current = currentScrollY;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
+          if (e.isIntersecting && scrollDirection.current === "down") {
             setShown(true);
-            io.disconnect();
+          } else if (!e.isIntersecting && scrollDirection.current === "up") {
+            setShown(false);
           }
         });
       },
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
     );
     io.observe(el);
-    return () => io.disconnect();
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      io.disconnect();
+    };
+  }, [reverseOnScrollUp]);
 
+  const transitionDelay = reverseOnScrollUp && !shown ? 0 : delay;
   const style: CSSProperties = {
     opacity: shown ? 1 : 0,
     transform: shown ? "translateY(0)" : `translateY(${y}px)`,
-    transition: `opacity 1s cubic-bezier(0.2,0.7,0.2,1) ${delay}ms, transform 1.1s cubic-bezier(0.2,0.7,0.2,1) ${delay}ms`,
+    transition: `opacity 1s cubic-bezier(0.2,0.7,0.2,1) ${transitionDelay}ms, transform 1.1s cubic-bezier(0.2,0.7,0.2,1) ${transitionDelay}ms`,
     willChange: "opacity, transform",
   };
 

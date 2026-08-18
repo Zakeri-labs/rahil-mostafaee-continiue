@@ -528,9 +528,9 @@ function Process() {
             divider
           />
         </div>
-        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-16">
-          <div className="lg:sticky lg:top-24 lg:h-[calc(100svh-6rem)] lg:min-h-[42rem] lg:py-2">
-            <Reveal className="relative h-[min(78svh,42rem)] min-h-[32rem] overflow-hidden rounded-[2rem] border border-gold/35 bg-[#0b0c0c] shadow-luxe sm:h-[min(78svh,48rem)] lg:h-full">
+        <div className="grid items-stretch gap-12 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-16">
+          <div className="lg:sticky lg:top-24 lg:self-stretch">
+            <Reveal className="relative h-[min(78svh,42rem)] min-h-[32rem] overflow-hidden rounded-[2rem] border border-gold/35 bg-[#0b0c0c] shadow-luxe sm:h-[min(78svh,48rem)] lg:h-full lg:min-h-0">
               <img
                 src={processPortrait.src}
                 alt="Rahil Mostafaei in her legal office"
@@ -553,7 +553,8 @@ function Process() {
                 <Reveal
                   key={card.title}
                   delay={i * 90}
-                  className="relative flex min-h-[clamp(10rem,18svh,14rem)] items-center"
+                  reverseOnScrollUp
+                  className="relative flex min-h-[clamp(6rem,8svh,7.5rem)] items-center"
                 >
                   <span
                     aria-hidden="true"
@@ -563,13 +564,13 @@ function Process() {
                   >
                     <span className="h-2.5 w-2.5 rounded-full bg-gold shadow-[0_0_16px_rgba(214,170,70,0.8)]" />
                   </span>
-                  <article className="group relative flex w-full flex-col gap-4 overflow-hidden rounded-[1.15rem] border border-gold/35 bg-[linear-gradient(120deg,rgba(22,23,23,0.96),rgba(10,11,11,0.9))] p-4 shadow-luxe transition-[border-color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:border-gold/70 hover:shadow-glow sm:flex-row sm:items-center sm:gap-5 sm:p-5">
+                  <article className="group relative flex w-full flex-col gap-3 overflow-hidden rounded-[1.15rem] border border-gold/35 bg-[linear-gradient(120deg,rgba(22,23,23,0.96),rgba(10,11,11,0.9))] p-2.5 shadow-luxe transition-[border-color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:border-gold/70 hover:shadow-glow sm:flex-row sm:items-center sm:gap-3 sm:p-3">
                     <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,rgba(216,174,75,0.05)_48%,transparent_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                    <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold/45 bg-onyx text-gold shadow-[inset_0_0_0_6px_rgba(214,170,70,0.04)] sm:h-16 sm:w-16">
-                      <card.icon className="h-7 w-7" strokeWidth={1.25} />
+                    <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/45 bg-onyx text-gold shadow-[inset_0_0_0_6px_rgba(214,170,70,0.04)] sm:h-12 sm:w-12">
+                      <card.icon className="h-5 w-5" strokeWidth={1.25} />
                     </div>
-                    <div className="relative flex min-w-0 flex-1 items-center gap-4 sm:gap-5">
-                      <div className="shrink-0 border-x border-gold/20 px-3 text-gold sm:px-4">
+                    <div className="relative flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3">
+                      <div className="shrink-0 border-x border-gold/20 px-2 text-gold sm:px-2.5">
                         <span
                           className={`block text-2xl leading-none ${
                             dir === "rtl" ? "font-fa font-light tracking-[0.08em]" : "font-display"
