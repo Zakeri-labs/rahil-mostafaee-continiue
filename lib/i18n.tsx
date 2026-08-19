@@ -328,7 +328,7 @@ const en: Dict = {
     "Hello, I would like a confidential review of a UAE-related commercial dispute or asset recovery matter.",
   "svc.axes.kicker": "Core Focus",
   "svc.axes.h2": "Our services focus on two core axes",
-  "svc.axes.1.t": "Corporate and Commercial Disputes",
+  "svc.axes.1.t": "Corporate & Commercial Disputes",
   "svc.axes.1.b":
     "Matters arising from breached contracts, incomplete transactions, buyer or seller disputes, agency, shipping, distribution, and complex corporate relationships.",
   "svc.axes.2.t": "Asset Recovery and Debt Collection",
@@ -799,7 +799,7 @@ const en: Dict = {
 
   "home.axes.kicker": "Two Legal Paths",
   "home.axes.h2": "Two Core Legal Paths",
-  "home.axes.1.t": "Corporate and Commercial Disputes",
+  "home.axes.1.t": "Corporate & Commercial Disputes",
   "home.axes.1.b1": "Breach of commercial contracts",
   "home.axes.1.b2": "Buyer, seller, or supplier disputes",
   "home.axes.1.b3": "Agency, distribution, and shipping disputes",
@@ -974,7 +974,7 @@ const en: Dict = {
   "home.intake.success.whatsapp": "Send an Additional WhatsApp Message",
 
   "cd.hero.kicker": "Corporate Commercial Disputes",
-  "cd.hero.h1": "Complex Corporate and Commercial Disputes in the UAE",
+  "cd.hero.h1": "Complex Corporate & Commercial Disputes in the UAE",
   "cd.hero.intro":
     "If a contract has not been performed, a UAE counterparty is not responding, or you have a dispute with a buyer, seller, supplier, or commercial agent, the applicable legal route in the UAE can be reviewed confidentially.",
   "cd.hero.primary": "Start the Legal Route Review",
@@ -1150,7 +1150,7 @@ const en: Dict = {
   "cd.form.document.9": "Not sure",
 
   "cd.faq.kicker": "Frequently Asked Questions",
-  "cd.faq.h2": "Common Questions About Corporate and Commercial Disputes",
+  "cd.faq.h2": "Common Questions About Corporate & Commercial Disputes",
   "cd.faq.1.q": "Can a commercial dispute only be reviewed with a written contract?",
   "cd.faq.1.a":
     "A written contract makes the review more straightforward, but correspondence, invoices, purchase orders, and other records can also factor into an initial assessment. The exact approach depends on the specifics of each matter.",
