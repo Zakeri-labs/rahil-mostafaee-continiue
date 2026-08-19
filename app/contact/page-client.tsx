@@ -22,9 +22,13 @@ function whatsappHref(message: string) {
 }
 
 function ContactPage() {
-  const { t, dir } = useI18n();
+  const { t, dir, lang } = useI18n();
   const [submitted, setSubmitted] = useState(false);
   const waHref = whatsappHref(t("contact.whatsapp.msg"));
+  const h1ClassName =
+    lang === "fa"
+      ? "text-[2.15rem] leading-[1.48] min-[430px]:text-[2.45rem] min-[430px]:leading-[1.45] md:text-[3.2rem] lg:text-[3.65rem] lg:leading-[1.22]"
+      : "text-[2.55rem] leading-[1.12] min-[430px]:text-[2.95rem] min-[430px]:leading-[1.1] md:text-[3.9rem] lg:text-[4.65rem] lg:leading-[0.96]";
 
   return (
     <div dir={dir}>
@@ -37,7 +41,9 @@ function ContactPage() {
                 {t("contact.kicker")}
               </span>
             </div>
-            <h1 className="font-display text-6xl lg:text-8xl text-ivory leading-[0.95] tracking-tight break-words">
+            <h1
+              className={`font-display text-ivory tracking-tight break-words lg:text-balance ${h1ClassName}`}
+            >
               {t("contact.h1")}
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-xl">

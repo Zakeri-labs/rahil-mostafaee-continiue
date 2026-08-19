@@ -36,7 +36,11 @@ function AboutPage() {
 }
 
 function Hero() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const h1ClassName =
+    lang === "fa"
+      ? "text-[2.15rem] leading-[1.48] min-[430px]:text-[2.45rem] min-[430px]:leading-[1.45] md:text-[3.2rem] lg:text-[3.65rem] lg:leading-[1.22]"
+      : "text-[2.55rem] leading-[1.12] min-[430px]:text-[2.95rem] min-[430px]:leading-[1.1] md:text-[3.9rem] lg:text-[4.65rem] lg:leading-[0.96]";
   return (
     <section className="relative border-b border-gold/10 py-20 lg:py-28">
       <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start lg:gap-16 lg:px-10">
@@ -58,7 +62,9 @@ function Hero() {
               {t("about.profile.kicker")}
             </span>
           </div>
-          <h1 className="font-display text-4xl leading-[1.05] tracking-tight text-ivory break-words lg:text-6xl">
+          <h1
+            className={`font-display text-ivory tracking-tight break-words lg:text-balance ${h1ClassName}`}
+          >
             {t("about.profile.h1")}
           </h1>
 
@@ -134,7 +140,7 @@ function Positioning() {
                     {t("about.position.kicker")}
                   </span>
                 </div>
-                <h2 className="break-words font-display text-[clamp(2rem,8vw,3rem)] leading-[1.08] tracking-tight text-ivory sm:text-4xl lg:text-5xl xl:text-6xl">
+                <h2 className="break-words font-display text-2xl leading-[1.05] tracking-tight text-ivory lg:text-4xl">
                   {lang === "fa" ? (
                     <>
                       <span className="text-gold">{t("about.position.fa.focus")}</span>{" "}
@@ -245,7 +251,7 @@ function WhyFocus() {
             </span>
             <span className="h-px w-10 bg-gold sm:w-16" />
           </div>
-          <h2 className="mt-7 break-words font-display text-[clamp(2.35rem,5vw,4.8rem)] leading-[0.98] tracking-tight text-ivory">
+          <h2 className="mt-7 break-words font-display text-2xl leading-[1.05] tracking-tight text-ivory lg:text-4xl">
             {t("about.why.h2")}
           </h2>
           <div className="mt-7 flex items-center justify-center gap-3 text-[9px] tracking-[0.35em] uppercase text-emerald-200/60 sm:text-[10px] sm:tracking-[0.45em]">
@@ -368,7 +374,7 @@ function WhyFocus() {
                       {lang === "fa" ? (index + 1).toLocaleString("fa-IR") : zone.number}
                     </div>
                     <div className="mt-3 h-px w-12 bg-gold/55 transition-all duration-500 group-hover/zone:w-20" />
-                    <h3 className="mt-5 max-w-[20rem] break-words font-display text-2xl leading-[1.05] text-ivory sm:text-3xl">
+                    <h3 className="mt-5 max-w-[20rem] break-words font-display text-xl leading-[1.05] text-ivory lg:text-3xl">
                       {zone.title}
                     </h3>
                     <p className="mt-4 max-w-[22rem] text-sm leading-7 text-ivory/60 sm:text-[15px]">

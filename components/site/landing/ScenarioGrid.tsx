@@ -32,7 +32,7 @@ export function ScenarioGrid({ items, columns = 5, className }: ScenarioGridProp
         const content = (
           <>
             {Icon && <Icon className="w-6 h-6 text-gold mb-8" strokeWidth={1.2} />}
-            <h3 className="font-display text-2xl text-ivory leading-tight mb-4 break-words">
+            <h3 className="font-display text-xl lg:text-3xl text-ivory leading-tight mb-4 break-words">
               {item.title}
             </h3>
             {item.description && (

@@ -39,7 +39,11 @@ function InternationalPage() {
 }
 
 function Hero() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const h1ClassName =
+    lang === "fa"
+      ? "text-[2.15rem] leading-[1.48] min-[430px]:text-[2.45rem] min-[430px]:leading-[1.45] md:text-[3.2rem] lg:text-[3.65rem] lg:leading-[1.22]"
+      : "text-[2.55rem] leading-[1.12] min-[430px]:text-[2.95rem] min-[430px]:leading-[1.1] md:text-[3.9rem] lg:text-[4.65rem] lg:leading-[0.96]";
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-end">
@@ -50,7 +54,9 @@ function Hero() {
               {t("intl.kicker")}
             </span>
           </div>
-          <h1 className="font-display text-6xl lg:text-9xl text-ivory leading-[0.95] tracking-tight break-words">
+          <h1
+            className={`font-display text-ivory tracking-tight break-words lg:text-balance ${h1ClassName}`}
+          >
             {t("intl.h1")}
           </h1>
         </div>
@@ -150,7 +156,7 @@ function Scenarios() {
             return (
               <article key={card.key} className="bg-onyx p-7 hover:bg-charcoal transition-colors">
                 <card.icon className="w-6 h-6 text-gold mb-8" strokeWidth={1.2} />
-                <h3 className="font-display text-2xl text-ivory leading-tight mb-4 break-words">
+                <h3 className="font-display text-xl lg:text-3xl text-ivory leading-tight mb-4 break-words">
                   {t(`intl.scenario.${card.key}.t`)}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -269,7 +275,7 @@ function RelatedServices() {
               className="group bg-card hairline p-7 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1"
             >
               <ShieldCheck className="w-5 h-5 text-gold mb-8" strokeWidth={1.2} />
-              <h3 className="font-display text-2xl text-ivory leading-tight break-words">
+              <h3 className="font-display text-xl lg:text-3xl text-ivory leading-tight break-words">
                 {card.label}
               </h3>
               <div className="inline-flex items-center gap-2 mt-8 text-[10px] tracking-[0.25em] uppercase text-gold">

@@ -53,7 +53,11 @@ function CommercialDisputesPage() {
 }
 
 function Hero({ waHref }: { waHref: string }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const h1ClassName =
+    lang === "fa"
+      ? "text-[2.15rem] leading-[1.48] min-[430px]:text-[2.45rem] min-[430px]:leading-[1.45] md:text-[3.2rem] lg:text-[3.65rem] lg:leading-[1.22]"
+      : "text-[2.55rem] leading-[1.12] min-[430px]:text-[2.95rem] min-[430px]:leading-[1.1] md:text-[3.9rem] lg:text-[4.65rem] lg:leading-[0.96]";
   return (
     <section className="relative overflow-hidden py-16 sm:py-20 lg:py-36">
       <div
@@ -69,7 +73,9 @@ function Hero({ waHref }: { waHref: string }) {
           </span>
           <span className="h-px w-12 bg-gold" />
         </div>
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl text-ivory leading-[1.1] lg:leading-[1] tracking-tight break-words">
+        <h1
+          className={`font-display text-ivory tracking-tight break-words lg:text-balance ${h1ClassName}`}
+        >
           {t("cd.hero.h1")}
         </h1>
         <p className="mx-auto max-w-2xl text-muted-foreground text-lg leading-relaxed">
