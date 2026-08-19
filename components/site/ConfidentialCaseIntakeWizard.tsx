@@ -324,7 +324,7 @@ export function ConfidentialCaseIntakeWizard() {
           <p className="mb-4 text-[10px] tracking-[0.28em] uppercase text-gold lg:text-xs">
             {t("home.intake.eyebrow")}
           </p>
-          <h2 className="font-display text-3xl leading-tight tracking-tight text-ivory lg:text-5xl">
+          <h2 className="font-display text-2xl leading-[1.05] tracking-tight text-ivory lg:text-4xl">
             {t("home.intake.title")}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-muted-foreground lg:text-base">

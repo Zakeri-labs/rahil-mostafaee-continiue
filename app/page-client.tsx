@@ -366,7 +366,7 @@ function PainCards() {
             <Reveal key={card.title} delay={i * 80}>
               <article className="h-full bg-onyx p-4 text-center group hover:bg-charcoal transition-colors duration-500 sm:p-5 lg:p-5">
                 <CardImage image={card.image} alt={card.title} className="mb-6 aspect-square" />
-                <h3 className="font-display text-2xl text-ivory leading-tight mb-4 mx-auto">
+                <h3 className="font-display text-xl lg:text-3xl text-ivory leading-tight mb-4 mx-auto">
                   {card.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mx-auto">{card.body}</p>
@@ -414,7 +414,7 @@ function ServiceAxes() {
                 className="group flex h-full flex-col glass-strong p-8 lg:p-10 shadow-luxe transition-all duration-500 hover:border-gold/40 hover:-translate-y-1"
               >
                 <CardImage image={axis.image} alt={axis.title} className="mb-7 aspect-video" />
-                <h3 className="font-display text-3xl lg:text-4xl text-ivory leading-tight mb-8">
+                <h3 className="font-display text-xl lg:text-3xl text-ivory leading-tight mb-8">
                   {axis.title}
                 </h3>
                 <ul className="space-y-4">
@@ -564,22 +564,22 @@ function Process() {
                   >
                     <span className="h-2.5 w-2.5 rounded-full bg-gold shadow-[0_0_16px_rgba(214,170,70,0.8)]" />
                   </span>
-                  <article className="group relative flex w-full flex-col gap-3 overflow-hidden rounded-[1.15rem] border border-gold/35 bg-[linear-gradient(120deg,rgba(22,23,23,0.96),rgba(10,11,11,0.9))] p-2.5 shadow-luxe transition-[border-color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:border-gold/70 hover:shadow-glow sm:flex-row sm:items-center sm:gap-3 sm:p-3">
+                  <article className="group relative flex w-full flex-row items-center gap-2.5 overflow-hidden rounded-[1.15rem] border border-gold/35 bg-[linear-gradient(120deg,rgba(22,23,23,0.96),rgba(10,11,11,0.9))] p-2.5 shadow-luxe transition-[border-color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:border-gold/70 hover:shadow-glow sm:gap-3 sm:p-3">
                     <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,rgba(216,174,75,0.05)_48%,transparent_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                    <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/45 bg-onyx text-gold shadow-[inset_0_0_0_6px_rgba(214,170,70,0.04)] sm:h-12 sm:w-12">
-                      <card.icon className="h-5 w-5" strokeWidth={1.25} />
+                    <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gold/45 bg-onyx text-gold shadow-[inset_0_0_0_6px_rgba(214,170,70,0.04)] sm:h-10 sm:w-10 lg:h-12 lg:w-12">
+                      <card.icon className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.25} />
                     </div>
-                    <div className="relative flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3">
-                      <div className="shrink-0 border-x border-gold/20 px-2 text-gold sm:px-2.5">
+                    <div className="relative flex min-w-0 flex-1 items-center gap-2 sm:gap-3">
+                      <div className="shrink-0 border-x border-gold/20 px-1.5 text-gold sm:px-2.5">
                         <span
-                          className={`block text-2xl leading-none ${
+                          className={`block text-xl leading-none sm:text-2xl ${
                             dir === "rtl" ? "font-fa font-light tracking-[0.08em]" : "font-display"
                           }`}
                         >
                           {formatProcessNumber(i + 1)}
                         </span>
                       </div>
-                      <h3 className="max-w-xl font-display text-lg leading-tight text-ivory text-balance sm:text-xl lg:text-[1.45rem]">
+                      <h3 className="max-w-xl font-display text-base leading-tight text-ivory text-balance sm:text-xl lg:text-[1.45rem]">
                         {card.title}
                       </h3>
                     </div>
@@ -657,7 +657,7 @@ function ServiceCards() {
                 className="group block h-full bg-card hairline p-7 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1"
               >
                 <service.icon className="w-6 h-6 text-gold mb-8" strokeWidth={1.2} />
-                <h3 className="font-display text-2xl text-ivory leading-tight mb-6">
+                <h3 className="font-display text-xl lg:text-3xl text-ivory leading-tight mb-6">
                   {service.title}
                 </h3>
                 <div className="inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-gold lg:text-xs lg:tracking-[0.18em]">
