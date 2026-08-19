@@ -358,7 +358,7 @@ function PainCards() {
   ];
 
   return (
-    <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 border-t border-gold/10">
+    <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 space-y-14">
         <SectionIntro kicker={t("home.pain.kicker")} title={t("home.pain.h2")} />
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-gold/10 hairline">
