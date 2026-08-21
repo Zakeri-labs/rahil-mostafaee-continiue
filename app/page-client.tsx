@@ -19,19 +19,19 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import importerExporterImage from "@/assets/1-Importer-Exporter .png";
-import affectedInvestorImage from "@/assets/2-Affected-Investor.png";
-import partnerDisputeImage from "@/assets/3-Partner-in-Dispute.png";
-import mediumLargeBusinessImage from "@/assets/4-Medium-Large-Business-Owner.png";
-import crossBorderMatterImage from "@/assets/5-Iran-UAE-Cross-Border.png";
-import commercialDisputesImage from "@/assets/Path1-Iran-UAE-Commercial-Disputes.png";
-import assetRecoveryImage from "@/assets/Path2-Asset-Recovery.png";
+import importerExporterImage from "@/assets/1-Importer-Exporter .webp";
+import affectedInvestorImage from "@/assets/2-Affected-Investor.webp";
+import partnerDisputeImage from "@/assets/3-Partner-in-Dispute.webp";
+import mediumLargeBusinessImage from "@/assets/4-Medium-Large-Business-Owner.webp";
+import crossBorderMatterImage from "@/assets/5-Iran-UAE-Cross-Border.webp";
+import commercialDisputesImage from "@/assets/Path1-Iran-UAE-Commercial-Disputes.webp";
+import assetRecoveryImage from "@/assets/Path2-Asset-Recovery.webp";
 import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 import heroOfficeWide from "@/assets/rahil-hero-office-wide.webp";
 import heroMobile from "@/assets/hero-mobile.webp";
 import office from "@/assets/office-interior.jpg";
 import processPortrait from "@/assets/rahil-process-portrait.webp";
-import timeSensitiveReviewImage from "@/assets/Time-Sensitive-Review .png";
+import timeSensitiveReviewImage from "@/assets/Time-Sensitive-Review .webp";
 import { Reveal } from "@/components/site/Reveal";
 import { ScrollProgress } from "@/components/site/Parallax";
 import { ConfidentialCaseIntakeWizard } from "@/components/site/ConfidentialCaseIntakeWizard";
