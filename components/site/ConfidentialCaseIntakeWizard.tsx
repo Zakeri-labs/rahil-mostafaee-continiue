@@ -126,6 +126,7 @@ function TrustItem({ icon: Icon, children }: { icon: typeof ShieldCheck; childre
 
 export function ConfidentialCaseIntakeWizard() {
   const { t, lang, dir } = useI18n();
+  const [started, setStarted] = useState(false);
   const [step, setStep] = useState<Step>(1);
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -173,7 +174,7 @@ export function ConfidentialCaseIntakeWizard() {
 
   useEffect(() => {
     headingRef.current?.focus({ preventScroll: true });
-  }, [step]);
+  }, [step, started]);
 
   const copyError = (code: string) => {
     const keyByCode: Record<string, string> = {
@@ -231,6 +232,11 @@ export function ConfidentialCaseIntakeWizard() {
     if (startedRef.current) return;
     startedRef.current = true;
     pushDataLayer("case_intake_start", { locale: lang });
+  };
+
+  const handleStart = () => {
+    markStarted();
+    setStarted(true);
   };
 
   const continueStep = () => {
@@ -342,6 +348,23 @@ export function ConfidentialCaseIntakeWizard() {
                   pushDataLayer("case_intake_whatsapp_click", { locale: lang, context: "success" })
                 }
               />
+            ) : !started ? (
+              <div className="border border-gold/20 bg-charcoal/35 p-8 text-center shadow-luxe sm:p-10 lg:p-12">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold">
+                  <ShieldCheck className="h-6 w-6" strokeWidth={1.5} />
+                </div>
+                <p className="mx-auto mt-6 max-w-sm text-sm leading-6 text-muted-foreground">
+                  {t("home.intake.trust.1")} · {t("home.intake.startHint")}
+                </p>
+                <button
+                  type="button"
+                  onClick={handleStart}
+                  className="mx-auto mt-8 inline-flex min-h-12 items-center justify-center gap-2 bg-gold px-8 text-sm font-medium text-onyx shadow-glow transition-colors hover:bg-gold-soft"
+                >
+                  {t("home.intake.startCta")}
+                  <ContinueIcon className="h-4 w-4" />
+                </button>
+              </div>
             ) : (
               <div className="border border-gold/20 bg-charcoal/35 p-5 shadow-luxe sm:p-8 lg:p-10">
                 <div className="mb-8 flex items-center justify-between gap-4">

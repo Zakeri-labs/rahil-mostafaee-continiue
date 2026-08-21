@@ -363,7 +363,11 @@ function PainCards() {
         <SectionIntro kicker={t("home.pain.kicker")} title={t("home.pain.h2")} />
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-gold/10 hairline">
           {cards.map((card, i) => (
-            <Reveal key={card.title} delay={i * 80}>
+            <Reveal
+              key={card.title}
+              delay={i * 80}
+              className={i === cards.length - 1 ? "md:col-span-2 lg:col-span-1" : undefined}
+            >
               <article className="h-full bg-onyx p-4 text-center group hover:bg-charcoal transition-colors duration-500 sm:p-5 lg:p-5">
                 <CardImage image={card.image} alt={card.title} className="mb-6 aspect-square" />
                 <h3 className="font-display text-xl lg:text-3xl text-ivory leading-tight mb-4 mx-auto">
@@ -621,7 +625,11 @@ function Trust() {
           {items.map((item, i) => {
             const Icon = item.icon;
             return (
-              <Reveal key={item.label} delay={i * 80}>
+              <Reveal
+                key={item.label}
+                delay={i * 80}
+                className={i === items.length - 1 ? "sm:col-span-2 lg:col-span-1" : undefined}
+              >
                 <div className="h-full bg-onyx/80 backdrop-blur-md p-7 text-center">
                   <Icon className="w-6 h-6 text-gold mx-auto mb-5" strokeWidth={1.2} />
                   <div className="text-sm text-ivory leading-relaxed">{item.label}</div>
@@ -651,7 +659,11 @@ function ServiceCards() {
         <SectionIntro kicker={t("home.serviceCards.kicker")} title={t("home.serviceCards.h2")} />
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
           {services.map((service, i) => (
-            <Reveal key={service.title} delay={i * 80}>
+            <Reveal
+              key={service.title}
+              delay={i * 80}
+              className={i === services.length - 1 ? "md:col-span-2 lg:col-span-1" : undefined}
+            >
               <Link
                 href="/services"
                 className="group block h-full bg-card hairline p-7 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1"

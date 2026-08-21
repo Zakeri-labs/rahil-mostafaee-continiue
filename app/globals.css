@@ -541,4 +541,13 @@
       transform: none !important;
     }
   }
+
+  /* Persian/Arabic is a joined, cursive script — manual letter-spacing (used for
+     the Latin-style uppercase kickers and tight display headings) breaks the
+     glyph joining and reads as broken/gapped text. Neutralize any `tracking-*`
+     utility on RTL (Farsi) pages; higher specificity than the plain utility
+     class wins within the same cascade layer regardless of source order. */
+  [dir="rtl"] [class*="tracking-"] {
+    letter-spacing: normal;
+  }
 }
