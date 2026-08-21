@@ -14,7 +14,6 @@ import {
   ShieldCheck,
   Users,
 } from "lucide-react";
-import office from "@/assets/office-interior.jpg";
 import { useI18n } from "@/lib/i18n";
 import { LandingTheme } from "@/components/site/landing/LandingTheme";
 import { SectionIntro } from "@/components/site/landing/SectionIntro";
@@ -271,7 +270,6 @@ function Trust() {
         title={t("cd.trust.h2")}
         description={t("cd.trust.body")}
         items={items}
-        image={{ src: office.src, alt: t("cd.trust.imageAlt") }}
         disclaimer={t("cd.trust.disclaimer")}
         columns={5}
       />

@@ -12,7 +12,7 @@ import {
   Scale,
 } from "lucide-react";
 import aboutImage from "@/assets/About-1.webp";
-import focusedPracticeImage from "@/assets/focused-practice.jpg";
+import focusedPracticeImage from "@/assets/focused-practice.webp";
 import { ProfessionalRegistrationSection } from "@/components/credentials/ProfessionalRegistrationSection";
 import { Reveal } from "@/components/site/Reveal";
 import { useI18n } from "@/lib/i18n";

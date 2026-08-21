@@ -29,7 +29,6 @@ import assetRecoveryImage from "@/assets/Path2-Asset-Recovery.webp";
 import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 import heroOfficeWide from "@/assets/rahil-hero-office-wide.webp";
 import heroMobile from "@/assets/hero-mobile.webp";
-import office from "@/assets/office-interior.jpg";
 import processPortrait from "@/assets/rahil-process-portrait.webp";
 import timeSensitiveReviewImage from "@/assets/Time-Sensitive-Review .webp";
 import { Reveal } from "@/components/site/Reveal";
@@ -610,10 +609,6 @@ function Trust() {
 
   return (
     <section className="relative py-24 lg:py-32 border-t border-gold/10 overflow-hidden">
-      <div className="absolute inset-0 opacity-45">
-        <img src={office.src} alt="" className="w-full h-full object-cover" loading="lazy" />
-        <div className="absolute inset-0 bg-onyx/88" />
-      </div>
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 space-y-14">
         <SectionIntro
           kicker={t("home.trust.kicker")}
@@ -630,7 +625,7 @@ function Trust() {
                 delay={i * 80}
                 className={i === items.length - 1 ? "sm:col-span-2 lg:col-span-1" : undefined}
               >
-                <div className="h-full bg-onyx/80 backdrop-blur-md p-7 text-center">
+                <div className="h-full bg-onyx p-7 text-center">
                   <Icon className="w-6 h-6 text-gold mx-auto mb-5" strokeWidth={1.2} />
                   <div className="text-sm text-ivory leading-relaxed">{item.label}</div>
                 </div>
