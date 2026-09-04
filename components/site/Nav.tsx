@@ -1,7 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/components/site/LocalizedLink";
 import { usePathname } from "next/navigation";
+import { localizeHref } from "@/lib/i18n/routes";
 import { useEffect, useState } from "react";
 import { BookOpen, Building2, ChevronDown, Globe, Mail, Menu, X } from "lucide-react";
 import logo from "@/assets/logo-mark.png";
@@ -30,7 +31,7 @@ const serviceLinks = [
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = localizeHref(usePathname(), "fa");
   const { t, lang, dir } = useI18n();
   const servicesActive = serviceLinks.some((link) => pathname === link.to);
 

@@ -1,14 +1,15 @@
 "use client";
 
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/components/site/LocalizedLink";
 import { usePathname } from "next/navigation";
+import { localizeHref } from "@/lib/i18n/routes";
 import { CalendarCheck, MessageCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
 
 export function MobileBottomNav() {
   const { t } = useI18n();
-  const pathname = usePathname();
+  const pathname = localizeHref(usePathname(), "fa");
 
   const waMsg = encodeURIComponent(t("fab.whatsapp.msg"));
   const waHref = `https://wa.me/${LEADS_WHATSAPP_NUMBER}?text=${waMsg}`;

@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDown, Languages } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,7 +9,9 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useI18n, type Lang } from "@/lib/i18n";
+import { useI18n } from "@/lib/i18n";
+import { isLocale } from "@/lib/i18n/config";
+import { getLanguageSwitchHref } from "@/lib/i18n/routes";
 import { cn } from "@/lib/utils";
 
 interface LanguageSwitcherProps {
@@ -17,7 +20,16 @@ interface LanguageSwitcherProps {
 }
 
 export function LanguageSwitcher({ compact = false, className }: LanguageSwitcherProps) {
-  const { lang, setLang } = useI18n();
+  const { lang } = useI18n();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const switchLanguage = (value: string) => {
+    if (!isLocale(value) || value === lang) return;
+    const currentHref = `${pathname}${window.location.search}${window.location.hash}`;
+    const target = getLanguageSwitchHref(currentHref, value);
+    if (target) router.push(target);
+  };
 
   return (
     <DropdownMenu>
@@ -46,7 +58,7 @@ export function LanguageSwitcher({ compact = false, className }: LanguageSwitche
         sideOffset={8}
         className="min-w-36 border-gold/20 bg-charcoal text-ivory shadow-luxe"
       >
-        <DropdownMenuRadioGroup value={lang} onValueChange={(value) => setLang(value as Lang)}>
+        <DropdownMenuRadioGroup value={lang} onValueChange={switchLanguage}>
           <DropdownMenuRadioItem value="en" className="cursor-pointer focus:bg-gold/10">
             English
           </DropdownMenuRadioItem>

@@ -1,5 +1,5 @@
 import type { ComponentType, ReactNode, SVGProps } from "react";
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/components/site/LocalizedLink";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 

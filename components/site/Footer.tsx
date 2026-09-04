@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/components/site/LocalizedLink";
 import logo from "@/assets/logo-mark.png";
 import { useI18n } from "@/lib/i18n";
 import { LEADS_WHATSAPP_DISPLAY_NUMBER } from "@/lib/leads/config";

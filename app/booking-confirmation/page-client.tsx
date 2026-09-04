@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/components/site/LocalizedLink";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { confirmCheckout } from "@/lib/booking/api-client";
