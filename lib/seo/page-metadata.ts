@@ -30,8 +30,7 @@ export function getRootMetadata(locale: Locale): Metadata {
       template: `%s | ${siteNames[locale]}`,
     },
     authors: [{ name: siteNames[locale] }],
-    // English routes remain staged even though their SEO is now localized.
-    ...(locale === "en" ? { robots: { index: false, follow: true } } : {}),
+    ...(locale === "en" ? { robots: { index: true, follow: true } } : {}),
   };
 }
 

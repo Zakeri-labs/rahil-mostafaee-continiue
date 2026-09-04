@@ -9,6 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routePaths = [...new Set([...INDEXABLE_ROUTE_PATHS, ...EXTERNAL_INDEXABLE_ROUTE_PATHS])];
 
   return routePaths.map((routePath) => ({
-    url: `${siteUrl}${routePath}`,
+    url: routePath === "/" ? siteUrl : `${siteUrl}${routePath}`,
   }));
 }

@@ -10,11 +10,9 @@ export const pageSeoCopy = {
         "ارزیابی حقوقی اختلافات پیچیده تجاری، مطالبات عمده، اختلافات سهام‌داران و بازیابی دارایی برای شرکت‌ها و سرمایه‌گذاران در امارات.",
     },
     en: {
-      title: "Corporate and Commercial Legal Consultant in Dubai",
+      title: "Commercial Legal Consultant in Dubai",
       description:
-        "Strategic legal assessment for complex commercial disputes, major claims, shareholder conflicts and asset recovery for businesses and investors in the UAE.",
-      openGraphTitle: "Rahil Mostafaei | Corporate and Commercial Legal Consultant in Dubai",
-      twitterTitle: "Rahil Mostafaei | Corporate and Commercial Legal Consultant in Dubai",
+        "Dubai-based legal consultant for complex corporate and commercial disputes, shareholder conflicts, major claims, and asset recovery across the UAE.",
     },
   },
   services: {
@@ -24,11 +22,9 @@ export const pageSeoCopy = {
         "خدمات حقوقی برای اختلافات تجاری و شرکتی، بازیابی دارایی، وصول بدهی و مطالبات عمده، اختلافات سهام‌داران و پرونده‌های فرامرزی در امارات.",
     },
     en: {
-      title: "Corporate and Commercial Legal Services in the UAE",
+      title: "Corporate Legal Services in the UAE",
       description:
-        "Legal services for complex corporate and commercial disputes, asset recovery, major debt and receivables recovery, shareholder conflicts and cross-border matters in the UAE.",
-      openGraphTitle: "Corporate and Commercial Legal Services in the UAE",
-      twitterTitle: "Corporate and Commercial Legal Services in the UAE",
+        "Explore UAE legal services for corporate and commercial disputes, debt and asset recovery, shareholder conflicts, and cross-border matters.",
     },
   },
   about: {
@@ -38,11 +34,9 @@ export const pageSeoCopy = {
         "با فعالیت حقوقی راحیل مصطفایی، ثبت حرفه‌ای و رویکرد او در بررسی اختلافات پیچیده تجاری و بازیابی دارایی در امارات آشنا شوید.",
     },
     en: {
-      title: "About the Corporate and Commercial Legal Practice",
+      title: "About the Corporate Legal Practice",
       description:
-        "Learn about Rahil Mostafaei’s legal practice, professional registration and approach to complex commercial disputes and asset recovery in the UAE.",
-      openGraphTitle: "About the Corporate and Commercial Legal Practice",
-      twitterTitle: "About the Corporate and Commercial Legal Practice",
+        "Learn about Rahil Mostafaei’s professional registration and focused approach to corporate disputes, commercial claims, and asset recovery in the UAE.",
     },
   },
   contact: {
@@ -52,11 +46,9 @@ export const pageSeoCopy = {
         "خلاصه پرونده خود را برای بررسی محرمانه اختلافات تجاری، مطالبات عمده، بازیابی دارایی، اختلافات سهام‌داران و دعاوی مالی فرامرزی ارسال کنید.",
     },
     en: {
-      title: "Confidential Commercial Dispute and Asset Recovery Case Review in the UAE",
+      title: "Confidential Legal Case Review in Dubai",
       description:
-        "Submit a confidential matter review for UAE commercial disputes, major receivables, asset recovery, shareholder conflicts and cross-border financial claims.",
-      openGraphTitle: "Confidential Corporate and Commercial Case Review in the UAE",
-      twitterTitle: "Confidential Corporate and Commercial Case Review in the UAE",
+        "Request a confidential review of a UAE commercial dispute, major receivable, shareholder conflict, asset recovery matter, or cross-border claim.",
     },
   },
   international: {
@@ -66,11 +58,9 @@ export const pageSeoCopy = {
         "ارزیابی حقوقی قراردادها و پرداخت‌های چندحوزه‌ای، اختلافات شرکتی، محل دارایی، قانون حاکم و مسیر اجرای احکام در پرونده‌های فرامرزی.",
     },
     en: {
-      title: "Cross-Border Commercial Disputes and Corporate Matters",
+      title: "Cross-Border Commercial Disputes",
       description:
-        "Cross-border legal assessment for multi-jurisdiction contracts, payments, corporate disputes, asset location, governing law and enforcement strategy.",
-      openGraphTitle: "Cross-Border Commercial Disputes and Corporate Matters",
-      twitterTitle: "Cross-Border Commercial Disputes and Corporate Matters",
+        "Legal assessment of cross-border contracts, payments, corporate disputes, governing law, asset location, and enforcement options in the UAE.",
     },
   },
   commercialDisputes: {
@@ -80,9 +70,9 @@ export const pageSeoCopy = {
         "بررسی اولیه و محرمانه اختلافات پیچیده تجاری و شرکتی، دعاوی قراردادی، اختلافات سهام‌داران و مطالبات با ارزش بالا در امارات.",
     },
     en: {
-      title: "Complex Corporate and Commercial Disputes in the UAE",
+      title: "Corporate & Commercial Disputes UAE",
       description:
-        "Confidential initial review for complex corporate and commercial disputes, contractual claims, shareholder conflicts, and high-value receivables in the UAE.",
+        "Confidential review of UAE corporate and commercial disputes, contract claims, shareholder conflicts, and high-value business receivables.",
     },
   },
   assetRecovery: {
@@ -92,9 +82,9 @@ export const pageSeoCopy = {
         "بررسی مطالبات عمده، سرمایه‌گذاری‌های مورد اختلاف، شناسایی دارایی و مسیرهای اجرای حکم برای شرکت‌ها و ذی‌نفعان تجاری در امارات.",
     },
     en: {
-      title: "UAE Debt and Asset Recovery for Corporate Matters",
+      title: "UAE Debt & Asset Recovery",
       description:
-        "Structured review of major receivables, disputed investments, asset tracing, and enforcement options for companies and corporate stakeholders in the UAE.",
+        "Structured review of UAE debt recovery, disputed investments, asset tracing, and enforcement options for companies and corporate stakeholders.",
     },
   },
 } satisfies Record<LocalizedRouteId, LocalizedMetadataCopyMap>;
