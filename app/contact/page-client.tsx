@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import {
   AlertTriangle,
   ArrowUpRight,
   CheckCircle2,
   Clock,
   FileText,
+  Loader2,
   Mail,
   MapPin,
   MessageCircle,
@@ -15,7 +16,11 @@ import {
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { LEADS_WHATSAPP_DISPLAY_NUMBER, LEADS_WHATSAPP_NUMBER } from "@/lib/leads/config";
+import { contactFormSchema, contactMatterValues, contactUrgencyValues } from "@/lib/contact/schema";
 import { CaseReviewCredential } from "@/components/credentials/CaseReviewCredential";
+
+type SubmissionStatus = "idle" | "submitting";
+type FieldErrors = Record<string, string>;
 
 function whatsappHref(message: string) {
   return `https://wa.me/${LEADS_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -111,6 +116,144 @@ function ContactPage() {
   );
 }
 
+function useContactSubmission(setSubmitted: (value: boolean) => void) {
+  const { t, lang } = useI18n();
+  const [status, setStatus] = useState<SubmissionStatus>("idle");
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [submitError, setSubmitError] = useState("");
+  const startedAtRef = useRef(new Date().toISOString());
+
+  const errorMessage = (code: string) => {
+    const keyByCode: Record<string, string> = {
+      required: "contact.form.error.required",
+      nameTooShort: "contact.form.error.nameTooShort",
+      nameTooLong: "contact.form.error.nameTooLong",
+      invalidEmail: "contact.form.error.invalidEmail",
+      emailTooLong: "contact.form.error.emailTooLong",
+      invalidPhone: "contact.form.error.invalidPhone",
+      phoneTooLong: "contact.form.error.phoneTooLong",
+      contactMethodRequired: "contact.form.error.contactMethodRequired",
+      languageTooLong: "contact.form.error.languageTooLong",
+      amountTooLong: "contact.form.error.amountTooLong",
+      locationTooLong: "contact.form.error.locationTooLong",
+      documentsTooLong: "contact.form.error.documentsTooLong",
+      briefTooShort: "contact.form.error.briefTooShort",
+      briefTooLong: "contact.form.error.briefTooLong",
+    };
+    return t(keyByCode[code] ?? "contact.form.error.required");
+  };
+
+  const clearError = (field: string) => {
+    setErrors((current) => {
+      if (!current[field] && !current.contact) return current;
+      const next = { ...current };
+      delete next[field];
+      if (field === "email" || field === "phone") delete next.contact;
+      return next;
+    });
+    setSubmitError("");
+  };
+
+  const getLocalizedErrors = (fieldErrors: Record<string, string>) =>
+    Object.fromEntries(
+      Object.entries(fieldErrors).map(([field, code]) => [field, errorMessage(code)]),
+    );
+
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (status === "submitting") return;
+
+    const formData = new FormData(event.currentTarget);
+    const value = (name: string) => String(formData.get(name) ?? "");
+    const formValues = {
+      name: value("name"),
+      lang: value("lang"),
+      email: value("email"),
+      phone: value("phone"),
+      matter: value("matter"),
+      urgency: value("urgency"),
+      amount: value("amount"),
+      counterparty_location: value("counterparty_location"),
+      documents: value("documents"),
+      brief: value("brief"),
+    };
+    const parsed = contactFormSchema.safeParse(formValues);
+
+    if (!parsed.success) {
+      const nextErrors = parsed.error.issues.reduce<Record<string, string>>(
+        (fieldErrors, issue) => {
+          const field = issue.path[0];
+          if (typeof field === "string" && !fieldErrors[field]) {
+            fieldErrors[field] = errorMessage(issue.message);
+          }
+          return fieldErrors;
+        },
+        {},
+      );
+      if (!formValues.email.trim() && !formValues.phone.trim()) {
+        nextErrors.contact = t("contact.form.error.contactMethodRequired");
+      }
+      setErrors(nextErrors);
+      setSubmitError(t("contact.form.error.checkFields"));
+      return;
+    }
+
+    setStatus("submitting");
+    setErrors({});
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          ...parsed.data,
+          locale: lang,
+          formStartedAt: startedAtRef.current,
+          submittedAt: new Date().toISOString(),
+          honeypot: value("website"),
+        }),
+      });
+      const result = (await response.json().catch(() => ({}))) as {
+        success?: boolean;
+        fieldErrors?: Record<string, string>;
+      };
+
+      if (!response.ok || !result.success) {
+        if (result.fieldErrors) setErrors(getLocalizedErrors(result.fieldErrors));
+        setSubmitError(t("contact.form.error.submit"));
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setSubmitError(t("contact.form.error.submit"));
+    } finally {
+      setStatus("idle");
+    }
+  };
+
+  const matterOptions = contactMatterValues.map((value, index) => ({
+    value,
+    label: t(`contact.matter.${index + 1}`),
+  }));
+  const urgencyOptions = contactUrgencyValues.map((value, index) => ({
+    value,
+    label: t(`contact.urg.${index + 1}`),
+  }));
+
+  return {
+    t,
+    status,
+    errors,
+    submitError,
+    clearError,
+    submit,
+    matterOptions,
+    urgencyOptions,
+  };
+}
+
 function DisclaimerBlock() {
   const { t } = useI18n();
   return (
@@ -131,7 +274,8 @@ function IntakeForm({
   submitted: boolean;
   setSubmitted: (value: boolean) => void;
 }) {
-  const { t } = useI18n();
+  const { t, status, errors, submitError, clearError, submit, matterOptions, urgencyOptions } =
+    useContactSubmission(setSubmitted);
   return (
     <div className="glass-strong p-10 lg:p-12 shadow-luxe scroll-mt-28">
       {submitted ? (
@@ -143,62 +287,102 @@ function IntakeForm({
         <>
           <CaseReviewCredential />
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSubmitted(true);
-            }}
+            onSubmit={submit}
+            noValidate
+            aria-busy={status === "submitting"}
             className="space-y-6"
           >
             <div className="text-[10px] tracking-[0.3em] uppercase text-gold">
               {t("contact.form.kicker")}
             </div>
+            {submitError ? (
+              <div role="alert" aria-live="polite" className="text-sm text-red-300">
+                {submitError}
+              </div>
+            ) : null}
             <div className="grid sm:grid-cols-2 gap-4">
-              <Field label={t("contact.form.name")} name="name" />
+              <Field
+                label={t("contact.form.name")}
+                name="name"
+                required
+                error={errors.name}
+                onChange={() => clearError("name")}
+              />
               <Field
                 label={t("contact.form.lang")}
                 name="lang"
                 placeholder={t("contact.form.langPh")}
+                error={errors.lang}
+                onChange={() => clearError("lang")}
               />
             </div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <Field label={t("contact.form.email")} name="email" type="email" />
-              <Field label={t("contact.form.phone")} name="phone" type="tel" />
+            <div
+              role="group"
+              aria-describedby={errors.contact ? "contact-method-error" : undefined}
+            >
+              <div className="grid sm:grid-cols-2 gap-4">
+                <Field
+                  label={t("contact.form.email")}
+                  name="email"
+                  type="email"
+                  error={errors.email}
+                  onChange={() => clearError("email")}
+                />
+                <Field
+                  label={t("contact.form.phone")}
+                  name="phone"
+                  type="tel"
+                  error={errors.phone}
+                  onChange={() => clearError("phone")}
+                />
+              </div>
+              <FieldError id="contact-method-error" message={errors.contact} />
             </div>
             <Select
               label={t("contact.form.matter")}
               name="matter"
-              options={[
-                t("contact.matter.1"),
-                t("contact.matter.2"),
-                t("contact.matter.3"),
-                t("contact.matter.4"),
-                t("contact.matter.5"),
-                t("contact.matter.6"),
-                t("contact.matter.7"),
-              ]}
+              options={matterOptions}
+              placeholder={t("contact.form.selectMatter")}
+              required
+              error={errors.matter}
+              onChange={() => clearError("matter")}
             />
             <Select
               label={t("contact.form.urgency")}
               name="urgency"
-              options={[
-                t("contact.urg.1"),
-                t("contact.urg.2"),
-                t("contact.urg.3"),
-                t("contact.urg.4"),
-                t("contact.urg.5"),
-              ]}
+              options={urgencyOptions}
+              placeholder={t("contact.form.selectUrgency")}
+              required
+              error={errors.urgency}
+              onChange={() => clearError("urgency")}
             />
             <div className="grid sm:grid-cols-2 gap-4">
-              <Field label={t("contact.form.amount")} name="amount" />
-              <Field label={t("contact.form.counterparty")} name="counterparty_location" />
+              <Field
+                label={t("contact.form.amount")}
+                name="amount"
+                error={errors.amount}
+                onChange={() => clearError("amount")}
+              />
+              <Field
+                label={t("contact.form.counterparty")}
+                name="counterparty_location"
+                error={errors.counterparty_location}
+                onChange={() => clearError("counterparty_location")}
+              />
             </div>
-            <Field label={t("contact.form.documents")} name="documents" />
+            <Field
+              label={t("contact.form.documents")}
+              name="documents"
+              error={errors.documents}
+              onChange={() => clearError("documents")}
+            />
             <div>
               <label
                 htmlFor="brief"
                 className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground"
               >
                 {t("contact.form.brief")}
+                <RequiredMark />
               </label>
               <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
                 {t("contact.form.guidance")}
@@ -207,18 +391,35 @@ function IntakeForm({
                 id="brief"
                 name="brief"
                 rows={5}
+                required
+                maxLength={2000}
+                aria-invalid={Boolean(errors.brief)}
+                aria-describedby={errors.brief ? "brief-error" : undefined}
+                onChange={() => clearError("brief")}
                 className="mt-3 w-full bg-charcoal/50 border border-gold/15 focus:border-gold/50 outline-none px-4 py-3 text-ivory placeholder:text-muted-foreground/50 resize-none"
                 placeholder={t("contact.form.briefPh")}
               />
+              <FieldError id="brief-error" message={errors.brief} />
             </div>
+            <input
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              name="website"
+              className="absolute left-[-9999px] h-px w-px opacity-0"
+            />
             <button
               type="submit"
-              className="group w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-gold text-onyx hover:bg-gold-soft transition-all shadow-glow"
+              disabled={status === "submitting"}
+              className="group w-full inline-flex items-center justify-center gap-3 px-8 py-5 bg-gold text-onyx hover:bg-gold-soft transition-all shadow-glow disabled:cursor-wait disabled:opacity-70"
             >
+              {status === "submitting" ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
               <span className="text-xs tracking-[0.24em] uppercase font-medium lg:text-sm lg:tracking-[0.18em]">
-                {t("contact.form.submit")}
+                {status === "submitting" ? t("contact.form.submitting") : t("contact.form.submit")}
               </span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              {status !== "submitting" ? (
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              ) : null}
             </button>
             <p className="text-[10px] tracking-wider text-muted-foreground text-center">
               {t("contact.form.disclaimer")}
@@ -331,11 +532,17 @@ function Field({
   name,
   type = "text",
   placeholder,
+  required = false,
+  error,
+  onChange,
 }: {
   label: string;
   name: string;
   type?: string;
   placeholder?: string;
+  required?: boolean;
+  error?: string;
+  onChange?: () => void;
 }) {
   return (
     <div>
@@ -344,19 +551,41 @@ function Field({
         className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground break-words"
       >
         {label}
+        {required ? <RequiredMark /> : null}
       </label>
       <input
         id={name}
         name={name}
         type={type}
         placeholder={placeholder}
+        required={required}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? `${name}-error` : undefined}
+        onChange={onChange}
         className="mt-2 w-full bg-charcoal/50 border border-gold/15 focus:border-gold/50 outline-none px-4 py-3 text-ivory placeholder:text-muted-foreground/50"
       />
+      <FieldError id={`${name}-error`} message={error} />
     </div>
   );
 }
 
-function Select({ label, name, options }: { label: string; name: string; options: string[] }) {
+function Select({
+  label,
+  name,
+  options,
+  placeholder,
+  required = false,
+  error,
+  onChange,
+}: {
+  label: string;
+  name: string;
+  options: Array<{ value: string; label: string }>;
+  placeholder: string;
+  required?: boolean;
+  error?: string;
+  onChange?: () => void;
+}) {
   return (
     <div>
       <label
@@ -364,19 +593,46 @@ function Select({ label, name, options }: { label: string; name: string; options
         className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground break-words"
       >
         {label}
+        {required ? <RequiredMark /> : null}
       </label>
       <select
         id={name}
         name={name}
+        defaultValue=""
+        required={required}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? `${name}-error` : undefined}
+        onChange={onChange}
         className="mt-2 w-full bg-charcoal/50 border border-gold/15 focus:border-gold/50 outline-none px-4 py-3 text-ivory"
       >
+        <option value="" disabled className="bg-onyx">
+          {placeholder}
+        </option>
         {options.map((o) => (
-          <option key={o} className="bg-onyx">
-            {o}
+          <option key={o.value} value={o.value} className="bg-onyx">
+            {o.label}
           </option>
         ))}
       </select>
+      <FieldError id={`${name}-error`} message={error} />
     </div>
+  );
+}
+
+function RequiredMark() {
+  return (
+    <span aria-hidden="true" className="ms-1 text-gold">
+      *
+    </span>
+  );
+}
+
+function FieldError({ id, message }: { id: string; message?: string }) {
+  if (!message) return null;
+  return (
+    <p id={id} className="mt-2 text-xs text-red-300" aria-live="polite">
+      {message}
+    </p>
   );
 }
 
