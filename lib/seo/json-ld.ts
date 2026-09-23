@@ -7,25 +7,37 @@ type LegalServiceInput = {
 };
 
 export function buildPersonSchema(siteUrl: string) {
+  const rootUrl = `${siteUrl.replace(/\/+$/, "")}/`;
+  const personId = `${rootUrl}#person`;
+  const organizationId = `${rootUrl}#organization`;
+
   return {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": `${siteUrl}#person`,
-    name: "Rahil Mostafaei",
-    jobTitle: "Legal Consultant",
-    url: siteUrl,
-    worksFor: {
-      "@type": "Organization",
-      name: "Lutfi & Company Advocates & Legal Consultants",
-    },
-    knowsAbout: [
-      "Commercial disputes",
-      "Corporate disputes",
-      "Contractual disputes",
-      "Asset recovery",
-      "Cross-border commercial matters",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": personId,
+        name: "Rahil Mostafaei",
+        jobTitle: "Legal Consultant",
+        url: siteUrl,
+        worksFor: {
+          "@id": organizationId,
+        },
+        knowsAbout: [
+          "Commercial disputes",
+          "Corporate disputes",
+          "Contractual disputes",
+          "Asset recovery",
+          "Cross-border commercial matters",
+        ],
+        inLanguage: "en-AE",
+      },
+      {
+        "@type": "Organization",
+        "@id": organizationId,
+        name: "Lutfi & Company Advocates & Legal Consultants",
+      },
     ],
-    inLanguage: "en-AE",
   };
 }
 
@@ -36,6 +48,8 @@ export function buildLegalServiceSchema({
   url,
   siteUrl,
 }: LegalServiceInput) {
+  const personId = `${siteUrl.replace(/\/+$/, "")}/#person`;
+
   return {
     "@context": "https://schema.org",
     "@type": "LegalService",
@@ -50,9 +64,7 @@ export function buildLegalServiceSchema({
         "Corporations, business groups, shareholders, board members, senior executives, and institutional investors",
     },
     provider: {
-      "@type": "Person",
-      name: "Rahil Mostafaei",
-      url: siteUrl,
+      "@id": personId,
     },
     serviceType: name,
     inLanguage: "en-AE",

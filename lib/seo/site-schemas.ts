@@ -24,12 +24,22 @@ function translated(key: string) {
   return { fa: translate("fa", key), en: translate("en", key) };
 }
 
+function getSchemaEntityIds(siteUrl: string) {
+  const rootUrl = `${siteUrl.replace(/\/+$/, "")}/`;
+
+  return {
+    person: `${rootUrl}#person`,
+    organization: `${rootUrl}#organization`,
+  };
+}
+
 export function getPersonSchema(locale: Locale) {
   const siteUrl = getSiteUrl();
+  const entityIds = getSchemaEntityIds(siteUrl);
   const topics = ["nav.services.commercial", "nav.services.asset", "nav.international"];
   return buildLocalizedPersonSchema({
     locale,
-    id: pairedUrls(siteUrl, "home", "#person"),
+    id: entityIds.person,
     name: siteNames,
     jobTitle: { fa: "مشاور حقوقی", en: "Legal Consultant" },
     description: {
@@ -37,6 +47,7 @@ export function getPersonSchema(locale: Locale) {
       en: pageSeoCopy.about.en.description,
     },
     url: pairedUrls(siteUrl, "home"),
+    organizationId: entityIds.organization,
     organizationName: {
       fa: "لطفی و شرکا، وکلا و مشاوران حقوقی",
       en: "Lutfi & Company Advocates & Legal Consultants",
@@ -50,6 +61,7 @@ export function getPersonSchema(locale: Locale) {
 
 export function getServiceSchemas(locale: Locale, route: ServiceSchemaRoute) {
   const siteUrl = getSiteUrl();
+  const entityIds = getSchemaEntityIds(siteUrl);
   const copy = pageSeoCopy[route];
   const name = { fa: copy.fa.title, en: copy.en.title };
   const description = { fa: copy.fa.description, en: copy.en.description };
@@ -73,8 +85,7 @@ export function getServiceSchemas(locale: Locale, route: ServiceSchemaRoute) {
         fa: "شرکت‌ها، گروه‌های تجاری، سهام‌داران، اعضای هیئت‌مدیره، مدیران ارشد و سرمایه‌گذاران نهادی",
         en: "Corporations, business groups, shareholders, board members, senior executives, and institutional investors",
       },
-      providerName: siteNames,
-      providerUrl: pairedUrls(siteUrl, "home"),
+      providerId: entityIds.person,
     }),
     buildLocalizedFaqPageSchema(locale, pairedUrls(siteUrl, route, "#faq"), faqs),
     buildLocalizedBreadcrumbListSchema(locale, [

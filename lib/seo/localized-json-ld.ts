@@ -7,11 +7,12 @@ export type LocalizedSchemaUrl = LocalizedSchemaValue<string>;
 
 type LocalizedPersonSchemaInput = {
   locale: Locale;
-  id: LocalizedSchemaUrl;
+  id: string;
   name: LocalizedSchemaText;
   jobTitle: LocalizedSchemaText;
   description?: LocalizedSchemaText;
   url: LocalizedSchemaUrl;
+  organizationId: string;
   organizationName: LocalizedSchemaText;
   knowsAbout: LocalizedSchemaValue<readonly string[]>;
 };
@@ -24,8 +25,7 @@ type LocalizedLegalServiceSchemaInput = {
   url: LocalizedSchemaUrl;
   areaServed: LocalizedSchemaText;
   audienceType: LocalizedSchemaText;
-  providerName: LocalizedSchemaText;
-  providerUrl: LocalizedSchemaUrl;
+  providerId: string;
 };
 
 export type LocalizedFaqEntry = {
@@ -48,20 +48,28 @@ export function buildLocalizedPersonSchema(input: LocalizedPersonSchemaInput) {
 
   return {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": getLocalizedSchemaValue(input.id, locale),
-    name: getLocalizedSchemaValue(input.name, locale),
-    jobTitle: getLocalizedSchemaValue(input.jobTitle, locale),
-    ...(input.description
-      ? { description: getLocalizedSchemaValue(input.description, locale) }
-      : {}),
-    url: getLocalizedSchemaValue(input.url, locale),
-    worksFor: {
-      "@type": "Organization",
-      name: getLocalizedSchemaValue(input.organizationName, locale),
-    },
-    knowsAbout: getLocalizedSchemaValue(input.knowsAbout, locale),
-    inLanguage: getStructuredDataLanguage(locale),
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": input.id,
+        name: getLocalizedSchemaValue(input.name, locale),
+        jobTitle: getLocalizedSchemaValue(input.jobTitle, locale),
+        ...(input.description
+          ? { description: getLocalizedSchemaValue(input.description, locale) }
+          : {}),
+        url: getLocalizedSchemaValue(input.url, locale),
+        worksFor: {
+          "@id": input.organizationId,
+        },
+        knowsAbout: getLocalizedSchemaValue(input.knowsAbout, locale),
+        inLanguage: getStructuredDataLanguage(locale),
+      },
+      {
+        "@type": "Organization",
+        "@id": input.organizationId,
+        name: getLocalizedSchemaValue(input.organizationName, locale),
+      },
+    ],
   };
 }
 
@@ -83,9 +91,7 @@ export function buildLocalizedLegalServiceSchema(input: LocalizedLegalServiceSch
       audienceType: getLocalizedSchemaValue(input.audienceType, locale),
     },
     provider: {
-      "@type": "Person",
-      name: getLocalizedSchemaValue(input.providerName, locale),
-      url: getLocalizedSchemaValue(input.providerUrl, locale),
+      "@id": input.providerId,
     },
     serviceType: name,
     inLanguage: getStructuredDataLanguage(locale),
