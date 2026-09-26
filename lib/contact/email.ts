@@ -148,7 +148,7 @@ function readRecipients(): string[] {
     .split(",")
     .map((recipient) => recipient.trim())
     .filter(Boolean);
-  if (recipients.length < 2 || recipients.some((recipient) => !emailPattern.test(recipient))) {
+  if (recipients.length < 1 || recipients.some((recipient) => !emailPattern.test(recipient))) {
     throw new ContactEmailConfigurationError("Contact email recipient configuration is invalid");
   }
   return recipients;
