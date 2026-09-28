@@ -18,7 +18,7 @@ export function MobileBottomNav() {
     <>
       {/* Bottom nav bar */}
       <nav
-        className="lg:hidden fixed bottom-0 inset-x-0 z-[80] glass-strong border-t border-gold/20"
+        className="lg:hidden fixed bottom-0 inset-x-0 z-[80] glass-strong border-t border-gold/20 in-[.mobile-menu-open]:hidden"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         aria-label="Mobile navigation"
       >

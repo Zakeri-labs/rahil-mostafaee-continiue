@@ -54,10 +54,12 @@ export function Nav() {
     };
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    document.body.classList.add("mobile-menu-open");
     window.addEventListener("keydown", onKeyDown);
 
     return () => {
       document.body.style.overflow = previousOverflow;
+      document.body.classList.remove("mobile-menu-open");
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [menuOpen]);
