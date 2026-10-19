@@ -4,7 +4,16 @@ import { LocalizedLink as Link } from "@/components/site/LocalizedLink";
 import { usePathname } from "next/navigation";
 import { localizeHref } from "@/lib/i18n/routes";
 import { useEffect, useState } from "react";
-import { BookOpen, Building2, ChevronDown, Globe, Mail, Menu, X } from "lucide-react";
+import {
+  BookOpen,
+  Building2,
+  CalendarCheck,
+  ChevronDown,
+  Globe,
+  Mail,
+  Menu,
+  X,
+} from "lucide-react";
 import logo from "@/assets/logo-mark.png";
 import { useI18n } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/site/LanguageSwitcher";
@@ -15,10 +24,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const links: { to: string; key: string; lang?: "fa" }[] = [
+// `wideEn`: English labels are longer, so this link joins the desktop bar only on wide screens.
+const links: { to: string; key: string; lang?: "fa"; wideEn?: boolean }[] = [
   { to: "/international", key: "nav.international" },
   { to: "/about", key: "nav.firm" },
   { to: "/blog", key: "nav.blog", lang: "fa" },
+  { to: "/legal-consultation-booking", key: "nav.booking", wideEn: true },
   { to: "/contact", key: "nav.contact" },
 ];
 
@@ -136,7 +147,7 @@ export function Nav() {
                   href={link.to}
                   className={`whitespace-nowrap text-sm tracking-wide transition-colors hover:text-gold min-[1180px]:text-[15px] min-[1180px]:tracking-normal 2xl:text-base ${
                     pathname === link.to ? "text-gold" : "text-muted-foreground"
-                  }`}
+                  } ${link.wideEn && lang === "en" ? "hidden min-[1440px]:inline" : ""}`}
                 >
                   {t(link.key)}
                 </Link>
@@ -244,6 +255,14 @@ export function Nav() {
                   <span>{t("nav.blog")}</span>
                 </Link>
               )}
+              <Link
+                href="/legal-consultation-booking"
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center gap-3 border border-gold/15 p-4 text-sm transition-colors hover:border-gold/40 hover:text-gold ${pathname === "/legal-consultation-booking" ? "text-gold" : "text-ivory"}`}
+              >
+                <CalendarCheck className="size-4 text-gold" strokeWidth={1.4} aria-hidden="true" />
+                <span>{t("nav.booking")}</span>
+              </Link>
               <Link
                 href="/contact"
                 onClick={() => setMenuOpen(false)}

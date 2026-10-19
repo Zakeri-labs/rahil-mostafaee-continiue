@@ -87,6 +87,18 @@ export const pageSeoCopy = {
         "Structured review of UAE debt recovery, disputed investments, asset tracing, and enforcement options for companies and corporate stakeholders.",
     },
   },
+  consultationBooking: {
+    fa: {
+      title: "رزرو نوبت مشاوره حقوقی از وکیل در امارات",
+      description:
+        "نوبت مشاوره حقوقی با راحیل مصطفایی، مشاور حقوقی ثبت‌شده در دبی را آنلاین رزرو کنید. سه‌شنبه‌ها مشاوره رایگان؛ دوشنبه تا جمعه، ظرفیت محدود هر روز.",
+    },
+    en: {
+      title: "Book a Legal Consultation with a Lawyer in the UAE",
+      description:
+        "Book a legal consultation online with Rahil Mostafaei, a registered legal consultant in Dubai. Free consultations every Tuesday; Monday to Friday, limited daily places.",
+    },
+  },
 } satisfies Record<LocalizedRouteId, LocalizedMetadataCopyMap>;
 
 export const siteNames = { fa: "راحیل مصطفایی", en: "Rahil Mostafaei" } as const;
