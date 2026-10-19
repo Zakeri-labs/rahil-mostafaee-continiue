@@ -8,6 +8,7 @@ export const LOCALIZED_ROUTE_IDS = [
   "international",
   "commercialDisputes",
   "assetRecovery",
+  "consultationBooking",
 ] as const;
 
 export type LocalizedRouteId = (typeof LOCALIZED_ROUTE_IDS)[number];
@@ -29,6 +30,10 @@ export const LOCALIZED_ROUTES: LocalizedRouteMap = {
     en: "/en/corporate-commercial-disputes",
   },
   assetRecovery: { fa: "/uae-asset-debt-recovery", en: "/en/uae-asset-debt-recovery" },
+  consultationBooking: {
+    fa: "/legal-consultation-booking",
+    en: "/en/legal-consultation-booking",
+  },
 };
 
 /** Paths that must remain outside locale prefixing. */

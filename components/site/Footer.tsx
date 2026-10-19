@@ -97,6 +97,11 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/legal-consultation-booking" className="hover:text-ivory">
+                    {t("footer.link.booking")}
+                  </Link>
+                </li>
+                <li>
                   <Link href="/contact" className="hover:text-ivory">
                     {t("footer.link.contact")}
                   </Link>

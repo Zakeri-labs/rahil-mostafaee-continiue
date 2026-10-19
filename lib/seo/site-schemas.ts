@@ -11,7 +11,14 @@ import {
 } from "@/lib/seo/localized-json-ld";
 import { getSiteUrl } from "@/lib/seo/site-url";
 
-export type ServiceSchemaRoute = "commercialDisputes" | "assetRecovery";
+export type ServiceSchemaRoute = "commercialDisputes" | "assetRecovery" | "consultationBooking";
+
+/** Dictionary prefix and entry count of each page's visible FAQ. */
+const SERVICE_FAQS: Record<ServiceSchemaRoute, { prefix: string; count: number }> = {
+  commercialDisputes: { prefix: "cd", count: 8 },
+  assetRecovery: { prefix: "adr", count: 9 },
+  consultationBooking: { prefix: "cb", count: 4 },
+};
 
 function pairedUrls(siteUrl: string, route: LocalizedRouteId, fragment = "") {
   return {
@@ -65,8 +72,7 @@ export function getServiceSchemas(locale: Locale, route: ServiceSchemaRoute) {
   const copy = pageSeoCopy[route];
   const name = { fa: copy.fa.title, en: copy.en.title };
   const description = { fa: copy.fa.description, en: copy.en.description };
-  const prefix = route === "commercialDisputes" ? "cd" : "adr";
-  const count = route === "commercialDisputes" ? 8 : 9;
+  const { prefix, count } = SERVICE_FAQS[route];
   // Match the visible FAQ's existing translated content, not a second copy of it.
   const faqs = Array.from({ length: count }, (_, index) => ({
     question: translated(`${prefix}.faq.${index + 1}.q`),
