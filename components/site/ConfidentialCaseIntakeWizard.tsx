@@ -666,7 +666,7 @@ export function ConfidentialCaseIntakeWizard() {
                     aria-hidden="true"
                     value={honeypot}
                     onChange={(event) => setHoneypot(event.target.value)}
-                    className="absolute left-[-9999px] h-px w-px opacity-0"
+                    className="pointer-events-none absolute start-0 top-0 -z-10 h-px w-px opacity-0"
                     name="website"
                   />
                   <div className="mt-8 flex flex-col-reverse gap-3 border-t border-gold/10 pt-6 sm:flex-row sm:items-center sm:justify-between">

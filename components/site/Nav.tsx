@@ -36,6 +36,7 @@ const links: { to: string; key: string; lang?: "fa"; wideEn?: boolean }[] = [
 const serviceLinks = [
   { to: "/corporate-commercial-disputes", key: "nav.services.commercial" },
   { to: "/uae-asset-debt-recovery", key: "nav.services.asset" },
+  { to: "/commercial-contracts", key: "nav.services.contracts" },
   { to: "/services", key: "nav.services.other" },
 ] as const;
 

@@ -12,6 +12,23 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --animate-lamp: lamp 2.6s ease-in-out infinite;
+  @keyframes lamp {
+    0%,
+    100% {
+      color: var(--gold);
+      text-shadow:
+        0 0 6px oklch(0.78 0.12 80 / 0.55),
+        0 0 18px oklch(0.78 0.12 80 / 0.35);
+    }
+    50% {
+      color: oklch(0.6 0.09 80);
+      text-shadow: none;
+    }
+  }
+}
+
 @theme inline {
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;

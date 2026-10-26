@@ -1,6 +1,8 @@
 import type { Locale } from "@/lib/i18n/config";
 import { DEFAULT_LOCALE } from "@/lib/i18n/config";
-import { getLocalizedPath, type LocalizedRouteId } from "@/lib/i18n/routes";
+import { getLocalizedPath, withTrailingSlash, type LocalizedRouteId } from "@/lib/i18n/routes";
+
+export { withTrailingSlash };
 
 export const OPEN_GRAPH_LOCALES: Readonly<Record<Locale, string>> = {
   fa: "fa_IR",
@@ -18,7 +20,7 @@ export type LocalizedAlternates = {
 };
 
 export function buildAbsoluteUrl(siteUrl: string, pathname: string): string {
-  return new URL(pathname, `${siteUrl.replace(/\/+$/, "")}/`).toString();
+  return new URL(withTrailingSlash(pathname), `${siteUrl.replace(/\/+$/, "")}/`).toString();
 }
 
 export function getLocalizedCanonicalUrl(

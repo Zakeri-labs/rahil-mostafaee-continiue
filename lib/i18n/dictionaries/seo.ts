@@ -65,26 +65,44 @@ export const pageSeoCopy = {
   },
   commercialDisputes: {
     fa: {
-      title: "اختلافات پیچیده تجاری و شرکتی در امارات",
+      title: "وکیل دعاوی تجاری در امارات | مشاوره و پیگیری اختلافات",
       description:
-        "بررسی اولیه و محرمانه اختلافات پیچیده تجاری و شرکتی، دعاوی قراردادی، اختلافات سهام‌داران و مطالبات با ارزش بالا در امارات.",
+        "اختلاف تجاری با طرف اماراتی دارید؟ وکیل تجاری فارسی‌زبان در دبی، پرونده را از ایران یا دبی پیگیری می‌کند.",
+      absoluteTitle: true,
     },
     en: {
-      title: "Corporate & Commercial Disputes UAE",
+      title: "Commercial Dispute Legal Consultant in Dubai",
       description:
-        "Confidential review of UAE corporate and commercial disputes, contract claims, shareholder conflicts, and high-value business receivables.",
+        "Commercial dispute legal consultant in Dubai for Iranian traders and companies. Confidential document review, a clear route, and online booking.",
+      absoluteTitle: true,
     },
   },
   assetRecovery: {
     fa: {
-      title: "وصول مطالبات و بازیابی دارایی شرکت‌ها در امارات",
+      title: "مشاور و وکیل وصول مطالبات و بازیابی دارایی در امارات",
       description:
-        "بررسی مطالبات عمده، سرمایه‌گذاری‌های مورد اختلاف، شناسایی دارایی و مسیرهای اجرای حکم برای شرکت‌ها و ذی‌نفعان تجاری در امارات.",
+        "طلبتان از طرف اماراتی پرداخت نشده؟ ما به عنوان وکیل وصول مطالبات در دبی کارهای حقوقی فاکتور، چک برگشتی و اجرای حکم را انجام می‌دهیم",
+      absoluteTitle: true,
     },
     en: {
-      title: "UAE Debt & Asset Recovery",
+      title: "Debt Recovery Legal Consultant in Dubai and the UAE",
       description:
-        "Structured review of UAE debt recovery, disputed investments, asset tracing, and enforcement options for companies and corporate stakeholders.",
+        "Debt recovery legal consultant in Dubai for creditors owed money in the UAE: unpaid invoices, bounced cheques, judgments. Honest assessment first.",
+      absoluteTitle: true,
+    },
+  },
+  commercialContracts: {
+    fa: {
+      title: "تنظیم و بررسی قراردادهای ایران و امارات توسط وکیل دبی",
+      description:
+        "وکیل قرارداد در دبی برای تاجر ایرانی: بررسی پیش‌نویس طرف اماراتی پیش از امضا، تنظیم قرارداد تجاری و گزارش ریسک هر بند به فارسی، با ثبت رسمی در دبی.",
+      absoluteTitle: true,
+    },
+    en: {
+      title: "Contract Drafting & Review in Dubai | Legal Consultant",
+      description:
+        "Contract legal consultant in Dubai for Iranian traders: review of UAE drafts before signing, contract drafting, and a plain-language risk report.",
+      absoluteTitle: true,
     },
   },
   consultationBooking: {
