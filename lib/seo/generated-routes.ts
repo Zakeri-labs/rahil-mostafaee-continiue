@@ -3,10 +3,12 @@
 export const INDEXABLE_ROUTE_PATHS = [
   "/",
   "/about",
+  "/commercial-contracts",
   "/contact",
   "/corporate-commercial-disputes",
   "/en",
   "/en/about",
+  "/en/commercial-contracts",
   "/en/contact",
   "/en/corporate-commercial-disputes",
   "/en/international",

@@ -6,6 +6,10 @@ const projectRoot = dirname(fileURLToPath(import.meta.url));
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   outputFileTracingRoot: projectRoot,
+  // Every page URL ends with a slash. The redirect itself lives in middleware.ts so that
+  // /api (Stripe webhook), /blog (WordPress origin) and file URLs are never redirected.
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
   async redirects() {
     return [
       {
@@ -15,7 +19,7 @@ const nextConfig = {
       },
       {
         source: "/iran-uae-commercial-disputes",
-        destination: "/corporate-commercial-disputes",
+        destination: "/corporate-commercial-disputes/",
         permanent: true,
       },
     ];

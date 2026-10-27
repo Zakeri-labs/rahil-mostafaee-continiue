@@ -149,7 +149,7 @@ const SERVICE_PILLAR_SPECIALIST_HREF: Record<string, string> = {
   "1": "/corporate-commercial-disputes",
   "2": "/uae-asset-debt-recovery",
   "3": "/uae-asset-debt-recovery",
-  "5": "/corporate-commercial-disputes",
+  "5": "/commercial-contracts",
 };
 
 function ServicePillars() {

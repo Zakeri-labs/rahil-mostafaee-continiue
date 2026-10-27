@@ -406,7 +406,7 @@ function IntakeForm({
               autoComplete="off"
               aria-hidden="true"
               name="website"
-              className="absolute left-[-9999px] h-px w-px opacity-0"
+              className="pointer-events-none absolute start-0 top-0 -z-10 h-px w-px opacity-0"
             />
             <button
               type="submit"

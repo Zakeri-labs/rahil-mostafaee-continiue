@@ -8,6 +8,7 @@ export const LOCALIZED_ROUTE_IDS = [
   "international",
   "commercialDisputes",
   "assetRecovery",
+  "commercialContracts",
   "consultationBooking",
 ] as const;
 
@@ -30,6 +31,7 @@ export const LOCALIZED_ROUTES: LocalizedRouteMap = {
     en: "/en/corporate-commercial-disputes",
   },
   assetRecovery: { fa: "/uae-asset-debt-recovery", en: "/en/uae-asset-debt-recovery" },
+  commercialContracts: { fa: "/commercial-contracts", en: "/en/commercial-contracts" },
   consultationBooking: {
     fa: "/legal-consultation-booking",
     en: "/en/legal-consultation-booking",
@@ -65,6 +67,20 @@ export function getLocalizedRouteId(pathname: string): LocalizedRouteId | undefi
   );
 }
 
+/** Page URLs end with a slash; the WordPress blog and file URLs keep their own form. */
+export function withTrailingSlash(pathname: string): string {
+  const isBlog = pathname === SHARED_ROUTES.blog || pathname.startsWith(`${SHARED_ROUTES.blog}/`);
+  const hasExtension = /\.[^/]+$/.test(pathname);
+  if (isBlog || hasExtension || pathname.endsWith("/")) return pathname;
+  return `${pathname}/`;
+}
+
+/** Same as withTrailingSlash for an href that may carry a query string or fragment. */
+export function withTrailingSlashHref(href: string): string {
+  const parts = splitInternalHref(href);
+  return parts ? `${withTrailingSlash(parts.pathname)}${parts.suffix}` : href;
+}
+
 /** Keep fragments/queries and never invent localized paths for unknown destinations. */
 export function localizeHref(href: string, locale: Locale): string {
   const parts = splitInternalHref(href);
@@ -84,7 +100,7 @@ export function getLanguageSwitchHref(href: string, locale: Locale): string | nu
     return null;
   }
   const route = getLocalizedRouteId(parts.pathname);
-  return route
-    ? `${getLocalizedPath(route, locale)}${parts.suffix}`
-    : getLocalizedPath("home", locale);
+  return withTrailingSlashHref(
+    route ? `${getLocalizedPath(route, locale)}${parts.suffix}` : getLocalizedPath("home", locale),
+  );
 }

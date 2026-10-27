@@ -14,6 +14,8 @@ export type LocalizedMetadataCopy = {
   description: string;
   openGraphTitle?: string;
   twitterTitle?: string;
+  /** Skip the site-name title template when the title is already complete. */
+  absoluteTitle?: boolean;
 };
 
 export type LocalizedMetadataCopyMap = Readonly<Record<Locale, LocalizedMetadataCopy>>;
@@ -55,7 +57,7 @@ export function buildLocalizedMetadata({
       : buildAbsoluteUrl(siteUrl, pathname);
 
   return {
-    title: localizedCopy.title,
+    title: localizedCopy.absoluteTitle ? { absolute: localizedCopy.title } : localizedCopy.title,
     description: localizedCopy.description,
     alternates:
       route !== undefined ? buildLocalizedAlternates(siteUrl, route, locale) : { canonical },

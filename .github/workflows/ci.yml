@@ -1,0 +1,27 @@
+name: CI
+
+# Runs on every pull request and on every push to main.
+# It only checks the code (lint + production build); it does not deploy anything.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      # Public origin only, no secret. The build refuses localhost URLs.
+      NEXT_PUBLIC_SITE_URL: https://www.rahilmostafaei.com
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
